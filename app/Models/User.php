@@ -12,15 +12,22 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    const CREATED_AT = 'creado';
+    const UPDATED_AT = 'modificado';
+
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'nombre',
+        'apellido',
+        'edad',
+        'pais',
         'email',
-        'password',
+        'password'
     ];
 
     /**
@@ -39,7 +46,7 @@ class User extends Authenticatable
      * @var array<string, string>
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+        'email_verified_at' => 'timestamp',
     ];
 
 }
