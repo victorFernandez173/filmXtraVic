@@ -4,8 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Critica extends Model
+class Evaluacion extends Model
 {
+
     const CREATED_AT = 'creado';
     const UPDATED_AT = 'modificado';
 
@@ -15,8 +16,8 @@ class Critica extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'critica',
+        'evaluacion',
+        'apellido',
+        'edad',
     ];
-
-
 }

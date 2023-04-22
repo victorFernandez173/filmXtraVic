@@ -14,11 +14,13 @@ return new class extends Migration
     {
         Schema::create('criticas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('obra_cine');
-            $table->foreignId('usuario');
+            $table->foreignId('obra_id')->constrained();
+            $table->foreignId('user_id')->constrained();
             $table->string('critica', 5000);
             $table->timestamp(Critica::CREATED_AT);
             $table->timestamp(Critica::UPDATED_AT);
+
+            $table->unique(['id', 'obra_id', 'user_id']);
 
             $table->engine = 'InnoDB';
             $table->charset = 'utf8mb4';
