@@ -20,7 +20,7 @@ return new class extends Migration
             $table->decimal('duracion', 3, 0, true);
             $table->string('sinopsis', 2500);
             $table->year('fecha');
-            $table->string('productora');
+            $table->string('productora', 255);
 
             $table->timestamp(Obra::CREATED_AT);
             $table->timestamp(Obra::UPDATED_AT);

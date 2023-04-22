@@ -15,8 +15,8 @@ return new class extends Migration
         Schema::create('posters', function (Blueprint $table) {
             $table->id();
             $table->foreignId('obra_id')->constrained();
-            $table->string('ruta');
-            $table->string('alt');
+            $table->string('ruta', 255);
+            $table->string('alt', 255);
 
             $table->timestamp(Poster::CREATED_AT);
             $table->timestamp(Poster::UPDATED_AT);
