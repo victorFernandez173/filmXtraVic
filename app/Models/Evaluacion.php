@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Evaluacion extends Model
 {
 
-    const CREATED_AT = 'creado';
-    const UPDATED_AT = 'modificado';
+    const CREATED_AT = 'creada';
+    const UPDATED_AT = 'modificada';
 
     /**
      * The attributes that are mass assignable.
@@ -17,7 +17,5 @@ class Evaluacion extends Model
      */
     protected $fillable = [
         'evaluacion',
-        'apellido',
-        'edad',
     ];
 }

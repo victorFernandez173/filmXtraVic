@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Critica extends Model
 {
-    const CREATED_AT = 'creado';
-    const UPDATED_AT = 'modificado';
+    const CREATED_AT = 'creada';
+    const UPDATED_AT = 'modificada';
 
     /**
      * The attributes that are mass assignable.
