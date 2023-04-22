@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,14 +16,14 @@ return new class extends Migration
             $table->id();
             $table->string('nombre');
             $table->string('apellido')->nullable();
-            $table->date('edad')->nullable();;
-            $table->string('pais')->nullable();;
+            $table->date('edad')->nullable();
+            $table->string('pais')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->timestamp('creado');
-            $table->timestamp('modificado');
+            $table->timestamp(User::CREATED_AT);
+            $table->timestamp(User::UPDATED_AT);
 
             $table->engine = 'InnoDB';
             $table->charset = 'utf8mb4';
