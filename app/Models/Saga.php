@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Saga extends Model
 {
@@ -19,4 +20,12 @@ class Saga extends Model
     protected $fillable = [
         'nombre',
     ];
+
+    /**
+     * Get the Secuelas of the saga.
+     */
+    public function secuela(): HasMany
+    {
+        return $this->hasMany(Secuela::class);
+    }
 }

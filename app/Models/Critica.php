@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Critica extends Model
 {
@@ -18,5 +19,19 @@ class Critica extends Model
         'critica',
     ];
 
+    /**
+     * Get the obra associated with the crítica.
+     */
+    public function obra(): HasOne
+    {
+        return $this->hasOne(Obra::class);
+    }
 
+    /**
+     * Get the usuario associated with the crítica.
+     */
+    public function user(): HasOne
+    {
+        return $this->hasOne(User::class);
+    }
 }

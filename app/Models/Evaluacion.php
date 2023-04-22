@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Evaluacion extends Model
 {
@@ -18,4 +19,12 @@ class Evaluacion extends Model
     protected $fillable = [
         'evaluacion',
     ];
+
+    /**
+     * Get the obra associated with the evaluación.
+     */
+    public function obra(): HasOne
+    {
+        return $this->hasOne(Obra::class);
+    }
 }
