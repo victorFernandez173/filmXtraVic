@@ -14,7 +14,6 @@ return new class extends Migration
     {
         Schema::create('obras', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('poster_id')->constrained();
             $table->string('titulo', 200);
             $table->string('titulo_original', 200);
             $table->string('pais', 60);
