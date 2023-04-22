@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Evaluacion;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -18,6 +19,8 @@ return new class extends Migration
             $table->decimal('evaluacion',2, 1, true);
 
             $table->unique(['id', 'obra_id', 'user_id']);
+            $table->timestamp(Evaluacion::CREATED_AT);
+            $table->timestamp(Evaluacion::UPDATED_AT);
 
             $table->engine = 'InnoDB';
             $table->charset = 'utf8mb4';
