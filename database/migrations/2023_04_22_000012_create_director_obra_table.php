@@ -15,6 +15,8 @@ return new class extends Migration
             $table->foreignId('director_id')->constrained();
             $table->foreignId('obra_id')->constrained();
 
+            $table->unique(['director_id', 'obra_id']);
+
             $table->engine = 'InnoDB';
             $table->charset = 'utf8mb4';
             $table->collation = 'utf8mb4_unicode_ci';
