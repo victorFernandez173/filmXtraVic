@@ -82,4 +82,12 @@ class Obra extends Model
     {
         return $this->hasMany(Profesional::class);
     }
+
+    /**
+     * Get the director of the obra
+     */
+    public function generos(): BelongsToMany
+    {
+        return $this->belongsToMany(Genero::class);
+    }
 }
