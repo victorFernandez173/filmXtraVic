@@ -38,7 +38,7 @@ class Critica extends Model
     }
 
     /**
-     * Get the criticas that belong to the user.
+     * Get the likes that belong to the user.
      */
     public function likes(): HasMany
     {

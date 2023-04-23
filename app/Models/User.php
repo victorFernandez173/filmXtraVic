@@ -61,7 +61,7 @@ class User extends Authenticatable
     }
 
     /**
-     * Get the criticas that belong to the user.
+     * Get the evaluaciones that belong to the user.
      */
     public function evaluaciones(): HasMany
     {
