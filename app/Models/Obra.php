@@ -67,4 +67,12 @@ class Obra extends Model
     {
         return $this->belongsToMany(Director::class);
     }
+
+    /**
+     * Get the críticas for the obra.
+     */
+    public function festivals(): HasMany
+    {
+        return $this->hasMany(Festival::class);
+    }
 }
