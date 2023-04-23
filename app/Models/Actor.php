@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class Director extends Model
+class Actor extends Model
 {
     const CREATED_AT = 'creado';
     const UPDATED_AT = 'modificado';
@@ -17,14 +17,14 @@ class Director extends Model
      */
     protected $fillable = [
         'nombre',
+        'nombre_real',
         'edad',
         'pais',
         'defuncion'
     ];
 
     /**
-     * Get the obras of the director
-     * @return BelongsToMany
+     * Get the director of the obra
      */
     public function obras(): BelongsToMany
     {

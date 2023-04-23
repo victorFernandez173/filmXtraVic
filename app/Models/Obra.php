@@ -86,8 +86,8 @@ class Obra extends Model
     /**
      * Get the director of the obra
      */
-    public function generos(): BelongsToMany
+    public function actors(): BelongsToMany
     {
-        return $this->belongsToMany(Genero::class);
+        return $this->belongsToMany(Actor::class);
     }
 }

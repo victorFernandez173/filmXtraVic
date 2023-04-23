@@ -1,9 +1,9 @@
 <?php
 
+use App\Models\Actor;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use App\Models\Director;
 
 return new class extends Migration
 {
@@ -12,15 +12,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('directors', function (Blueprint $table) {
-            $table->id();
-            $table->string('nombre', 120);
-            $table->date('edad');
-            $table->date('defuncion')->nullable();
-            $table->string('pais', 120);
+        Schema::create('actor_obra', function (Blueprint $table) {
+            $table->foreignId('obra_id')->constrained();
+            $table->foreignId('actor_id')->constrained();
 
-            $table->timestamp(Director::CREATED_AT);
-            $table->timestamp(Director::UPDATED_AT);
+            $table->unique(['obra_id', 'actor_id']);
 
             $table->engine = 'InnoDB';
             $table->charset = 'utf8mb4';
@@ -33,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('directors');
+        Schema::dropIfExists('actor_obra');
     }
 };
