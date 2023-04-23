@@ -14,6 +14,12 @@ return new class extends Migration
         Schema::create('likes', function (Blueprint $table) {
             $table->foreignId('user_id')->constrained();
             $table->foreignId('critica_id')->constrained();
+
+            $table->unique(['user_id', 'critica_id']);
+
+            $table->engine = 'InnoDB';
+            $table->charset = 'utf8mb4';
+            $table->collation = 'utf8mb4_unicode_ci';
         });
     }
 

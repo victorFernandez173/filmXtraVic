@@ -40,8 +40,8 @@ class Critica extends Model
     /**
      * Get the likes that belong to the user.
      */
-    public function likes(): HasMany
+    public function likes(): BelongsToMany
     {
-        return $this->hasMany(Like::class);
+        return $this->belongsToMany(Critica::class);
     }
 }
