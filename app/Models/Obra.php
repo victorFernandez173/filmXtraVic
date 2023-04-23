@@ -30,32 +30,32 @@ class Obra extends Model
     /**
      * Get the Secuela that owns the obra.
      */
-    public function secuela(): BelongsTo
+    /*public function secuela(): BelongsTo
     {
         return $this->belongsTo(Secuela::class);
-    }
+    }*/
 
     /**
      * Get the Poster that owns the obra.
      */
-    public function poster(): BelongsTo
+    /*public function poster(): BelongsTo
     {
         return $this->belongsTo(Poster::class);
-    }
+    }*/
 
     /**
      * Get the críticas for the obra.
      */
-    public function criticas(): HasMany
+   /* public function criticas(): HasMany
     {
         return $this->hasMany(Critica::class);
-    }
+    }*/
 
     /**
      * Get the críticas for the obra.
      */
-    public function evaluaciones(): HasMany
+    /*public function evaluaciones(): HasMany
     {
         return $this->hasMany(Evaluacion::class);
-    }
+    }*/
 }

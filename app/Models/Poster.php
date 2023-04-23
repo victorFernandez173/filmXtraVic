@@ -23,8 +23,8 @@ class Poster extends Model
     /**
      * Get the obra associated with the poster.
      */
-    public function obra(): HasOne
+    /*public function obra(): HasOne
     {
         return $this->hasOne(Obra::class);
-    }
+    }*/
 }

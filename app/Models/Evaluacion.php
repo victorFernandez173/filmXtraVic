@@ -8,6 +8,13 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 class Evaluacion extends Model
 {
 
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'evaluaciones';
+
     const CREATED_AT = 'creada';
     const UPDATED_AT = 'modificada';
 
@@ -23,8 +30,8 @@ class Evaluacion extends Model
     /**
      * Get the obra associated with the evaluación.
      */
-    public function obra(): HasOne
+    /*public function obra(): HasOne
     {
         return $this->hasOne(Obra::class);
-    }
+    }*/
 }

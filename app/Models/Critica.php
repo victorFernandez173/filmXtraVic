@@ -22,16 +22,16 @@ class Critica extends Model
     /**
      * Get the obra associated with the crítica.
      */
-    public function obra(): HasOne
+    /*public function obra(): HasOne
     {
         return $this->hasOne(Obra::class);
-    }
+    }*/
 
     /**
      * Get the usuario associated with the crítica.
      */
-    public function user(): HasOne
+    /*public function user(): HasOne
     {
         return $this->hasOne(User::class);
-    }
+    }*/
 }

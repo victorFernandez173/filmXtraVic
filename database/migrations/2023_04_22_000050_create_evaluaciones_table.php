@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Critica;
+use App\Models\Evaluacion;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,15 +12,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('criticas', function (Blueprint $table) {
-            $table->id();
+        Schema::create('evaluaciones', function (Blueprint $table) {
             $table->foreignId('obra_id')->constrained();
             $table->foreignId('user_id')->constrained();
-            $table->string('critica', 5000);
-            $table->timestamp(Critica::CREATED_AT);
-            $table->timestamp(Critica::UPDATED_AT);
+            $table->decimal('evaluacion',2, 1, true);
 
-            $table->unique(['id', 'obra_id', 'user_id']);
+            $table->timestamp(Evaluacion::CREATED_AT);
+            $table->timestamp(Evaluacion::UPDATED_AT);
+
+            $table->unique(['obra_id', 'user_id']);
 
             $table->engine = 'InnoDB';
             $table->charset = 'utf8mb4';
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('criticas');
+        Schema::dropIfExists('evaluaciones');
     }
 };

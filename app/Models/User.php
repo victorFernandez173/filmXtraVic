@@ -53,8 +53,8 @@ class User extends Authenticatable
     /**
      * Get the criticas that belong to the user.
      */
-    public function criticas(): HasMany
+    /*public function criticas(): HasMany
     {
         return $this->hasMany(Critica::class);
-    }
+    }*/
 }
