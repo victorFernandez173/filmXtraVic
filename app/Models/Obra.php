@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Obra extends Model
 {
-
     const CREATED_AT = 'creada';
     const UPDATED_AT = 'modificada';
 
@@ -74,5 +73,13 @@ class Obra extends Model
     public function festivals(): HasMany
     {
         return $this->hasMany(Festival::class);
+    }
+
+    /**
+     * Get the profesionals for the obra.
+     */
+    public function profesionals(): HasMany
+    {
+        return $this->hasMany(Profesional::class);
     }
 }
