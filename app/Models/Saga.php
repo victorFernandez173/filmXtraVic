@@ -22,8 +22,8 @@ class Saga extends Model
     /**
      * Get the Secuelas of the saga.
      */
-    /*public function secuela(): HasMany
+    public function secuelas(): HasMany
     {
         return $this->hasMany(Secuela::class);
-    }*/
+    }
 }

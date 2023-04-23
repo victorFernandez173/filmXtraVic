@@ -36,16 +36,16 @@ class Secuela extends Model
     /**
      * Get the Saga associated with the Secuela.
      */
-    /*public function saga(): BelongsTo
+    public function saga(): BelongsTo
     {
         return $this->belongsTo(Saga::class);
-    }*/
+    }
 
     /**
      * Get the Obra associated with the Secuela.
      */
-    /*public function obra(): BelongsTo
+    public function obra(): BelongsTo
     {
-        return $this->belongsTo(Saga::class);
-    }*/
+        return $this->belongsTo(Obra::class);
+    }
 }

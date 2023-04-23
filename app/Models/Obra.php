@@ -3,8 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Obra extends Model
 {
@@ -28,34 +28,34 @@ class Obra extends Model
     ];
 
     /**
-     * Get the Secuela that owns the obra.
+     * Get the secuelas of the obra.
      */
-    /*public function secuela(): BelongsTo
+    public function secuelas(): HasMany
     {
-        return $this->belongsTo(Secuela::class);
-    }*/
+        return $this->hasMany(Secuela::class);
+    }
 
     /**
-     * Get the Poster that owns the obra.
+     * Get the Poster associated with the obra.
      */
-    /*public function poster(): BelongsTo
+    public function poster(): HasOne
     {
-        return $this->belongsTo(Poster::class);
-    }*/
+        return $this->hasOne(Poster::class);
+    }
 
     /**
      * Get the críticas for the obra.
      */
-   /* public function criticas(): HasMany
+    public function criticas(): HasMany
     {
         return $this->hasMany(Critica::class);
-    }*/
+    }
 
     /**
-     * Get the críticas for the obra.
+     * Get the evaluaciones for the obra.
      */
-    /*public function evaluaciones(): HasMany
+    public function evaluaciones(): HasMany
     {
         return $this->hasMany(Evaluacion::class);
-    }*/
+    }
 }

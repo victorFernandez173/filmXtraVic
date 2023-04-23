@@ -3,7 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Critica extends Model
 {
@@ -22,16 +24,24 @@ class Critica extends Model
     /**
      * Get the obra associated with the crítica.
      */
-    /*public function obra(): HasOne
+    public function obra(): BelongsTo
     {
-        return $this->hasOne(Obra::class);
-    }*/
+        return $this->belongsTo(Obra::class);
+    }
 
     /**
      * Get the usuario associated with the crítica.
      */
-    /*public function user(): HasOne
+    public function user(): BelongsTo
     {
-        return $this->hasOne(User::class);
-    }*/
+        return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Get the criticas that belong to the user.
+     */
+    public function likes(): HasMany
+    {
+        return $this->hasMany(Like::class);
+    }
 }

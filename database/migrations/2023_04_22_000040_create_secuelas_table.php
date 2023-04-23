@@ -13,8 +13,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('secuelas', function (Blueprint $table) {
-            $table->foreignId('obra_id')->constrained();
             $table->foreignId('saga_id')->constrained();
+            $table->foreignId('obra_id')->constrained();
             $table->integer('orden')->unsigned();
 
             $table->unique(['obra_id', 'saga_id', 'orden']);

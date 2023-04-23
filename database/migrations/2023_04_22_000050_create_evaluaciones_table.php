@@ -13,6 +13,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('evaluaciones', function (Blueprint $table) {
+            $table->id();
             $table->foreignId('obra_id')->constrained();
             $table->foreignId('user_id')->constrained();
             $table->decimal('evaluacion',2, 1, true);

@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Evaluacion extends Model
 {
@@ -30,8 +30,16 @@ class Evaluacion extends Model
     /**
      * Get the obra associated with the evaluación.
      */
-    /*public function obra(): HasOne
+    public function obra(): BelongsTo
     {
-        return $this->hasOne(Obra::class);
-    }*/
+        return $this->belongsTo(Obra::class);
+    }
+
+    /**
+     * Get the user associated with the evaluación.
+     */
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
 }

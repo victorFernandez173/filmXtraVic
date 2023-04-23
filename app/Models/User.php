@@ -4,6 +4,8 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -53,8 +55,24 @@ class User extends Authenticatable
     /**
      * Get the criticas that belong to the user.
      */
-    /*public function criticas(): HasMany
+    public function criticas(): HasMany
     {
         return $this->hasMany(Critica::class);
-    }*/
+    }
+
+    /**
+     * Get the criticas that belong to the user.
+     */
+    public function evaluaciones(): HasMany
+    {
+        return $this->hasMany(Evaluacion::class);
+    }
+
+    /**
+     * Get the likes that belong to the user.
+     */
+    public function likes(): HasMany
+    {
+        return $this->hasMany(Like::class);
+    }
 }
