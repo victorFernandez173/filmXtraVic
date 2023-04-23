@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
@@ -57,5 +58,13 @@ class Obra extends Model
     public function evaluaciones(): HasMany
     {
         return $this->hasMany(Evaluacion::class);
+    }
+
+    /**
+     * Get the director of the obra
+     */
+    public function directors(): BelongsToMany
+    {
+        return $this->belongsToMany(Director::class);
     }
 }
