@@ -18,8 +18,8 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained();
             $table->decimal('evaluacion',2, 1, true);
 
-            $table->timestamp(Evaluacion::CREATED_AT);
-            $table->timestamp(Evaluacion::UPDATED_AT);
+            $table->timestamp(Evaluacion::CREATED_AT)->useCurrent();
+            $table->timestamp(Evaluacion::UPDATED_AT)->useCurrent();
 
             $table->unique(['obra_id', 'user_id']);
 

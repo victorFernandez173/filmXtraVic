@@ -17,8 +17,8 @@ return new class extends Migration
             $table->foreignId('obra_id')->constrained();
             $table->foreignId('user_id')->constrained();
             $table->string('critica', 5000);
-            $table->timestamp(Critica::CREATED_AT);
-            $table->timestamp(Critica::UPDATED_AT);
+            $table->timestamp(Critica::CREATED_AT)->useCurrent();
+            $table->timestamp(Critica::UPDATED_AT)->useCurrent();
 
             $table->unique(['obra_id', 'user_id']);
 

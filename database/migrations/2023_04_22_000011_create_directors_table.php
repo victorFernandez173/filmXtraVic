@@ -19,8 +19,8 @@ return new class extends Migration
             $table->date('defuncion')->nullable();
             $table->string('pais', 120);
 
-            $table->timestamp(Director::CREATED_AT);
-            $table->timestamp(Director::UPDATED_AT);
+            $table->timestamp(Director::CREATED_AT)->useCurrent();
+            $table->timestamp(Director::UPDATED_AT)->useCurrent();
 
             $table->engine = 'InnoDB';
             $table->charset = 'utf8mb4';

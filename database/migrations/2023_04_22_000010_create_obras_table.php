@@ -22,8 +22,8 @@ return new class extends Migration
             $table->year('fecha');
             $table->string('productora', 255);
 
-            $table->timestamp(Obra::CREATED_AT);
-            $table->timestamp(Obra::UPDATED_AT);
+            $table->timestamp(Obra::CREATED_AT)->useCurrent();
+            $table->timestamp(Obra::UPDATED_AT)->useCurrent();
 
             $table->engine = 'InnoDB';
             $table->charset = 'utf8mb4';

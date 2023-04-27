@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('nombre', 120);
             $table->string('web', 200);
 
-            $table->timestamp(Medio::CREATED_AT);
-            $table->timestamp(Medio::UPDATED_AT);
+            $table->timestamp(Medio::CREATED_AT)->useCurrent();
+            $table->timestamp(Medio::UPDATED_AT)->useCurrent();
 
             $table->engine = 'InnoDB';
             $table->charset = 'utf8mb4';

@@ -17,11 +17,11 @@ return new class extends Migration
             $table->foreignId('obra_id')->constrained();
             $table->foreignId('medio_id')->constrained();
             $table->string('autor', 200);
-            $table->string('web', 200);
+            $table->string('web', 200)->default('-');
             $table->string('contenido', 5000);
 
-            $table->timestamp(Profesional::CREATED_AT);
-            $table->timestamp(Profesional::UPDATED_AT);
+            $table->timestamp(Profesional::CREATED_AT)->useCurrent();
+            $table->timestamp(Profesional::UPDATED_AT)->useCurrent();
 
             $table->engine = 'InnoDB';
             $table->charset = 'utf8mb4';

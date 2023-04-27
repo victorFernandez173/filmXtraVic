@@ -16,8 +16,8 @@ return new class extends Migration
             $table->id();
             $table->string('nombre', 255);
 
-            $table->timestamp(Saga::CREATED_AT);
-            $table->timestamp(Saga::UPDATED_AT);
+            $table->timestamp(Saga::CREATED_AT)->useCurrent();
+            $table->timestamp(Saga::UPDATED_AT)->useCurrent();
         });
     }
 

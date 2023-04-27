@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('nombre', 120);
             $table->year('edicion');
 
-            $table->timestamp(Festival::CREATED_AT);
-            $table->timestamp(Festival::UPDATED_AT);
+            $table->timestamp(Festival::CREATED_AT)->useCurrent();
+            $table->timestamp(Festival::UPDATED_AT)->useCurrent();
 
             $table->engine = 'InnoDB';
             $table->charset = 'utf8mb4';

@@ -20,8 +20,8 @@ return new class extends Migration
             $table->date('defuncion')->nullable();
             $table->string('pais', 120);
 
-            $table->timestamp(Actor::CREATED_AT);
-            $table->timestamp(Actor::UPDATED_AT);
+            $table->timestamp(Actor::CREATED_AT)->useCurrent();
+            $table->timestamp(Actor::UPDATED_AT)->useCurrent();
 
             $table->engine = 'InnoDB';
             $table->charset = 'utf8mb4';

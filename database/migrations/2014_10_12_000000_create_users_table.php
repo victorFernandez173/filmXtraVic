@@ -22,8 +22,8 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password', 255);
             $table->rememberToken();
-            $table->timestamp(User::CREATED_AT);
-            $table->timestamp(User::UPDATED_AT);
+            $table->timestamp(User::CREATED_AT)->useCurrent();
+            $table->timestamp(User::UPDATED_AT)->useCurrent();
 
             $table->engine = 'InnoDB';
             $table->charset = 'utf8mb4';

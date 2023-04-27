@@ -15,12 +15,12 @@ return new class extends Migration
         Schema::create('secuelas', function (Blueprint $table) {
             $table->foreignId('saga_id')->constrained();
             $table->foreignId('obra_id')->constrained();
-            $table->integer('orden')->unsigned();
+            $table->integer('orden')->unsigned()->default(0);
 
             $table->unique(['obra_id', 'saga_id', 'orden']);
 
-            $table->timestamp(Secuela::CREATED_AT);
-            $table->timestamp(Secuela::UPDATED_AT);
+            $table->timestamp(Secuela::CREATED_AT)->useCurrent();
+            $table->timestamp(Secuela::UPDATED_AT)->useCurrent();
 
             $table->engine = 'InnoDB';
             $table->charset = 'utf8mb4';

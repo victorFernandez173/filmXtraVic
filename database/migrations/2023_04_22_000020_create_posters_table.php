@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('ruta', 255);
             $table->string('alt', 255);
 
-            $table->timestamp(Poster::CREATED_AT);
-            $table->timestamp(Poster::UPDATED_AT);
+            $table->timestamp(Poster::CREATED_AT)->useCurrent();
+            $table->timestamp(Poster::UPDATED_AT)->useCurrent();
 
             $table->engine = 'InnoDB';
             $table->charset = 'utf8mb4';
