@@ -21,7 +21,7 @@ Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
-        'obras' => Obra::all(),
+        'obras' => Obra::with('poster')->get(),
     ]);
 });
 
