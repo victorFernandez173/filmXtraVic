@@ -258,39 +258,8 @@ INSERT INTO likes VALUES (1, 1), (1, 2), (2, 1), (2, 2), (3, 2), (3, 3), (4, 1),
 INSERT INTO evaluaciones (evaluacion, obra_id, user_id) VALUES (7, 1, 1), (7, 1, 2), (8, 2, 1), (9, 2, 2), (4, 3, 2), (6, 3, 3), (7, 4, 1), (3, 4, 4), (5, 5, 1), (7, 5, 2), (8.5, 6, 1), (7.7, 6, 2), (8.8, 7, 1), (9.9, 7, 6), (3.3, 8, 2), (4.4, 8, 4), (5.5, 9, 1), (6.6, 9, 2), (2.2, 10, 2), (1.1, 10, 3), (5, 11, 2), (6, 11, 1), (7, 12, 1), (8, 12, 5), (4, 13, 2);
 
 
-/* CREAMOS VISTA CON ID OBRA Y ID ACTORES CON LA CONSULTAD DE DEBAJO, DESPUES RECORRES VISTA INSERTANDO EN actor_obra */
-/* select id, nombre from actors where nombre like '%+%' or nombre like '%+%' or nombre like '%+%' or nombre like '%+%' or nombre like '%+%' or nombre like '%+%' or nombre like '%+%' or nombre like '%+%' or nombre like '%+%' or nombre like '%+%' or nombre like '%+%' or nombre like '%+%' or nombre like '%+%' or nombre like '%+%' or nombre like '%+%' or nombre like '%+%' or nombre like '%+%'; */
-
-
-delimiter //
-CREATE PROCEDURE actor_obra()
-BEGIN
-DECLARE done INT DEFAULT FALSE;
-DECLARE id_temp INT;
-DECLARE c CURSOR FOR SELECT id FROM obras;
-DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
-OPEN c;
-c_loop: LOOP
-FETCH c INTO id_temp;
-IF done THEN
-LEAVE c_loop;
-END IF;
-select id, nombre from actors where nombre like '%+%' or nombre like '%+%' or nombre like '%+%' or nombre like '%+%' or nombre like '%+%' or nombre like '%+%' or nombre like '%+%' or nombre like '%+%' or nombre like '%+%' or nombre like '%+%' or nombre like '%+%' or nombre like '%+%' or nombre like '%+%' or nombre like '%+%' or nombre like '%+%' or nombre like '%+%' or nombre like '%+%';
-insert into actor_obra (obra_id, ruta, alt) VALUES (id_temp, actor);
-END LOOP;
-CLOSE c;
-END;
-//
-delimiter ;
-call actor_obra();
-drop procedure actor_obra;
-
-
-/* INSERT INTO actor_obra (obra_id, actor_id) VALUES (24, 2), (25, 2), (3, 9), (3, 57), (4, 9), (4, 57), (5, 4), (5, 9), (6, 43), (6, 42), (6, 41), (6, 40), (6, 39), (6, 38), (6, 34), (6, 8), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ), (, ); */
-
 
 /* INSERTS PARA POSTERS */
-
 /* Procedimiento para insertar ids existentes de obras en posters */
 delimiter //
 CREATE PROCEDURE ides()
@@ -313,8 +282,6 @@ END;
 delimiter ;
 call ides();
 drop procedure ides;
-
-
 
 /* Procedimiento para modificacion de campos ruta y alt */
 delimiter //
@@ -340,7 +307,7 @@ update posters set ruta = replace(ruta, ' ', '_') where id_temp = obra_id;
 update posters set ruta = replace(ruta, ':', '') where id_temp = obra_id;
 update posters set ruta = replace(ruta, ',', '') where id_temp = obra_id;
 update posters set ruta = replace(ruta, '.', '') where id_temp = obra_id;
-update posters set ruta = replace(ruta, "'", '_') where id_temp = obra_id;
+update posters set ruta = replace(ruta, '''', '_') where id_temp = obra_id;
 update posters set alt = concat('Poster de ', "'", (select titulo_original from obras where obra_id = obras.id), "'") where id_temp = obra_id;
 END LOOP;
 CLOSE c;
@@ -349,4 +316,36 @@ END;
 delimiter ;
 call miReemplazo();
 drop procedure miReemplazo;
+
+
+
+/*INSERTS PARA actor_obra: se crea vista, se usa procedimiento, se borra vista*/
+/*creamos la vista con los parametros*/
+/*create view obra as select 1 as obra_id, id from actors where nombre like '%+%' or nombre like '%+%' or nombre like '%+%' or nombre like '%+%' or nombre like '%+%' or nombre like '%+%' or nombre like '%+%' or nombre like '%+%' or nombre like '%+%' or nombre like '%+%';
+delimiter //
+CREATE PROCEDURE actor_obra()
+BEGIN
+    DECLARE done INT DEFAULT FALSE;
+    DECLARE obra_temp INT;
+    DECLARE actor_temp INT;
+    DECLARE c CURSOR FOR SELECT obra_id, id FROM obra;
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+    OPEN c;
+    c_loop: LOOP
+        FETCH c INTO obra_temp, actor_temp;
+        IF done THEN
+            LEAVE c_loop;
+        END IF;
+        insert into actor_obra (obra_id, actor_id) values (obra_temp, actor_temp);
+    END LOOP;
+    CLOSE c;
+END;
+//
+delimiter ;
+call actor_obra();
+drop procedure actor_obra;*/
+/*eliminamos la vista*/
+/*drop view obra;*/
+
+
 
