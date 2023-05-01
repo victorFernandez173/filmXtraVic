@@ -17,13 +17,16 @@ use App\Models\Obra;
 |
 */
 
+/*PARA CONTROLAR CON AUTENTICACIÓN LAS RUTAS*/
+/*->middleware(['auth', 'verified'])->name('Welcome');*/
+
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
         'obras' => Obra::with('poster')->get(),
     ]);
-});
+})->name('/');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

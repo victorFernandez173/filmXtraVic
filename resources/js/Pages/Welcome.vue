@@ -1,5 +1,7 @@
 <script setup>
-import { Head, Link } from '@inertiajs/vue3';
+import {Head, Link} from '@inertiajs/vue3';
+import GuestLayout from "@/Layouts/GuestLayout.vue";
+import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 
 defineProps({
     canLogin: {
@@ -23,27 +25,42 @@ defineProps({
 </script>
 
 <template>
-    <Head title="Welcome" />
+
+    <Head title="Welcome"/>
 
     <div
-        class="relative xl:flex xl:justify-center xl:items-center min-h-100px bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white"
+        class="xl:flex xl:justify-end xl:items-center min-h-100px bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white"
     >
-        <div v-if="canLogin" class="xl:fixed xl:top-0 xl:right-0 p-6 text-right">
-            <Link
-                :href="route('login')"
-                class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-            >
-                Log in
-            </Link>
 
-            <Link
-                v-if="canRegister"
-                :href="route('register')"
-                class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-            >
-                Register
-            </Link>
+        <!--PARA CONTROLAR SI EL USUARIO ESTÁ LOGUEADO-->
+        <!--v-if="$page.props.auth.user"-->
+        <div v-if="!$page.props.auth.user">
+            <GuestLayout>
+                <div v-if="canLogin" class="flex p-6 text-right">
+                    <Link
+                        :href="route('login')"
+                        class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                    >Log in
+                    </Link
+                    >
+
+                    <Link
+                        v-if="canRegister"
+                        :href="route('register')"
+                        class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                    >Register
+                    </Link
+                    >
+                </div>
+            </GuestLayout>
         </div>
+        <div v-else>
+            <AuthenticatedLayout>
+                USUARIO LOGUEADO
+            </AuthenticatedLayout>
+        </div>
+
+
     </div>
     <div id="idPosters">
         <div v-for="obra in obras">
@@ -56,14 +73,20 @@ defineProps({
 </template>
 
 <style>
-    #idPosters{
-        display: flex;
-        flex-wrap: wrap;
-    }
-    img {
-        width: 20vw;
-    }
-    p{
-        width: 300px;
-    }
+#idPosters {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+img {
+    width: 5vw;
+}
+
+p {
+    width: 100px;
+    font-size: .8rem;
+}
 </style>
+
+
+<!-------------------------------------------->
