@@ -1,76 +1,26 @@
 <script setup>
-import {Head, Link} from '@inertiajs/vue3';
-import GuestLayout from "@/Layouts/GuestLayout.vue";
-import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
+import Layout from "@/Layouts/Layout.vue";
 
-defineProps({
-    canLogin: {
-        type: Boolean,
-    },
-    canRegister: {
-        type: Boolean,
-    },
-    laravelVersion: {
-        type: String,
-        required: true,
-    },
-    phpVersion: {
-        type: String,
-        required: true,
-    },
-    obras: {
-        type: Array,
-    },
-});
+defineProps(['obras'])
 </script>
 
+
 <template>
+    <Layout>
 
-    <Head title="Welcome"/>
-
-    <div
-        class="xl:flex xl:justify-end xl:items-center min-h-100px bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white"
-    >
-
-        <!--PARA CONTROLAR SI EL USUARIO ESTÁ LOGUEADO-->
-        <!--v-if="$page.props.auth.user"-->
-        <div v-if="!$page.props.auth.user">
-            <GuestLayout>
-                <div v-if="canLogin" class="flex p-6 text-right">
-                    <Link
-                        :href="route('login')"
-                        class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                    >Log in
-                    </Link
-                    >
-
-                    <Link
-                        v-if="canRegister"
-                        :href="route('register')"
-                        class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                    >Register
-                    </Link
-                    >
+        <div id="idPosters"
+        >
+            <div v-for="obra in obras" :key="obra.id"
+            >
+                <img :src="'posters/' + obra.poster.ruta" :alt="obra.poster.alt">
+                <div id="idTitulos">
+                    <a :href="obra/obra.id">{{obra.titulo}}</a>
                 </div>
-            </GuestLayout>
+            </div>
         </div>
-        <div v-else>
-            <AuthenticatedLayout>
-                USUARIO LOGUEADO
-            </AuthenticatedLayout>
-        </div>
-
-
-    </div>
-    <div id="idPosters">
-        <div v-for="obra in obras">
-            <img :src="'posters/' +  obra.poster.ruta  + '.png'" :alt="obra.poster.alt">
-            <p>{{ obra.titulo }}</p>
-        </div>
-    </div>
-
-
+    </Layout>
 </template>
+
 
 <style>
 #idPosters {
@@ -78,15 +28,16 @@ defineProps({
     flex-wrap: wrap;
 }
 
-img {
-    width: 5vw;
+#idTitulos{
+    width: 8vw;
 }
 
-p {
-    width: 100px;
+img {
+    width: 8vw;
+}
+
+a {
+    width: 8px;
     font-size: .8rem;
 }
 </style>
-
-
-<!-------------------------------------------->

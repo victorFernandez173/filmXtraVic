@@ -109,6 +109,7 @@ update posters set ruta = replace(ruta, ':', '') where id_temp = obra_id;
 update posters set ruta = replace(ruta, ',', '') where id_temp = obra_id;
 update posters set ruta = replace(ruta, '.', '') where id_temp = obra_id;
 update posters set ruta = replace(ruta, '\'', '_') where id_temp = obra_id;
+update posters set ruta =  concat(ruta, '.png') where id_temp = obra_id;
 update posters set alt = concat('Poster de ', '\'', (select titulo_original from obras where obra_id = obras.id), '\'') where id_temp = obra_id;
 END LOOP;
 CLOSE c;

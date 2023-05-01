@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Models\Obra;
@@ -17,11 +16,19 @@ use App\Models\Obra;
 |
 */
 
-/*PARA CONTROLAR CON AUTENTICACIÓN LAS RUTAS*/
+/*PARA CONTROLAR CON AUTENTICACIÓN LAS RUTAS en este caso con autenticación y verificación de email*/
 /*->middleware(['auth', 'verified'])->name('Welcome');*/
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'obras' => Obra::with('poster')->get(),
+    ]);
+})->name('/');
+
+Route::get('obra/{id}', function () {
+    return Inertia::render('Obra', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
         'obras' => Obra::with('poster')->get(),
