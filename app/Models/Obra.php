@@ -60,6 +60,15 @@ class Obra extends Model
     }
 
     /**
+     * Get the generos for the obra
+     * @return BelongsToMany
+     */
+    public function generos(): BelongsToMany
+    {
+        return $this->belongsToMany(Genero::class);
+    }
+
+    /**
      * Get the director of the obra
      */
     public function directors(): BelongsToMany

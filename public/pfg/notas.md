@@ -8,4 +8,4 @@ o
 <pre>php artisan route:clear</pre>
 <pre>npm run build</pre>
 <pre>Menu->File->Ivalidate Caches...</pre>
-#
+<pre>show create table `nombre_de_tabla`;</pre>

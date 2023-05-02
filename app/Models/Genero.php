@@ -9,27 +9,17 @@ use Illuminate\Validation\Rules\Enum;
 
 class Genero extends Model
 {
-    /**
-     * The primary key associated with the table.
-     *
-     * @var string
-     */
-    public $primaryKey = 'genero_id';
+    const CREATED_AT = 'creado';
+    const UPDATED_AT = 'modificado';
 
     /**
-     * Indicates if the model's ID is auto-incrementing.
+     * The attributes that are mass assignable.
      *
-     * @var bool
+     * @var array<int, string>
      */
-    public $incrementing = false;
-
-    /**
-     * The data type of the auto-incrementing ID.
-     *
-     * @var string
-     */
-    public $keyType = 'string';
-
+    protected $fillable = [
+        'genero',
+    ];
     /**
      * Get the director of the obra
      */

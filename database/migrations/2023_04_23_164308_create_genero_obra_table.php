@@ -13,9 +13,8 @@ return new class extends Migration
     {
         Schema::create('genero_obra', function (Blueprint $table) {
 
-            $table->enum('genero_id', ['Pelicula de culto', 'Accion', 'Animacion', 'Aventuras', 'Belico', 'Ciencia Ficcion', 'Cine Negro', 'Comedia', 'Documental', 'Drama', 'Fantastico', 'Infantil', 'Intriga', 'Musical', 'Romance', 'Serie de TV', 'Terror', 'Thriller', 'Western', 'Deportiva', 'Historica', 'Crimen', 'Policiaca', 'Religiosa', 'Cine mudo', 'Biografico', 'Erotico', 'Experimental', 'Propagandistico', 'Serie B', 'Road Movie', 'Cortometraje']);
-            $table->foreign('genero_id')->references('genero_id')->on('generos');
             $table->foreignId('obra_id')->constrained();
+            $table->foreignId('genero_id')->constrained();
 
             $table->unique(['genero_id', 'obra_id']);
 
