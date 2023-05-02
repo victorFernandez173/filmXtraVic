@@ -31,7 +31,7 @@ Route::get('obra/{id}', function ($id) {
     return Inertia::render('Obra', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
-        'obra' => Obra::with(['poster', 'secuelas', 'criticas', 'evaluaciones', 'directors', 'festivals', 'profesionals', 'actors', 'generos'])->find($id),
+        'obra' => Obra::with(['poster', 'secuelas:saga_id,obra_id,orden', 'criticas', 'evaluaciones:obra_id,user_id,evaluacion', 'directors:nombre,edad,defuncion,pais', 'festivals:obra_id,nombre,edicion', 'profesionals:obra_id,medio_id,autor,web,contenido', 'actors:nombre,nombre_real,edad,defuncion,pais', 'generos:genero'])->find($id),
     ]);
 })->name('obra');
 
