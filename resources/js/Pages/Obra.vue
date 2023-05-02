@@ -1,12 +1,17 @@
-<template>
-HOLA QUE TAL
-</template>
+<script setup>
+import Layout from "@/Layouts/Layout.vue";
 
-<script>
-export default {
-    name: "Obra"
-}
+defineProps(['obra'])
 </script>
+
+<template>
+    <Layout>
+<!--        <img :src="'posters/' + obra.poster.ruta" :alt="obra.poster.alt">-->
+        <p>
+            {{ obra }}
+        </p>
+    </Layout>
+</template>
 
 <style scoped>
 

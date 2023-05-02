@@ -27,11 +27,11 @@ Route::get('/', function () {
     ]);
 })->name('/');
 
-Route::get('obra/{id}', function () {
+Route::get('obra/{id}', function ($id) {
     return Inertia::render('Obra', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
-        'obras' => Obra::with('poster')->get(),
+        'obra' => Obra::with(['poster', 'actors'])->find($id),
     ]);
 })->name('obra');
 
