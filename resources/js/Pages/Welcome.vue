@@ -7,14 +7,15 @@ defineProps(['obras'])
 
 <template>
     <Layout>
-
         <div id="idPosters"
         >
             <div v-for="obra in obras" :key="obra.id"
             >
-                <img :src="'posters/' + obra.poster.ruta" :alt="obra.poster.alt">
+                <a :href="route('obra', obra.id)">
+                    <img :src="'posters/' + obra.poster.ruta" :alt="obra.poster.alt">
+                </a>
                 <div id="idTitulos">
-                    <a :href="obra/obra.id">{{obra.titulo}}</a>
+                    <a :href="route('obra', obra.id)">{{ obra.titulo }}</a>
                 </div>
             </div>
         </div>
@@ -28,7 +29,7 @@ defineProps(['obras'])
     flex-wrap: wrap;
 }
 
-#idTitulos{
+#idTitulos {
     width: 8vw;
 }
 
@@ -36,7 +37,7 @@ img {
     width: 8vw;
 }
 
-a {
+#idTitulos a {
     width: 8px;
     font-size: .8rem;
 }

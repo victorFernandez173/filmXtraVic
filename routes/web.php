@@ -33,7 +33,7 @@ Route::get('obra/{id}', function () {
         'canRegister' => Route::has('register'),
         'obras' => Obra::with('poster')->get(),
     ]);
-})->name('/');
+})->name('obra');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
