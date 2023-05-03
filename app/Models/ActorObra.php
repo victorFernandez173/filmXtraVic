@@ -7,13 +7,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * Class ActorObra
- * 
+ *
  * @property int $obra_id
  * @property int $actor_id
- * 
+ *
  * @property Actor $actor
  * @property Obra $obra
  *
@@ -30,12 +31,12 @@ class ActorObra extends Model
 		'actor_id' => 'int'
 	];
 
-	public function actor()
+	public function actor(): BelongsTo
 	{
 		return $this->belongsTo(Actor::class);
 	}
 
-	public function obra()
+	public function obra(): BelongsTo
 	{
 		return $this->belongsTo(Obra::class);
 	}

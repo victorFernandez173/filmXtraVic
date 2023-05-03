@@ -25,17 +25,23 @@ defineProps(['obra'])
                 {{ fest.nombre }}({{ fest.edicion }})
             </p>
             <span v-show="obra[0].generos[0]">Generos: </span>
-            <li v-for="gen in obra[0].generos">
-               {{ gen.genero }}
-            </li>
+            <ul>
+                <li v-for="gen in obra[0].generos">
+                    {{ gen.genero }}
+                </li>
+            </ul>
             <span v-show="obra[0].criticas[0]">Criticas: </span>
-            <li v-for="cri in obra[0].criticas">
-                {{ cri.critica }}
-            </li>
+            <ul>
+                <li v-for="cri in obra[0].criticas">
+                    {{ cri.critica }}
+                </li>
+            </ul>
             <span v-show="obra[0].profesionals[0]">Criticas profesionales: </span>
-            <li v-for="pro in obra[0].profesionals">
-                {{ pro.contenido }}
-            </li>
+            <ul>
+                <li v-for="pro in obra[0].profesionals">
+                    {{ pro.contenido }}
+                </li>
+            </ul>
         </div>
     </Layout>
 </template>

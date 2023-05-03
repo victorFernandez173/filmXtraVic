@@ -7,13 +7,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * Class GeneroObra
- * 
+ *
  * @property int $obra_id
  * @property int $genero_id
- * 
+ *
  * @property Genero $genero
  * @property Obra $obra
  *
@@ -30,12 +31,12 @@ class GeneroObra extends Model
 		'genero_id' => 'int'
 	];
 
-	public function genero()
+	public function genero(): BelongsTo
 	{
 		return $this->belongsTo(Genero::class);
 	}
 
-	public function obra()
+	public function obra(): BelongsTo
 	{
 		return $this->belongsTo(Obra::class);
 	}

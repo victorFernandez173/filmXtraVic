@@ -7,13 +7,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * Class Like
- * 
+ *
  * @property int $user_id
  * @property int $critica_id
- * 
+ *
  * @property Critica $critica
  * @property User $user
  *
@@ -30,12 +31,12 @@ class Like extends Model
 		'critica_id' => 'int'
 	];
 
-	public function critica()
+	public function critica(): BelongsTo
 	{
 		return $this->belongsTo(Critica::class);
 	}
 
-	public function user()
+	public function user(): BelongsTo
 	{
 		return $this->belongsTo(User::class);
 	}

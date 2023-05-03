@@ -7,13 +7,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * Class DirectorObra
- * 
+ *
  * @property int $director_id
  * @property int $obra_id
- * 
+ *
  * @property Director $director
  * @property Obra $obra
  *
@@ -30,12 +31,12 @@ class DirectorObra extends Model
 		'obra_id' => 'int'
 	];
 
-	public function director()
+	public function director(): BelongsTo
 	{
 		return $this->belongsTo(Director::class);
 	}
 
-	public function obra()
+	public function obra(): BelongsTo
 	{
 		return $this->belongsTo(Obra::class);
 	}
