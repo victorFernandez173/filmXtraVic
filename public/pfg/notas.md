@@ -9,3 +9,4 @@ o
 <pre>npm run build</pre>
 <pre>Menu->File->Ivalidate Caches...</pre>
 <pre>show create table `nombre_de_tabla`;</pre>
+<pre>ddd($variable) -> muestra la pagina de error con información del dumpeo y $variable (dump, die, debug)</pre>

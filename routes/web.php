@@ -2,8 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
-use App\Models\Obra;
+use App\Http\Controllers\MainController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,21 +19,9 @@ use App\Models\Obra;
 /*PARA CONTROLAR CON AUTENTICACIÓN LAS RUTAS en este caso con autenticación y verificación de email*/
 /*->middleware(['auth', 'verified'])->name('Welcome');*/
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'obras' => Obra::with('poster')->get(),
-    ]);
-})->name('/');
+Route::get('/', [MainController::class, 'bienvenida'])->name('/');
 
-Route::get('obra/{id}', function ($id) {
-    return Inertia::render('Obra', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'obra' => Obra::with(['poster', 'secuelas:saga_id,obra_id,orden', 'criticas', 'evaluaciones:obra_id,user_id,evaluacion', 'directors:nombre,edad,defuncion,pais', 'festivals:obra_id,nombre,edicion', 'profesionals:obra_id,medio_id,autor,web,contenido', 'actors:nombre,nombre_real,edad,defuncion,pais', 'generos:genero'])->find($id),
-    ]);
-})->name('obra');
+Route::get('obra/{id}', [MainController::class, 'fichaPelicula'])->name('obra');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

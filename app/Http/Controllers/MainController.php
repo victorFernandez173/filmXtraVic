@@ -1,0 +1,48 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Inertia\Inertia;
+use App\Models\Obra;
+use Illuminate\Support\Facades\Route;
+use Exception;
+
+class MainController extends Controller
+{
+    /**
+     * @throws Exception
+     */
+    public function obtenerDoceObrasAleatorias(){
+        $numPeliculas = Obra::count();
+        $peliculasId = [];
+        for($i = 0; $i < 12; $i++){
+            $aleatorio = random_int(1, $numPeliculas);
+            while(in_array($aleatorio, $peliculasId)){
+                $aleatorio = random_int(1, $numPeliculas);
+            }
+            $peliculasId[] = $aleatorio;
+        }
+        return $peliculasId;
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function bienvenida(){
+        return Inertia::render('Welcome', [
+            'canLogin' => Route::has('login'),
+            'canRegister' => Route::has('register'),
+            'obras' => Obra::with('poster')->find($this->obtenerDoceObrasAleatorias()),
+        ]);
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function fichaPelicula($id){
+        return Inertia::render('Obra', [
+            'canLogin' => Route::has('login'),
+            'canRegister' => Route::has('register'),
+            'obra' => Obra::with(['poster', 'secuelas:saga_id,obra_id,orden', 'criticas', 'evaluaciones:obra_id,user_id,evaluacion', 'directors:nombre,edad,defuncion,pais', 'festivals:obra_id,nombre,edicion', 'profesionals:obra_id,medio_id,autor,web,contenido', 'actors:nombre,nombre_real,edad,defuncion,pais', 'generos:genero'])->find($id)]);
+    }
+}
