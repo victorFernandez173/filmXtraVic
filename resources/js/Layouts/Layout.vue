@@ -9,7 +9,6 @@ const navigation = [
     {name: 'Trailers', href: '#', current: false},
     {name: 'Premiadas', href: '#', current: false},
 ]
-//holaflskjfjflakjdkfjdasklfjaklfjsdfsajfskljfdkdggdafsdfdsfffjasldfsdlfdl
 </script>
 
 <template>
