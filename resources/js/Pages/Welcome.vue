@@ -7,7 +7,6 @@ const p = defineProps(['obras'])
 
 <template>
     <Layout>
-
         <div id="idPosters"
         >
             <div v-for="obra in p.obras" :key="obra.id"
