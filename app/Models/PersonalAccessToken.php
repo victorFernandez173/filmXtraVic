@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class PersonalAccessToken
- * 
+ *
  * @property int $id
  * @property string $tokenable_type
  * @property int $tokenable_id
@@ -29,6 +29,12 @@ class PersonalAccessToken extends Model
 {
 	protected $table = 'personal_access_tokens';
 
+
+    /**
+     * Castings
+     *
+     * @var string[]
+     */
 	protected $casts = [
 		'tokenable_id' => 'int',
 		'last_used_at' => 'datetime',

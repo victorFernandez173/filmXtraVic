@@ -26,16 +26,31 @@ class ActorObra extends Model
 	public $incrementing = false;
 	public $timestamps = false;
 
+    /**
+     * Castings
+     *
+     * @var string[]
+     */
 	protected $casts = [
 		'obra_id' => 'int',
 		'actor_id' => 'int'
 	];
 
+    /**
+     * Obtiene el actor
+     *
+     * @return BelongsTo
+     */
 	public function actor(): BelongsTo
 	{
 		return $this->belongsTo(Actor::class);
 	}
 
+    /**
+     * Obtiene la obra
+     *
+     * @return BelongsTo
+     */
 	public function obra(): BelongsTo
 	{
 		return $this->belongsTo(Obra::class);

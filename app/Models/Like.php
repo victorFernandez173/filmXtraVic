@@ -26,16 +26,31 @@ class Like extends Model
 	public $incrementing = false;
 	public $timestamps = false;
 
+    /**
+     * Castings
+     *
+     * @var string[]
+     */
 	protected $casts = [
 		'user_id' => 'int',
 		'critica_id' => 'int'
 	];
 
+    /**
+     * Obtiene la critica
+     *
+     * @return BelongsTo
+     */
 	public function critica(): BelongsTo
 	{
 		return $this->belongsTo(Critica::class);
 	}
 
+    /**
+     * Obtiene el usuario
+     *
+     * @return BelongsTo
+     */
 	public function user(): BelongsTo
 	{
 		return $this->belongsTo(User::class);

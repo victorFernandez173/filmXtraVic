@@ -26,16 +26,31 @@ class DirectorObra extends Model
 	public $incrementing = false;
 	public $timestamps = false;
 
+    /**
+     * Castings
+     *
+     * @var string[]
+     */
 	protected $casts = [
 		'director_id' => 'int',
 		'obra_id' => 'int'
 	];
 
+    /**
+     * Obtiene el director
+     *
+     * @return BelongsTo
+     */
 	public function director(): BelongsTo
 	{
 		return $this->belongsTo(Director::class);
 	}
 
+    /**
+     * Obtiene la obra
+     *
+     * @return BelongsTo
+     */
 	public function obra(): BelongsTo
 	{
 		return $this->belongsTo(Obra::class);

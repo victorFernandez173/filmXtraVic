@@ -26,16 +26,31 @@ class GeneroObra extends Model
 	public $incrementing = false;
 	public $timestamps = false;
 
+    /**
+     * Castings
+     *
+     * @var string[]
+     */
 	protected $casts = [
 		'obra_id' => 'int',
 		'genero_id' => 'int'
 	];
 
+    /**
+     * Obtiene el genero
+     *
+     * @return BelongsTo
+     */
 	public function genero(): BelongsTo
 	{
 		return $this->belongsTo(Genero::class);
 	}
 
+    /**
+     * Obtiene la obra
+     *
+     * @return BelongsTo
+     */
 	public function obra(): BelongsTo
 	{
 		return $this->belongsTo(Obra::class);
