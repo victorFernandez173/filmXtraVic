@@ -28,6 +28,14 @@ defineProps(['obra'])
             <p v-for="gen in obra[0].generos">
                {{ gen.genero }}
             </p>
+            <span v-show="obra[0].criticas[0]">Criticas: </span>
+            <p v-for="cri in obra[0].criticas">
+                {{ cri.critica }}
+            </p>
+            <span v-show="obra[0].profesionals[0]">Criticas profesionales: </span>
+            <p v-for="pro in obra[0].profesionals">
+                {{ pro.contenido }}
+            </p>
         </div>
     </Layout>
 </template>
