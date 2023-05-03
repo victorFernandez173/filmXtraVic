@@ -1,7 +1,7 @@
 <script setup>
 import Layout from "@/Layouts/Layout.vue";
 
-defineProps(['obras'])
+const p = defineProps(['obras'])
 </script>
 
 
@@ -9,13 +9,13 @@ defineProps(['obras'])
     <Layout>
         <div id="idPosters"
         >
-            <div v-for="obra in obras" :key="obra.id"
+            <div v-for="obra in p.obras" :key="obra.id"
             >
-                <a :href="route('obra', obra.id)">
+                <a :href="route('obra', [obra.titulo.replaceAll(' ', '_')])">
                     <img :src="'posters/' + obra.poster.ruta" :alt="obra.poster.alt">
                 </a>
                 <div id="idTitulos">
-                    <a :href="route('obra', obra.id)">{{ obra.titulo }}</a>
+                    <a :href="route('obra', [obra.titulo.replaceAll(' ', '_')])">{{ obra.titulo }}</a>
                 </div>
             </div>
         </div>

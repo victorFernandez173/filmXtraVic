@@ -21,7 +21,7 @@ use App\Http\Controllers\MainController;
 
 Route::get('/', [MainController::class, 'bienvenida'])->name('/');
 
-Route::get('obra/{id}', [MainController::class, 'fichaPelicula'])->name('obra');
+Route::get('obra/{titulo}', [MainController::class, 'fichaPelicula'])->name('obra');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

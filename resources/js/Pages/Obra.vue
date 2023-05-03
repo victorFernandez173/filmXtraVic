@@ -7,24 +7,25 @@ defineProps(['obra'])
 <template>
     <Layout>
         <div id="idFicha">
-            <img :src="'../posters/' + obra.poster.ruta" :alt="obra.poster.alt">
+
+            <img :src="'../posters/' + obra[0].poster.ruta" :alt="obra[0].poster.alt">
             <p>
-                {{ obra.titulo }}
+                {{ obra[0].titulo }}
             </p>
-            <span v-show="obra.directors[0]">Dirección:</span>
-            <p v-for="dir in obra.directors">
+            <span v-show="obra[0].directors[0]">Dirección:</span>
+            <p v-for="dir in obra[0].directors">
                 {{ dir.nombre }}
             </p>
-            <span v-show="obra.actors[0]">Reparto:</span>
-            <p v-for="act in obra.actors">
+            <span v-show="obra[0].actors[0]">Reparto:</span>
+            <p v-for="act in obra[0].actors">
                 {{ act.nombre }}
             </p>
-            <span v-show="obra.festivals[0]">Premios: </span>
-            <p v-for="fest in obra.festivals">
+            <span v-show="obra[0].festivals[0]">Premios: </span>
+            <p v-for="fest in obra[0].festivals">
                 {{ fest.nombre }}({{ fest.edicion }})
             </p>
-            <span v-show="obra.generos[0]">Generos: </span>
-            <p v-for="gen in obra.generos">
+            <span v-show="obra[0].generos[0]">Generos: </span>
+            <p v-for="gen in obra[0].generos">
                {{ gen.genero }}
             </p>
         </div>
