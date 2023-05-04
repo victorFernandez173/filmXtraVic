@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
+use Inertia\Inertia;
 
 
 /*
@@ -18,6 +19,10 @@ use App\Http\Controllers\MainController;
 
 /*PARA CONTROLAR CON AUTENTICACIÓN LAS RUTAS en este caso con autenticación y verificación de email*/
 /*->middleware(['auth', 'verified'])->name('Welcome');*/
+/*PARA TESTEOS*/
+/*Route::get('/2',  function () {
+    return Inertia::render('Welcome2');
+});*/
 
 Route::get('/', [MainController::class, 'bienvenida'])->name('/');
 
