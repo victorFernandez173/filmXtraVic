@@ -32,7 +32,7 @@ class Festival extends Model
      */
     protected $casts = [
         'obra_id' => 'int',
-        'edicion' => 'datetime',
+        'edicion' => 'date:Y',
     ];
 
     /**
