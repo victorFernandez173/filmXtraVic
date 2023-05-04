@@ -29,7 +29,7 @@ class MainController extends Controller
      * @throws Exception
      */
     public function bienvenida(){
-        return Inertia::render('Welcome', [
+        return Inertia::render('Welcome2', [
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
             'obras' => Obra::with('poster')->find($this->obtenerDoceObrasAleatorias()),
