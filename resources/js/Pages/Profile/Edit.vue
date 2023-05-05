@@ -3,7 +3,7 @@ import DeleteUserForm from './Partials/DeleteUserForm.vue';
 import UpdatePasswordForm from './Partials/UpdatePasswordForm.vue';
 import UpdateProfileInformationForm from './Partials/UpdateProfileInformationForm.vue';
 import { Head } from '@inertiajs/vue3';
-import Layout from "@/Layouts/Layout.vue";
+import LayoutPrincipal from "@/Layouts/LayoutPrincipal.vue";
 
 defineProps({
     mustVerifyEmail: {
@@ -18,7 +18,7 @@ defineProps({
 <template>
     <Head title="Profile" />
 
-    <Layout>
+    <LayoutPrincipal>
 
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
@@ -39,5 +39,5 @@ defineProps({
                 </div>
             </div>
         </div>
-    </Layout>
+    </LayoutPrincipal>
 </template>
