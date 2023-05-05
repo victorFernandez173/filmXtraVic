@@ -47,9 +47,18 @@ const props = defineProps(['mostrarCarrusel', 'mostrarBarraLateral']);
                 <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
                     <div class="px-4 py-3">
                         <span class="block text-sm text-gray-900 dark:text-white">FilmXtra</span>
-                        <span class="block text-sm  text-gray-500 truncate dark:text-gray-400">filmxtra@gmail.com</span>
+                        <span v-if="$page.props.auth.user" class="block text-sm  text-gray-500 truncate dark:text-gray-400">{{ $page.props.auth.user.email }}</span>
+                        <span v-else class="block text-sm  text-gray-500 truncate dark:text-gray-400">{{ Logueate }}</span>
                     </div>
-                    <ul class="py-2" aria-labelledby="user-menu-button">
+                    <ul v-if="!$page.props.auth.user" class="py-2" aria-labelledby="user-menu-button">
+                        <li>
+                            <Link :href="route('login')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Loguearse</Link>
+                        </li>
+                        <li>
+                            <Link :href="route('register')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Registrarse</Link>
+                        </li>
+                    </ul>
+                    <ul v-else class="py-2" aria-labelledby="user-menu-button">
                         <li>
                             <Link href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Mis valoraciones</Link>
                         </li>
@@ -57,10 +66,10 @@ const props = defineProps(['mostrarCarrusel', 'mostrarBarraLateral']);
                             <Link href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Mis favoritas</Link>
                         </li>
                         <li>
-                            <Link href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Ajustes</Link>
+                            <Link :href="route('profile.edit')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Ajustes</Link>
                         </li>
                         <li>
-                            <Link href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Cerrar sesión</Link>
+                            <Link :href="route('logout')" method="post" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Cerrar sesión</Link>
                         </li>
                     </ul>
                 </div>
@@ -86,7 +95,7 @@ const props = defineProps(['mostrarCarrusel', 'mostrarBarraLateral']);
                         <Link href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contacto</Link>
                     </li>
                     <li>
-                        <Link href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Cuenta</Link>
+                        <Link :href="route('profile.edit')" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Cuenta</Link>
                     </li>
                 </ul>
             </div>
@@ -98,6 +107,7 @@ const props = defineProps(['mostrarCarrusel', 'mostrarBarraLateral']);
 
     <!-- Seccion Principal de contenido -->
     <div class="contenedor-principal flex w-full">
+
         <!-- Seccion columna izquierda -->
         <BarraLateral v-if="mostrarBarraLateral"></BarraLateral>
 
