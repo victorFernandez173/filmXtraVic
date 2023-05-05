@@ -33,7 +33,8 @@ class MainController extends Controller
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
             'obras' => Obra::with('poster')->find($this->obtenerDoceObrasAleatorias()),
-            'mostrarCarrusel' => true
+            'mostrarCarrusel' => true,
+            'mostrarBarraLateral' => true,
         ]);
     }
 

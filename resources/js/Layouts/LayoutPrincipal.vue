@@ -3,13 +3,15 @@ import Carrusel from "../Components/Carrusel.vue";
 import { initFlowbite } from 'flowbite'
 import { onUpdated } from "vue";
 import { Link } from "@inertiajs/vue3";
+import BarraLateral from "../Components/BarraLateral.vue";
 
-// Para montar componentes de Flowbite, en este caso
+// TODO -> Para montar componentes de Flowbite, en este caso el carrusel con 'onUpdated' así se actualiza siempre y vuelve a funcionar si lo haces en 'onMounted' cuando se vuelve a la vista principal, se queda parado
 onUpdated(() => {
     initFlowbite();
 })
 
-const props = defineProps(['mostrarCarrusel']);
+// TODO -> Props para mostrar el carrusel y la barra lateral solo en la vista principal, en realidad es un poco ñapa pero es por como elena ha diseñado la vista principal con bloques dentro de bloques de tal manera que de primeras me ha costado separalos y he optado por esta solución, ya veremos si se puede simplificar y eliminar así los props de primeras se puede dejar así
+const props = defineProps(['mostrarCarrusel', 'mostrarBarraLateral']);
 </script>
 
 <template>
@@ -18,7 +20,7 @@ const props = defineProps(['mostrarCarrusel']);
         <!-- Div con el contenido del nav -->
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <!-- Logo de la pagina -->
-            <Link href="#" class="flex items-center">
+            <Link :href="route('/')" class="flex items-center">
                 <img src="/images/logo.png" class="h-14" alt="Logo FilmXtra" />
             </Link>
             <!-- Boton de buscar -->
@@ -71,7 +73,7 @@ const props = defineProps(['mostrarCarrusel']);
             <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="mobile-menu-2">
                 <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                     <li class="activo">
-<!--TODO    HE SUSTITUIDO TODOS LOS <a> por <Link> YA QUE CON INERTIA ESTO ES NECESARIO POR LO VISTO PARA MANTERNER FUNCIONALIDADES DE VUE, EN LOS ESTILOS CREO QUE SE PUEDE DEJAR a{...} COMO SELECTOR Y SE SIGUEN APLICANDO BIEN LOS ESTILOS   -->
+<!--TODO  ->  HE SUSTITUIDO TODOS LOS <a> por <Link> YA QUE CON INERTIA ESTO ES NECESARIO POR LO VISTO PARA MANTERNER FUNCIONALIDADES DE VUE, EN LOS ESTILOS CREO QUE SE PUEDE DEJAR a{...} COMO SELECTOR Y SE SIGUEN APLICANDO BIEN LOS ESTILOS   -->
                         <Link :href="route('/')" class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent color md:p-0">Inicio</Link>
                     </li>
                     <li>
@@ -91,254 +93,18 @@ const props = defineProps(['mostrarCarrusel']);
         </div>
     </nav>
 
-<!--TODO -> AQUI ESTÁ EL CARRUSEL, QUE SOLO SE MUESTRA CUANDO SE PASA EL PROP 'mostrarCarrusel' DICHO PROP SOLO SE PASA AL SOLICITAR LA PAGINA PRINCIPAL. EL PROBLEMA ES QUE COMO LayoutPrincipal.vue ES UN LAYOUT PERMANENTE PARA QUE NO SE RECARGUE TO DO EL RATO, PUES SI SALES DE LA PAGINA PRINCIPAL Y VUELVES, AUNQUE SE VUELVE A MOSTRAR EL CARRUSEL, ESTE, ESTÁ PARADO, TENDRÉ QUE MIRAR COMO REACTIVARLO-->
     <!--  Carrusel   -->
     <Carrusel v-if="mostrarCarrusel"></Carrusel>
 
     <!-- Seccion Principal de contenido -->
     <div class="contenedor-principal flex w-full">
         <!-- Seccion columna izquierda -->
-        <section class="seccion-columna w-1/10 p-4 pb-8">
-            <!-- Genero -->
-            <h5 class="py-4 font-bold underline">Por género:</h5>
-            <ul>
-                <li>
-                    <Link href="">Acción</Link>
-                </li>
-                <li>
-                    <Link href="">Animación</Link>
-                </li>
-                <li>
-                    <Link href="">Aventuras</Link>
-                </li>
-                <li>
-                    <Link href="">Bibliográfico</Link>
-                </li>
-                <li>
-                    <Link href="">Bélico</Link>
-                </li>
-                <li>
-                    <Link href="">Ciencia ficción</Link>
-                </li>
-                <li>
-                    <Link href="">Cine Mudo</Link>
-                </li>
-                <li>
-                    <Link href="">Cine Negro</Link>
-                </li>
-                <li>
-                    <Link href="">Comedia</Link>
-                </li>
-                <li>
-                    <Link href="">Cortometraje</Link>
-                </li>
-                <li>
-                    <Link href="">Crimen</Link>
-                </li>
-                <li>
-                    <Link href="">Deportiva</Link>
-                </li>
-                <li>
-                    <Link href="">Documental</Link>
-                </li>
-                <li>
-                    <Link href="">Drama</Link>
-                </li>
-                <li>
-                    <Link href="">Erótico</Link>
-                </li>
-                <li>
-                    <Link href="">Experimental</Link>
-                </li>
-                <li>
-                    <Link href="">Fantástico</Link>
-                </li>
-                <li>
-                    <Link href="">Histórica</Link>
-                </li>
-                <li>
-                    <Link href="">Infantil</Link>
-                </li>
-                <li>
-                    <Link href="">Intriga</Link>
-                </li>
-                <li>
-                    <Link href="">Musical</Link>
-                </li>
-                <li>
-                    <Link href="">Policiaca</Link>
-                </li>
-                <li>
-                    <Link href="">Propagandístico</Link>
-                </li>
-                <li>
-                    <Link href="">Película de culto</Link>
-                </li>
-                <li>
-                    <Link href="">Religiosa</Link>
-                </li>
-                <li>
-                    <Link href="">Road Movie</Link>
-                </li>
-                <li>
-                    <Link href="">Romance</Link>
-                </li>
-                <li>
-                    <Link href="">Serie B</Link>
-                </li>
-                <li>
-                    <Link href="">Serie de TV</Link>
-                </li>
-                <li>
-                    <Link href="">Terror</Link>
-                </li>
-                <li>
-                    <Link href="">Thriller</Link>
-                </li>
-                <li>
-                    <Link href="">Western</Link>
-                </li>
-            </ul>
-
-            <!-- Decada -->
-            <h5 class="py-4 font-bold underline">Por década:</h5>
-            <ul>
-                <li>
-                    <Link href="">2020s</Link>
-                </li>
-                <li>
-                    <Link href="">2010s</Link>
-                </li>
-                <li>
-                    <Link href="">2000s</Link>
-                </li>
-                <li>
-                    <Link href="">90s</Link>
-                </li>
-                <li>
-                    <Link href="">80s</Link>
-                </li>
-                <li>
-                    <Link href="">70s</Link>
-                </li>
-                <li>
-                    <Link href="">60s</Link>
-                </li>
-                <li>
-                    <Link href="">50s</Link>
-                </li>
-                <li>
-                    <Link href="">40s</Link>
-                </li>
-                <li>
-                    <Link href="">30s</Link>
-                </li>
-                <li>
-                    <Link href="">20s</Link>
-                </li>
-            </ul>
-
-            <!-- Pais -->
-            <h5 class="py-4 font-bold underline">Por país:</h5>
-            <ul>
-                <li>
-                    <Link href="">Alemania</Link>
-                </li>
-                <li>
-                    <Link href="">Andorra</Link>
-                </li>
-                <li>
-                    <Link href="">Argentina</Link>
-                </li>
-                <li>
-                    <Link href="">Australia</Link>
-                </li>
-                <li>
-                    <Link href="">Austria</Link>
-                </li>
-                <li>
-                    <Link href="">Bélgica</Link>
-                </li>
-                <li>
-                    <Link href="">Brasil</Link>
-                </li>
-                <li>
-                    <Link href="">Canadá</Link>
-                </li>
-                <li>
-                    <Link href="">China</Link>
-                </li>
-                <li>
-                    <Link href="">Colmbia</Link>
-                </li>
-                <li>
-                    <Link href="">Dinamarca</Link>
-                </li>
-                <li>
-                    <Link href="">España</Link>
-                </li>
-                <li>
-                    <Link href="">Estados Unidos de América</Link>
-                </li>
-                <li>
-                    <Link href="">Estonia</Link>
-                </li>
-                <li>
-                    <Link href="">Federación de Rusia</Link>
-                </li>
-                <li>
-                    <Link href="">Finlandia</Link>
-                </li>
-                <li>
-                    <Link href="">Francia</Link>
-                </li>
-                <li>
-                    <Link href="">Hungría</Link>
-                </li>
-                <li>
-                    <Link href="">Irlanda</Link>
-                </li>
-                <li>
-                    <Link href="">Islandia</Link>
-                </li>
-                <li>
-                    <Link href="">Italia</Link>
-                </li>
-                <li>
-                    <Link href="">Japón</Link>
-                </li>
-                <li>
-                    <Link href="">Noruega</Link>
-                </li>
-                <li>
-                    <Link href="">Países Bajos</Link>
-                </li>
-                <li>
-                    <Link href="">Polonia</Link>
-                </li>
-                <li>
-                    <Link href="">Portugal</Link>
-                </li>
-                <li>
-                    <Link href="">Reino Unido</Link>
-                </li>
-                <li>
-                    <Link href="">Rumania</Link>
-                </li>
-                <li>
-                    <Link href="">Ucrania</Link>
-                </li>
-            </ul>
-        </section>
+        <BarraLateral v-if="mostrarBarraLateral"></BarraLateral>
 
         <slot>
             <!-- AQUÍ VA EL CONTENIDO QUE SE EL PASA AL LAYOUT    -->
         </slot>
-
-
     </div>
-
-
 
     <!-- Pie de pagina -->
     <footer>
@@ -420,17 +186,6 @@ const props = defineProps(['mostrarCarrusel']);
 }
 
 
-
-/****************************************** Seccion columna ******************************************/
-.seccion-columna {
-    background-color: #e37f81;
-}
-
-.seccion-columna a:hover {
-    color: white;
-}
-
-
 /****************************************** Pie de pagina ******************************************/
 footer {
     background-color: black;
@@ -467,11 +222,6 @@ footer a:hover {
 
     .activo a:hover {
         color: black;
-    }
-
-    /******* Seccion columna *******/
-    .seccion-columna {
-        width: 40%;
     }
 
     /******* Pie de pagina *******/
