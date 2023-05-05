@@ -9,15 +9,22 @@ export default {
 <!--script estandar para lo habitual-->
 <script setup>
 import { Link } from "@inertiajs/vue3";
+import Carrusel from "../Components/Carrusel.vue";
 
 defineProps(['obras']);
 </script>
 
 <template>
-     <section class="seccion-peliculas flex text-center items-center justify-center">
-        <!-- Filas de peliculas -->
-<!--TODO -> ESTE ES EL FAMOSO DOBLE BUCLE ANIDADO QUE GENERA LAS DOCE PELICULAS EN LA PAGINA PRINCIPAL; EL BUCLE EXTERNO ITERA 3 VECES Y EL INTERNO 4 ASÍ SALEN 3 COLUMNAS DE 4 PELICULAS, LO HICE ASÍ PORQUE CREO QUE ELENA GENERABA EL CONTENIDO POR COLUMNAS, PERO NO HABRÍA SIDO MEJOR POR FILAS??? ENTRE OTRAS COSAS PORQUE CREO QUE ASÍ SERÍA MÁS FACIL COLOCAR BIEN LOS TÍTULO NO CREEIS? NO LO SE, PROBAD A HACERLO QUIZAS POR FILAS EN UN .vue NUEVO Y SI SE COLOCA MEJOR TODO SE PUEDE MODIFICAR EL CODIGO-->
-            <div v-for="n in 3">
+
+    <!--  Carrusel   -->
+    <Carrusel></Carrusel>
+
+    <!-- Seccion Principal de contenido -->
+    <div class="contenedor-principal flex w-full justify-center">
+        <section class="seccion-peliculas flex text-center items-center justify-center">
+            <!-- Filas de peliculas -->
+            <!--TODO -> ESTE ES EL FAMOSO DOBLE BUCLE ANIDADO QUE GENERA LAS DOCE PELICULAS EN LA PAGINA PRINCIPAL; EL BUCLE EXTERNO ITERA 3 VECES Y EL INTERNO 4 ASÍ SALEN 3 COLUMNAS DE 4 PELICULAS, LO HICE ASÍ PORQUE CREO QUE ELENA GENERABA EL CONTENIDO POR COLUMNAS, PERO NO HABRÍA SIDO MEJOR POR FILAS??? ENTRE OTRAS COSAS PORQUE CREO QUE ASÍ SERÍA MÁS FACIL COLOCAR BIEN LOS TÍTULO NO CREEIS? NO LO SE, PROBAD A HACERLO QUIZAS POR FILAS EN UN .vue NUEVO Y SI SE COLOCA MEJOR TODO SE PUEDE MODIFICAR EL CODIGO-->
+            <div v-for="n in 4">
                 <div v-for="m in 4" class="primera-pelicula">
                     <Link :href="route('obra', [obras[n*m-1].titulo.replaceAll(' ', '_')])">
                         <h3 > {{ obras[n*m-1].titulo }}</h3>
@@ -27,7 +34,10 @@ defineProps(['obras']);
                     </Link>
                 </div>
             </div>
-     </section>
+        </section>
+    </div>
+
+
 </template>
 
 <style>

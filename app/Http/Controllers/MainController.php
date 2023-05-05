@@ -15,7 +15,7 @@ class MainController extends Controller
     public function obtenerDoceObrasAleatorias(){
         $numPeliculas = Obra::count();
         $peliculasId = [];
-        for($i = 0; $i < 12; $i++){
+        for($i = 0; $i < 16; $i++){
             $aleatorio = random_int(1, $numPeliculas);
             while(in_array($aleatorio, $peliculasId)){
                 $aleatorio = random_int(1, $numPeliculas);

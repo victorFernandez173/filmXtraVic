@@ -1,17 +1,12 @@
 <script setup>
-import Carrusel from "../Components/Carrusel.vue";
 import { initFlowbite } from 'flowbite'
 import { onUpdated } from "vue";
 import { Link } from "@inertiajs/vue3";
-import BarraLateral from "../Components/BarraLateral.vue";
 
 // TODO -> Para montar componentes de Flowbite, en este caso el carrusel con 'onUpdated' así se actualiza siempre y vuelve a funcionar si lo haces en 'onMounted' cuando se vuelve a la vista principal, se queda parado
 onUpdated(() => {
     initFlowbite();
 })
-
-// TODO -> Props para mostrar el carrusel y la barra lateral solo en la vista principal, en realidad es un poco ñapa pero es por como elena ha diseñado la vista principal con bloques dentro de bloques de tal manera que de primeras me ha costado separalos y he optado por esta solución, ya veremos si se puede simplificar y eliminar así los props de primeras se puede dejar así
-const props = defineProps(['mostrarCarrusel', 'mostrarBarraLateral']);
 </script>
 
 <template>
@@ -48,7 +43,7 @@ const props = defineProps(['mostrarCarrusel', 'mostrarBarraLateral']);
                     <div class="px-4 py-3">
                         <span class="block text-sm text-gray-900 dark:text-white">FilmXtra</span>
                         <span v-if="$page.props.auth.user" class="block text-sm  text-gray-500 truncate dark:text-gray-400">{{ $page.props.auth.user.email }}</span>
-                        <span v-else class="block text-sm  text-gray-500 truncate dark:text-gray-400">{{ Logueate }}</span>
+                        <span v-else class="block text-sm  text-gray-500 truncate dark:text-gray-400">Logueate</span>
                     </div>
                     <ul v-if="!$page.props.auth.user" class="py-2" aria-labelledby="user-menu-button">
                         <li>
@@ -102,19 +97,9 @@ const props = defineProps(['mostrarCarrusel', 'mostrarBarraLateral']);
         </div>
     </nav>
 
-    <!--  Carrusel   -->
-    <Carrusel v-if="mostrarCarrusel"></Carrusel>
-
-    <!-- Seccion Principal de contenido -->
-    <div class="contenedor-principal flex w-full">
-
-        <!-- Seccion columna izquierda -->
-        <BarraLateral v-if="mostrarBarraLateral"></BarraLateral>
-
         <slot>
             <!-- AQUÍ VA EL CONTENIDO QUE SE EL PASA AL LAYOUT    -->
         </slot>
-    </div>
 
     <!-- Pie de pagina -->
     <footer>
