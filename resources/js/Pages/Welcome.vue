@@ -32,11 +32,11 @@ defineProps(['obras']);
             <!-- Filas de peliculas -->
             <div v-for="n in 4">
                 <div v-for="m in 4" class="primera-pelicula">
-                    <Link :href="route('obra', [obras[n*4-m].titulo.replaceAll(' ', '_')])">
-                        <h3 > {{ obras[n*4-m].titulo }}</h3>
+                    <Link :href="route('obra', [$page['props']['obras'][n*4-m]['titulo'].replaceAll(' ', '_')])">
+                        <h3 > {{ $page['props']['obras'][n*4-m]['titulo'] }}</h3>
                     </Link>
-                    <Link  :href="route('obra', [obras[n*4-m].titulo.replaceAll(' ', '_')])">
-                        <img class="sm:w-18" :src="'posters/' + obras[n*4-m].poster.ruta" :alt="obras[n*4-m].poster.alt">
+                    <Link  :href="route('obra', [$page['props']['obras'][n*4-m]['titulo'].replaceAll(' ', '_')])">
+                        <img class="sm:w-18" :src="'posters/' + $page['props']['obras'][n*4-m]['poster']['ruta']" :alt="$page['props']['obras'][n*4-m]['poster']['alt']">
                     </Link>
                 </div>
             </div>
