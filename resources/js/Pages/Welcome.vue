@@ -47,20 +47,18 @@ defineProps(['obras']);
 </template>
 
 <style>
-/****************************************** Seccion peliculas ******************************************/
+/*************************** Seccion peliculas ******************************/
 .seccion-peliculas {
     width: 90%;
 }
 
 .seccion-peliculas img {
-    width: 25rem;
+    width: 23rem;
     padding: 2rem;
 }
 
 .seccion-peliculas h3 {
-
-    /*TODO -> HE MODIFICADO WIDTH Y HEIGHT DEL H3 PARA REDUCIR LA DESCOLOCACIÓN DE LAS PELICULAS POR CULPA DE TITULOS LARGO, PERO TIENE SU PEGA Y ES QUE LAS QUE TIENEN TITULO CORTO DEJAN UN HUECO ENTRE TITULO Y POSTER*/
-    width: 25rem;
+    width: 23rem;
     height: 5rem;
     color: #e37f81;
     font-size: 1.7rem;
@@ -70,7 +68,6 @@ defineProps(['obras']);
     font-family: 'Oswald', sans-serif;
 }
 
-/*TODO -> MIRAD A VER QUE PASA CON LA SECCIÓN TABLET QUE NO SE ESTÁN APLICANDO LOS ESTILOS??? ME HABRE COMIDO CODIGO O ALGO AL ADAPTAR LA PAGINA???????*/
 /****************************************** Tablet ******************************************/
 @media screen and (max-width: 991px) and (min-width: 769px) {
 
