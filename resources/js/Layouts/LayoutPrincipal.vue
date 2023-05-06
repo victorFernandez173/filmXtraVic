@@ -57,7 +57,7 @@ import { Link } from "@inertiajs/vue3";
                             <Link :href="route('profile.edit')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Ajustes</Link>
                         </li>
                         <li>
-                            <Link :href="route('logout')" method="post" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Cerrar sesión</Link>
+                            <Link :href="route('logout')" method="post" as="button" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"  >Cerrar sesión</Link>
                         </li>
                     </ul>
                 </div>
@@ -163,9 +163,14 @@ import { Link } from "@inertiajs/vue3";
 </template>
 
 <style scoped>
+nav * {
+    margin: auto;
+}
+
 /****************************************** Estilos generales ******************************************/
 #mobile-menu-2 a:hover {
     color: #e37f81;
+
 }
 
 .color {
