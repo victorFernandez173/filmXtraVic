@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Arr;
+use DB;
 use Inertia\Inertia;
 use App\Models\Obra;
 use Illuminate\Support\Facades\Route;
@@ -13,7 +15,7 @@ class MainController extends Controller
      * @throws Exception
      */
     public function obtenerDoceObrasAleatorias(){
-        $numPeliculas = Obra::count();
+        $numPeliculas = DB::table('obras')->count();
         $peliculasId = [];
         for($i = 0; $i < 16; $i++){
             $aleatorio = random_int(1, $numPeliculas);

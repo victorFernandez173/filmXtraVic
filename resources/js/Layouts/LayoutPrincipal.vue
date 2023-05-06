@@ -1,12 +1,5 @@
 <script setup>
-import { initFlowbite } from 'flowbite'
-import { onUpdated } from "vue";
 import { Link } from "@inertiajs/vue3";
-
-// TODO -> Para montar componentes de Flowbite, en este caso el carrusel con 'onUpdated' así se actualiza siempre y vuelve a funcionar si lo haces en 'onMounted' cuando se vuelve a la vista principal, se queda parado
-onUpdated(() => {
-    initFlowbite();
-})
 </script>
 
 <template>
