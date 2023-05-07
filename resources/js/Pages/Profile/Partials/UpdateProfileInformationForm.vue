@@ -4,7 +4,7 @@ import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { Link, useForm, usePage } from '@inertiajs/vue3';
-
+/*Otros props*/
 defineProps({
     mustVerifyEmail: {
         type: Boolean,
@@ -14,10 +14,11 @@ defineProps({
     },
 });
 
+/*Props con el usuario logueado*/
 const user = usePage().props.auth.user;
-
+/*Valores del usuario insertados en formulario*/
 const form = useForm({
-    name: user.name,
+    nombre: user.nombre,
     email: user.email,
 });
 </script>
@@ -34,19 +35,19 @@ const form = useForm({
 
         <form @submit.prevent="form.patch(route('profile.update'))" class="mt-6 space-y-6">
             <div>
-                <InputLabel for="name" value="Name" />
+                <InputLabel for="nombre" value="Nombre" />
 
                 <TextInput
-                    id="name"
+                    id="nombre"
                     type="text"
                     class="mt-1 block w-full"
-                    v-model="form.name"
+                    v-model="form.nombre"
                     required
                     autofocus
-                    autocomplete="name"
+                    autocomplete="nombre"
                 />
 
-                <InputError class="mt-2" :message="form.errors.name" />
+                <InputError class="mt-2" :message="form.errors.nombre" />
             </div>
 
             <div>

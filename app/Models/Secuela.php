@@ -2,9 +2,24 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+/**
+ * Class Secuela
+ *
+ * @property int $saga_id
+ * @property int $obra_id
+ * @property int $orden
+ * @property Carbon $creada
+ * @property Carbon $modificada
+ *
+ * @property Obra $obra
+ * @property Saga $saga
+ *
+ * @package App\Models
+ */
 class Secuela extends Model
 {
     /**
@@ -25,11 +40,26 @@ class Secuela extends Model
     const UPDATED_AT = 'modificada';
 
     /**
+     * Castings
+     *
+     * @var string[]
+     */
+    protected $casts = [
+        'saga_id' => 'int',
+        'obra_id' => 'int',
+        'orden' => 'int',
+        'creada' => 'datetime',
+        'modificada' => 'datetime'
+    ];
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
     protected $fillable = [
+        'saga_id',
+        'obra_id',
         'orden',
     ];
 

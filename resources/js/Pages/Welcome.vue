@@ -1,58 +1,89 @@
-<script setup>
-import { Head, Link } from '@inertiajs/vue3';
+<!--script independiente sin "setup" para la carga del LayoutPrincipal como layout persistente-->
+<script>
+import LayoutPrincipal from "../Layouts/LayoutPrincipal.vue";
+export default {
+    layout: LayoutPrincipal,
+}
+</script>
 
-defineProps({
-    canLogin: {
-        type: Boolean,
-    },
-    canRegister: {
-        type: Boolean,
-    },
-    laravelVersion: {
-        type: String,
-        required: true,
-    },
-    phpVersion: {
-        type: String,
-        required: true,
-    },
-});
+<!--script estandar para lo habitual-->
+<script setup>
+import { Link } from "@inertiajs/vue3";
+import Carrusel from "../Components/Carrusel.vue";
+import { initFlowbite } from 'flowbite'
+import { onMounted } from "vue";
+
+// Para montar componentes Flowbite
+onMounted(() => {
+    initFlowbite();
+})
+
+defineProps(['obras']);
 </script>
 
 <template>
-    <Head title="Welcome" />
 
-    <div
-        class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white"
-    >
-        <div v-if="canLogin" class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
-            <Link
-                v-if="$page.props.auth.user"
-                :href="route('dashboard')"
-                class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                >Dashboard</Link
-            >
+    <!--  Carrusel   -->
+    <Carrusel></Carrusel>
 
-            <template v-else>
-                <Link
-                    :href="route('login')"
-                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                    >Log in</Link
-                >
-
-                <Link
-                    v-if="canRegister"
-                    :href="route('register')"
-                    class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                    >Register</Link
-                >
-            </template>
-        </div>
-
-
+    <!-- Seccion Principal de contenido -->
+    <div class="contenedor-principal flex w-full justify-center">
+        <section class="seccion-peliculas flex text-center items-center justify-center">
+            <!-- Filas de peliculas -->
+            <div v-for="n in 4">
+                <div v-for="m in 4" class="primera-pelicula">
+                    <Link :href="route('obra', [$page['props']['obras'][n*4-m]['titulo'].replaceAll(' ', '_')])">
+                        <h3 > {{ $page['props']['obras'][n*4-m]['titulo'] }}</h3>
+                    </Link>
+                    <Link  :href="route('obra', [$page['props']['obras'][n*4-m]['titulo'].replaceAll(' ', '_')])">
+                        <img class="sm:w-18" :src="'posters/' + $page['props']['obras'][n*4-m]['poster']['ruta']" :alt="$page['props']['obras'][n*4-m]['poster']['alt']">
+                    </Link>
+                </div>
+            </div>
+        </section>
     </div>
+
+
 </template>
 
 <style>
+/*************************** Seccion peliculas ******************************/
+.seccion-peliculas {
+    width: 90%;
+}
 
+.seccion-peliculas img {
+    width: 23rem;
+    padding: 2rem;
+}
+
+.seccion-peliculas h3 {
+    width: 23rem;
+    height: 5rem;
+    color: #e37f81;
+    font-size: 1.7rem;
+    font-weight: bold;
+    text-decoration: underline;
+    padding-top: 2rem;
+    font-family: 'Oswald', sans-serif;
+}
+
+/****************************************** Tablet ******************************************/
+@media screen and (max-width: 991px) and (min-width: 769px) {
+
+    /******* Seccion peliculas *******/
+    .seccion-peliculas {
+        align-items: normal;
+    }
+}
+
+/****************************************** Movil ******************************************/
+@media screen and (max-width: 768px) {
+
+    /******* Seccion peliculas *******/
+    .seccion-peliculas {
+        display: inline-block;
+        width: 60%;
+    }
+}
 </style>

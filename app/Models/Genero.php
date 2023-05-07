@@ -2,34 +2,48 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Validation\Rules\Enum;
 
+/**
+ * Class Genero
+ *
+ * @property int $id
+ * @property string $genero
+ * @property Carbon $creado
+ * @property Carbon $modificado
+ *
+ * @property Collection|Obra[] $obras
+ *
+ * @package App\Models
+ */
 class Genero extends Model
 {
-    /**
-     * The primary key associated with the table.
-     *
-     * @var string
-     */
-    public $primaryKey = 'genero_id';
+    const CREATED_AT = 'creado';
+    const UPDATED_AT = 'modificado';
 
     /**
-     * Indicates if the model's ID is auto-incrementing.
+     * Castings
      *
-     * @var bool
+     * @var string[]
      */
-    public $incrementing = false;
+    protected $casts = [
+        'creado' => 'datetime',
+        'modificado' => 'datetime'
+    ];
 
     /**
-     * The data type of the auto-incrementing ID.
+     * The attributes that are mass assignable.
      *
-     * @var string
+     * @var array<int, string>
      */
-    public $keyType = 'string';
-
+    protected $fillable = [
+        'genero',
+    ];
     /**
      * Get the director of the obra
      */

@@ -1,9 +1,9 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
+use App\Http\Controllers\MainController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,18 +16,21 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
+////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+/*PARA CONTROLAR CON AUTENTICACIÓN Y VERIFICACIÓN DE EMAIL LAS RUTAS*/
+/*->middleware(['auth', 'verified'])->name('Welcome');*/
+////////////////////////////////////////////////////////////////////////
+/*PARA TESTEOS*/
+/*Route::get('/2',  function () {
+    return Inertia::render('Welcome2');
+});*/
+////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/', [MainController::class, 'bienvenida'])->name('/');
+
+Route::get('obra/{titulo}', [MainController::class, 'fichaPelicula'])->name('obra');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

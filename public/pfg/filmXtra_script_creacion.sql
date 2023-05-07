@@ -16,8 +16,12 @@ CREATE TABLE `actors` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `generos` (
-  `genero_id` enum('Pelicula de culto','Accion','Animacion','Aventuras','Belico','Ciencia Ficcion','Cine Negro','Comedia','Documental','Drama','Fantastico','Infantil','Intriga','Musical','Romance','Serie de TV','Terror','Thriller','Western','Deportiva','Historica','Crimen','Policiaca','Religiosa','Cine mudo','Biografico','Erotico','Experimental','Propagandistico','Serie B','Road Movie','Cortometraje') COLLATE utf8mb4_unicode_ci NOT NULL,
-  PRIMARY KEY (`genero_id`)
+   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+   `genero` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+   `creado` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+   `modificado` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+   PRIMARY KEY (`id`),
+   UNIQUE KEY `generos_genero_unique` (`genero`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `posters` (
@@ -93,12 +97,12 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `genero_obra` (
-  `genero_id` enum('Pelicula de culto','Accion','Animacion','Aventuras','Belico','Ciencia Ficcion','Cine Negro','Comedia','Documental','Drama','Fantastico','Infantil','Intriga','Musical','Romance','Serie de TV','Terror','Thriller','Western','Deportiva','Historica','Crimen','Policiaca','Religiosa','Cine mudo','Biografico','Erotico','Experimental','Propagandistico','Serie B','Road Movie','Cortometraje') COLLATE utf8mb4_unicode_ci NOT NULL,
-  `obra_id` bigint unsigned NOT NULL,
-  UNIQUE KEY `genero_obra_genero_id_obra_id_unique` (`genero_id`,`obra_id`),
-  KEY `genero_obra_obra_id_foreign` (`obra_id`),
-  CONSTRAINT `genero_obra_genero_id_foreign` FOREIGN KEY (`genero_id`) REFERENCES `generos` (`genero_id`),
-  CONSTRAINT `genero_obra_obra_id_foreign` FOREIGN KEY (`obra_id`) REFERENCES `obras` (`id`)
+   `obra_id` bigint unsigned NOT NULL,
+   `genero_id` bigint unsigned NOT NULL,
+   UNIQUE KEY `genero_obra_genero_id_obra_id_unique` (`genero_id`,`obra_id`),
+   KEY `genero_obra_obra_id_foreign` (`obra_id`),
+   CONSTRAINT `genero_obra_genero_id_foreign` FOREIGN KEY (`genero_id`) REFERENCES `generos` (`id`),
+   CONSTRAINT `genero_obra_obra_id_foreign` FOREIGN KEY (`obra_id`) REFERENCES `obras` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `actor_obra` (

@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\Genero;
 
 return new class extends Migration {
 
@@ -13,7 +14,16 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('generos', function (Blueprint $table) {
-            $table->enum('genero_id', ['Pelicula de culto', 'Accion', 'Animacion', 'Aventuras', 'Belico', 'Ciencia Ficcion', 'Cine Negro', 'Comedia', 'Documental', 'Drama', 'Fantastico', 'Infantil', 'Intriga', 'Musical', 'Romance', 'Serie de TV', 'Terror', 'Thriller', 'Western', 'Deportiva', 'Historica', 'Crimen', 'Policiaca', 'Religiosa', 'Cine mudo', 'Biografico', 'Erotico', 'Experimental', 'Propagandistico', 'Serie B', 'Road Movie', 'Cortometraje'])->primary();
+            $table->id();
+            $table->string('genero', 255);
+            $table->timestamp(Genero::CREATED_AT)->useCurrent();
+            $table->timestamp(Genero::UPDATED_AT)->useCurrent();
+
+            $table->unique('genero');
+
+            $table->engine = 'InnoDB';
+            $table->charset = 'utf8mb4';
+            $table->collation = 'utf8mb4_unicode_ci';
         });
     }
 
