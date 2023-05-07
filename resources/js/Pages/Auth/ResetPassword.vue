@@ -31,7 +31,10 @@ const submit = () => {
 </script>
 
 <template>
-    <Head title="Reset Password"/>
+    <Head>
+        <title>Resetear password</title>
+        <meta name="description" content="Página para resetear password">
+    </Head>
 
     <form @submit.prevent="submit">
         <div>

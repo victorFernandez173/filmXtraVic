@@ -6,10 +6,15 @@ export default {
 </script>
 
 <script setup>
+import { Head } from "@inertiajs/vue3";
 defineProps(['obra']);
 </script>
 
 <template>
+    <Head>
+        <title>{{ obra[0].titulo }}</title>
+        <meta name="description" content="Página de bienvenida">
+    </Head>
     <div id="idFicha">
         <img :src="'../posters/' + obra[0].poster.ruta" :alt="obra[0].poster.alt">
         <p>

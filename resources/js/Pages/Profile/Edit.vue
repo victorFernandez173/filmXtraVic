@@ -18,7 +18,10 @@ defineProps({
 <!--Pagina para editar: datos, password y borrar cuenta de usuario-->
 <!--Incluye 3 sfc: datos, password y borrado-->
 <template>
-    <Head title="Profile" />
+    <Head>
+        <title>Editar perfil</title>
+        <meta name="description" content="Pagina de edición de perfil">
+    </Head>
     <LayoutPrincipal>
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">

@@ -8,7 +8,7 @@ export default {
 
 <!--script estandar para lo habitual-->
 <script setup>
-import { Link } from "@inertiajs/vue3";
+import { Link, Head } from "@inertiajs/vue3";
 import Carrusel from "../Components/Carrusel.vue";
 import { initFlowbite } from 'flowbite'
 import { onMounted } from "vue";
@@ -22,7 +22,10 @@ defineProps(['obras']);
 </script>
 
 <template>
-
+    <Head>
+        <title>Inicio</title>
+        <meta name="description" content="Página de bienvenida">
+    </Head>
     <!--  Carrusel   -->
     <Carrusel></Carrusel>
 
