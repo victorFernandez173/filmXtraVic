@@ -30,38 +30,31 @@ defineProps(['obras']);
     <Carrusel></Carrusel>
 
     <!-- Seccion Principal de contenido -->
-    <div class="contenedor-principal flex w-full justify-center">
-        <section class="seccion-peliculas flex text-center items-center justify-center">
-            <!-- Filas de peliculas -->
-            <div v-for="n in 4">
-                <div v-for="m in 4" class="primera-pelicula">
-                    <Link :href="route('obra', [$page['props']['obras'][n*4-m]['titulo'].replaceAll(' ', '_')])">
-                        <h3 > {{ $page['props']['obras'][n*4-m]['titulo'] }}</h3>
-                    </Link>
-                    <Link  :href="route('obra', [$page['props']['obras'][n*4-m]['titulo'].replaceAll(' ', '_')])">
-                        <img class="sm:w-18" :src="'posters/' + $page['props']['obras'][n*4-m]['poster']['ruta']" :alt="$page['props']['obras'][n*4-m]['poster']['alt']">
-                    </Link>
-                </div>
+    <div class="container mx-auto contenedor-principal justify-center">
+        <!-- Filas de peliculas -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 seccion-peliculas text-center items-center justify-center" v-for="n in 4">
+            <div v-for="m in 4">
+                <Link :href="route('obra', [$page['props']['obras'][n*4-m]['titulo'].replaceAll(' ', '_')])">
+                    <h3 > {{ $page['props']['obras'][n*4-m]['titulo'] }}</h3>
+                </Link>
+                <Link :href="route('obra', [$page['props']['obras'][n*4-m]['titulo'].replaceAll(' ', '_')])">
+                    <img :src="'posters/' + $page['props']['obras'][n*4-m]['poster']['ruta']" :alt="$page['props']['obras'][n*4-m]['poster']['alt']">
+                </Link>
             </div>
-        </section>
+        </div>
     </div>
-
-
 </template>
 
 <style>
 /*************************** Seccion peliculas ******************************/
-.seccion-peliculas {
-    width: 90%;
-}
 
 .seccion-peliculas img {
     width: 23rem;
     padding: 2rem;
+    padding-top: 3rem;
 }
 
 .seccion-peliculas h3 {
-    width: 23rem;
     height: 5rem;
     color: #e37f81;
     font-size: 1.7rem;
@@ -71,22 +64,13 @@ defineProps(['obras']);
     font-family: 'Oswald', sans-serif;
 }
 
-/****************************************** Tablet ******************************************/
-@media screen and (max-width: 991px) and (min-width: 769px) {
-
-    /******* Seccion peliculas *******/
-    .seccion-peliculas {
-        align-items: normal;
-    }
-}
-
+/****************************************** RESPONSIVE ******************************************/
 /****************************************** Movil ******************************************/
 @media screen and (max-width: 768px) {
-
     /******* Seccion peliculas *******/
-    .seccion-peliculas {
+    img, svg, video, canvas, audio, iframe, embed, object {
         display: inline-block;
-        width: 60%;
+        vertical-align: middle;
     }
 }
 </style>
