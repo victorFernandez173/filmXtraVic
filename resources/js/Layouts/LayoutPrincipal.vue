@@ -69,20 +69,20 @@ import { Link } from "@inertiajs/vue3";
             <!-- Links -->
             <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="mobile-menu-2">
                 <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                    <li class="activo">
-                        <Link :href="route('/')" class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent color md:p-0">Inicio</Link>
+                    <li>
+                        <Link :href="route('/')" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700">Inicio</Link>
                     </li>
                     <li>
-                        <Link href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Películas</Link>
+                        <Link href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700">Películas</Link>
                     </li>
                     <li>
-                        <Link href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Valoraciones</Link>
+                        <Link href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700">Valoraciones</Link>
                     </li>
                     <li>
-                        <Link href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contacto</Link>
+                        <Link href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700">Contacto</Link>
                     </li>
                     <li>
-                        <Link :href="route('profile.edit')" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Cuenta</Link>
+                        <Link :href="route('profile.edit')" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700">Cuenta</Link>
                     </li>
                 </ul>
             </div>
@@ -170,13 +170,7 @@ nav * {
 /****************************************** Estilos generales ******************************************/
 #mobile-menu-2 a:hover {
     color: #e37f81;
-
 }
-
-.color {
-    color: #e37f81;
-}
-
 
 /****************************************** Pie de pagina ******************************************/
 footer {
@@ -189,16 +183,8 @@ footer a:hover {
 }
 
 /****************************************** RESPONSIVE ******************************************/
-
-/****************************************** Ordenador ******************************************/
-/****************************************** Seccion peliculas ******************************************/
-@media screen and (min-width: 992px) {
-
-}
-
 /****************************************** Tablet ******************************************/
 @media screen and (max-width: 991px) and (min-width: 769px) {
-
     .logo img {
         width: 20rem;
     }
@@ -206,16 +192,6 @@ footer a:hover {
 
 /****************************************** Movil ******************************************/
 @media screen and (max-width: 768px) {
-    /******* Barra de navegacion *******/
-    .activo {
-        background-color: #e37f81;
-        color: white;
-    }
-
-    .activo a:hover {
-        color: black;
-    }
-
     /******* Pie de pagina *******/
     .logo img {
         width: 16rem;

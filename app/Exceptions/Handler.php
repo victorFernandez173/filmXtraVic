@@ -3,14 +3,51 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpFoundation\Response;
 use Throwable;
 
 class Handler extends ExceptionHandler
 {
     /**
+     * Listado de mensajes de error
+     *
+     * @var array<int, string>
+     */
+    protected array $messages = [
+        500 => 'Oh oh, algo ha debido ir muy mal',
+        503 => 'Servicio no disponible',
+        404 => 'No te montes películas, la página que buscas no existe...',
+        403 => 'No estás autorizado para esto',
+    ];
+
+    /**
+     * @param $request
+     * @param Throwable $e
+     * @return Response
+     * @throws Throwable
+     */
+    public function render($request, Throwable $e): Response
+    {
+        $response = parent::render($request, $e);
+
+        $status = $response->getStatusCode();
+
+        if (! array_key_exists($status, $this->messages)) {
+            return $response;
+        }
+
+        return inertia('error/page', [
+            'status' => $status,
+            'message' => $this->messages[$status],
+        ])
+            ->toResponse($request)
+            ->setStatusCode($status);
+    }
+
+    /**
      * A list of exception types with their corresponding custom log levels.
      *
-     * @var array<class-string<\Throwable>, \Psr\Log\LogLevel::*>
+     * @var array<class-string<Throwable>, \Psr\Log\LogLevel::*>
      */
     protected $levels = [
         //
@@ -19,7 +56,7 @@ class Handler extends ExceptionHandler
     /**
      * A list of the exception types that are not reported.
      *
-     * @var array<int, class-string<\Throwable>>
+     * @var array<int, class-string<Throwable>>
      */
     protected $dontReport = [
         //

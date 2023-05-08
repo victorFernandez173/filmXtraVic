@@ -29,7 +29,10 @@ const submit = () => {
 </script>
 
 <template>
-    <Head title="Log in"/>
+    <Head>
+        <title>Login</title>
+        <meta name="description" content="Página de logueo">
+    </Head>
 
     <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
         {{ status }}

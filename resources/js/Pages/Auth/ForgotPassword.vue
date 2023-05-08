@@ -21,7 +21,10 @@ const submit = () => {
 </script>
 
 <template>
-    <Head title="Forgot Password"/>
+    <Head>
+        <title>Password olvidado</title>
+        <meta name="description" content="Página de password olvidado">
+    </Head>
 
     <div class="mb-4 text-sm text-gray-600">
         Forgot your password? No problem. Just let us know your email address and we will email you a password reset

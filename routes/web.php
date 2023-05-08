@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Models\Obra;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
+use Inertia\Inertia;
 
 
 /*
@@ -22,9 +24,9 @@ use App\Http\Controllers\MainController;
 /*->middleware(['auth', 'verified'])->name('Welcome');*/
 ////////////////////////////////////////////////////////////////////////
 /*PARA TESTEOS*/
-/*Route::get('/2',  function () {
-    return Inertia::render('Welcome2');
-});*/
+Route::get('/filter',  function () {
+    return Inertia::render('Filter', ['obras' => Obra::with('poster')->limit(16)->get()]);
+});
 ////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
 

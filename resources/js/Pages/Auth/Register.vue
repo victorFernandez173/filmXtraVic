@@ -21,7 +21,10 @@ const submit = () => {
 </script>
 
 <template>
-    <Head title="Register"/>
+    <Head>
+        <title>Registro</title>
+        <meta name="description" content="Página de registro">
+    </Head>
 
     <form @submit.prevent="submit">
         <div>
