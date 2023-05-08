@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Models\Obra;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use Inertia\Inertia;
@@ -24,7 +25,7 @@ use Inertia\Inertia;
 ////////////////////////////////////////////////////////////////////////
 /*PARA TESTEOS*/
 Route::get('/filter',  function () {
-    return Inertia::render('Filter');
+    return Inertia::render('Filter', ['obras' => Obra::with('poster')->limit(16)->get()]);
 });
 ////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
