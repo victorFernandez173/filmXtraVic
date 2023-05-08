@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Arr;
 use DB;
 use Inertia\Inertia;
 use App\Models\Obra;
