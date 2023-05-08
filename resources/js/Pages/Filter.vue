@@ -9,13 +9,6 @@ export default {
 <!--script estandar para lo habitual-->
 <script setup>
 import { Link, Head } from "@inertiajs/vue3";
-import { initFlowbite } from 'flowbite'
-import { onMounted } from "vue";
-
-// Para montar componentes Flowbite
-onMounted(() => {
-    initFlowbite();
-})
 
 defineProps(['obras']);
 </script>
@@ -302,8 +295,7 @@ defineProps(['obras']);
 
 .seccion-peliculas img {
     width: 23rem;
-    padding: 2rem;
-    padding-top: 3rem;
+    padding: 3rem 2rem 2rem;
 }
 
 .seccion-peliculas h3 {

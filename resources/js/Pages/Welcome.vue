@@ -50,8 +50,7 @@ defineProps(['obras']);
 
 .seccion-peliculas img {
     width: 23rem;
-    padding: 2rem;
-    padding-top: 3rem;
+    padding: 3rem 2rem 2rem;
 }
 
 .seccion-peliculas h3 {
