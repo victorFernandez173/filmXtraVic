@@ -15,7 +15,7 @@ defineProps(['obras']);
 
 <template>
     <Head>
-        <title>Filtrar</title>
+        <title>Filtrar películas</title>
         <meta name="filter" content="Página de filtrar">
     </Head>
 

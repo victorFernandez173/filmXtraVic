@@ -8,9 +8,10 @@ use App\Models\Obra;
 use Illuminate\Support\Facades\Route;
 use Exception;
 
-class MainController extends Controller
+class BienvenidaController extends Controller
 {
     /**
+     * Genera un array con 16 ids al azar
      * @throws Exception
      */
     public function obtenerDoceObrasAleatorias(){
@@ -27,6 +28,7 @@ class MainController extends Controller
     }
 
     /**
+     * Devuelve la vista de bienvenida con esos 16 id
      * @throws Exception
      */
     public function bienvenida(){
@@ -37,17 +39,5 @@ class MainController extends Controller
             'mostrarCarrusel' => true,
             'mostrarBarraLateral' => true,
         ]);
-    }
-
-    /**
-     * @throws Exception
-     */
-    public function fichaPelicula($titulo){
-        $titulo = str_replace('_', ' ', $titulo);
-
-        return Inertia::render('Obra', [
-            'canLogin' => Route::has('login'),
-            'canRegister' => Route::has('register'),
-            'obra' => Obra::with(['poster', 'secuelas:saga_id,obra_id,orden', 'criticas', 'evaluaciones:obra_id,user_id,evaluacion', 'directors:nombre,edad,defuncion,pais', 'festivals:obra_id,nombre,edicion', 'profesionals:obra_id,medio_id,autor,web,contenido', 'actors:nombre,nombre_real,edad,defuncion,pais', 'generos:genero'])->where('titulo', '=', "$titulo")->get()]);
     }
 }

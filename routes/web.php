@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\FiltrarObrasController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Obra;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MainController;
+use App\Http\Controllers\BienvenidaController;
+use App\Http\Controllers\ObtenerObraController;
 use Inertia\Inertia;
 
 
@@ -24,15 +26,17 @@ use Inertia\Inertia;
 /*->middleware(['auth', 'verified'])->name('Welcome');*/
 ////////////////////////////////////////////////////////////////////////
 /*PARA TESTEOS*/
-Route::get('/filter',  function () {
+/*Route::get('/filter',  function () {
     return Inertia::render('Filter', ['obras' => Obra::with('poster')->limit(16)->get()]);
-});
+});*/
 ////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
 
-Route::get('/', [MainController::class, 'bienvenida'])->name('/');
+Route::get('/', [BienvenidaController::class, 'bienvenida'])->name('/');
 
-Route::get('obra/{titulo}', [MainController::class, 'fichaPelicula'])->name('obra');
+Route::get('obra/{titulo}', [ObtenerObraController::class, 'fichaPelicula'])->name('obra');
+
+Route::get('/obras',  [FiltrarObrasController::class, 'cargaInicial'])->name('obras');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
