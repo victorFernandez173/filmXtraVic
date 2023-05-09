@@ -34,14 +34,11 @@ defineProps(['obras']);
         <!-- Filas de peliculas -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 seccion-peliculas text-center items-center justify-center" v-for="n in 4">
             <div v-for="m in 4">
+
                 <Link :href="route('obra', [$page['props']['obras'][n*4-m]['titulo'].replaceAll(' ', '_')])">
-
                     <div id="idTooltip">
-
-                        <h3 id='idTooltipText'>{{ $page['props']['obras'][n*4-m]['titulo'] }}</h3>
-
                         <h3>{{ $page['props']['obras'][n*4-m]['titulo'] }}</h3>
-
+                        <h3 id='idTooltipText'>{{ $page['props']['obras'][n*4-m]['titulo'] }}</h3>
                     </div>
 
 
@@ -68,8 +65,8 @@ defineProps(['obras']);
     transform: translateX(-50%);
     white-space: nowrap;
     padding: 10px 15px;
-    background: gray;
-    color: white;
+    background: #0a0d35;
+    color: #e37f81;
     visibility: hidden;
     opacity: 0;
     transition: opacity  0.5s ease;
@@ -83,7 +80,7 @@ defineProps(['obras']);
     transform: translateX(-50%);
 }
 
-#idH3:hover #idTooltipText{
+#idTooltip:hover #idTooltipText{
     top: -130%;
     visibility: visible;
     opacity: 1;
