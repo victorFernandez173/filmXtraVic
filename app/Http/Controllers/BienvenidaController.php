@@ -35,9 +35,7 @@ class BienvenidaController extends Controller
         return Inertia::render('Welcome', [
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
-            'obras' => Obra::with('poster')->find($this->obtenerDoceObrasAleatorias()),
-            'mostrarCarrusel' => true,
-            'mostrarBarraLateral' => true,
+            'obras' => Obra::with('poster')->find($this->obtenerDoceObrasAleatorias())
         ]);
     }
 }

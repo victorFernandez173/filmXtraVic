@@ -257,16 +257,17 @@ defineProps(['obras']);
         </section>
 
         <!-- Seccion Principal de contenido -->
-        <div class="contenedor-peliculas justify-center">
-            <h2 class="text-center underline font-bold ">Películas de acción</h2>
+        <div class="container mx-auto contenedor-principal justify-center">
             <!-- Filas de peliculas -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 seccion-peliculas text-center " v-for="n in 4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 seccion-peliculas text-center items-center justify-center" v-for="n in 4">
                 <div v-for="m in 4">
+
                     <Link :href="route('obra', [$page['props']['obras'][n*4-m]['titulo'].replaceAll(' ', '_')])">
                         <div id="idTooltip">
                             <h3>{{ $page['props']['obras'][n*4-m]['titulo'] }}</h3>
                             <h3 id='idTooltipText'>{{ $page['props']['obras'][n*4-m]['titulo'] }}</h3>
                         </div>
+
 
                     </Link>
                     <Link :href="route('obra', [$page['props']['obras'][n*4-m]['titulo'].replaceAll(' ', '_')])">
@@ -324,15 +325,6 @@ defineProps(['obras']);
     z-index: 10;
 }
 
-.contenedor-peliculas h2 {
-    color: #a33f41;
-    font-size: 3rem;
-}
-
-.seccion-peliculas {
-    justify-items: center;
-}
-
 .seccion-peliculas img:hover {
     border: 5px white solid;
     background-color: rgba(227, 127, 129, 0.45);
@@ -358,62 +350,13 @@ defineProps(['obras']);
 }
 
 /****************************************** RESPONSIVE ******************************************/
-/****************************************** Tablet ******************************************/
-@media screen and (max-width: 991px) and (min-width: 769px) {
-    /****************************************** Seccion columna ******************************************/
-    .seccion-columna {
-        width: 20%;
-    }
-
-    /*************************** Seccion peliculas ******************************/
-    .contenedor-peliculas {
-        width: 80%;
-    }
-}
-
 /****************************************** Movil ******************************************/
 @media screen and (max-width: 768px) {
-    /******* Seccion columna *******/
-    .seccion-columna {
-        width: 40%;
-    }
-
     /******* Seccion peliculas *******/
     img, svg, video, canvas, audio, iframe, embed, object {
         display: inline-block;
         vertical-align: middle;
     }
-
-    .contenedor-peliculas {
-        width: 60%;
-    }
-
-    .contenedor-peliculas h2 {
-        padding-right: 35px;
-        padding-left: 35px;
-        font-size: 2.5rem;
-
-    }
-
-    .seccion-peliculas {
-        display: inline-block;
-    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </style>
