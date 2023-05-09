@@ -64,7 +64,7 @@ defineProps(['obras']);
     left: 50%;
     transform: translateX(-50%);
     white-space: nowrap;
-    padding: 10px 15px;
+    padding: 15px 15px;
     background: #0a0d35;
     color: #e37f81;
     visibility: hidden;
@@ -84,7 +84,7 @@ defineProps(['obras']);
     top: 20px;
     visibility: visible;
     opacity: 1;
-    z-index: 100;
+    z-index: 10;
 }
 
 .seccion-peliculas img {

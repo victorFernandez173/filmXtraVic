@@ -257,13 +257,19 @@ defineProps(['obras']);
         </section>
 
         <!-- Seccion Principal de contenido -->
-        <div class="contenedor-peliculas justify-center text-center items-center">
-            <h2 class="pb-10 py-5 font-bold underline">Películas de acción</h2>
+        <div class="container mx-auto contenedor-principal justify-center">
+
             <!-- Filas de peliculas -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center seccion-peliculas" v-for="n in 4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 seccion-peliculas text-center items-center justify-center" v-for="n in 4">
                 <div v-for="m in 4">
+
                     <Link :href="route('obra', [$page['props']['obras'][n*4-m]['titulo'].replaceAll(' ', '_')])">
-                        <h3>{{ $page['props']['obras'][n*4-m]['titulo'] }}</h3>
+                        <div id="idTooltip">
+                            <h3>{{ $page['props']['obras'][n*4-m]['titulo'] }}</h3>
+                            <h3 id='idTooltipText'>{{ $page['props']['obras'][n*4-m]['titulo'] }}</h3>
+                        </div>
+
+
                     </Link>
                     <Link :href="route('obra', [$page['props']['obras'][n*4-m]['titulo'].replaceAll(' ', '_')])">
                         <img :src="'posters/' + $page['props']['obras'][n*4-m]['poster']['ruta']" :alt="$page['props']['obras'][n*4-m]['poster']['alt']">
