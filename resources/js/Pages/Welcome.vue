@@ -65,11 +65,11 @@ defineProps(['obras']);
     transform: translateX(-50%);
     white-space: nowrap;
     padding: 15px 15px;
-    background: #0a0d35;
-    color: #e37f81;
+    background: #e37f81;
+    color: white;
     visibility: hidden;
     opacity: 0;
-    transition: opacity  0.5s ease;
+    transition: opacity  0.1s ease;
 }
 
 #idTooltipText::before{
@@ -87,11 +87,15 @@ defineProps(['obras']);
     z-index: 10;
 }
 
-.seccion-peliculas img {
-    width: 23rem;
-    padding: 1rem 2rem 2rem;
+.seccion-peliculas img:hover {
+    border: 5px white solid;
+    background-color: rgba(227, 127, 129, 0.45);
 }
 
+.seccion-peliculas img {
+    width: 23rem;
+    padding: 2rem 2rem 2rem 2rem;
+}
 
 .seccion-peliculas h3 {
     position: relative;
