@@ -81,9 +81,10 @@ defineProps(['obras']);
 }
 
 #idTooltip:hover #idTooltipText{
-    top: -130%;
+    top: 20px;
     visibility: visible;
     opacity: 1;
+    z-index: 100;
 }
 
 .seccion-peliculas img {
