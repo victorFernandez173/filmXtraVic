@@ -130,37 +130,34 @@ import {Link} from "@inertiajs/vue3";
         <h5 class="py-4 font-bold underline">Por país:</h5>
         <ul>
             <li>
-                <Link href="">Alemania</Link>
+                <Link :href="route('obras')" :data="{ pais : 'alemania' }" method="get" as="button">Alemania</Link>
             </li>
             <li>
-                <Link href="">Australia</Link>
+                <Link :href="route('obras')" :data="{ pais : 'australia' }" method="get" as="button">Australia</Link>
             </li>
             <li>
-                <Link href="">España</Link>
+                <Link :href="route('obras')" :data="{ pais : 'espa_a' }" method="get" as="button">España</Link>
             </li>
             <li>
-                <Link href="">Estados Unidos de América</Link>
+                <Link :href="route('obras')" :data="{ pais : 'estados unidos de america' }" method="get" as="button">Estados Unidos de América</Link>
             </li>
             <li>
-                <Link href="">Francia</Link>
+                <Link :href="route('obras')" :data="{ pais : 'francia' }" method="get" as="button">Francia</Link>
             </li>
             <li>
-                <Link href="">Italia</Link>
+                <Link :href="route('obras')" :data="{ pais : 'italia' }" method="get" as="button">Italia</Link>
             </li>
             <li>
-                <Link href="">Japón</Link>
+                <Link :href="route('obras')" :data="{ pais : 'japon' }" method="get" as="button">Japón</Link>
             </li>
             <li>
-                <Link href="">Nueva Zelanda</Link>
+                <Link :href="route('obras')" :data="{ pais : 'nueva zelanda' }" method="get" as="button">Nueva Zelanda</Link>
             </li>
             <li>
-                <Link href="">Reino Unido</Link>
+                <Link :href="route('obras')" :data="{ pais : 'reino unido' }" method="get" as="button">Reino Unido</Link>
             </li>
             <li>
-                <Link href="">UUS</Link>
-            </li>
-            <li>
-                <Link href="">Ucrania</Link>
+                <Link :href="route('obras')" :data="{ pais : 'ussr' }" method="get" as="button">USSR</Link>
             </li>
         </ul>
     </section>
