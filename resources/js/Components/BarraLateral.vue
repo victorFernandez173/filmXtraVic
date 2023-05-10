@@ -180,7 +180,7 @@ import {Link} from "@inertiajs/vue3";
     white-space: nowrap;
 }
 
-.seccion-columna a:hover {
+.seccion-columna li:hover {
     color: white;
 }
 
