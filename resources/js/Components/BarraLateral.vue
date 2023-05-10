@@ -231,6 +231,7 @@ import {Link} from "@inertiajs/vue3";
 .seccion-columna li{
     text-overflow: ellipsis;
     overflow: hidden;
+    white-space: nowrap;
 }
 
 .seccion-columna a:hover {
