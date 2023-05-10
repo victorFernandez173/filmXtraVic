@@ -2,11 +2,9 @@
 
 use App\Http\Controllers\FiltrarObrasController;
 use App\Http\Controllers\ProfileController;
-use App\Models\Obra;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BienvenidaController;
 use App\Http\Controllers\ObtenerObraController;
-use Inertia\Inertia;
 
 
 /*
@@ -36,7 +34,7 @@ Route::get('/', [BienvenidaController::class, 'bienvenida'])->name('/');
 
 Route::get('obra/{titulo}', [ObtenerObraController::class, 'fichaPelicula'])->name('obra');
 
-Route::get('/obras',  [FiltrarObrasController::class, 'cargaInicial'])->name('obras');
+Route::get('/obras',  [FiltrarObrasController::class, 'cargaDatos'])->name('obras');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

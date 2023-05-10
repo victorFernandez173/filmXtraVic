@@ -9,100 +9,82 @@ import {Link} from "@inertiajs/vue3";
         <h5 class="py-4 font-bold underline">Por género:</h5>
         <ul>
             <li>
-                <Link href="">Acción</Link>
+                <Link :href="route('obras')" :data="{ genero : 'accion' }" method="get" as="button">Acción</Link>
             </li>
             <li>
-                <Link href="">Animación</Link>
+                <Link :href="route('obras')" :data="{ genero : 'aventuras' }" method="get" as="button">Aventuras</Link>
             </li>
             <li>
-                <Link href="">Aventuras</Link>
+                <Link :href="route('obras')" :data="{ genero : 'biografico' }" method="get" as="button">Biográfico</Link>
             </li>
             <li>
-                <Link href="">Bibliográfico</Link>
+                <Link :href="route('obras')" :data="{ genero : 'belico' }" method="get" as="button">Bélico</Link>
             </li>
             <li>
-                <Link href="">Bélico</Link>
+                <Link :href="route('obras')" :data="{ genero : 'ciencia ficcion' }" method="get" as="button">Ciencia ficción</Link>
             </li>
             <li>
-                <Link href="">Ciencia ficción</Link>
+                <Link :href="route('obras')" :data="{ genero : 'cine mudo' }" method="get" as="button">Cine Mudo</Link>
             </li>
             <li>
-                <Link href="">Cine Mudo</Link>
+                <Link :href="route('obras')" :data="{ genero : 'cine negro' }" method="get" as="button">Cine Negro</Link>
             </li>
             <li>
-                <Link href="">Cine Negro</Link>
+                <Link :href="route('obras')" :data="{ genero : 'comedia' }" method="get" as="button">Comedia</Link>
             </li>
             <li>
-                <Link href="">Comedia</Link>
+                <Link :href="route('obras')" :data="{ genero : 'cortometraje' }" method="get" as="button">Cortometraje</Link>
             </li>
             <li>
-                <Link href="">Cortometraje</Link>
+                <Link :href="route('obras')" :data="{ genero : 'crimen' }" method="get" as="button">Crimen</Link>
             </li>
             <li>
-                <Link href="">Crimen</Link>
+                <Link :href="route('obras')" :data="{ genero : 'deportiva' }" method="get" as="button">Deportiva</Link>
             </li>
             <li>
-                <Link href="">Deportiva</Link>
+                <Link :href="route('obras')" :data="{ genero : 'documental' }" method="get" as="button">Documental</Link>
             </li>
             <li>
-                <Link href="">Documental</Link>
+                <Link :href="route('obras')" :data="{ genero : 'drama' }" method="get" as="button">Drama</Link>
             </li>
             <li>
-                <Link href="">Drama</Link>
+                <Link :href="route('obras')" :data="{ genero : 'fantastico' }" method="get" as="button">Fantástico</Link>
             </li>
             <li>
-                <Link href="">Erótico</Link>
+                <Link :href="route('obras')" :data="{ genero : 'historica' }" method="get" as="button">Histórica</Link>
             </li>
             <li>
-                <Link href="">Experimental</Link>
+                <Link :href="route('obras')" :data="{ genero : 'infantil' }" method="get" as="button">Infantil</Link>
             </li>
             <li>
-                <Link href="">Fantástico</Link>
+                <Link :href="route('obras')" :data="{ genero : 'intriga' }" method="get" as="button">Intriga</Link>
             </li>
             <li>
-                <Link href="">Histórica</Link>
+                <Link :href="route('obras')" :data="{ genero : 'musical' }" method="get" as="button">Musical</Link>
             </li>
             <li>
-                <Link href="">Infantil</Link>
+                <Link :href="route('obras')" :data="{ genero : 'policiaca' }" method="get" as="button">Policiaca</Link>
             </li>
             <li>
-                <Link href="">Intriga</Link>
+                <Link :href="route('obras')" :data="{ genero : 'propagand%stico' }" method="get" as="button">Propagandístico</Link>
             </li>
             <li>
-                <Link href="">Musical</Link>
+                <Link :href="route('obras')" :data="{ genero : 'pelicula de culto' }" method="get" as="button">Película de culto</Link>
             </li>
             <li>
-                <Link href="">Policiaca</Link>
+                <Link :href="route('obras')" :data="{ genero : 'road movie' }" method="get" as="button">Road Movie</Link>
             </li>
             <li>
-                <Link href="">Propagandístico</Link>
+                <Link :href="route('obras')" :data="{ genero : 'romance' }" method="get" as="button">Romance</Link>
             </li>
             <li>
-                <Link href="">Película de culto</Link>
+                <Link :href="route('obras')" :data="{ genero : 'terror' }" method="get" as="button">Terror</Link>
             </li>
             <li>
-                <Link href="">Religiosa</Link>
+                <Link :href="route('obras')" :data="{ genero : 'thriller' }" method="get" as="button">Thriller</Link>
             </li>
             <li>
-                <Link href="">Road Movie</Link>
-            </li>
-            <li>
-                <Link href="">Romance</Link>
-            </li>
-            <li>
-                <Link href="">Serie B</Link>
-            </li>
-            <li>
-                <Link href="">Serie de TV</Link>
-            </li>
-            <li>
-                <Link href="">Terror</Link>
-            </li>
-            <li>
-                <Link href="">Thriller</Link>
-            </li>
-            <li>
-                <Link href="">Western</Link>
+                <Link :href="route('obras')" :data="{ genero : 'western' }" method="get" as="button">Western</Link>
             </li>
         </ul>
 
