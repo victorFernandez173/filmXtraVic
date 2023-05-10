@@ -139,7 +139,10 @@ import {Link} from "@inertiajs/vue3";
                 <Link :href="route('obras')" :data="{ pais : 'espa_a' }" method="get" as="button">España</Link>
             </li>
             <li>
-                <Link :href="route('obras')" :data="{ pais : 'estados unidos de america' }" method="get" as="button">Estados Unidos de América</Link>
+                <div id="tio">
+                  <Link :href="route('obras')" :data="{ pais : 'estados unidos de america' }" method="get" as="button">Estados Unidos de América</Link>
+                </div>
+
             </li>
             <li>
                 <Link :href="route('obras')" :data="{ pais : 'francia' }" method="get" as="button">Francia</Link>
@@ -171,11 +174,15 @@ import {Link} from "@inertiajs/vue3";
     padding: 1rem 2rem 1rem 1rem;
 }
 
-.seccion-columna li{
+button {
+    text-align: left;
+    width: 100%;
+    display: block;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
 }
+
 
 .seccion-columna li:hover {
     color: white;
