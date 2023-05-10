@@ -11,8 +11,9 @@ export default {
 <script setup>
 import {Link, Head} from "@inertiajs/vue3";
 import BarraLateral from "../Components/BarraLateral.vue";
+import TituloH2Dinamico from "../Components/TituloH2Dinamico.vue";
 
-defineProps(['obras']);
+defineProps(['obras', 'titulo']);
 </script>
 
 <template>
@@ -24,22 +25,27 @@ defineProps(['obras']);
     <div class="flex">
         <!-- Barra lateral -->
         <BarraLateral/>
-        <!-- Seccion Principal de contenido -->
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 seccion-peliculas text-center w-full justify-items-center">
-            <div id="idObra" class="w-full p-6" v-for="obra in obras" :key="obra['id']">
-                <Link :href="route('obra', [obra['titulo'].replaceAll(' ', '_')])">
-                    <div id="idTooltip">
-                        <h3 class="w-full">{{ obra['titulo'] }}</h3>
-                        <h3 class="w-full" id='idTooltipText'>{{ obra['titulo'] }}</h3>
-                    </div>
-                </Link>
-                <Link :href="route('obra', [ obra['titulo'].replaceAll(' ', '_')])">
-                    <img id="idImgObra" class="w-full mt-3" :src="'posters/' + obra['poster']['ruta']"
-                         :alt="obra['poster']['alt']">
-                </Link>
+        <div class="flex flex-wrap content-start">
+            <!-- Título dinámico -->
+            <TituloH2Dinamico :titulo="titulo" />
+            <!-- Seccion Principal de contenido -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 seccion-peliculas text-center w-full justify-items-center">
+                <div id="idObra" class="w-full p-6" v-for="obra in obras" :key="obra['id']">
+                    <Link :href="route('obra', [obra['titulo'].replaceAll(' ', '_')])">
+                        <div id="idTooltip">
+                            <h3 class="w-full">{{ obra['titulo'] }}</h3>
+                            <h3 class="w-full" id='idTooltipText'>{{ obra['titulo'] }}</h3>
+                        </div>
+                    </Link>
+                    <Link :href="route('obra', [ obra['titulo'].replaceAll(' ', '_')])">
+                        <img id="idImgObra" class="w-full mt-3" :src="'posters/' + obra['poster']['ruta']"
+                             :alt="obra['poster']['alt']">
+                    </Link>
+                </div>
             </div>
         </div>
+
     </div>
 </template>
 
