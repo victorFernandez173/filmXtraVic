@@ -92,37 +92,37 @@ import {Link} from "@inertiajs/vue3";
         <h5 class="py-4 font-bold underline">Por década:</h5>
         <ul>
             <li>
-                <Link href="">2020s</Link>
+                <Link :href="route('obras')" :data="{ fecha : '201_' }" method="get" as="button">2010s</Link>
             </li>
             <li>
-                <Link href="">2010s</Link>
+                <Link :href="route('obras')" :data="{ fecha : '200_' }" method="get" as="button">2000s</Link>
             </li>
             <li>
-                <Link href="">2000s</Link>
+                <Link :href="route('obras')" :data="{ fecha : '199_' }" method="get" as="button">90s</Link>
             </li>
             <li>
-                <Link href="">90s</Link>
+                <Link :href="route('obras')" :data="{ fecha : '198_' }" method="get" as="button">80s</Link>
             </li>
             <li>
-                <Link href="">80s</Link>
+                <Link :href="route('obras')" :data="{ fecha : '197_' }" method="get" as="button">70s</Link>
             </li>
             <li>
-                <Link href="">70s</Link>
+                <Link :href="route('obras')" :data="{ fecha : '196_' }" method="get" as="button">60s</Link>
             </li>
             <li>
-                <Link href="">60s</Link>
+                <Link :href="route('obras')" :data="{ fecha : '195_' }" method="get" as="button">50s</Link>
             </li>
             <li>
-                <Link href="">50s</Link>
+                <Link :href="route('obras')" :data="{ fecha : '194_' }" method="get" as="button">40s</Link>
             </li>
             <li>
-                <Link href="">40s</Link>
+                <Link :href="route('obras')" :data="{ fecha : '193_' }" method="get" as="button">30s</Link>
             </li>
             <li>
-                <Link href="">30s</Link>
+                <Link :href="route('obras')" :data="{ fecha : '192_' }" method="get" as="button">20s</Link>
             </li>
             <li>
-                <Link href="">20s</Link>
+                <Link :href="route('obras')" :data="{ fecha : '190_' }" method="get" as="button">00s</Link>
             </li>
         </ul>
 

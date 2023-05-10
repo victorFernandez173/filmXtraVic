@@ -21,6 +21,8 @@ class FiltrarObrasController extends Controller
         } else {
             if(request()->has('genero')){
                 $obras = Obra::with('poster', 'generos') ->whereHas('generos', function (Builder $query) { $query->where('genero', 'like', '%'. request('genero') .'%');})->get()->toArray();
+            } else if (request()->has('fecha')){
+                $obras = Obra::with('poster')->where('fecha', 'like', request('fecha'))->get();
             }
         }
 
