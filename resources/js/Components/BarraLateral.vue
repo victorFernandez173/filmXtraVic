@@ -187,19 +187,22 @@ button {
 .seccion-columna li:hover {
     color: white;
 }
-
+/****************************RESPONSIVE****************************/
+/************Tablet************/
 @media screen and (max-width: 1024px) {
     li{
         font-size: 0.9rem;
     }
 }
 
+/************Movil************/
 @media screen and (max-width: 768px) {
     /******* Seccion columna *******/
     .seccion-columna {
         width: 20%;
         padding-right: 0.5rem;
     }
+
     li{
         font-size: 0.7rem;
     }

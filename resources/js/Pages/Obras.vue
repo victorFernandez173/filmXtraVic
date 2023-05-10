@@ -25,8 +25,8 @@ defineProps(['obras']);
         <!-- Barra lateral -->
         <BarraLateral/>
         <!-- Seccion Principal de contenido -->
-        <div
-            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 seccion-peliculas text-center w-full justify-items-center">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 seccion-peliculas text-center w-full justify-items-center">
             <div id="idObra" class="w-full p-6" v-for="obra in obras" :key="obra['id']">
                 <Link :href="route('obra', [obra['titulo'].replaceAll(' ', '_')])">
                     <div id="idTooltip">
