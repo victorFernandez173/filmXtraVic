@@ -30,21 +30,20 @@ defineProps(['obras']);
     <Carrusel></Carrusel>
 
     <!-- Seccion Principal de contenido -->
-    <div class="container mx-auto contenedor-principal justify-center">
-        <!-- Filas de peliculas -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 seccion-peliculas text-center items-center justify-center" v-for="n in 4">
-            <div v-for="m in 4">
-
-                <Link :href="route('obra', [$page['props']['obras'][n*4-m]['titulo'].replaceAll(' ', '_')])">
+    <div class="flex w-4/5 m-auto pt-10">
+        <!-- Seccion Principal de contenido -->
+        <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 seccion-peliculas text-center w-full justify-items-center">
+            <div id="idObra" class="w-full p-6" v-for="obra in obras">
+                <Link :href="route('obra', [obra['titulo'].replaceAll(' ', '_')])">
                     <div id="idTooltip">
-                        <h3>{{ $page['props']['obras'][n*4-m]['titulo'] }}</h3>
-                        <h3 id='idTooltipText'>{{ $page['props']['obras'][n*4-m]['titulo'] }}</h3>
+                        <h3 class="w-full">{{ obra['titulo'] }}</h3>
+                        <h3 class="w-full" id='idTooltipText'>{{ obra['titulo'] }}</h3>
                     </div>
-
-
                 </Link>
-                <Link :href="route('obra', [$page['props']['obras'][n*4-m]['titulo'].replaceAll(' ', '_')])">
-                    <img :src="'posters/' + $page['props']['obras'][n*4-m]['poster']['ruta']" :alt="$page['props']['obras'][n*4-m]['poster']['alt']">
+                <Link :href="route('obra', [ obra['titulo'].replaceAll(' ', '_')])">
+                    <img id="idImgObra" class="w-full mt-3" :src="'posters/' + obra['poster']['ruta']"
+                         :alt="obra['poster']['alt']">
                 </Link>
             </div>
         </div>
@@ -53,48 +52,39 @@ defineProps(['obras']);
 
 <style scoped>
 /*************************** Seccion peliculas ******************************/
-#idTooltip{
+#idTooltip {
     position: relative;
     cursor: pointer;
 }
 
-#idTooltipText{
+#idTooltipText {
     position: absolute;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
     white-space: nowrap;
-    padding: 15px 15px;
+    padding: 8px 8px;
     background: #e37f81;
     color: white;
     visibility: hidden;
     opacity: 0;
-    transition: opacity  0.1s ease;
+    transition: opacity 0.9s ease-out;
 }
 
-#idTooltipText::before{
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: 100%;
-    transform: translateX(-50%);
-}
-
-#idTooltip:hover #idTooltipText{
-    top: 20px;
+#idTooltip:hover #idTooltipText {
     visibility: visible;
     opacity: 1;
     z-index: 10;
+    font-size: 1.1rem;
+    width: 100%;
 }
 
-.seccion-peliculas img:hover {
-    border: 5px white solid;
-    background-color: rgba(227, 127, 129, 0.45);
+#idTooltip:hover h3 {
+    visibility: hidden;
 }
 
-.seccion-peliculas img {
-    width: 23rem;
-    padding: 2rem 2rem 2rem 2rem;
+#idImgObra:hover {
+    border: 10px #e37f81 solid;
 }
 
 .seccion-peliculas h3 {
@@ -103,21 +93,9 @@ defineProps(['obras']);
     font-size: 1.6rem;
     font-weight: bold;
     text-decoration: underline;
-    padding-top: 2rem;
     font-family: 'Oswald', sans-serif;
+    white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    white-space: nowrap;
-    text-align: center;
-}
-
-/****************************************** RESPONSIVE ******************************************/
-/****************************************** Movil ******************************************/
-@media screen and (max-width: 768px) {
-    /******* Seccion peliculas *******/
-    img, svg, video, canvas, audio, iframe, embed, object {
-        display: inline-block;
-        vertical-align: middle;
-    }
 }
 </style>

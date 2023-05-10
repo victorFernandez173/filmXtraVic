@@ -87,6 +87,8 @@ defineProps(['obras']);
     font-weight: bold;
     text-decoration: underline;
     font-family: 'Oswald', sans-serif;
+    text-overflow: ellipsis;
+    overflow: hidden;
     white-space: nowrap;
 }
 </style>
