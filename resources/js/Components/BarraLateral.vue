@@ -133,34 +133,7 @@ import {Link} from "@inertiajs/vue3";
                 <Link href="">Alemania</Link>
             </li>
             <li>
-                <Link href="">Andorra</Link>
-            </li>
-            <li>
-                <Link href="">Argentina</Link>
-            </li>
-            <li>
                 <Link href="">Australia</Link>
-            </li>
-            <li>
-                <Link href="">Austria</Link>
-            </li>
-            <li>
-                <Link href="">Bélgica</Link>
-            </li>
-            <li>
-                <Link href="">Brasil</Link>
-            </li>
-            <li>
-                <Link href="">Canadá</Link>
-            </li>
-            <li>
-                <Link href="">China</Link>
-            </li>
-            <li>
-                <Link href="">Colmbia</Link>
-            </li>
-            <li>
-                <Link href="">Dinamarca</Link>
             </li>
             <li>
                 <Link href="">España</Link>
@@ -169,25 +142,7 @@ import {Link} from "@inertiajs/vue3";
                 <Link href="">Estados Unidos de América</Link>
             </li>
             <li>
-                <Link href="">Estonia</Link>
-            </li>
-            <li>
-                <Link href="">Federación de Rusia</Link>
-            </li>
-            <li>
-                <Link href="">Finlandia</Link>
-            </li>
-            <li>
                 <Link href="">Francia</Link>
-            </li>
-            <li>
-                <Link href="">Hungría</Link>
-            </li>
-            <li>
-                <Link href="">Irlanda</Link>
-            </li>
-            <li>
-                <Link href="">Islandia</Link>
             </li>
             <li>
                 <Link href="">Italia</Link>
@@ -196,22 +151,13 @@ import {Link} from "@inertiajs/vue3";
                 <Link href="">Japón</Link>
             </li>
             <li>
-                <Link href="">Noruega</Link>
-            </li>
-            <li>
-                <Link href="">Países Bajos</Link>
-            </li>
-            <li>
-                <Link href="">Polonia</Link>
-            </li>
-            <li>
-                <Link href="">Portugal</Link>
+                <Link href="">Nueva Zelanda</Link>
             </li>
             <li>
                 <Link href="">Reino Unido</Link>
             </li>
             <li>
-                <Link href="">Rumania</Link>
+                <Link href="">UUS</Link>
             </li>
             <li>
                 <Link href="">Ucrania</Link>
