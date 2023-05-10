@@ -233,7 +233,7 @@ import {Link} from "@inertiajs/vue3";
     overflow: hidden;
 }
 
-.seccion-columna a:hover {
+.seccion-columna li:hover {
     color: white;
 }
 
