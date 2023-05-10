@@ -6,7 +6,7 @@ import {Link} from "@inertiajs/vue3";
     <!-- Seccion columna izquierda -->
     <section class="seccion-columna p-4 pb-8">
         <!-- Genero -->
-        <h5 class="py-4 font-bold underline">Por género:</h5>
+        <h5 class="py-4 font-bold underline">Género</h5>
         <ul>
             <li>
                 <Link :href="route('obras')" :data="{ genero : 'accion' }" method="get" as="button">Acción</Link>
@@ -89,7 +89,7 @@ import {Link} from "@inertiajs/vue3";
         </ul>
 
         <!-- Decada -->
-        <h5 class="py-4 font-bold underline">Por década:</h5>
+        <h5 class="py-4 font-bold underline">Década</h5>
         <ul>
             <li>
                 <Link :href="route('obras')" :data="{ fecha : '201_' }" method="get" as="button">2010s</Link>
@@ -127,7 +127,7 @@ import {Link} from "@inertiajs/vue3";
         </ul>
 
         <!-- Pais -->
-        <h5 class="py-4 font-bold underline">Por país:</h5>
+        <h5 class="py-4 font-bold underline">Paises</h5>
         <ul>
             <li>
                 <Link :href="route('obras')" :data="{ pais : 'alemania' }" method="get" as="button">Alemania</Link>
