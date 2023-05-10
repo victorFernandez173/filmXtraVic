@@ -127,7 +127,7 @@ import {Link} from "@inertiajs/vue3";
         </ul>
 
         <!-- Pais -->
-        <h5 class="py-4 font-bold underline">Paises</h5>
+        <h5 class="py-4 font-bold underline">País</h5>
         <ul>
             <li>
                 <Link :href="route('obras')" :data="{ pais : 'alemania' }" method="get" as="button">Alemania</Link>
