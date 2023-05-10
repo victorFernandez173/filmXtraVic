@@ -17,6 +17,6 @@ class FiltrarObrasController extends Controller
         return Inertia::render('Obras', [
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
-            'obras' => Obra::with('poster')->limit(16)->get()]);
+            'obras' => Obra::with('poster')->get()]);
     }
 }

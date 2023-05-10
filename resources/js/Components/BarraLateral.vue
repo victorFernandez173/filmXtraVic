@@ -4,7 +4,7 @@ import {Link} from "@inertiajs/vue3";
 
 <template>
     <!-- Seccion columna izquierda -->
-    <section class="seccion-columna w-1/10 p-4 pb-8">
+    <section class="seccion-columna p-4 pb-8">
         <!-- Genero -->
         <h5 class="py-4 font-bold underline">Por género:</h5>
         <ul>
@@ -242,17 +242,33 @@ import {Link} from "@inertiajs/vue3";
 /****************************************** Seccion columna ******************************************/
 .seccion-columna {
     background-color: #e37f81;
+    width: 12%;
+    padding: 1rem 2rem 1rem 1rem;
+}
+
+.seccion-columna li{
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .seccion-columna a:hover {
     color: white;
 }
 
+@media screen and (max-width: 1024px) {
+    li{
+        font-size: 0.9rem;
+    }
+}
+
 @media screen and (max-width: 768px) {
     /******* Seccion columna *******/
     .seccion-columna {
-        width: 40%;
+        width: 20%;
+        padding-right: 0.5rem;
     }
-
+    li{
+        font-size: 0.7rem;
+    }
 }
 </style>

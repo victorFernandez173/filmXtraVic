@@ -51,7 +51,7 @@ defineProps(['obras']);
     </div>
 </template>
 
-<style>
+<style scoped>
 /*************************** Seccion peliculas ******************************/
 #idTooltip{
     position: relative;
