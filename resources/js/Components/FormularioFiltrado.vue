@@ -3,12 +3,6 @@ import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import { useForm } from '@inertiajs/vue3';
 
-/*
-
-const paises = [
-    'ESTADOS UNIDOS DE AMERICA', 'NUEVA ZELANDA', 'ITALIA', 'REINO UNIDO', 'FRANCIA', 'ESPAÑA', 'AUSTRALIA', 'ALEMANIA', 'USSR', 'JAPON',
-];*/
-
 const form = useForm({
     genero: '',
     pais: '',
