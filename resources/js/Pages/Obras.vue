@@ -23,7 +23,7 @@ defineProps(['obras', 'titulo']);
         <meta name="filter" content="Página de filtrar">
     </Head>
 
-    <div class="flex">
+    <div class="flex overflow-x-hidden">
         <!-- Barra lateral -->
         <BarraLateral/>
 
@@ -33,7 +33,7 @@ defineProps(['obras', 'titulo']);
             <!-- Formulario de filtrado -->
             <FormularioFiltrado :paises="$page['props']['paises']" :generos="$page['props']['generos']" />
             <!-- Seccion Principal de contenido -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 seccion-peliculas text-center w-full justify-items-center">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 seccion-peliculas text-center w-full justify-items-center pl-8 pr-8">
                 <div id="idObra" class="w-full p-6" v-for="obra in obras" :key="obra['id']">
                     <Link :href="route('obra', [obra['titulo'].replaceAll(' ', '_')])">
                         <div id="idTooltip" class="flex justify-center">

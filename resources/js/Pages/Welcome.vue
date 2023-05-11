@@ -72,7 +72,7 @@ defineProps(['obras']);
     visibility: visible;
     opacity: 1;
     z-index: 10;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
 }
 
 #idTooltip:hover h3 {
