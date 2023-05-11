@@ -14,19 +14,22 @@ class FiltrarObrasController extends Controller
      * Para obtener la información de una obra
      * @throws Exception
      */
-    public function cargaDatos(){
+    public function cargaDatos()
+    {
         $obras = null;
         $titulo = null;
-        if(count(request()->all()) == 0){
+        if (count(request()->all()) == 0) {
             $obras = Obra::with('poster')->get();
         } else {
-            if(request()->has('genero')){
+            if (request()->has('genero')) {
                 $titulo = 'Género: ' . request('genero');
-                $obras = Obra::with('poster', 'generos') ->whereHas('generos', function (Builder $query) { $query->where('genero', 'like', '%'. request('genero') .'%');})->get()->toArray();
-            } else if (request()->has('fecha')){
+                $obras = Obra::with('poster', 'generos')->whereHas('generos', function (Builder $query) {
+                    $query->where('genero', 'like', '%' . request('genero') . '%');
+                })->get()->toArray();
+            } else if (request()->has('fecha')) {
                 $titulo = 'Década de los: ' . request('fecha');
                 $obras = Obra::with('poster')->where('fecha', 'like', request('fecha'))->get();
-            } else if (request()->has('pais')){
+            } else if (request()->has('pais')) {
                 $titulo = 'País: ' . request('pais');
                 $obras = Obra::with('poster')->where('pais', 'like', request('pais'))->get();
             }
