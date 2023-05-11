@@ -5,3 +5,8 @@
         <slot />
     </button>
 </template>
+<style scoped>
+button {
+    background:  #e37f81;
+}
+</style>
