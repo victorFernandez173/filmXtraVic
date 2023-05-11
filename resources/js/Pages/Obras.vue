@@ -31,7 +31,7 @@ defineProps(['obras', 'titulo']);
             <!-- Título dinámico -->
             <TituloH2Dinamico :titulo="titulo" />
             <!-- Formulario de filtrado -->
-            <FormularioFiltrado :generos="$page['props']['generos']" />
+            <FormularioFiltrado :paises="$page['props']['paises']" :generos="$page['props']['generos']" />
             <!-- Seccion Principal de contenido -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 seccion-peliculas text-center w-full justify-items-center">
                 <div id="idObra" class="w-full p-6" v-for="obra in obras" :key="obra['id']">

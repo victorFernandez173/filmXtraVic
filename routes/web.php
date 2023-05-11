@@ -34,7 +34,10 @@ Route::get('/', [BienvenidaController::class, 'bienvenida'])->name('/');
 
 Route::get('obra/{titulo}', [ObtenerObraController::class, 'fichaPelicula'])->name('obra');
 
-Route::get('/obras',  [FiltrarObrasController::class, 'cargaDatos'])->name('obras');
+Route::controller(FiltrarObrasController::class)->group(function () {
+    Route::get('/obras', 'cargaDatos')->name('obras');
+    Route::post('/obras', 'formulario')->name('obrasPost');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -8,7 +8,7 @@ use Exception;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-use PhpParser\Node\Scalar\String_;
+use Inertia\Response;
 
 class FiltrarObrasController extends Controller
 {
@@ -17,8 +17,9 @@ class FiltrarObrasController extends Controller
     /**
      * Para obtener la información de una obra
      * @throws Exception
+     * @return Response
      */
-    public function cargaDatos()
+    public function cargaDatos(): Response
     {
         $obras = null;
         $titulo = null;
@@ -44,7 +45,26 @@ class FiltrarObrasController extends Controller
             'canRegister' => Route::has('register'),
             'obras' => $obras,
             'titulo' => $titulo,
-            'generos' => Genero::select('genero')->get()]);
+            'generos' => Genero::select('genero')->get(),
+            'paises' => Obra::select('pais')->groupBy('pais')->get()
+        ]);
+    }
+
+    /**
+     * Para obtener la informacion del formulario
+     * @throws Exception
+     * @return Response
+     */
+    public function formulario(): Response
+    {
+        return Inertia::render('Obras', [
+            'canLogin' => Route::has('login'),
+            'canRegister' => Route::has('register'),
+            'obras' => 'array con pelis',
+            'titulo' => 'Forulario de filtrado',
+            'generos' => Genero::select('genero')->get(),
+            'paises' => Obra::select('pais')->groupBy('pais')->get()
+        ]);
     }
 
     /**

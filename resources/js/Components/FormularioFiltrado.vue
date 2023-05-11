@@ -1,7 +1,7 @@
 <script setup>
 import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
-import {Link, useForm} from '@inertiajs/vue3';
+import { useForm } from '@inertiajs/vue3';
 
 /*
 
@@ -17,31 +17,69 @@ const form = useForm({
 });
 
 const submit = () => {
-    form.post(route('obras'));
+    form.post(route('obrasPost'));
 };
 
-defineProps(['generos']);
+defineProps(['generos', 'paises']);
 </script>
 
 <template>
 
     <form @submit.prevent="submit">
-        <div>
-            <InputLabel for="idGenero" value="Genero"/>
+        <div id="idPrimero">
+            <div>
+                <InputLabel for="idGenero" value="Genero"/>
 
-            <select name="" id="idGenero">
-                <option v-for="genero in generos">{{ genero['genero']}}</option>
-            </select>
+                <select name="genero" id="idGenero">
+                    <option v-for="genero in generos">{{ genero['genero']}}</option>
+                </select>
+            </div>
+            <div>
+                <InputLabel for="idPais" value="Pais"/>
+
+                <select name="pais" id="idPais">
+                    <option v-for="pais in paises">{{ pais['pais']}}</option>
+                </select>
+            </div>
+            <div>
+                <InputLabel for="idDesde" value="Desde"/>
+
+                <select name="desde" id="idDesde">
+                    <option v-for="n in 100">{{ n }}</option>
+                </select>
+            </div>
+            <div>
+                <InputLabel for="idHasta" value="Hasta"/>
+
+                <select name="hasta" id="idHasta">
+                    <option v-for="n in 120">{{ n }}</option>
+                </select>
+            </div>
         </div>
-
+        <div id="idSegundo">
             <PrimaryButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                 Filtrar
             </PrimaryButton>
+        </div>
     </form>
 </template>
 
 <style scoped>
-form{
-    width: 100%;
+form {
+    margin: auto;
+    width: 80%;
+    padding: 20px;
+    border: #e37f81 3px solid;
+}
+
+#idPrimero {
+    display: flex;
+    justify-content: space-around;
+}
+
+#idSegundo {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
 }
 </style>
