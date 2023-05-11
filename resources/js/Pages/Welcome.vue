@@ -36,9 +36,9 @@ defineProps(['obras']);
             class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 seccion-peliculas text-center w-full justify-items-center">
             <div id="idObra" class="w-full p-6" v-for="obra in obras" :key="obra['id']">
                 <Link :href="route('obra', [obra['titulo'].replaceAll(' ', '_')])">
-                    <div id="idTooltip">
+                    <div id="idTooltip" class="flex justify-center">
                         <h3>{{ obra['titulo'] }}</h3>
-                        <h3 id='idTooltipText'>{{ obra['titulo'] }}</h3>
+                        <h3 class="scroll-left justify-center" id='idTooltipText'>{{ obra['titulo'] }}</h3>
                     </div>
                 </Link>
                 <Link :href="route('obra', [ obra['titulo'].replaceAll(' ', '_')])">
@@ -60,15 +60,12 @@ defineProps(['obras']);
 #idTooltipText {
     position: absolute;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    white-space: nowrap;
-    padding: 8px 8px;
+    padding: 8px 16px;
     background: #e37f81;
     color: white;
     visibility: hidden;
     opacity: 0;
-    transition: opacity 0.9s ease-out;
+    transition: opacity 0.5s ease-out;
 }
 
 #idTooltip:hover #idTooltipText {
@@ -76,7 +73,6 @@ defineProps(['obras']);
     opacity: 1;
     z-index: 10;
     font-size: 1.1rem;
-    width: 100%;
 }
 
 #idTooltip:hover h3 {

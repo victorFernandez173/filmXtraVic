@@ -136,7 +136,7 @@ import {Link} from "@inertiajs/vue3";
                 <Link :href="route('obras')" :data="{ pais : 'australia' }" method="get" as="button">Australia</Link>
             </li>
             <li>
-                <Link :href="route('obras')" :data="{ pais : 'espa_a' }" method="get" as="button">España</Link>
+                <Link :href="route('obras')" :data="{ pais : 'españa' }" method="get" as="button">España</Link>
             </li>
             <li>
                 <div id="tio">
