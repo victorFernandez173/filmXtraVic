@@ -37,8 +37,8 @@ defineProps(['obras']);
             <div id="idObra" class="w-full p-6" v-for="obra in obras" :key="obra['id']">
                 <Link :href="route('obra', [obra['titulo'].replaceAll(' ', '_')])">
                     <div id="idTooltip">
-                        <h3 class="w-full">{{ obra['titulo'] }}</h3>
-                        <h3 class="w-full" id='idTooltipText'>{{ obra['titulo'] }}</h3>
+                        <h3>{{ obra['titulo'] }}</h3>
+                        <h3 id='idTooltipText'>{{ obra['titulo'] }}</h3>
                     </div>
                 </Link>
                 <Link :href="route('obra', [ obra['titulo'].replaceAll(' ', '_')])">
