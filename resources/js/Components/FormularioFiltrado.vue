@@ -31,6 +31,7 @@ defineProps(['generos', 'paises']);
                 <InputLabel for="idGenero" value="Genero"/>
 
                 <select name="genero" id="idGenero">
+                    <option selected>-</option>
                     <option v-for="genero in generos">{{ genero['genero']}}</option>
                 </select>
             </div>
@@ -38,6 +39,7 @@ defineProps(['generos', 'paises']);
                 <InputLabel for="idPais" value="Pais"/>
 
                 <select name="pais" id="idPais">
+                    <option selected>-</option>
                     <option v-for="pais in paises">{{ pais['pais']}}</option>
                 </select>
             </div>
@@ -45,14 +47,16 @@ defineProps(['generos', 'paises']);
                 <InputLabel for="idDesde" value="Desde"/>
 
                 <select name="desde" id="idDesde">
-                    <option v-for="n in 100">{{ n }}</option>
+                    <option selected>-</option>
+                    <option v-for="n in 154">{{ n + 1869 }}</option>
                 </select>
             </div>
             <div>
                 <InputLabel for="idHasta" value="Hasta"/>
 
                 <select name="hasta" id="idHasta">
-                    <option v-for="n in 120">{{ n }}</option>
+                    <option selected>-</option>
+                    <option v-for="n in 154">{{ n + 1869 }}</option>
                 </select>
             </div>
         </div>
