@@ -10,10 +10,10 @@ const paises = [
 ];*/
 
 const form = useForm({
-    genero: '',
-    pais: '',
-    desde: '',
-    hasta: '',
+    genero: '-',
+    pais: '-',
+    desde: '-',
+    hasta: '-',
 });
 
 const submit = () => {
@@ -30,32 +30,28 @@ defineProps(['generos', 'paises']);
             <div>
                 <InputLabel for="idGenero" value="Genero"/>
 
-                <select name="genero" id="idGenero">
-                    <option selected>-</option>
+                <select name="genero" id="idGenero" v-model="form.genero">
                     <option v-for="genero in generos">{{ genero['genero']}}</option>
                 </select>
             </div>
             <div>
                 <InputLabel for="idPais" value="Pais"/>
 
-                <select name="pais" id="idPais">
-                    <option selected>-</option>
+                <select name="pais" id="idPais" v-model="form.pais">
                     <option v-for="pais in paises">{{ pais['pais']}}</option>
                 </select>
             </div>
             <div>
                 <InputLabel for="idDesde" value="Desde"/>
 
-                <select name="desde" id="idDesde">
-                    <option selected>-</option>
+                <select name="desde" id="idDesde" v-model="form.desde">
                     <option v-for="n in 154">{{ n + 1869 }}</option>
                 </select>
             </div>
             <div>
                 <InputLabel for="idHasta" value="Hasta"/>
 
-                <select name="hasta" id="idHasta">
-                    <option selected>-</option>
+                <select name="hasta" id="idHasta" v-model="form.hasta">
                     <option v-for="n in 154">{{ n + 1869 }}</option>
                 </select>
             </div>
