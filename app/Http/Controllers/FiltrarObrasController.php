@@ -57,6 +57,9 @@ class FiltrarObrasController extends Controller
      */
     public function formulario(): Response
     {
+        if (request()->has('desde') && request('desde') == '') {
+            ddd('contiene genero');
+        }
         return Inertia::render('Obras', [
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),

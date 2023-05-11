@@ -8,5 +8,10 @@
 <style scoped>
 button {
     background:  #e37f81;
+    color: white;
+}
+button:hover{
+    color: black;
+    background: #e37f81;
 }
 </style>
