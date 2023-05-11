@@ -15,5 +15,6 @@ h1 {
     height: 10vh;
     font-size: 3rem;
     text-align: center;
+    margin-top: 10px;
 }
 </style>

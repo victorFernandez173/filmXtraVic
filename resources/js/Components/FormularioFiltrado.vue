@@ -50,7 +50,7 @@ defineProps(['generos', 'paises']);
             </select>
 
             <!-- Boton aplicar -->
-            <PrimaryButton type="button" class="text-white font-medium text-sm px-5 py-2.5 mr-2 mb-2 mt-5" :disabled="form.processing" :class="{ 'opacity-25': form.processing }">FILTRAR</PrimaryButton>
+            <PrimaryButton class="text-white font-medium text-sm px-5 py-2.5 mr-2 mb-2 mt-5" :disabled="form.processing" :class="{ 'opacity-25': form.processing }">FILTRAR</PrimaryButton>
         </div>
     </form>
 </template>
