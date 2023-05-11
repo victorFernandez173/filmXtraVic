@@ -28,10 +28,10 @@ defineProps(['generos', 'paises']);
     <form @submit.prevent="submit" class="m-auto">
 
         <!-- Div desplegables y boton aplicar -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-9 text-center w-full justify-items-center filtrar-3">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-9 text-center w-full justify-items-center">
             <!-- Select genero -->
             <InputLabel for="idGenero" value="Genero"/>
-            <select name="genero" v-model="form.genero" id="idGenero" class="bg-gray-50 border border-gray-300 text-gray-900 text-base focus:ring-red-400 focus:border-red-400 block w-full p-2.5">
+            <select name="genero" v-model="form.genero" class="bg-gray-50 border border-gray-300 text-gray-900 text-base focus:ring-red-400 focus:border-red-400 block w-full p-2.5">
                 <option disabled value="">-</option>
                 <option v-for="genero in generos">{{ genero['genero']}}</option>
             </select>
@@ -56,12 +56,13 @@ defineProps(['generos', 'paises']);
             </select>
 
             <!-- Boton aplicar -->
-            <PrimaryButton type="button" class="boton-filtrar text-white font-medium text-sm px-5 py-2.5 mr-2 mb-2 mt-5" :disabled="form.processing" :class="{ 'opacity-25': form.processing }">FILTRAR</PrimaryButton>
+            <PrimaryButton type="button" class="text-white font-medium text-sm px-5 py-2.5 mr-2 mb-2 mt-5" :disabled="form.processing" :class="{ 'opacity-25': form.processing }">FILTRAR</PrimaryButton>
         </div>
     </form>
 </template>
 
 <style scoped>
+/*******Formulario filtrar*******/
 form {
     width: 80%;
     padding: 20px;
