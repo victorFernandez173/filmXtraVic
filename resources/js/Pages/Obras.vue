@@ -50,7 +50,7 @@ defineProps(['obras', 'titulo']);
 </template>
 
 <style scoped>
-/*************************** Seccion peliculas ******************************/
+/*******Seccion peliculas*******/
 #idTooltip {
     position: relative;
     cursor: pointer;
