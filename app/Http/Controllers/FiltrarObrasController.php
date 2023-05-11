@@ -2,14 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Genero;
 use App\Models\Obra;
 use Exception;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use PhpParser\Node\Scalar\String_;
 
 class FiltrarObrasController extends Controller
 {
+    const especiales = ['URRS'];
+
     /**
      * Para obtener la información de una obra
      * @throws Exception
@@ -22,16 +26,17 @@ class FiltrarObrasController extends Controller
             $obras = Obra::with('poster')->get();
         } else {
             if (request()->has('genero')) {
-                $titulo = 'Género: ' . request('genero');
+                $genero = Genero::select('genero')->where('genero', 'LIKE', request('genero'))->get();
+                $titulo = 'Género: ' . $genero[0]['genero'];
                 $obras = Obra::with('poster', 'generos')->whereHas('generos', function (Builder $query) {
                     $query->where('genero', 'like', '%' . request('genero') . '%');
                 })->get()->toArray();
             } else if (request()->has('fecha')) {
-                $titulo = 'Década de los: ' . request('fecha');
                 $obras = Obra::with('poster')->where('fecha', 'like', request('fecha'))->get();
+                $titulo = 'Década: ' . str_replace('_', '0', request('fecha')) . 's';
             } else if (request()->has('pais')) {
-                $titulo = 'País: ' . request('pais');
                 $obras = Obra::with('poster')->where('pais', 'like', request('pais'))->get();
+                $titulo = 'País: ' . $this->capitalizar($obras[0]['pais']);
             }
         }
         return Inertia::render('Obras', [
@@ -39,5 +44,22 @@ class FiltrarObrasController extends Controller
             'canRegister' => Route::has('register'),
             'obras' => $obras,
             'titulo' => $titulo]);
+    }
+
+    /**
+     *Para poner en mayúsculas solo las iniciales
+     *
+     * @param $pais
+     * @return String
+     */
+    public function capitalizar($pais): String
+    {
+        $paisArr = explode(' ', $pais);
+        if(!in_array($paisArr[0], self::especiales)){
+            for ($i = 0; $i < count($paisArr); $i++) {
+                $paisArr[$i] = substr($paisArr[$i], 0, 1) . mb_strtolower(substr($paisArr[$i], 1));
+            }
+        }
+        return implode(' ', $paisArr);
     }
 }
