@@ -12,6 +12,7 @@ export default {
 import {Link, Head} from "@inertiajs/vue3";
 import BarraLateral from "../Components/BarraLateral.vue";
 import TituloH2Dinamico from "../Components/TituloH2Dinamico.vue";
+import FormularioFiltrado from "../Components/FormularioFiltrado.vue";
 
 defineProps(['obras', 'titulo']);
 </script>
@@ -29,6 +30,8 @@ defineProps(['obras', 'titulo']);
         <div class="flex flex-wrap content-start">
             <!-- Título dinámico -->
             <TituloH2Dinamico :titulo="titulo" />
+            <!-- Formulario de filtrado -->
+            <FormularioFiltrado :generos="$page['props']['generos']" />
             <!-- Seccion Principal de contenido -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 seccion-peliculas text-center w-full justify-items-center">
                 <div id="idObra" class="w-full p-6" v-for="obra in obras" :key="obra['id']">

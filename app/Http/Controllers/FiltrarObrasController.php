@@ -43,7 +43,8 @@ class FiltrarObrasController extends Controller
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
             'obras' => $obras,
-            'titulo' => $titulo]);
+            'titulo' => $titulo,
+            'generos' => Genero::select('genero')->get()]);
     }
 
     /**
