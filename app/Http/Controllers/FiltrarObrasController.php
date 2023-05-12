@@ -46,7 +46,7 @@ class FiltrarObrasController extends Controller
             'obras' => $obras,
             'titulo' => $titulo,
             'generos' => Genero::select('genero')->get(),
-            'paises' => Obra::select('pais')->groupBy('pais')->get()
+            'paises' => Obra::select('pais')->groupBy('pais')->orderBy('pais')->get()
         ]);
     }
 
@@ -65,8 +65,6 @@ class FiltrarObrasController extends Controller
             'canRegister' => Route::has('register'),
             'obras' => 'array con pelis',
             'titulo' => 'Forulario de filtrado',
-            'generos' => Genero::select('genero')->get(),
-            'paises' => Obra::select('pais')->groupBy('pais')->get()
         ]);
     }
 
