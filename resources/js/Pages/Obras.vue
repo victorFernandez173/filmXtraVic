@@ -14,7 +14,7 @@ import BarraLateral from "../Components/BarraLateral.vue";
 import TituloH2Dinamico from "../Components/TituloH2Dinamico.vue";
 import FormularioFiltrado from "../Components/FormularioFiltrado.vue";
 
-defineProps(['obras', 'titulo']);
+defineProps(['obras', 'titulo', 'errors']);
 </script>
 
 <template>
@@ -32,6 +32,8 @@ defineProps(['obras', 'titulo']);
             <TituloH2Dinamico :titulo="titulo" />
             <!-- Formulario de filtrado -->
             <FormularioFiltrado :paises="$page['props']['paises']" :generos="$page['props']['generos']" />
+            <!-- Mensaje de error -->
+            <div class="w-full text-center mt-1" v-if="errors.genero">{{ errors.genero }}</div>
             <!-- Seccion Principal de contenido -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 seccion-peliculas text-center w-full justify-items-center pl-8 pr-8">
                 <div id="idObra" class="w-full p-6" v-for="obra in obras" :key="obra['id']">

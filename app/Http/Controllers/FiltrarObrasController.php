@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\FiltrarPostRequest;
 use App\Models\Genero;
 use App\Models\Obra;
 use Exception;
@@ -15,7 +16,7 @@ class FiltrarObrasController extends Controller
     const especiales = ['URRS'];
 
     /**
-     * Para obtener la información de una obra
+     * Peticiones GET: carga inicial o enlaces de filtrado de la barra lateral
      * @throws Exception
      * @return Response
      */
@@ -54,15 +55,13 @@ class FiltrarObrasController extends Controller
     }
 
     /**
-     * Para obtener la informacion del formulario
+     * Petición post: filtrado según el formulario
      * @throws Exception
      * @return Response
      */
-    public function formulario(): Response
+    public function formulario(FiltrarPostRequest $request): Response
     {
-        if (request()->has('desde') && request('desde') == '') {
-            ddd('contiene genero');
-        }
+
         return Inertia::render('Obras', [
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
