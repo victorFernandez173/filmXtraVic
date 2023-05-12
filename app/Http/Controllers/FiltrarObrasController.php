@@ -66,13 +66,14 @@ class FiltrarObrasController extends Controller
         $hasta = $request['hasta'] ?: Carbon::now()->format('Y');
         // Si no hay pais se asigna valor vacío
         $pais = $request['pais'] ?? '';
-        //
+        // Si no hay genero se asigna valor vacío
+        $genero = $request['genero'] ?? '';
 
         return Inertia::render('Obras', [
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
             'obras' => Obra::with('poster')->where(
-                'pais', 'like', '%' . $pais . '%')->whereBetween('fecha', [ $desde, $hasta])->get(),
+                'pais', 'like', '%' . $pais . '%')->whereBetween('fecha', [ $desde, $hasta])->whereHas('generos', function(Builder $query) use ($genero) { $query->where('genero', 'like', '%' . $genero . '%'); })->get(),
             'titulo' => 'Resultados del filtrado',
             'generos' => Genero::select('genero')->get(),
             'paises' => Obra::select('pais')->groupBy('pais')->orderBy('pais')->get()
