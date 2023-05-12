@@ -23,6 +23,7 @@ defineProps(['generos', 'paises']);
         <!-- Div desplegables y boton aplicar -->
         <div class="m-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5">
             <!-- Select genero -->
+            <!-- TODO sería interesante crear componentes de estos select, para que se carguen con datos en función de props -->
             <div class="input">
                 <select name="genero" v-model="form.genero" class="bg-gray-50 border border-gray-300 text-gray-900 text-base focus:ring-red-400 focus:border-red-400 block w-full p-2.5">
                     <option disabled value="">Género</option>
@@ -54,7 +55,7 @@ defineProps(['generos', 'paises']);
 
             <!-- Boton aplicar -->
             <!-- TODO aplicar estilo al botón para la vista de tablet??? -->
-            <PrimaryButton class="text-white font-medium text-sm px-5 py-2.5 mr-2 mb-2 mt-5" :disabled="form.processing" :class="{ 'opacity-25': form.processing }">FILTRAR</PrimaryButton>
+            <PrimaryButton class="lg:col-span-1 md:col-span-2 text-white font-medium text-sm px-5 py-2.5 mr-2 mb-2 mt-5" :disabled="form.processing" :class="{ 'opacity-25': form.processing }">FILTRAR</PrimaryButton>
         </div>
     </form>
 </template>

@@ -23,10 +23,12 @@ class FiltrarObrasController extends Controller
     {
         $obras = null;
         $titulo = null;
+        /* Con la visita inicial, todas las obras */
         if (count(request()->all()) == 0) {
             // TODO aplicar aquí la paginación para todas las películas?????
             $obras = Obra::with('poster')->get();
         } else {
+            /*Si se envían peticiones se filtran resultados y título según parámetro*/
             if (request()->has('genero')) {
                 $genero = Genero::select('genero')->where('genero', 'LIKE', request('genero'))->get();
                 $titulo = 'Género: ' . $genero[0]['genero'];
