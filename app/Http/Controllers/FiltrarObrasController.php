@@ -24,9 +24,8 @@ class FiltrarObrasController extends Controller
         $obras = null;
         $titulo = null;
         /* Con la visita inicial, todas las obras */
-        if (count(request()->all()) == 0) {
-            // TODO aplicar aquí la paginación para todas las películas?????
-            $obras = Obra::with('poster')->get();
+        if (count(request()->all()) == 0 || (count(request()->all()) == 1 && request()->has('page'))) {
+            $obras = Obra::with('poster')->paginate(12);
         } else {
             /*Si se envían peticiones se filtran resultados y título según parámetro*/
             if (request()->has('genero')) {
@@ -34,12 +33,12 @@ class FiltrarObrasController extends Controller
                 $titulo = 'Género: ' . $genero[0]['genero'];
                 $obras = Obra::with('poster', 'generos')->whereHas('generos', function (Builder $query) {
                     $query->where('genero', 'like', '%' . request('genero') . '%');
-                })->get()->toArray();
+                })->paginate(12)->withQueryString();
             } else if (request()->has('fecha')) {
-                $obras = Obra::with('poster')->where('fecha', 'like', request('fecha'))->get();
+                $obras = Obra::with('poster')->where('fecha', 'like', request('fecha'))->paginate(12)->withQueryString();
                 $titulo = 'Década: ' . str_replace('_', '0', request('fecha')) . 's';
             } else if (request()->has('pais')) {
-                $obras = Obra::with('poster')->where('pais', 'like', request('pais'))->get();
+                $obras = Obra::with('poster')->where('pais', 'like', request('pais'))->paginate(12)->withQueryString();
                 $titulo = 'País: ' . $obras[0]['pais'];
             }
         }
@@ -73,7 +72,7 @@ class FiltrarObrasController extends Controller
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
             'obras' => Obra::with('poster')->where(
-                'pais', 'like', '%' . $pais . '%')->whereBetween('fecha', [ $desde, $hasta])->whereHas('generos', function(Builder $query) use ($genero) { $query->where('genero', 'like', '%' . $genero . '%'); })->get(),
+                'pais', 'like', '%' . $pais . '%')->whereBetween('fecha', [ $desde, $hasta])->whereHas('generos', function(Builder $query) use ($genero) { $query->where('genero', 'like', '%' . $genero . '%'); })->paginate(4),
             'titulo' => 'Resultados del filtrado',
             'generos' => Genero::select('genero')->get(),
             'paises' => Obra::select('pais')->groupBy('pais')->orderBy('pais')->get()

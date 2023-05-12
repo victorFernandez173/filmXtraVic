@@ -13,6 +13,7 @@ import {Link, Head} from "@inertiajs/vue3";
 import BarraLateral from "../Components/BarraLateral.vue";
 import TituloH2Dinamico from "../Components/TituloH2Dinamico.vue";
 import FormularioFiltrado from "../Components/FormularioFiltrado.vue";
+import Paginacion from "../Components/Paginacion.vue";
 
 defineProps(['obras', 'titulo', 'errors']);
 </script>
@@ -36,7 +37,7 @@ defineProps(['obras', 'titulo', 'errors']);
             <div class="w-full text-center mt-1" v-if="errors.genero">{{ errors.genero }}</div>
             <!-- Seccion Principal de contenido -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 seccion-peliculas text-center w-full justify-items-center pl-8 pr-8">
-                <div id="idObra" class="w-full p-6" v-for="obra in obras" :key="obra['id']">
+                <div id="idObra" class="w-full p-6" v-for="obra in obras.data" :key="obra['id']">
                     <Link :href="route('obra', [obra['titulo'].replaceAll(' ', '_')])">
                         <div id="idTooltip" class="flex justify-center">
                             <h3>{{ obra['titulo'] }}</h3>
@@ -49,6 +50,9 @@ defineProps(['obras', 'titulo', 'errors']);
                     </Link>
                 </div>
             </div>
+            <div v-if="obras['links']"></div>
+            <!-- Componente para la paginación -->
+            <Paginacion  :obras="obras"/>
         </div>
 
     </div>
