@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\FiltrarPostRequest;
 use App\Models\Genero;
 use App\Models\Obra;
+use Carbon\Carbon;
 use Exception;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Route;
@@ -13,8 +14,6 @@ use Inertia\Response;
 
 class FiltrarObrasController extends Controller
 {
-    const especiales = ['URRS'];
-
     /**
      * Peticiones GET: carga inicial o enlaces de filtrado de la barra lateral
      * @throws Exception
@@ -56,15 +55,27 @@ class FiltrarObrasController extends Controller
 
     /**
      * Petición post: filtrado según el formulario
-     * @throws Exception
+     * @param FiltrarPostRequest $request
      * @return Response
      */
     public function formulario(FiltrarPostRequest $request): Response
     {
+        // Si no hay 'desde' se asigna valor de los inicios del cine
+        $desde = $request['desde'] ?: '1870';
+        // Si no hay 'hasta' se asigna año presente
+        $hasta = $request['hasta'] ?: Carbon::now()->format('Y');
+        // Si no hay pais se asigna valor vacío
+        $pais = $request['pais'] ?? '';
+        //
 
         return Inertia::render('Obras', [
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
+            'obras' => Obra::with('poster')->where(
+                'pais', 'like', '%' . $pais . '%')->whereBetween('fecha', [ $desde, $hasta])->get(),
+            'titulo' => 'Resultados del filtrado',
+            'generos' => Genero::select('genero')->get(),
+            'paises' => Obra::select('pais')->groupBy('pais')->orderBy('pais')->get()
         ]);
     }
 }

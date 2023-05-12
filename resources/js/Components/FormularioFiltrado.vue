@@ -40,16 +40,17 @@ defineProps(['generos', 'paises']);
             </div>
 
             <!-- Select periodo -->
+            <!-- TODO Generar los años de manera dinamica con fechas JS FALTA LA FECHA LIMITE POR ABAJO -->
             <div class="input">
                 <select name="desde" id="idDesde" v-model="form.desde" class="bg-gray-50 border border-gray-300 text-gray-900 text-base focus:ring-red-400 focus:border-red-400 block w-full p-2.5">
                     <option disabled value="">Desde</option>
-                    <option v-for="n in 154">{{ n + 1869 }}</option>
+                    <option v-for="n in 154">{{ (new Date().getFullYear() + 1) - n }}</option>
                 </select>
             </div>
             <div class="input">
                 <select name="hasta" id="idHasta" v-model="form.hasta" class="bg-gray-50 border border-gray-300 text-gray-900 text-base focus:ring-red-400 focus:border-red-400 block w-full p-2.5">
                     <option disabled value="">Hasta</option>
-                    <option v-for="n in 154">{{ n + 1869 }}</option>
+                    <option v-for="n in 154">{{ (new Date().getFullYear()+ 1) - n }}</option>
                 </select>
             </div>
 
