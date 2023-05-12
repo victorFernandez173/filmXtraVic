@@ -14,10 +14,7 @@ class Handler extends ExceptionHandler
      * @var array<int, string>
      */
     protected array $messages = [
-        500 => 'Oh oh, algo ha debido ir muy mal',
-        503 => 'Servicio no disponible',
         404 => 'No te montes películas, la página que buscas no existe...',
-        403 => 'No estás autorizado para esto',
     ];
 
     /**
@@ -36,7 +33,7 @@ class Handler extends ExceptionHandler
             return $response;
         }
 
-        return inertia('error/page', [
+        return inertia('error/Error404', [
             'status' => $status,
             'message' => $this->messages[$status],
         ])

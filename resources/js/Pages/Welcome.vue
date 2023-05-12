@@ -22,6 +22,7 @@ defineProps(['obras']);
 </script>
 
 <template>
+    <!--  TODO revisar cuando haya tiempo la responsividad de toda la página: detallitos como tamaños de fuente, anchura barra latera...   -->
     <Head>
         <title>Inicio</title>
         <meta name="description" content="Página de bienvenida">
@@ -30,46 +31,68 @@ defineProps(['obras']);
     <Carrusel></Carrusel>
 
     <!-- Seccion Principal de contenido -->
-    <div class="container mx-auto contenedor-principal justify-center">
-        <!-- Filas de peliculas -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 seccion-peliculas text-center items-center justify-center" v-for="n in 4">
-            <div v-for="m in 4">
-                <Link :href="route('obra', [$page['props']['obras'][n*4-m]['titulo'].replaceAll(' ', '_')])">
-                    <h3 > {{ $page['props']['obras'][n*4-m]['titulo'] }}</h3>
+    <div class="flex w-4/5 m-auto pt-10">
+        <!-- Seccion Principal de contenido -->
+        <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 seccion-peliculas text-center w-full justify-items-center">
+            <div id="idObra" class="w-full p-6" v-for="obra in obras" :key="obra['id']">
+                <Link :href="route('obra', [obra['titulo'].replaceAll(' ', '_')])">
+                    <div id="idTooltip" class="flex justify-center">
+                        <h3>{{ obra['titulo'] }}</h3>
+                        <h3 class="scroll-left justify-center" id='idTooltipText'>{{ obra['titulo'] }}</h3>
+                    </div>
                 </Link>
-                <Link :href="route('obra', [$page['props']['obras'][n*4-m]['titulo'].replaceAll(' ', '_')])">
-                    <img :src="'posters/' + $page['props']['obras'][n*4-m]['poster']['ruta']" :alt="$page['props']['obras'][n*4-m]['poster']['alt']">
+                <Link :href="route('obra', [ obra['titulo'].replaceAll(' ', '_')])">
+                    <img id="idImgObra" class="w-full mt-3" :src="'posters/' + obra['poster']['ruta']"
+                         :alt="obra['poster']['alt']">
                 </Link>
             </div>
         </div>
     </div>
 </template>
 
-<style>
-/*************************** Seccion peliculas ******************************/
+<style scoped>
+/*******Seccion peliculas*******/
+#idTooltip {
+    position: relative;
+    cursor: pointer;
+}
 
-.seccion-peliculas img {
-    width: 23rem;
-    padding: 3rem 2rem 2rem;
+#idTooltipText {
+    position: absolute;
+    top: 0;
+    padding: 8px 16px;
+    background: #e37f81;
+    color: white;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+}
+
+#idTooltip:hover #idTooltipText {
+    visibility: visible;
+    opacity: 1;
+    z-index: 10;
+    font-size: 1.3rem;
+}
+
+#idTooltip:hover h3 {
+    visibility: hidden;
+}
+
+#idImgObra:hover {
+    border: 10px #e37f81 solid;
 }
 
 .seccion-peliculas h3 {
-    height: 5rem;
+    position: relative;
     color: #e37f81;
-    font-size: 1.7rem;
+    font-size: 1.6rem;
     font-weight: bold;
     text-decoration: underline;
-    padding-top: 2rem;
     font-family: 'Oswald', sans-serif;
-}
-
-/****************************************** RESPONSIVE ******************************************/
-/****************************************** Movil ******************************************/
-@media screen and (max-width: 768px) {
-    /******* Seccion peliculas *******/
-    img, svg, video, canvas, audio, iframe, embed, object {
-        display: inline-block;
-        vertical-align: middle;
-    }
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 </style>

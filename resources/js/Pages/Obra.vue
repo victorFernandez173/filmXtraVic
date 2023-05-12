@@ -6,8 +6,14 @@ export default {
 </script>
 
 <script setup>
+import dayjs from "dayjs";
+import es from "dayjs/locale/es";
+import relativeTime from 'dayjs/plugin/relativeTime';
 import { Head } from "@inertiajs/vue3";
+
 defineProps(['obra']);
+dayjs.extend(relativeTime);
+dayjs.locale('es');
 </script>
 
 <template>
@@ -41,7 +47,7 @@ defineProps(['obra']);
         <span v-show="$page['props']['obra'][0]['criticas'][0]">Criticas: </span>
         <ul>
             <li v-for="cri in $page['props']['obra'][0]['criticas']">
-                {{ cri['critica'] }}
+                {{ dayjs(cri['modificada']).fromNow() }}-{{ cri['critica'] }}
             </li>
         </ul>
         <span v-show="$page['props']['obra'][0]['profesionals'][0]">Criticas profesionales: </span>

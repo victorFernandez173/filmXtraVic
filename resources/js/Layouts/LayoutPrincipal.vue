@@ -73,7 +73,7 @@ import { Link } from "@inertiajs/vue3";
                         <Link :href="route('/')" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700">Inicio</Link>
                     </li>
                     <li>
-                        <Link href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700">Películas</Link>
+                        <Link :href="route('obras')" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700">Películas</Link>
                     </li>
                     <li>
                         <Link href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700">Valoraciones</Link>
@@ -98,7 +98,7 @@ import { Link } from "@inertiajs/vue3";
         <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
             <div class="md:flex md:justify-between">
                 <div class="mb-6 md:mb-0 w-full logo">
-                    <Link href="#" class="flex items-center">
+                    <Link :href="route('/')" class="flex items-center">
                         <img src="/images/logo-blanco.png" alt="Logo FilmXtra" />
                     </Link>
                 </div>
@@ -107,10 +107,10 @@ import { Link } from "@inertiajs/vue3";
                         <h2 class="mb-6 text-sm font-semibold text-white uppercase dark:text-white">Enlaces</h2>
                         <ul class="text-gray-600 dark:text-gray-400 font-medium">
                             <li class="mb-4">
-                                <Link href="#">FilmXtra</Link>
+                                <Link :href="route('/')">FilmXtra</Link>
                             </li>
                             <li class="mb-4">
-                                <Link href="#">Películas</Link>
+                                <Link :href="route('obras')">Películas</Link>
                             </li>
                             <li class="mb-4">
                                 <Link href="#">Valoraciones</Link>

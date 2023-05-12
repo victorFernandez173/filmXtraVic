@@ -4,235 +4,163 @@ import {Link} from "@inertiajs/vue3";
 
 <template>
     <!-- Seccion columna izquierda -->
-    <section class="seccion-columna w-1/10 p-4 pb-8">
+    <section class="seccion-columna p-4 pb-8">
         <!-- Genero -->
-        <h5 class="py-4 font-bold underline">Por género:</h5>
+        <h5 class="py-4 font-bold underline">Género</h5>
         <ul>
             <li>
-                <Link href="">Acción</Link>
+                <Link :href="route('obras')" :data="{ genero : 'accion' }" method="get" as="button">Acción</Link>
             </li>
             <li>
-                <Link href="">Animación</Link>
+                <Link :href="route('obras')" :data="{ genero : 'aventuras' }" method="get" as="button">Aventuras</Link>
             </li>
             <li>
-                <Link href="">Aventuras</Link>
+                <Link :href="route('obras')" :data="{ genero : 'biografico' }" method="get" as="button">Biográfico</Link>
             </li>
             <li>
-                <Link href="">Bibliográfico</Link>
+                <Link :href="route('obras')" :data="{ genero : 'belico' }" method="get" as="button">Bélico</Link>
             </li>
             <li>
-                <Link href="">Bélico</Link>
+                <Link :href="route('obras')" :data="{ genero : 'ciencia ficcion' }" method="get" as="button">Ciencia ficción</Link>
             </li>
             <li>
-                <Link href="">Ciencia ficción</Link>
+                <Link :href="route('obras')" :data="{ genero : 'cine mudo' }" method="get" as="button">Cine Mudo</Link>
             </li>
             <li>
-                <Link href="">Cine Mudo</Link>
+                <Link :href="route('obras')" :data="{ genero : 'cine negro' }" method="get" as="button">Cine Negro</Link>
             </li>
             <li>
-                <Link href="">Cine Negro</Link>
+                <Link :href="route('obras')" :data="{ genero : 'comedia' }" method="get" as="button">Comedia</Link>
             </li>
             <li>
-                <Link href="">Comedia</Link>
+                <Link :href="route('obras')" :data="{ genero : 'cortometraje' }" method="get" as="button">Cortometraje</Link>
             </li>
             <li>
-                <Link href="">Cortometraje</Link>
+                <Link :href="route('obras')" :data="{ genero : 'crimen' }" method="get" as="button">Crimen</Link>
             </li>
             <li>
-                <Link href="">Crimen</Link>
+                <Link :href="route('obras')" :data="{ genero : 'deportiva' }" method="get" as="button">Deportiva</Link>
             </li>
             <li>
-                <Link href="">Deportiva</Link>
+                <Link :href="route('obras')" :data="{ genero : 'documental' }" method="get" as="button">Documental</Link>
             </li>
             <li>
-                <Link href="">Documental</Link>
+                <Link :href="route('obras')" :data="{ genero : 'drama' }" method="get" as="button">Drama</Link>
             </li>
             <li>
-                <Link href="">Drama</Link>
+                <Link :href="route('obras')" :data="{ genero : 'fantastico' }" method="get" as="button">Fantástico</Link>
             </li>
             <li>
-                <Link href="">Erótico</Link>
+                <Link :href="route('obras')" :data="{ genero : 'historica' }" method="get" as="button">Histórica</Link>
             </li>
             <li>
-                <Link href="">Experimental</Link>
+                <Link :href="route('obras')" :data="{ genero : 'infantil' }" method="get" as="button">Infantil</Link>
             </li>
             <li>
-                <Link href="">Fantástico</Link>
+                <Link :href="route('obras')" :data="{ genero : 'intriga' }" method="get" as="button">Intriga</Link>
             </li>
             <li>
-                <Link href="">Histórica</Link>
+                <Link :href="route('obras')" :data="{ genero : 'musical' }" method="get" as="button">Musical</Link>
             </li>
             <li>
-                <Link href="">Infantil</Link>
+                <Link :href="route('obras')" :data="{ genero : 'policiaca' }" method="get" as="button">Policiaca</Link>
             </li>
             <li>
-                <Link href="">Intriga</Link>
+                <Link :href="route('obras')" :data="{ genero : 'propagand%stico' }" method="get" as="button">Propagandístico</Link>
             </li>
             <li>
-                <Link href="">Musical</Link>
+                <Link :href="route('obras')" :data="{ genero : 'pelicula de culto' }" method="get" as="button">Película de culto</Link>
             </li>
             <li>
-                <Link href="">Policiaca</Link>
+                <Link :href="route('obras')" :data="{ genero : 'road movie' }" method="get" as="button">Road Movie</Link>
             </li>
             <li>
-                <Link href="">Propagandístico</Link>
+                <Link :href="route('obras')" :data="{ genero : 'romance' }" method="get" as="button">Romance</Link>
             </li>
             <li>
-                <Link href="">Película de culto</Link>
+                <Link :href="route('obras')" :data="{ genero : 'terror' }" method="get" as="button">Terror</Link>
             </li>
             <li>
-                <Link href="">Religiosa</Link>
+                <Link :href="route('obras')" :data="{ genero : 'thriller' }" method="get" as="button">Thriller</Link>
             </li>
             <li>
-                <Link href="">Road Movie</Link>
-            </li>
-            <li>
-                <Link href="">Romance</Link>
-            </li>
-            <li>
-                <Link href="">Serie B</Link>
-            </li>
-            <li>
-                <Link href="">Serie de TV</Link>
-            </li>
-            <li>
-                <Link href="">Terror</Link>
-            </li>
-            <li>
-                <Link href="">Thriller</Link>
-            </li>
-            <li>
-                <Link href="">Western</Link>
+                <Link :href="route('obras')" :data="{ genero : 'western' }" method="get" as="button">Western</Link>
             </li>
         </ul>
 
         <!-- Decada -->
-        <h5 class="py-4 font-bold underline">Por década:</h5>
+        <h5 class="py-4 font-bold underline">Década</h5>
         <ul>
             <li>
-                <Link href="">2020s</Link>
+                <Link :href="route('obras')" :data="{ fecha : '201_' }" method="get" as="button">2010s</Link>
             </li>
             <li>
-                <Link href="">2010s</Link>
+                <Link :href="route('obras')" :data="{ fecha : '200_' }" method="get" as="button">2000s</Link>
             </li>
             <li>
-                <Link href="">2000s</Link>
+                <Link :href="route('obras')" :data="{ fecha : '199_' }" method="get" as="button">90s</Link>
             </li>
             <li>
-                <Link href="">90s</Link>
+                <Link :href="route('obras')" :data="{ fecha : '198_' }" method="get" as="button">80s</Link>
             </li>
             <li>
-                <Link href="">80s</Link>
+                <Link :href="route('obras')" :data="{ fecha : '197_' }" method="get" as="button">70s</Link>
             </li>
             <li>
-                <Link href="">70s</Link>
+                <Link :href="route('obras')" :data="{ fecha : '196_' }" method="get" as="button">60s</Link>
             </li>
             <li>
-                <Link href="">60s</Link>
+                <Link :href="route('obras')" :data="{ fecha : '195_' }" method="get" as="button">50s</Link>
             </li>
             <li>
-                <Link href="">50s</Link>
+                <Link :href="route('obras')" :data="{ fecha : '194_' }" method="get" as="button">40s</Link>
             </li>
             <li>
-                <Link href="">40s</Link>
+                <Link :href="route('obras')" :data="{ fecha : '193_' }" method="get" as="button">30s</Link>
             </li>
             <li>
-                <Link href="">30s</Link>
+                <Link :href="route('obras')" :data="{ fecha : '192_' }" method="get" as="button">20s</Link>
             </li>
             <li>
-                <Link href="">20s</Link>
+                <Link :href="route('obras')" :data="{ fecha : '190_' }" method="get" as="button">00s</Link>
             </li>
         </ul>
 
         <!-- Pais -->
-        <h5 class="py-4 font-bold underline">Por país:</h5>
+        <h5 class="py-4 font-bold underline">País</h5>
         <ul>
             <li>
-                <Link href="">Alemania</Link>
+                <Link :href="route('obras')" :data="{ pais : 'alemania' }" method="get" as="button">Alemania</Link>
             </li>
             <li>
-                <Link href="">Andorra</Link>
+                <Link :href="route('obras')" :data="{ pais : 'australia' }" method="get" as="button">Australia</Link>
             </li>
             <li>
-                <Link href="">Argentina</Link>
+                <Link :href="route('obras')" :data="{ pais : 'españa' }" method="get" as="button">España</Link>
             </li>
             <li>
-                <Link href="">Australia</Link>
+                <div id="tio">
+                  <Link :href="route('obras')" :data="{ pais : 'estados unidos de america' }" method="get" as="button">Estados Unidos de América</Link>
+                </div>
+
             </li>
             <li>
-                <Link href="">Austria</Link>
+                <Link :href="route('obras')" :data="{ pais : 'francia' }" method="get" as="button">Francia</Link>
             </li>
             <li>
-                <Link href="">Bélgica</Link>
+                <Link :href="route('obras')" :data="{ pais : 'italia' }" method="get" as="button">Italia</Link>
             </li>
             <li>
-                <Link href="">Brasil</Link>
+                <Link :href="route('obras')" :data="{ pais : 'japon' }" method="get" as="button">Japón</Link>
             </li>
             <li>
-                <Link href="">Canadá</Link>
+                <Link :href="route('obras')" :data="{ pais : 'nueva zelanda' }" method="get" as="button">Nueva Zelanda</Link>
             </li>
             <li>
-                <Link href="">China</Link>
+                <Link :href="route('obras')" :data="{ pais : 'reino unido' }" method="get" as="button">Reino Unido</Link>
             </li>
             <li>
-                <Link href="">Colmbia</Link>
-            </li>
-            <li>
-                <Link href="">Dinamarca</Link>
-            </li>
-            <li>
-                <Link href="">España</Link>
-            </li>
-            <li>
-                <Link href="">Estados Unidos de América</Link>
-            </li>
-            <li>
-                <Link href="">Estonia</Link>
-            </li>
-            <li>
-                <Link href="">Federación de Rusia</Link>
-            </li>
-            <li>
-                <Link href="">Finlandia</Link>
-            </li>
-            <li>
-                <Link href="">Francia</Link>
-            </li>
-            <li>
-                <Link href="">Hungría</Link>
-            </li>
-            <li>
-                <Link href="">Irlanda</Link>
-            </li>
-            <li>
-                <Link href="">Islandia</Link>
-            </li>
-            <li>
-                <Link href="">Italia</Link>
-            </li>
-            <li>
-                <Link href="">Japón</Link>
-            </li>
-            <li>
-                <Link href="">Noruega</Link>
-            </li>
-            <li>
-                <Link href="">Países Bajos</Link>
-            </li>
-            <li>
-                <Link href="">Polonia</Link>
-            </li>
-            <li>
-                <Link href="">Portugal</Link>
-            </li>
-            <li>
-                <Link href="">Reino Unido</Link>
-            </li>
-            <li>
-                <Link href="">Rumania</Link>
-            </li>
-            <li>
-                <Link href="">Ucrania</Link>
+                <Link :href="route('obras')" :data="{ pais : 'ussr' }" method="get" as="button">USSR</Link>
             </li>
         </ul>
     </section>
@@ -242,17 +170,41 @@ import {Link} from "@inertiajs/vue3";
 /****************************************** Seccion columna ******************************************/
 .seccion-columna {
     background-color: #e37f81;
+    width: 12%;
+    padding: 1rem 2rem 1rem 1rem;
 }
 
-.seccion-columna a:hover {
+button {
+    text-align: left;
+    width: 100%;
+    display: block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.seccion-columna li:hover {
     color: white;
 }
 
+/****************************RESPONSIVE****************************/
+/************Tablet************/
+@media screen and (max-width: 1024px) {
+    li{
+        font-size: 0.9rem;
+    }
+}
+
+/************Movil************/
 @media screen and (max-width: 768px) {
     /******* Seccion columna *******/
     .seccion-columna {
-        width: 40%;
+        width: 20%;
+        padding-right: 0.5rem;
     }
 
+    li{
+        font-size: 0.7rem;
+    }
 }
 </style>
