@@ -53,6 +53,7 @@ defineProps(['generos', 'paises']);
             </div>
 
             <!-- Boton aplicar -->
+            <!-- TODO aplicar estilo al botón para la vista de tablet??? -->
             <PrimaryButton class="text-white font-medium text-sm px-5 py-2.5 mr-2 mb-2 mt-5" :disabled="form.processing" :class="{ 'opacity-25': form.processing }">FILTRAR</PrimaryButton>
         </div>
     </form>

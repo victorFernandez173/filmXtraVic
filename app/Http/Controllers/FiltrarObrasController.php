@@ -24,6 +24,7 @@ class FiltrarObrasController extends Controller
         $obras = null;
         $titulo = null;
         if (count(request()->all()) == 0) {
+            // TODO aplicar aquí la paginación para todas las películas?????
             $obras = Obra::with('poster')->get();
         } else {
             if (request()->has('genero')) {
@@ -37,7 +38,7 @@ class FiltrarObrasController extends Controller
                 $titulo = 'Década: ' . str_replace('_', '0', request('fecha')) . 's';
             } else if (request()->has('pais')) {
                 $obras = Obra::with('poster')->where('pais', 'like', request('pais'))->get();
-                $titulo = 'País: ' . $this->capitalizar($obras[0]['pais']);
+                $titulo = 'País: ' . $obras[0]['pais'];
             }
         }
         return Inertia::render('Obras', [
@@ -63,25 +64,6 @@ class FiltrarObrasController extends Controller
         return Inertia::render('Obras', [
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
-            'obras' => 'array con pelis',
-            'titulo' => 'Forulario de filtrado',
         ]);
-    }
-
-    /**
-     *Para poner en mayúsculas solo las iniciales
-     *
-     * @param $pais
-     * @return String
-     */
-    public function capitalizar($pais): String
-    {
-        $paisArr = explode(' ', $pais);
-        if(!in_array($paisArr[0], self::especiales)){
-            for ($i = 0; $i < count($paisArr); $i++) {
-                $paisArr[$i] = substr($paisArr[$i], 0, 1) . mb_strtolower(substr($paisArr[$i], 1));
-            }
-        }
-        return implode(' ', $paisArr);
     }
 }
