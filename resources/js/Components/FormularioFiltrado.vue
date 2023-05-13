@@ -10,7 +10,7 @@ const form = useForm({
 });
 
 const submit = () => {
-    form.post(route('obrasPost'));
+    form.get(route('obras'));
 };
 
 defineProps(['generos', 'paises']);

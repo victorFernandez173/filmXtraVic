@@ -52,9 +52,8 @@ defineProps(['obras', 'titulo', 'errors']);
             </div>
             <div v-if="obras['links']"></div>
             <!-- Componente para la paginación -->
-            <Paginacion  :obras="obras"/>
+            <Paginacion class="m-auto" :obras="obras"/>
         </div>
-
     </div>
 </template>
 
