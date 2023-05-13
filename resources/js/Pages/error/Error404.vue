@@ -11,15 +11,16 @@ defineProps([ 'status', 'message'])
     </Head>
     <main class="grid min-h-full place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8">
         <div class="text-center">
-            <p class="texto-404 text-base font-semibold">Error {{ status }}</p>
-            <h1 class="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">{{ message }}</h1>
-            <p class="mt-4 text-3xl leading-7 text-gray-800">Pero si vuelves al inicio, en FilmXtra encontrarás todo lo que necesitas.</p>
+            <!--<p class="texto-404 text-base font-semibold">Error {{ status }}</p>-->
+            <!--<h1 class="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">{{ message }}</h1>-->
+            <img src="/images/logo-error.png" class="m-auto w-60 mb-10" alt="Logo Error 404">
+            <p class="mt-4 text-2xl leading-7 text-gray-800">Pero si vuelves al inicio, en FilmXtra encontrarás todo lo que necesitas.</p>
             <img src="/gif/error-gif.gif" class="m-auto mt-7 w-80" alt="Gif error cine">
             <div class="mt-10 flex items-center justify-center gap-x-6">
                 <a :href="route('/')" class="boton-inicio rounded-md px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Ir a inicio</a>
                 <a href="#" class="boton-contacta bg-black rounded-md px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Contacta con nosotros <span aria-hidden="true"> &rarr;</span></a>
             </div>
-            <img src="/images/logo.png" class="m-auto mt-20" alt="Logo FilmXtra">
+            <img src="/images/logo.png" class="m-auto w-60 mt-20" alt="Logo FilmXtra">
         </div>
     </main>
 </template>
