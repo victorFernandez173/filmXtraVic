@@ -58,10 +58,8 @@ class FiltrarObrasController extends Controller
                 }
             }
             // Se ha utilizado el formulario
-            if (count(request()->all()) > 2 && count($obras) >= 1 && !request()->has('barraLateral')) {
+            if (request()->has('sent') && count($obras) >= 1 && !request()->has('barraLateral')) {
                 $titulo = 'Resultados: ';
-            } else {
-                $titulo = 'Sin resultados';
             }
         }
 

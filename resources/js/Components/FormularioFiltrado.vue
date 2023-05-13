@@ -1,16 +1,17 @@
 <script setup>
 import PrimaryButton from '@/Components/PrimaryButton.vue';
-import { useForm } from '@inertiajs/vue3';
+import { useForm, Link } from '@inertiajs/vue3';
 
 const form = useForm({
     genero: '',
     pais: '',
     desde: '',
     hasta: '',
+    sent: 't'
 });
 
 const submit = () => {
-    form.get(route('obras'));
+    form.get(route('obras'), {preserveState : true});
 };
 
 defineProps(['generos', 'paises']);
@@ -57,6 +58,8 @@ defineProps(['generos', 'paises']);
             <!-- Boton aplicar -->
             <!-- TODO aplicar estilo al botón para la vista de tablet??? -->
             <PrimaryButton class="lg:col-span-1 md:col-span-2 text-white font-medium text-sm px-5 py-2.5 mr-2 mb-2 mt-5" :disabled="form.processing" :class="{ 'opacity-25': form.processing }">FILTRAR</PrimaryButton>
+
+            <Link id="idReset" :href="route('obras')" as="button">RESET</Link>
         </div>
     </form>
 </template>
@@ -76,5 +79,11 @@ button{
     width: 90%;
     padding: 10px 0;
     margin: auto;
+}
+
+#idReset {
+    background-color: #e37f81;
+    color: white;
+    border-radius: 5px;
 }
 </style>
