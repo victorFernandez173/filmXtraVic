@@ -31,7 +31,7 @@ defineProps(['obras']);
 }
 a {
     border: 1px solid white;
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 a:hover {
     border: 1px solid #e37f81;
