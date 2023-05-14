@@ -21,7 +21,7 @@ defineProps(['generos', 'paises']);
     <form @submit.prevent="submit" class="m-auto flex border-solid border-flamingo border-3 p-[5px] w-4.5/5">
 
         <!-- Div desplegables y boton aplicar -->
-        <div class="m-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6">
+        <div class="m-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5">
             <!-- Select genero -->
             <!-- TODO sería interesante crear componentes de estos select, para que se carguen con datos en función de props -->
             <div class="m-auto w-11/12 py-[10px] px-0">
@@ -53,13 +53,11 @@ defineProps(['generos', 'paises']);
                     <option v-for="n in 154">{{ (new Date().getFullYear()+ 1) - n }}</option>
                 </select>
             </div>
-            <div class="m-auto w-11/12 py-[10px] px-0 flex">
-                <!-- Boton filtrar -->
+            <div class="m-auto w-11/12 py-[10px] px-0 flex justify-between md:col-span-2 lg:col-span-1">
+                <!-- Botones -->
                 <PrimaryButton class="m-auto py-[10px] px-[10px]" :disabled="form.processing" :class="{ 'opacity-25': form.processing }">FILTRAR</PrimaryButton>
-            </div>
-            <div class="m-auto w-11/12 py-[10px] px-0">
-                <!-- Boton reset -->
-                <Link class="flex items-center py-[10px] px-[10px] rounded-md font-semibold text-xs text-white tracking-widest bg-flamingo border-rounded hover:text-black"  :href="route('obras')" as="button">RESET</Link>
+
+                <Link class="m-auto py-[10px] px-[10px] rounded-md font-semibold text-xs text-white tracking-widest bg-flamingo border-rounded hover:text-black"  :href="route('obras')">RESET</Link>
             </div>
         </div>
     </form>
