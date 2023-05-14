@@ -22,7 +22,7 @@ defineProps(['generos', 'paises']);
     <form @submit.prevent="submit" class="m-auto flex">
 
         <!-- Div desplegables y boton aplicar -->
-        <div class="m-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5">
+        <div class="m-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6">
             <!-- Select genero -->
             <!-- TODO sería interesante crear componentes de estos select, para que se carguen con datos en función de props -->
             <div class="input">
@@ -54,12 +54,13 @@ defineProps(['generos', 'paises']);
                     <option v-for="n in 154">{{ (new Date().getFullYear()+ 1) - n }}</option>
                 </select>
             </div>
-
-            <!-- Boton aplicar -->
-            <!-- TODO aplicar estilo al botón para la vista de tablet??? -->
-            <PrimaryButton class="lg:col-span-1 md:col-span-2 text-white font-medium text-sm px-5 py-2.5 mr-2 mb-2 mt-5" :disabled="form.processing" :class="{ 'opacity-25': form.processing }">FILTRAR</PrimaryButton>
-
-            <Link id="idReset" :href="route('obras')" as="button">RESET</Link>
+            <div class="input flex">
+                <!-- Boton filtrar -->
+                <PrimaryButton :disabled="form.processing" :class="{ 'opacity-25': form.processing }">FILTRAR</PrimaryButton>
+            </div>
+            <div class="input">
+                <Link class="flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest transition ease-in-out duration-150" id="idReset" :href="route('obras')" as="button">RESET</Link>
+            </div>
         </div>
     </form>
 </template>
@@ -85,5 +86,9 @@ button{
     background-color: #e37f81;
     color: white;
     border-radius: 5px;
+}
+
+#idReset:hover {
+    color: black;
 }
 </style>

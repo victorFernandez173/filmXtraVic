@@ -5,7 +5,6 @@ const props = defineProps({
 </script>
 
 <template>
-
     <h1 class="w-full">{{ titulo || 'Todas las películas' }}</h1>
 </template>
 

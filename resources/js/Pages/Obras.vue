@@ -11,7 +11,6 @@ export default {
 <script setup>
 import {Link, Head} from "@inertiajs/vue3";
 import BarraLateral from "../Components/BarraLateral.vue";
-import TituloH2Dinamico from "../Components/TituloH2Dinamico.vue";
 import FormularioFiltrado from "../Components/FormularioFiltrado.vue";
 import Paginacion from "../Components/Paginacion.vue";
 
@@ -24,13 +23,13 @@ defineProps(['obras', 'titulo', 'errors']);
         <meta name="filter" content="Página de filtrar">
     </Head>
 
-    <div class="flex overflow-x-hidden">
+    <div class="flex overflow-x-hidden max-h-none">
         <!-- Barra lateral -->
         <BarraLateral/>
 
         <div class="flex flex-wrap content-start">
             <!-- Título dinámico -->
-            <TituloH2Dinamico :titulo="titulo" />
+            <h1>Top FilmXtra</h1>
             <!-- Formulario de filtrado -->
             <FormularioFiltrado :paises="$page['props']['paises']" :generos="$page['props']['generos']" />
             <!-- Mensaje de error -->
@@ -50,7 +49,6 @@ defineProps(['obras', 'titulo', 'errors']);
                     </Link>
                 </div>
             </div>
-            <div v-if="obras['links']"></div>
             <!-- Componente para la paginación -->
             <Paginacion class="m-auto" :obras="obras"/>
         </div>
@@ -100,5 +98,15 @@ defineProps(['obras', 'titulo', 'errors']);
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+}
+
+h1 {
+    font-family: 'Oswald', sans-serif;
+    color: #e37f81;
+    height: 10vh;
+    font-size: 3rem;
+    text-align: center;
+    margin: 10px auto;
+    width: 100%;
 }
 </style>

@@ -34,40 +34,18 @@ class FiltrarObrasController extends Controller
 
         // Consulta a BBDD en funcion de parametros GET
         if (count(request()->all()) == 0 || (count(request()->all()) == 1 && request()->has('page'))) {
-            $obras = Obra::with('poster')->paginate(4)->withQueryString();
+            $obras = Obra::with('poster')->paginate(12)->withQueryString();
         } else {
             $obras = Obra::with('poster')->where(
-                'pais', 'like', '%' . $pais . '%')->whereBetween('fecha', [ $desde, $hasta])->whereHas('generos', function(Builder $query) use ($genero) { $query->where('genero', 'like', '%' . $genero . '%'); })->paginate(2)->withQueryString();
+                'pais', 'like', '%' . $pais . '%')->whereBetween('fecha', [ $desde, $hasta])->whereHas('generos', function(Builder $query) use ($genero) { $query->where('genero', 'like', '%' . $genero . '%'); })->paginate(12)->withQueryString();
         }
 
-        // Titulo
-        $titulo = 'Todas las obras';
-        // Si la consulta no da resultados
-        if (count($obras) == 0) {
-            $titulo = 'Sin Resultados';
-        } else {
-            // La consulta da >1 resultado
-            if(request()->has('barraLateral')) {
-                // Cuando la petición es de la barra lateral
-                if (request('barraLateral') === 'genero') {
-                    $titulo = 'Género: ' . request('genero');
-                } else if (request('barraLateral') === 'pais') {
-                    $titulo = 'País: ' . request('pais');
-                } else if (request('barraLateral') === 'decada') {
-                    $titulo = 'Década: ' . request('desde') . 's';
-                }
-            }
-            // Se ha utilizado el formulario
-            if (request()->has('sent') && count($obras) >= 1 && !request()->has('barraLateral')) {
-                $titulo = 'Resultados: ';
-            }
-        }
+        //Filtrado
 
         return Inertia::render('Obras', [
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
             'obras' => $obras,
-            'titulo' => $titulo,
             'generos' => DB::table('generos')->select('genero')->get(),
             'paises' => DB::table('obras')->select('pais')->groupBy('pais')->orderBy('pais')->get()
         ]);
