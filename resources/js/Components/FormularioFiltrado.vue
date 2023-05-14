@@ -24,7 +24,7 @@ defineProps(['generos', 'paises']);
         <div class="m-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6">
             <!-- Select genero -->
             <!-- TODO sería interesante crear componentes de estos select, para que se carguen con datos en función de props -->
-            <div class="input">
+            <div class="m-auto w-11/12 py-[10px] px-0">
                 <select name="genero" v-model="form.genero" class="bg-gray-50 border border-gray-300 text-gray-900 text-base focus:ring-red-400 focus:border-red-400 block w-full p-2.5">
                     <option disabled value="">Género</option>
                     <option v-for="genero in generos">{{ genero['genero']}}</option>
