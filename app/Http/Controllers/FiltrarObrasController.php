@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\FormularioObrasRequest;
 use App\Models\Obra;
 use Carbon\Carbon;
 use DB;
@@ -21,14 +20,10 @@ class FiltrarObrasController extends Controller
      */
     public function cargaDatos(): Response
     {
-
-        // Si no hay 'desde' se asigna valor de los inicios del cine
-        $desde = request('desde') ?: '1870';
-        // Si no hay 'hasta' se asigna año presente
-        $hasta = request('hasta') ?: Carbon::now()->format('Y');
-        // Si no hay pais se asigna valor vacío
+        // Si no hay valor se asigna valor vacío
+        $desde = request('desde') ?? '';
+        $hasta = request('hasta') ?? '';
         $pais = request('pais') ?? '';
-        // Si no hay genero se asigna valor vacío
         $genero = request('genero') ?? '';
 
 
@@ -36,8 +31,10 @@ class FiltrarObrasController extends Controller
         if (count(request()->all()) == 0 || (count(request()->all()) == 1 && request()->has('page'))) {
             $obras = Obra::with('poster')->paginate(12)->withQueryString();
         } else {
+            $d = request('desde') ?: '1870';
+            $h = request('hasta') ?: Carbon::now()->format('Y');
             $obras = Obra::with('poster')->where(
-                'pais', 'like', '%' . $pais . '%')->whereBetween('fecha', [ $desde, $hasta])->whereHas('generos', function(Builder $query) use ($genero) { $query->where('genero', 'like', '%' . $genero . '%'); })->paginate(12)->withQueryString();
+                'pais', 'like', '%' . $pais . '%')->whereBetween('fecha', [ $d, $h])->whereHas('generos', function(Builder $query) use ($genero) { $query->where('genero', 'like', '%' . $genero . '%'); })->paginate(12)->withQueryString();
         }
 
         //Filtrado
@@ -47,7 +44,8 @@ class FiltrarObrasController extends Controller
             'canRegister' => Route::has('register'),
             'obras' => $obras,
             'generos' => DB::table('generos')->select('genero')->get(),
-            'paises' => DB::table('obras')->select('pais')->groupBy('pais')->orderBy('pais')->get()
+            'paises' => DB::table('obras')->select('pais')->groupBy('pais')->orderBy('pais')->get(),
+            'filtros' => [$genero, $pais, $desde, $hasta],
         ]);
     }
 }

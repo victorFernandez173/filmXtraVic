@@ -7,7 +7,6 @@ const form = useForm({
     pais: '',
     desde: '',
     hasta: '',
-    sent: 't'
 });
 
 const submit = () => {

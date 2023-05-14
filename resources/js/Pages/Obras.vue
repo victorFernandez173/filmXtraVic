@@ -14,7 +14,7 @@ import BarraLateral from "../Components/BarraLateral.vue";
 import FormularioFiltrado from "../Components/FormularioFiltrado.vue";
 import Paginacion from "../Components/Paginacion.vue";
 
-defineProps(['obras', 'titulo', 'errors']);
+defineProps(['obras', 'titulo', 'filtros']);
 </script>
 
 <template>
@@ -32,8 +32,9 @@ defineProps(['obras', 'titulo', 'errors']);
             <h1>Top FilmXtra</h1>
             <!-- Formulario de filtrado -->
             <FormularioFiltrado :paises="$page['props']['paises']" :generos="$page['props']['generos']" />
-            <!-- Mensaje de error -->
-            <div class="w-full text-center mt-1" v-if="errors.genero">{{ errors.genero }}</div>
+            <!-- Mensaje de filtrado condicionado en funcion de parámetros del formulario -->
+            <div v-if="(filtros[0] !== '' || filtros[1] !== '' || filtros[2] !== '' || filtros[3] !== '')" class="w-full text-center mt-1">Filtros: {{ filtros[0] === '' ? '' : `género: ${filtros[0]}`  }}{{filtros[0] === '' ? '' : ','}}{{ filtros[1] === '' ? '' : ` país: ${filtros[1]}`  }}{{filtros[1] === '' ? '' : ','}}{{ filtros[2] === '' ? '' : ` desde: ${filtros[2]}`  }}{{filtros[0] === '' ? '' : ','}}{{ filtros[3] === '' ? '' : ` hasta: ${filtros[3]}`  }}</div>
+            <div v-else class="w-full text-center"><p>Sin filtros</p></div>
             <!-- Seccion Principal de contenido -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 seccion-peliculas text-center w-full justify-items-center pl-8 pr-8">
                 <div id="idObra" class="w-full p-6" v-for="obra in obras.data" :key="obra['id']">
