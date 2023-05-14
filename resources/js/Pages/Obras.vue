@@ -33,7 +33,15 @@ defineProps(['obras', 'titulo', 'filtros']);
             <!-- Formulario de filtrado -->
             <FormularioFiltrado :paises="$page['props']['paises']" :generos="$page['props']['generos']" />
             <!-- Mensaje de filtrado condicionado en funcion de parámetros del formulario -->
-            <div v-if="(filtros[0] !== '' || filtros[1] !== '' || filtros[2] !== '' || filtros[3] !== '')" class="w-full text-center mt-1">Filtros: {{ filtros[0] === '' ? '' : `género: ${filtros[0]}`  }}{{filtros[0] === '' ? '' : ','}}{{ filtros[1] === '' ? '' : ` país: ${filtros[1]}`  }}{{filtros[1] === '' ? '' : ','}}{{ filtros[2] === '' ? '' : ` desde: ${filtros[2]}`  }}{{filtros[0] === '' ? '' : ','}}{{ filtros[3] === '' ? '' : ` hasta: ${filtros[3]}`  }}</div>
+            <div v-if="(filtros[0] !== '' || filtros[1] !== '' || filtros[2] !== '' || filtros[3] !== '')" class="w-full text-center mt-1">Filtros:
+                {{ filtros[0] === '' ? '' : `género: ${filtros[0]}`  }}
+                {{(filtros[0] !== '' && filtros[1] !== '') ? ',' : ''}}
+                {{ filtros[1] === '' ? '' : ` país: ${filtros[1]}`  }}
+                {{(filtros[1] !== '' && filtros[2] !== '') ? ',' : ''}}
+                {{ filtros[2] === '' ? '' : ` desde: ${filtros[2]}`  }}
+                {{(filtros[3] !== '' && filtros[4] !== '') ? ',' : ''}}
+                {{ filtros[3] === '' ? '' : ` hasta: ${filtros[3]}`  }}
+            </div>
             <div v-else class="w-full text-center"><p>Sin filtros</p></div>
             <!-- Seccion Principal de contenido -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 seccion-peliculas text-center w-full justify-items-center pl-8 pr-8">
