@@ -27,15 +27,14 @@ defineProps(['obras', 'titulo', 'filtros']);
     <div class="flex overflow-x-hidden max-h-none">
         <!-- Barra lateral -->
         <BarraLateral/>
-
         <div class="flex flex-wrap content-start">
-            <!-- Título dinámico -->
-            <h1 class="w-full mt-2 font-oswald text-center text-5xl h-[10vh]">Top FilmXtra</h1>
+            <!-- Título -->
+            <h1 class="w-full mt-2 font-oswald text-center text-5xl h-[10vh] text-flamingo">Top FilmXtra</h1>
             <!-- Formulario de filtrado -->
             <FormularioFiltrado :paises="$page['props']['paises']" :generos="$page['props']['generos']" />
             <!-- Mensaje de filtrado condicionado en funcion de parámetros del formulario -->
             <div v-if="(filtros[0] !== '' || filtros[1] !== '' || filtros[2] !== '' || filtros[3] !== '')" class="w-full text-center mt-1">Filtros:
-                <!-- Si hay genero ([0])... -->
+                <!-- Si hay genero (filtros[0])... -->
                 {{ filtros[0] === '' ? '' : `género: ${filtros[0]}`  }}
                 <!--se añade coma, y así sucesivamente ... -->
                 {{(filtros[0] !== '' && filtros[1] !== '') ? ',' : ''}}
