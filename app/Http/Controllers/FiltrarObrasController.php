@@ -34,6 +34,7 @@ class FiltrarObrasController extends Controller
             $query->where('genero', 'like', '%' . $genero . '%');
         })->paginate(12)->withQueryString();
 
+        // Renderizamos & props
         return Inertia::render('Obras', [
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),

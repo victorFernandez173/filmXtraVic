@@ -1,5 +1,5 @@
 <script setup>
-import { Head } from "@inertiajs/vue3";
+import { Head, Link } from "@inertiajs/vue3";
 
 defineProps([ 'status', 'message'])
 </script>
@@ -9,7 +9,7 @@ defineProps([ 'status', 'message'])
         <title>Error 404</title>
         <meta name="filter" content="Página de error 404">
     </Head>
-    <main class="grid min-h-full place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8">
+    <div class="grid h-screen place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8 bg-cover bg-[url('gif/error-fondo.gif')]">
         <div class="text-center">
             <!--<p class="texto-404 text-base font-semibold">Error {{ status }}</p>-->
             <!--<h1 class="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">{{ message }}</h1>-->
@@ -17,37 +17,10 @@ defineProps([ 'status', 'message'])
             <p class="mt-4 text-2xl leading-7 text-gray-800">Pero si vuelves al inicio, en FilmXtra encontrarás todo lo que necesitas.</p>
             <img src="/gif/error-gif.gif" class="m-auto mt-7 w-80" alt="Gif error cine">
             <div class="mt-10 flex items-center justify-center gap-x-6">
-                <a :href="route('/')" class="boton-inicio rounded-md px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Ir a inicio</a>
-                <a href="#" class="boton-contacta bg-black rounded-md px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Contacta con nosotros <span aria-hidden="true"> &rarr;</span></a>
+                <Link :href="route('/')" class="hover:text-flamingo hover:bg-black bg-flamingo rounded-md px-3.5 py-2.5 text-sm font-semibold text-white ">Ir a inicio</Link>
+                <Link href="#" class="hover:text-flamingo bg-black rounded-md px-3.5 py-2.5 text-sm font-semibold text-white">Contacta con nosotros <span aria-hidden="true"> &rarr;</span></Link>
             </div>
             <img src="/images/logo.png" class="m-auto w-60 mt-20" alt="Logo FilmXtra">
         </div>
-    </main>
+    </div>
 </template>
-
-<style>
-/*******Fondo HTML*******/
-main, html {
-    background-image: url(/gif/error-fondo.gif);
-    background-size: cover;
-}
-/*******Texto 404*******/
-.texto-404 {
-    color: #e37f81;
-}
-
-/*******Boton inicio*******/
-.boton-inicio {
-    background: #e37f81;
-}
-
-.boton-inicio:hover {
-    background-color: black;
-    color: #e37f81;
-}
-
-/*******Boton contacta*******/
-.boton-contacta:hover {
-    color: #e37f81;
-}
-</style>
