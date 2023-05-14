@@ -14,6 +14,10 @@ module.exports = {
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                oswald: ['Oswald'],
+            },
+            colors: {
+                'flamingo': '#e37f81',
             },
         },
     },
