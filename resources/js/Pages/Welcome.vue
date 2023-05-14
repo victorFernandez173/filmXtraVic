@@ -36,13 +36,13 @@ defineProps(['obras']);
         <div
             class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 seccion-peliculas text-center w-full justify-items-center">
             <div id="idObra" class="w-full p-6" v-for="obra in obras" :key="obra['id']">
-                <Link :href="route('obra', [obra['titulo'].replaceAll(' ', '_')])">
+                <Link :href="route('obra', encodeURIComponent(obra['titulo']))">
                     <div id="idTooltip" class="flex justify-center">
                         <h3>{{ obra['titulo'] }}</h3>
                         <h3 class="scroll-left justify-center" id='idTooltipText'>{{ obra['titulo'] }}</h3>
                     </div>
                 </Link>
-                <Link :href="route('obra', [ obra['titulo'].replaceAll(' ', '_')])">
+                <Link :href="route('obra', encodeURIComponent(obra['titulo']))">
                     <img id="idImgObra" class="w-full mt-3" :src="'posters/' + obra['poster']['ruta']"
                          :alt="obra['poster']['alt']">
                 </Link>

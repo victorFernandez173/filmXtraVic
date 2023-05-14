@@ -34,7 +34,9 @@ defineProps(['obras', 'titulo', 'filtros']);
             <FormularioFiltrado :paises="$page['props']['paises']" :generos="$page['props']['generos']" />
             <!-- Mensaje de filtrado condicionado en funcion de parámetros del formulario -->
             <div v-if="(filtros[0] !== '' || filtros[1] !== '' || filtros[2] !== '' || filtros[3] !== '')" class="w-full text-center mt-1">Filtros:
+                <!-- Si hay genero... -->
                 {{ filtros[0] === '' ? '' : `género: ${filtros[0]}`  }}
+                <!--se añade coma, y así sucesivamente ... -->
                 {{(filtros[0] !== '' && filtros[1] !== '') ? ',' : ''}}
                 {{ filtros[1] === '' ? '' : ` país: ${filtros[1]}`  }}
                 {{(filtros[1] !== '' && filtros[2] !== '') ? ',' : ''}}
@@ -46,13 +48,13 @@ defineProps(['obras', 'titulo', 'filtros']);
             <!-- Seccion Principal de contenido -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 seccion-peliculas text-center w-full justify-items-center pl-8 pr-8">
                 <div id="idObra" class="w-full p-6" v-for="obra in obras.data" :key="obra['id']">
-                    <Link :href="route('obra', [obra['titulo'].replaceAll(' ', '_')])">
+                    <Link :href="route('obra', encodeURIComponent(obra['titulo']))">
                         <div id="idTooltip" class="flex justify-center">
                             <h3>{{ obra['titulo'] }}</h3>
                             <h3 id='idTooltipText'>{{ obra['titulo'] }}</h3>
                         </div>
                     </Link>
-                    <Link :href="route('obra', [ obra['titulo'].replaceAll(' ', '_')])">
+                    <Link :href="route('obra', encodeURIComponent(obra['titulo']))">
                         <img id="idImgObra" class="w-full mt-3" :src="'posters/' + obra['poster']['ruta']"
                              :alt="obra['poster']['alt']">
                     </Link>
@@ -65,7 +67,7 @@ defineProps(['obras', 'titulo', 'filtros']);
 </template>
 
 <style scoped>
-/*******Seccion peliculas*******/
+/* TODO posibilidad de limpiar estilos en la medida de lo posible asignandolos a clases de tailwind */
 #idTooltip {
     position: relative;
     cursor: pointer;

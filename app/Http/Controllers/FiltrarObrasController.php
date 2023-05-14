@@ -15,8 +15,8 @@ class FiltrarObrasController extends Controller
 {
     /**
      * Peticiones GET: carga inicial o enlaces de filtrado de la barra lateral
-     * @throws Exception
      * @return Response
+     * @throws Exception
      */
     public function cargaDatos(): Response
     {
@@ -26,18 +26,13 @@ class FiltrarObrasController extends Controller
         $pais = request('pais') ?? '';
         $genero = request('genero') ?? '';
 
-
-        // Consulta a BBDD en funcion de parametros GET
-        if (count(request()->all()) == 0 || (count(request()->all()) == 1 && request()->has('page'))) {
-            $obras = Obra::with('poster')->paginate(12)->withQueryString();
-        } else {
-            $d = request('desde') ?: '1870';
-            $h = request('hasta') ?: Carbon::now()->format('Y');
-            $obras = Obra::with('poster')->where(
-                'pais', 'like', '%' . $pais . '%')->whereBetween('fecha', [ $d, $h])->whereHas('generos', function(Builder $query) use ($genero) { $query->where('genero', 'like', '%' . $genero . '%'); })->paginate(12)->withQueryString();
-        }
-
-        //Filtrado
+        // Consulta multicondición para obtener películas
+        $d = request('desde') ?: '1870';
+        $h = request('hasta') ?: Carbon::now()->format('Y');
+        $obras = Obra::with('poster')->where(
+            'pais', 'like', '%' . $pais . '%')->whereBetween('fecha', [$d, $h])->whereHas('generos', function (Builder $query) use ($genero) {
+            $query->where('genero', 'like', '%' . $genero . '%');
+        })->paginate(12)->withQueryString();
 
         return Inertia::render('Obras', [
             'canLogin' => Route::has('login'),

@@ -14,7 +14,7 @@ class ObtenerObraController extends Controller
      * @throws Exception
      */
     public function fichaPelicula($titulo){
-        $titulo = str_replace('_', ' ', $titulo);
+        $titulo = rawurldecode($titulo);
 
         return Inertia::render('Obra', [
             'canLogin' => Route::has('login'),
