@@ -8,10 +8,11 @@ export default {
 
 <!--script estandar para lo habitual-->
 <script setup>
-import { Link, Head } from "@inertiajs/vue3";
+import { Head } from "@inertiajs/vue3";
 import Carrusel from "../Components/Carrusel.vue";
 import { initFlowbite } from 'flowbite'
 import { onMounted } from "vue";
+import Poster from "../Components/Poster.vue";
 
 // Para montar componentes Flowbite
 onMounted(() => {
@@ -22,7 +23,7 @@ defineProps(['obras']);
 </script>
 
 <template>
-    <!--  TODO revisar cuando haya tiempo la responsividad de toda la página: detallitos como tamaños de fuente, anchura barra latera...   -->
+    <!--  TODO revisar la responsividad: tamaños de fuente, anchura barra lateral...   -->
     <Head>
         <title>Inicio</title>
         <meta name="description" content="Página de bienvenida">
@@ -35,64 +36,8 @@ defineProps(['obras']);
         <!-- Seccion Principal de contenido -->
         <div
             class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 seccion-peliculas text-center w-full justify-items-center">
-            <div id="idObra" class="w-full p-6" v-for="obra in obras" :key="obra['id']">
-                <Link :href="route('obra', encodeURIComponent(obra['titulo']))">
-                    <div id="idTooltip" class="flex justify-center">
-                        <h3>{{ obra['titulo'] }}</h3>
-                        <h3 class="scroll-left justify-center" id='idTooltipText'>{{ obra['titulo'] }}</h3>
-                    </div>
-                </Link>
-                <Link :href="route('obra', encodeURIComponent(obra['titulo']))">
-                    <img id="idImgObra" class="w-full mt-3" :src="'posters/' + obra['poster']['ruta']"
-                         :alt="obra['poster']['alt']">
-                </Link>
-            </div>
+            <!-- Cada poster es un componente -->
+            <Poster v-for="obra in obras" :key="obra['id']" :obra="obra" />
         </div>
     </div>
 </template>
-
-<style scoped>
-/*******Seccion peliculas*******/
-#idTooltip {
-    position: relative;
-    cursor: pointer;
-}
-
-#idTooltipText {
-    position: absolute;
-    top: 0;
-    padding: 8px 16px;
-    background: #e37f81;
-    color: white;
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.5s ease-out;
-}
-
-#idTooltip:hover #idTooltipText {
-    visibility: visible;
-    opacity: 1;
-    z-index: 10;
-    font-size: 1.3rem;
-}
-
-#idTooltip:hover h3 {
-    visibility: hidden;
-}
-
-#idImgObra:hover {
-    border: 10px #e37f81 solid;
-}
-
-.seccion-peliculas h3 {
-    position: relative;
-    color: #e37f81;
-    font-size: 1.6rem;
-    font-weight: bold;
-    text-decoration: underline;
-    font-family: 'Oswald', sans-serif;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
-</style>
