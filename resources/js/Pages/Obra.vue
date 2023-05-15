@@ -21,12 +21,12 @@ dayjs.locale('es');
         <title>{{ obra[0].titulo }}</title>
         <meta name="description" content="Página de bienvenida">
     </Head>
-    <div id="idFicha">
-        <img :src="'../posters/' + $page['props']['obra'][0]['poster']['ruta']" :alt="obra[0].poster.alt">
+    <div class="w-[100vw] flex flex-col items-center [&>span]:font-bold">
+        <img class="w-[400px]" :src="'../posters/' + $page['props']['obra'][0]['poster']['ruta']" :alt="obra[0].poster.alt">
         <p>
             {{ $page['props']['obra'][0]['titulo'] }}
         </p>
-        <span v-show="$page['props']['obra'][0]['directors'][0]">Dirección:</span>
+        <span class="" v-show="$page['props']['obra'][0]['directors'][0]">Dirección:</span>
         <p v-for="dir in $page['props']['obra'][0]['directors']">
             {{ dir['nombre'] }}
         </p>
@@ -58,32 +58,3 @@ dayjs.locale('es');
         </ul>
     </div>
 </template>
-
-<style scoped>
-p, li {
-    font-weight: 900;
-    font-size: 1.5rem;
-}
-
-li {
-    width: 50vw;
-    text-align: center;
-}
-
-span {
-    font-weight: 900;
-    font-size: 2rem;
-    color: red;
-}
-
-img {
-    width: 400px;
-}
-
-#idFicha {
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-</style>
