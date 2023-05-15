@@ -21,7 +21,7 @@ defineProps(['generos', 'paises']);
     <form @submit.prevent="submit" class="m-auto flex border-solid border-flamingo border-3 p-[5px] w-4.5/5">
 
         <!-- Div desplegables y boton aplicar -->
-        <div class="m-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5">
+        <div class="m-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 hover:[&>div>select]:cursor-pointer">
             <!-- Select genero -->
             <!-- TODO sería interesante crear componentes de estos select, para que se carguen con datos en función de props -->
             <div class="m-auto w-11/12 py-[10px] px-0">
