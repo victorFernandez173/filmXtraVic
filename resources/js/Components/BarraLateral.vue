@@ -4,7 +4,7 @@ import {Link} from "@inertiajs/vue3";
 
 <template>
     <!-- Seccion columna izquierda -->
-    <section class="seccion-columna p-4 pb-8">
+    <section class="w-3/12 text-xs sm:text-base sm:[&>ul>li]:pr-3 bg-flamingo seccion-columna p-4 pb-8 hover:[&>ul>li]:text-white [&>ul>li]:overflow-ellipsis [&>ul>li]:overflow-hidden">
         <!-- Genero -->
         <h5 class="py-4 font-bold underline">Género</h5>
         <ul>
@@ -165,46 +165,3 @@ import {Link} from "@inertiajs/vue3";
         </ul>
     </section>
 </template>
-
-<style scoped>
-/****************************************** Seccion columna ******************************************/
-.seccion-columna {
-    background-color: #e37f81;
-    width: 12%;
-    padding: 1rem 2rem 1rem 1rem;
-}
-
-button {
-    text-align: left;
-    width: 100%;
-    display: block;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-}
-
-.seccion-columna li:hover {
-    color: white;
-}
-
-/****************************RESPONSIVE****************************/
-/************Tablet************/
-@media screen and (max-width: 1024px) {
-    li{
-        font-size: 0.9rem;
-    }
-}
-
-/************Movil************/
-@media screen and (max-width: 768px) {
-    /******* Seccion columna *******/
-    .seccion-columna {
-        width: 20%;
-        padding-right: 0.5rem;
-    }
-
-    li{
-        font-size: 0.7rem;
-    }
-}
-</style>
