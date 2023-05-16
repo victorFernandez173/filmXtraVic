@@ -138,7 +138,7 @@ const submit = () => {
                             </button>
                         </div>
                         <p class="text-sm font-light text-gray-500">
-                            ¿Aún no tienes cuenta? <a href="#" class="font-medium text-primary-600 hover:underline">¡Regístrate aquí!</a>
+                            ¿Aún no tienes cuenta? <a href="/register" class="font-medium text-primary-600 hover:underline">¡Regístrate aquí!</a>
                         </p>
                     </form>
                 </div>
