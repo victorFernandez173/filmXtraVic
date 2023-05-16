@@ -22,7 +22,7 @@ defineProps([ 'status', 'message'])
                 <Link :href="route('/')" class="hover:text-flamingo hover:bg-black bg-flamingo rounded-md px-3.5 py-2.5 text-sm font-semibold text-white ">Ir a inicio</Link>
                 <Link href="#" class="hover:text-flamingo bg-black rounded-md px-3.5 py-2.5 text-sm font-semibold text-white">Contacta con nosotros <span aria-hidden="true"> &rarr;</span></Link>
             </div>
-            <img src="/images/logo.png" class="m-auto w-60 mt-20" alt="Logo FilmXtra">
+            <img src="/images/logo.png" class="m-auto w-60 mt-10" alt="Logo FilmXtra">
         </div>
     </div>
 </template>
