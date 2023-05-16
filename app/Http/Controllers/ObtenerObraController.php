@@ -58,12 +58,15 @@ class ObtenerObraController extends Controller
         return $saga;
     }
 
-    /* public function obtenerSecuelaPrecuela($secuelas){
-        $secuelaPrecuela = array();
-        if(isset($secuelas[0])){
-
+     public function obtenerSecuelaPrecuela($secuelas){
+        if(isset($secuelas['saga_id'])){
+            $secuelaPrecuela = array();
+            $secuelas = DB::table('secuelas')->select('saga_id', 'obra_id', 'orden')->where('saga_id', '=', $secuelas['saga_id'])->get();
+            ddd($secuelas);
+            return $secuelaPrecuela;
         }
-    }*/
+        return null;
+    }
 
 
     /**
