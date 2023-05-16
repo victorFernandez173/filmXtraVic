@@ -125,7 +125,7 @@ import { Link } from "@inertiajs/vue3";
                         <ul class="text-gray-600 font-medium">
                             <li class="mb-4">
                                 <p>
-                                    <Link class="hover:text-flamingo" href="mailto:filmxtra@gmail.com" target="_blank" rel="noopener noreferrer">filmxtra@gmail.com</Link>
+                                    <Link class="hover:text-flamingo" href="mailto:filmxtra.23@gmail.com" target="_blank" rel="noopener noreferrer">filmxtra.23@gmail.com</Link>
                                 </p>
                             </li>
                             <li>
@@ -137,7 +137,7 @@ import { Link } from "@inertiajs/vue3";
             </div>
             <hr class="my-6 border-gray-200 sm:mx-auto lg:my-8" />
             <div class="text-center sm:flex sm:items-center sm:justify-between">
-            <span class="text-sm text-gray-500 sm:text-center">© 2023 <Link class="hover:text-flamingo" href="#">FilmXtra</Link><span>™</span>. Todos los derechos reservados.
+            <span class="text-sm text-gray-500 sm:text-center">© 2023 <Link class="hover:text-flamingo" :href="route('/')">FilmXtra<span>™</span></Link>. Todos los derechos reservados.
             </span>
                 <div class="hover:[&>a]:text-flamingo flex justify-center mt-4 space-x-6 sm:margin-auto sm:mt-0">
                     <Link href="https://www.facebook.com/" class="text-gray-500">
