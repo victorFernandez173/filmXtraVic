@@ -81,7 +81,7 @@ class ObtenerObraController extends Controller
                     array_push($secuelaPrecuela, $secuela->obra_id);
                 }
             }
-            return $secuelaPrecuela;
+            return Obra::with('poster')->find($secuelaPrecuela);
         }
         return null;
     }
