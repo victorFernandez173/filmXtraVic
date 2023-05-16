@@ -70,7 +70,7 @@ class Obra extends Model
     /**
      * Get the secuelas of the obra.
      */
-    public function secuelas(): HasOne
+    public function secuela(): HasOne
     {
         return $this->hasOne(Secuela::class);
     }
