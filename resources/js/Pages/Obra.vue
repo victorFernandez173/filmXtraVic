@@ -18,7 +18,7 @@ dayjs.locale('es');
 const media = 0;
 </script>
 
-<template>
+<!--<template>
     <Head>
         <title>{{ obra[0].titulo }}</title>
         <meta name="description" content="Página de bienvenida">
@@ -78,4 +78,36 @@ const media = 0;
             </li>
         </ul>
     </div>
+</template>-->
+
+<template>
+
+
+    <div class="container mx-auto">
+        <!--3 apartados para poster, datos y valoraciones-->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!--Poster-->
+            <div class="flex justify-center bg-gray-100">
+                poster
+            </div>
+            <!--Datos pelicula-->
+            <div class="flex justify-center col-span-2 bg-gray-100">
+                datos
+            </div>
+            <!--Valoraciones-->
+            <div class="flex justify-center bg-gray-100">
+                valoraciones
+            </div>
+        </div>
+
+        <!--1 apartado para el trailer-->
+        <div class="grid grid-cols-1">
+            <!--Trailer-->
+            <div class="flex justify-center bg-gray-100">
+                trailer
+            </div>
+        </div>
+    </div>
+
+
 </template>
