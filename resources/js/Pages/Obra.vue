@@ -11,7 +11,7 @@ import es from "dayjs/locale/es";
 import relativeTime from 'dayjs/plugin/relativeTime';
 import { Head } from "@inertiajs/vue3";
 
-defineProps(['obra', 'mediaEvaluaciones']);
+defineProps(['obra', 'mediaEvaluaciones', 'criticas', 'saga']);
 dayjs.extend(relativeTime);
 dayjs.locale('es');
 
@@ -65,10 +65,10 @@ const media = 0;
                 {{ parseFloat(mediaEvaluaciones) }}
             </li>
         </ul>
-        <span v-show="obra[0]['criticas'][0]">Criticas: </span>
+        <span v-show="criticas">Criticas: </span>
         <ul>
-            <li v-for="cri in obra[0]['criticas']">
-                {{ dayjs(cri['modificada']).fromNow() }}-{{ cri['critica'] }}
+            <li v-for="cri in criticas">
+                {{ dayjs(cri['fecha']).fromNow() }}-{{ cri['critica'] }}(Likes:{{ cri['likes'] }})
             </li>
         </ul>
         <span v-show="obra[0]['profesionals'][0]">Criticas profesionales: </span>
@@ -77,5 +77,6 @@ const media = 0;
                 {{ pro['contenido'] }}
             </li>
         </ul>
+        <span v-if="saga">Saga: {{ saga[0]['nombre'] }}</span>
     </div>
 </template>
