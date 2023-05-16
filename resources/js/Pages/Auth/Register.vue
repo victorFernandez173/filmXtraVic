@@ -133,7 +133,7 @@ const submit = () => {
                         </div>
                         <button type="submit" class="w-full text-white bg-flamingo hover:bg-black hover:text-flamingo focus:bg-flamingo focus:ring-flamingo focus:border-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center">Crear cuenta</button>
                         <p class="text-sm font-light text-gray-500">
-                            ¿Ya tienes cuenta? <a href="#" class="font-medium text-primary-600 hover:underline">¿Inicia sesión aquí!</a>
+                            ¿Ya tienes cuenta? <a href="#" class="font-medium text-primary-600 hover:underline">¡Inicia sesión aquí!</a>
                         </p>
                     </form>
                 </div>
