@@ -134,6 +134,3 @@ const submit = () => {
         </div>
     </section>
 </template>
-
-<style>
-</style>
