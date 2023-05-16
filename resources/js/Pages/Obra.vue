@@ -11,7 +11,7 @@ import es from "dayjs/locale/es";
 import relativeTime from 'dayjs/plugin/relativeTime';
 import { Head } from "@inertiajs/vue3";
 
-defineProps(['obra', 'mediaEvaluaciones', 'criticas', 'saga']);
+defineProps(['obra', 'mediaEvaluaciones', 'criticas', 'saga', 'secuelaPrecuela']);
 dayjs.extend(relativeTime);
 dayjs.locale('es');
 
@@ -78,5 +78,9 @@ const media = 0;
             </li>
         </ul>
         <span v-if="saga">Saga: {{ saga[0]['nombre'] }}</span>
+        <div class="flex">
+            <span v-if="secuelaPrecuela">Precuela:<img class="w-[100px]" :src="'../posters/' + secuelaPrecuela[0]['poster']['ruta']" :alt="secuelaPrecuela[0].poster.alt"></span>
+            <span v-if="secuelaPrecuela">Secuela:<img class="w-[100px]" :src="'../posters/' + secuelaPrecuela[1]['poster']['ruta']" :alt="secuelaPrecuela[1].poster.alt"></span>
+        </div>
     </div>
 </template>
