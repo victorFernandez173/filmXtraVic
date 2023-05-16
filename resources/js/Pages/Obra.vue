@@ -59,7 +59,7 @@ const media = 0;
                 {{ gen['genero'] }}
             </li>
         </ul>
-        <span v-show="mediaEvaluaciones">Evaluaciones: </span>
+        <span>Evaluaciones: </span>
         <ul>
             <li>
                 {{ parseFloat(mediaEvaluaciones) }}
