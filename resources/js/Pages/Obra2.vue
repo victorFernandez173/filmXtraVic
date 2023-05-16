@@ -87,7 +87,7 @@ const media = 0;
         <!--3 apartados para poster, datos y valoraciones-->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 mt-10">
             <!--Poster-->
-            <div class="justify-center m-auto w-9/12">
+            <div class="justify-center m-auto ">
                 <img class="w-80" src="../../../public/posters/Harry_Potter_and_the_Half-Blood_Prince_(Harry_Potter_6).png" alt="Poster">
                 <!--Puntuacion-->
                 <div class="flex justify-center">
@@ -103,7 +103,7 @@ const media = 0;
             </div>
 
             <!--Datos pelicula-->
-            <div class="flex justify-center ml-10 mr-10 w-1/4">
+            <div class="flex justify-center ml-10 mr-10 ">
                 <ul>
                     <!--Datos de la pelicula-->
                     <li class="list-disc font-bold underline text-flamingo text-xl">Obra:</li>
