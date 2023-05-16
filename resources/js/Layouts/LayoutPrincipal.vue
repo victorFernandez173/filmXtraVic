@@ -79,9 +79,6 @@ import { Link } from "@inertiajs/vue3";
                         <Link href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 ">Valoraciones</Link>
                     </li>
                     <li>
-                        <Link href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 ">Contacto</Link>
-                    </li>
-                    <li>
                         <Link :href="route('profile.edit')" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0">Cuenta</Link>
                     </li>
                 </ul>
