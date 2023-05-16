@@ -98,6 +98,7 @@ class ObtenerObraController extends Controller
     }
 
     /**
+     * Para generar array con la info de las criticas profesionales
      * @param $obra
      * @return array|null
      * @throws Exception

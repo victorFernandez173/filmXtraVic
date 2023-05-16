@@ -73,14 +73,16 @@ dayjs.locale('es');
         <ul>
             <li v-for="pro in profesionales">
                 {{ pro['contenido'] }}({{ pro['autor'] }})[{{ pro['medio'] }}-
-                <Link>{{ pro['web'] }}</Link>]
+                <a class="hover:text-red-600 text-flamingo underline" :href="pro['web']" target="_blank">{{ pro['web'] }}</a>]
             </li>
         </ul>
         <span v-if="saga">Saga: {{ saga[0]['nombre'] }}</span>
         <div class="flex text-center">
             <span v-for="secuela in secuelaPrecuela">
                 <span>{{ secuela['secuela']['orden'] > obra[0]['secuela']['orden'] ? 'Secuela' : 'Precuela' }}</span>
-                <img class="w-[200px] m-auto" :src="'../posters/' + secuela['poster']['ruta']" :alt="secuela.poster.alt">
+                 <Link :href="route('obra', encodeURIComponent(secuela['titulo']))">
+                     <img class="hover:border-3 hover:border-flamingo hover:border-solid w-[200px] m-auto" :src="'../posters/' + secuela['poster']['ruta']" :alt="secuela.poster.alt">
+                 </Link>
             </span>
         </div>
     </div>
