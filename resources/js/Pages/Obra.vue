@@ -9,7 +9,8 @@ export default {
 import dayjs from "dayjs";
 import es from "dayjs/locale/es";
 import relativeTime from 'dayjs/plugin/relativeTime';
-import { Head, Link } from "@inertiajs/vue3";
+import { Head } from "@inertiajs/vue3";
+import Poster from "../Components/Poster.vue";
 
 defineProps(['obra', 'mediaEvaluaciones', 'criticas', 'saga', 'secuelaPrecuela', 'profesionales']);
 dayjs.extend(relativeTime);
@@ -77,6 +78,7 @@ dayjs.locale('es');
             </li>
         </ul>
         <span v-if="saga">Saga: {{ saga[0]['nombre'] }}</span>
+        <!-- ESTILO NORMAL POR SI PRESCINDIMOS DE USAR COMPONENTE POSTER
         <div class="flex text-center">
             <span v-for="secuela in secuelaPrecuela">
                 <span>{{ secuela['secuela']['orden'] > obra[0]['secuela']['orden'] ? 'Secuela' : 'Precuela' }}</span>
@@ -84,6 +86,14 @@ dayjs.locale('es');
                      <img class="border-solid border-3 border-white hover:border-3 hover:border-flamingo hover:border-solid w-[200px] m-auto" :src="'../posters/' + secuela['poster']['ruta']" :alt="secuela.poster.alt">
                  </Link>
             </span>
+        </div> -->
+        <div class="flex text-center">
+            <div v-for="secuela in secuelaPrecuela" class="w-[300px]">
+                <span>
+                    {{ secuela['secuela']['orden'] > obra[0]['secuela']['orden'] ? 'Secuela' : 'Precuela' }}
+                </span>
+                 <Poster :obra="secuela" />
+            </div>
         </div>
     </div>
 </template>
