@@ -7,7 +7,7 @@ INSERT INTO obras (`titulo`, `titulo_original`, `pais`, `duracion`, `sinopsis`, 
 
 
 
-INSERT INTO medios (nombre, web) VALUES ('Fotogramas', 'https://www.fotogramas.es'), ('El Pais', 'https://www.elpais.es'), ('El Mundo', 'https://www.elmundo.es'), ('Cinemania', 'https://www.cinemania.es'), ('ABC', 'https://www.abc.es'), ('Sensacine', 'https://www.sensacine.es'), ('Super Hero Hype', 'https://www.superherohype.es'), ('Box Office Mojo', 'https://www.boxofficemojo.com'), ('Rotten Tomatoes', 'https://www.rottentomatoes.com'), ('La Vanguardia', 'https://www.lavanguardia.es'), ('As', 'https://www.as.es'), ('Espinof', 'https://www.espinof.com'), ('Tomatazos', 'https://www.tomatazos.com'), ('Los Interrogantes', 'https://www.losinterrogantes.com'), ('Ecartelera', 'https://www.ecartelera.com');
+INSERT INTO medios (nombre, web) VALUES ('Fotogramas', 'https://www.fotogramas.es'), ('El Pais', 'https://www.elpais.es'), ('El Mundo', 'https://www.elmundo.es'), ('Cinemania', 'https://www.cinemania.es'), ('ABC', 'https://www.abc.es'), ('Sensacine', 'https://www.sensacine.es'), ('Super Hero Hype', 'https://www.superherohype.com'), ('Box Office Mojo', 'https://www.boxofficemojo.com'), ('Rotten Tomatoes', 'https://www.rottentomatoes.com'), ('La Vanguardia', 'https://www.lavanguardia.es'), ('As', 'https://www.as.es'), ('Espinof', 'https://www.espinof.com'), ('Tomatazos', 'https://www.tomatazos.com'), ('Los Interrogantes', 'https://www.losinterrogantes.com'), ('Ecartelera', 'https://www.ecartelera.com');
 
 
 
