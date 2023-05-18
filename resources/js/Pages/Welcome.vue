@@ -37,7 +37,7 @@ defineProps(['obras']);
         <div
             class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 seccion-peliculas text-center w-full justify-items-center">
             <!-- Cada poster es un componente -->
-            <Poster v-for="obra in obras" :key="obra['id']" :obra="obra" />
+            <Poster v-for="obra in obras" :key="obra['id']" :obra="obra" :titulo="`text-2xl hover:text-xl`" />
         </div>
     </div>
 </template>

@@ -92,7 +92,7 @@ dayjs.locale('es');
                 <span>
                     {{ secuela['secuela']['orden'] > obra[0]['secuela']['orden'] ? 'Secuela' : 'Precuela' }}
                 </span>
-                 <Poster :obra="secuela" />
+                 <Poster :obra="secuela" :titulo="`text-lg hover:text-md`" />
             </div>
         </div>
     </div>
