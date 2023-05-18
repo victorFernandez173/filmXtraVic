@@ -12,7 +12,28 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 import { Head } from "@inertiajs/vue3";
 import Poster from "../Components/Poster.vue";
 
-defineProps(['obra', 'mediaEvaluaciones', 'criticas', 'saga', 'secuelaPrecuela', 'profesionales']);
+// Obtenemos los props
+const props = defineProps({
+    obra: Object,
+    mediaEvaluaciones: String,
+    criticas: Object,
+    saga: Object,
+    secuelaPrecuela: Object,
+    profesionales: Object
+})
+
+// Funcion para ordenar array por clave interna
+const nestedSort = (prop1, prop2 = null, direction = 'asc') => (e1, e2) => {
+    const a = prop2 ? e1[prop1][prop2] : e1[prop1],
+        b = prop2 ? e2[prop1][prop2] : e2[prop1],
+        sortOrder = direction === "asc" ? 1 : -1
+    return (a < b) ? -sortOrder : (a > b) ? sortOrder : 0;
+}
+
+// Si hay secuelas, se genera un array con el objeto y despues se ordena dicho array
+const ordenados = props.secuelaPrecuela != null ? props.secuelaPrecuela.sort(nestedSort("secuela", "orden", "desc")) : null;
+
+// Configuración fechas relativas dayjs
 dayjs.extend(relativeTime);
 dayjs.locale('es');
 </script>
@@ -79,7 +100,7 @@ dayjs.locale('es');
         </ul>
         <span v-if="saga">Saga: {{ saga[0]['nombre'] }}</span>
         <div class="flex text-center">
-            <div v-for="secuela in secuelaPrecuela" class="w-[300px]">
+            <div v-for="secuela in ordenados" class="w-[300px]">
                 <span>
                     {{ obra[0]['secuela']['orden'] === 0 ? 'Inicio saga' : secuela['secuela']['orden'] === 0 ? 'Spin-off' : secuela['secuela']['orden'] > obra[0]['secuela']['orden'] ? 'Secuela' : 'Precuela' }}
                 </span>

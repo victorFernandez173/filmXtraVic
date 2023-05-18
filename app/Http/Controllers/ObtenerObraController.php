@@ -85,8 +85,8 @@ class ObtenerObraController extends Controller
             $orden = $obra[0]['secuela']['orden'];
             $secuelaPrecuela = array();
             // Obtenemos las array con las pelis de la saga
-            $secuelas = DB::table('secuelas')->select('saga_id', 'obra_id', 'orden')->where('saga_id', '=', $obra[0]['secuela']['saga_id'])->get();
-            //proceso el array $secuelas para orden + 1 (secuela) y orden - 1 (precuela)
+            $secuelas = DB::table('secuelas')->select('saga_id', 'obra_id', 'orden')->where('saga_id', '=', $obra[0]['secuela']['saga_id'])->orderBy('orden', 'desc')->get();
+            //proceso el array $secuelas para orden + 1 (secuela) y orden - 1 (precuela) y orden = 0 (spin-off)
             foreach ($secuelas as $esSecuela){
                 if( ($esSecuela->orden == 0 && $orden >= 1) || (($orden - 1)  == $esSecuela->orden || ($orden + 1) == $esSecuela->orden)){
                     $secuelaPrecuela[] = $esSecuela->obra_id;
