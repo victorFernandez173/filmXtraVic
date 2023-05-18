@@ -19,7 +19,7 @@ defineProps([ 'status', 'message'])
             <div class="mt-10 flex items-center justify-center gap-x-6">
                 <Link :href="route('/')" class="hover:text-flamingo hover:bg-black bg-flamingo rounded-md px-3.5 py-2.5 text-sm font-semibold text-white">Ir a inicio &rarr;</Link>
             </div>
-            <Link :href="route('/')"><img src="/images/logo.png" class="m-auto w-60 mt-10" alt="Logo FilmXtra"></Link>
+            <img src="/images/logo.png" class="m-auto w-60 mt-10" alt="Logo FilmXtra">
         </div>
     </div>
 </template>
