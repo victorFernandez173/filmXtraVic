@@ -53,6 +53,7 @@ class ObtenerObraController extends Controller
                 'critica' => $critica['critica'],
                 'likes' => DB::table('likes')->where('critica_id', '=', $critica['id'])->count(),
                 'fecha' => $critica['modificada'],
+                'usuario' => DB::table('users')->select('nombre', 'apellido')->where('id', '=', $critica['user_id'])->get()
                 ];
         }
         return $criticasLikes;

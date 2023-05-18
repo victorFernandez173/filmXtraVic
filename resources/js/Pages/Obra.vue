@@ -31,7 +31,7 @@ const nestedSort = (prop1, prop2 = null, direction = 'asc') => (e1, e2) => {
 }
 
 // Si hay secuelas, se genera un array con el objeto y despues se ordena dicho array
-const ordenados = props.secuelaPrecuela != null ? props.secuelaPrecuela.sort(nestedSort("secuela", "orden", "desc")) : null;
+const secuelasOrdenadas = props.secuelaPrecuela != null ? props.secuelaPrecuela.sort(nestedSort("secuela", "orden", "desc")) : null;
 
 // Configuración fechas relativas dayjs
 dayjs.extend(relativeTime);
@@ -88,7 +88,7 @@ dayjs.locale('es');
         <span v-if="criticas[0]">Criticas: </span>
         <ul>
             <li v-for="cri in criticas">
-                {{ dayjs(cri['fecha']).fromNow() }}-{{ cri['critica'] }}(Likes:{{ cri['likes'] }})
+                {{ dayjs(cri['fecha']).fromNow() }}-{{ cri['critica'] }}(Likes:{{ cri['likes'] }})[{{cri['usuario'][0]['nombre']}} {{cri['usuario'][0]['apellido']}}]
             </li>
         </ul>
         <span v-if="profesionales">Criticas profesionales: </span>
@@ -100,7 +100,7 @@ dayjs.locale('es');
         </ul>
         <span v-if="saga">Saga: {{ saga[0]['nombre'] }}</span>
         <div class="flex text-center">
-            <div v-for="secuela in ordenados" class="w-[300px]">
+            <div v-for="secuela in secuelasOrdenadas" class="w-[300px]">
                 <span>
                     {{ obra[0]['secuela']['orden'] === 0 ? 'Inicio saga' : secuela['secuela']['orden'] === 0 ? 'Spin-off' : secuela['secuela']['orden'] > obra[0]['secuela']['orden'] ? 'Secuela' : 'Precuela' }}
                 </span>
