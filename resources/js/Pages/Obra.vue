@@ -78,19 +78,10 @@ dayjs.locale('es');
             </li>
         </ul>
         <span v-if="saga">Saga: {{ saga[0]['nombre'] }}</span>
-        <!-- ESTILO NORMAL POR SI PRESCINDIMOS DE USAR COMPONENTE POSTER
-        <div class="flex text-center">
-            <span v-for="secuela in secuelaPrecuela">
-                <span>{{ secuela['secuela']['orden'] > obra[0]['secuela']['orden'] ? 'Secuela' : 'Precuela' }}</span>
-                 <Link :href="route('obra', encodeURIComponent(secuela['titulo']))">
-                     <img class="border-solid border-3 border-white hover:border-3 hover:border-flamingo hover:border-solid w-[200px] m-auto" :src="'../posters/' + secuela['poster']['ruta']" :alt="secuela.poster.alt">
-                 </Link>
-            </span>
-        </div> -->
         <div class="flex text-center">
             <div v-for="secuela in secuelaPrecuela" class="w-[300px]">
                 <span>
-                    {{ secuela['secuela']['orden'] > obra[0]['secuela']['orden'] ? 'Secuela' : 'Precuela' }}
+                    {{ obra[0]['secuela']['orden'] === 0 ? 'Inicio saga' : secuela['secuela']['orden'] === 0 ? 'Spin-off' : secuela['secuela']['orden'] > obra[0]['secuela']['orden'] ? 'Secuela' : 'Precuela' }}
                 </span>
                  <Poster :obra="secuela" :titulo="`text-lg hover:text-md`" />
             </div>

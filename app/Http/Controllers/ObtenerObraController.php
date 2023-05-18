@@ -88,7 +88,7 @@ class ObtenerObraController extends Controller
             $secuelas = DB::table('secuelas')->select('saga_id', 'obra_id', 'orden')->where('saga_id', '=', $obra[0]['secuela']['saga_id'])->get();
             //proceso el array $secuelas para orden + 1 (secuela) y orden - 1 (precuela)
             foreach ($secuelas as $esSecuela){
-                if(($orden - 1)  == $esSecuela->orden || ($orden + 1) == $esSecuela->orden ){
+                if( ($esSecuela->orden == 0 && $orden >= 1) || (($orden - 1)  == $esSecuela->orden || ($orden + 1) == $esSecuela->orden)){
                     $secuelaPrecuela[] = $esSecuela->obra_id;
                 }
             }
