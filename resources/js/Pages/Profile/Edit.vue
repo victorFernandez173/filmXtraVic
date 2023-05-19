@@ -27,10 +27,10 @@ defineProps({
         <div class="py-12 bg-cover bg-[url('images/posters-fondo.png')]">
             <h1 class="titulo font-semibold underline text-5xl text-center text-flamingo">Página de cuenta</h1>
             <!--Contenedor superior con varias columnas-->
-            <div class="pt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+            <div class="pt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-0">
                 <!--Contenedor actualizacion perfil-->
                 <div class="justify-center m-auto">
-                    <div class="p-4 bg-white shadow rounded-lg">
+                    <div class="perfil p-4 bg-white shadow rounded-lg">
                         <UpdateProfileInformationForm
                             :must-verify-email="mustVerifyEmail"
                             :status="status"
@@ -60,6 +60,17 @@ defineProps({
 </template>
 
 <style>
+/******** Ordenador ********/
+@media screen and (min-width: 992px) {
+    .perfil {
+        margin-left: 20rem;
+    }
+
+    .contrasenia {
+        margin-right: 20rem;
+    }
+}
+
 /******** Movil ********/
 @media screen and (max-width: 768px) {
     .titulo {
