@@ -10,13 +10,12 @@ export default {
 <script setup>
 import { Head } from "@inertiajs/vue3";
 import Carrusel from "../Components/Carrusel.vue";
-import { initFlowbite } from 'flowbite'
-import { onMounted } from "vue";
 import Poster from "../Components/Poster.vue";
+import {onMounted} from "vue";
+import {initCarousels} from "flowbite";
 
-// Para montar componentes Flowbite
 onMounted(() => {
-    initFlowbite();
+    initCarousels();
 })
 
 defineProps(['obras']);

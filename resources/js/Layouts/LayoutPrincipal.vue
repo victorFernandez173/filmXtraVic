@@ -1,5 +1,12 @@
 <script setup>
 import { Link } from "@inertiajs/vue3";
+import {onMounted} from "vue";
+import {initFlowbite} from "flowbite";
+
+// Para montar componentes Flowbite
+onMounted(() => {
+    initFlowbite();
+})
 </script>
 
 <template>
