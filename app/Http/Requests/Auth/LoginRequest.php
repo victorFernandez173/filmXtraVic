@@ -41,8 +41,10 @@ class LoginRequest extends FormRequest
     {
         return [
             'email.required' => 'Introduzca email',
-            'email.email' => 'Formato de email',
-            'password' => 'Introduzca contraseña'
+            'email.string' => 'Formato de email inválido',
+            'email.email' => 'Formato de email inválido',
+            'password.required' => 'Introduzca contraseña',
+            'password.string' => 'Formato de contraseña inválido',
         ];
     }
 
