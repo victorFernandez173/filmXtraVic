@@ -88,7 +88,7 @@ dayjs.locale('es');
         <span v-if="criticas[0]">Criticas: </span>
         <ul>
             <li v-for="cri in criticas">
-                {{ dayjs(cri['fecha']).fromNow() }}-{{ cri['critica'] }}(Likes:{{ cri['likes'] }})[{{cri['usuario'][0]['nombre']}} {{cri['usuario'][0]['apellido']}}]
+                {{ dayjs(cri['fecha']).fromNow() }}-{{ cri['critica'] }}(Likes:{{ cri['likes'] }})[{{cri['usuario'][0]['name']}}]
             </li>
         </ul>
         <span v-if="profesionales">Criticas profesionales: </span>
