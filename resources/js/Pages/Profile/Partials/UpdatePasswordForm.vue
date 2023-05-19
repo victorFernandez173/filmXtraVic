@@ -36,7 +36,7 @@ const updatePassword = () => {
 <template>
     <section>
         <header>
-            <h2 class="text-lg font-medium text-gray-900">Actualizar contraseña</h2>
+            <h2 class="text-lg font-medium text-gray-900 underline">Actualizar contraseña</h2>
 
             <p class="mt-1 text-sm text-gray-600">
                 Asegúrate con una contraseña larga y fiable.

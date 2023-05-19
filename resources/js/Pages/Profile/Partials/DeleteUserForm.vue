@@ -40,7 +40,7 @@ const closeModal = () => {
 <template>
     <section class="space-y-6">
         <header>
-            <h2 class="text-lg font-medium text-gray-900">Borrar cuenta</h2>
+            <h2 class="text-lg font-medium text-gray-900 underline">Borrar cuenta</h2>
 
             <p class="mt-1 text-sm text-gray-600">
                 Una vez borrada, perderás todos los datos de tu cuenta.
