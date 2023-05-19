@@ -50,7 +50,7 @@ defineProps({
             <!--Contenedor inferior una columna para el borrar cuenta-->
             <div class="py-12 grid grid-cols-1">
                 <div class="justify-center m-auto">
-                    <div class="p-6 bg-white shadow rounded-lg">
+                    <div class="p-8 bg-white shadow rounded-lg">
                         <DeleteUserForm class="max-w-xl" />
                     </div>
                 </div>
