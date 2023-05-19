@@ -15,7 +15,7 @@ import Poster from "../Components/Poster.vue";
 // Obtenemos los props
 const props = defineProps({
     obra: Object,
-    mediaEvaluaciones: String,
+    mediaEvaluaciones: Number,
     criticas: Object,
     saga: Object,
     secuelaPrecuela: Object,
