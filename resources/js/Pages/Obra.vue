@@ -12,7 +12,6 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 import { Head } from "@inertiajs/vue3";
 import Poster from "../Components/Poster.vue";
 
-// Obtenemos los props
 const props = defineProps({
     obra: Object,
     mediaEvaluaciones: Number,

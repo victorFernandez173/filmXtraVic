@@ -13,11 +13,18 @@ const submit = () => {
     form.get(route('obras'), {preserveState : true});
 };
 
-defineProps(['generos', 'paises']);
+const props = defineProps({
+    generos: Object,
+    paises: Object,
+    pionera: Object
+})
+
+const pionera = parseInt((new Date().getFullYear()).toString()) - parseInt(props.pionera[0]['fecha']) + 1;
+
+const annoActual = (new Date().getFullYear() + 1);
 </script>
 
 <template>
-
     <form @submit.prevent="submit" class="m-auto flex border-solid border-flamingo border-3 p-[5px] w-4.5/5">
 
         <!-- Div desplegables y boton aplicar -->
@@ -40,17 +47,16 @@ defineProps(['generos', 'paises']);
             </div>
 
             <!-- Select periodo -->
-            <!-- TODO Generar los años de manera dinamica con fechas JS FALTA LA FECHA LIMITE POR ABAJO -->
             <div class="m-auto w-11/12 py-[10px] px-0">
                 <select name="desde" id="idDesde" v-model="form.desde" class="bg-gray-50 border border-gray-300 text-gray-900 text-base focus:ring-red-400 focus:border-red-400 block w-full p-2.5">
                     <option disabled value="">Desde</option>
-                    <option v-for="n in 154">{{ (new Date().getFullYear() + 1) - n }}</option>
+                    <option v-for="n in pionera">{{ annoActual - n }}</option>
                 </select>
             </div>
             <div class="m-auto w-11/12 py-[10px] px-0">
                 <select name="hasta" id="idHasta" v-model="form.hasta" class="bg-gray-50 border border-gray-300 text-gray-900 text-base focus:ring-red-400 focus:border-red-400 block w-full p-2.5">
                     <option disabled value="">Hasta</option>
-                    <option v-for="n in 154">{{ (new Date().getFullYear()+ 1) - n }}</option>
+                    <option v-for="n in pionera">{{ annoActual - n }}</option>
                 </select>
             </div>
             <div class="m-auto w-11/12 py-[10px] px-0 flex justify-between md:col-span-2 lg:col-span-1">

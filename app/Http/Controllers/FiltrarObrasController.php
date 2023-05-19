@@ -42,6 +42,7 @@ class FiltrarObrasController extends Controller
             'generos' => DB::table('generos')->select('genero')->get(),
             'paises' => DB::table('obras')->select('pais')->groupBy('pais')->orderBy('pais')->get(),
             'filtros' => [$genero, $pais, $desde, $hasta],
+            'pionera' => DB::table('obras')->select('fecha')->orderBy('fecha')->limit(1)->get(),
         ]);
     }
 }
