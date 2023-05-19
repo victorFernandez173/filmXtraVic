@@ -30,7 +30,7 @@ defineProps({
             <div class="pt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-0">
                 <!--Contenedor actualizacion perfil-->
                 <div class="justify-center m-auto">
-                    <div class="perfil p-4 bg-white shadow rounded-lg">
+                    <div class="perfil p-8 bg-white shadow rounded-lg">
                         <UpdateProfileInformationForm
                             :must-verify-email="mustVerifyEmail"
                             :status="status"
@@ -41,7 +41,7 @@ defineProps({
 
                 <!--Contenedor actualizacion perfil-->
                 <div class="justify-center m-auto">
-                    <div class="contrasenia p-4 bg-white shadow rounded-lg">
+                    <div class="contrasenia p-8 bg-white shadow rounded-lg">
                         <UpdatePasswordForm class="max-w-xl" />
                     </div>
                 </div>
@@ -50,7 +50,7 @@ defineProps({
             <!--Contenedor inferior una columna para el borrar cuenta-->
             <div class="py-12 grid grid-cols-1">
                 <div class="justify-center m-auto">
-                    <div class="p-4 bg-white shadow rounded-lg">
+                    <div class="p-6 bg-white shadow rounded-lg">
                         <DeleteUserForm class="max-w-xl" />
                     </div>
                 </div>
