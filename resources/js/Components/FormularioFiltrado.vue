@@ -55,9 +55,12 @@ defineProps(['generos', 'paises']);
             </div>
             <div class="m-auto w-11/12 py-[10px] px-0 flex justify-between md:col-span-2 lg:col-span-1">
                 <!-- Botones -->
-                <PrimaryButton class="m-auto py-[10px] px-[10px]" :disabled="form.processing" :class="{ 'opacity-25': form.processing }">FILTRAR</PrimaryButton>
-
-                <Link class="m-auto py-[10px] px-[10px] rounded-md font-semibold text-xs text-white tracking-widest bg-flamingo border-rounded hover:text-black"  :href="route('obras')">RESET</Link>
+                <div class="w-[48%]">
+                    <PrimaryButton :disabled="form.processing" :class="{ 'opacity-25': form.processing }">FILTRA</PrimaryButton>
+                </div>
+                <div class="w-[48%] flex m-auto">
+                    <Link class="w-full m-auto text-white bg-flamingo hover:text-black focus:bg-flamingo focus:ring-flamingo focus:border-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center"  :href="route('obras')">RESET</Link>
+                </div>
             </div>
         </div>
     </form>
