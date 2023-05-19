@@ -12,7 +12,6 @@ return [
     | has failed, such as for an invalid token or invalid new password.
     |
     */
-
     'reset' => 'Password reiniciado.',
     'sent' => 'Te hemos enviado un link para reiniciar el password.',
     'throttled' => 'Por favor, espera antes de volver a intentarlo.',

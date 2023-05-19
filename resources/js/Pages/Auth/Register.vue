@@ -54,11 +54,9 @@ const submit = () => {
                             <InputLabel for="email" value="Correo electrónico" class="block mb-2 text-sm font-medium text-gray-900" />
                             <TextInput
                                 id="email"
-                                type="email"
                                 placeholder="nombre@correo.com"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-flamingo focus:border-flamingo block w-full p-2.5"
                                 v-model="form.email"
-                                autocomplete="username"
                             />
                             <InputError class="mt-2" :message="form.errors.email"/>
                         </div>
@@ -67,8 +65,6 @@ const submit = () => {
                             <InputLabel for="password" value="Contraseña" class="block mb-2 text-sm font-medium text-gray-900" />
                             <TextInput
                                 id="password"
-                                type="password"
-                                placeholder="••••••••"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-flamingo focus:border-flamingo block w-full p-2.5"
                                 v-model="form.password"
                                 autocomplete="new-password"
@@ -81,14 +77,13 @@ const submit = () => {
                             <TextInput
                                 id="password_confirmation"
                                 type="password"
-                                placeholder="••••••••"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-flamingo focus:border-flamingo block w-full p-2.5"
                                 v-model="form.password_confirmation"
                                 autocomplete="new-password"
                             />
                             <InputError class="mt-2" :message="form.errors.password_confirmation"/>
                         </div>
-                        <PrimaryButton class="w-full text-white bg-flamingo hover:bg-black hover:text-flamingo focus:bg-flamingo focus:ring-flamingo focus:border-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                        <PrimaryButton class="w-full text-white bg-flamingo hover:text-black focus:bg-flamingo focus:ring-flamingo focus:border-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                             Crear cuenta
                         </PrimaryButton>
                         <p class="text-sm font-light text-gray-500">
