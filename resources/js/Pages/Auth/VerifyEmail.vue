@@ -67,21 +67,13 @@ const verificationLinkSent = computed(() => props.status === 'verification-link-
                         Verifica tu email
                     </h1>
                     <h3 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
-                        ¡Gracias por registrarte en nuestra web! Antes de empezar, ¿podrías verificar su correo electónico haciendo clic en el enlace? Si no recibiste ningún correo electrónico, con gusto le enviaremos otro.
+                        ¡Gracias por registrarte en FilmXtra! Revisa tu correo y acepta nuestras condiciones para verificar tu cuenta. Si no recibiste ningún correo, haz click en el botón de abajo y te enviaremos otro.
                     </h3>
                     <form @submit.prevent="submit">
                         <div class="mt-4 flex items-center justify-between">
                             <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                                 Reenviar correo
                             </PrimaryButton>
-
-                            <Link
-                                :href="route('logout')"
-                                method="post"
-                                as="button"
-                                class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                            >Cerrar sesión
-                            </Link>
                         </div>
                     </form>
                 </div>

@@ -26,7 +26,7 @@ const form = useForm({
 <template>
     <section>
         <header>
-            <h2 class="text-lg font-medium text-gray-900">Información de perfil</h2>
+            <h2 class="text-lg font-medium text-gray-900 underline">Información de perfil</h2>
 
             <p class="mt-1 text-sm text-gray-600">
                 Actualiza tu email e información de perfil.
