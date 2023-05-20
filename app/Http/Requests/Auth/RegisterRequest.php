@@ -40,7 +40,7 @@ class RegisterRequest extends FormRequest
             'name.required' => 'Introduzca nombre',
             'name.max' => 'Nombre: máximo 25 caracteres.',
             'email.required' => 'Introduzca email.',
-            'email.email' => 'Formato de email',
+            'email.email' => 'Formato de email no válido',
             'email.max' => 'Email: máximo 60 caracteres',
             'email.unique' => 'Email ya existente',
             'password.required' => 'Introduzca contraseña',

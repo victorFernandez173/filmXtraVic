@@ -22,7 +22,6 @@ defineProps(['obras']);
 </script>
 
 <template>
-    <!--  TODO revisar la responsividad: tamaños de fuente, anchura barra lateral...   -->
     <Head>
         <title>Inicio</title>
         <meta name="description" content="Página de bienvenida">
