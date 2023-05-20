@@ -194,7 +194,7 @@ const media = 0;
                 </button>
             </div>
 
-            <!--Botones para votar y escribir-->
+            <!--Botones para votar y formulario para escribir-->
             <div>
                 <!--Titulo-->
                 <h3 class="font-bold underline text-black text-xl mt-5 pl-5 text-center">¿Quieres valorar esta película?</h3>
