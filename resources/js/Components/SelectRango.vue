@@ -6,7 +6,7 @@ const valorSelect = ref('');
 emit('emision', valorSelect);
 
 const props = defineProps({
-    limiteInferior : Object,
+    limiteInferior : Number,
     limiteSuperior : Number
 });
 </script>

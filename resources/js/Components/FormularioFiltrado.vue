@@ -18,10 +18,10 @@ const submit = () => {
 const props = defineProps({
     generos: Object,
     paises: Object,
-    pionera: Object
+    pionera: [Number, Array]
 })
 
-const pionera = parseInt((new Date().getFullYear()).toString()) - parseInt(props.pionera[0]['fecha']) + 1;
+const peliPionera = parseInt((new Date().getFullYear()).toString()) - parseInt(props.pionera[0]['fecha']) + 1;
 
 const annoActual = (new Date().getFullYear() + 1);
 </script>
@@ -40,11 +40,11 @@ const annoActual = (new Date().getFullYear() + 1);
                 </SelectConsulta>
             </div>
             <div>
-                <SelectRango :limite-inferior="pionera" :limite-superior="annoActual" @emision="(e) => form.desde = e">Desde
+                <SelectRango :limite-inferior="peliPionera" :limite-superior="annoActual" @emision="(e) => form.desde = e">Desde
                 </SelectRango>
             </div>
             <div>
-                <SelectRango :limite-inferior="pionera" :limite-superior="annoActual" @emision="(e) => form.hasta = e">Hasta
+                <SelectRango :limite-inferior="peliPionera" :limite-superior="annoActual" @emision="(e) => form.hasta = e">Hasta
                 </SelectRango>
             </div>
 

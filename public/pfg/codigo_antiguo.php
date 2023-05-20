@@ -1,4 +1,19 @@
 <!--select titulo, ruta, alt, avg(evaluacion) nota_media from obras o join posters p on o.id = p.obra_id left join evaluaciones e on o.id = e.obra_id group by titulo, ruta, alt order by nota_media desc, titulo;-->
+<!--$obras = Obra::with('poster')->where(
+'pais', 'like', '%' . $pais . '%')->whereBetween('fecha', [$d, $h])->whereHas('generos', function (Builder $query) use ($genero) {
+$query->where('genero', 'like', '%' . $genero . '%');
+})->paginate(12)->withQueryString();-->
+<!--
+$obras = Obra::select('obras.titulo', 'p.ruta', 'p.alt', DB::raw('AVG(e.evaluacion) AS nota_media'))->join('posters AS p', 'obras.id', '=', 'p.obra_id')->leftJoin('evaluaciones AS e', 'obras.id', '=', 'e.obra_id')->where(
+'obras.pais', 'LIKE', '%' . $pais . '%')->whereBetween('obras.fecha', [$d, $h])->whereHas('generos', function (Builder $query) use ($genero) {
+$query->where('genero', 'like', '%' . $genero . '%');
+})->groupBy('obras.titulo', 'p.ruta', 'p.alt')->orderBy('nota_media', 'desc')->orderBy('obras.titulo')->paginate(12)->withQueryString();-->
+
+
+
+
+
+
 
 
 

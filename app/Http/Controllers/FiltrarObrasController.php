@@ -29,10 +29,11 @@ class FiltrarObrasController extends Controller
         // Consulta multicondición para obtener películas
         $d = request('desde') ?: '1870';
         $h = request('hasta') ?: Carbon::now()->format('Y');
-        $obras = Obra::with('poster')->where(
-            'pais', 'like', '%' . $pais . '%')->whereBetween('fecha', [$d, $h])->whereHas('generos', function (Builder $query) use ($genero) {
+
+        $obras = Obra::select('obras.titulo', 'p.ruta', 'p.alt', DB::raw('AVG(e.evaluacion) AS nota_media'))->join('posters AS p', 'obras.id', '=', 'p.obra_id')->leftJoin('evaluaciones AS e', 'obras.id', '=', 'e.obra_id')->where(
+            'obras.pais', 'LIKE', '%' . $pais . '%')->whereBetween('obras.fecha', [$d, $h])->whereHas('generos', function (Builder $query) use ($genero) {
             $query->where('genero', 'like', '%' . $genero . '%');
-        })->paginate(12)->withQueryString();
+        })->groupBy('obras.titulo', 'p.ruta', 'p.alt')->orderBy('nota_media', 'desc')->orderBy('obras.titulo')->paginate(12)->withQueryString();
 
         // Renderizamos & props
         return Inertia::render('Obras', [

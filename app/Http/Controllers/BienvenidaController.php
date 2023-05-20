@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use DB;
+use Illuminate\Database\Eloquent\Builder;
 use Inertia\Inertia;
 use App\Models\Obra;
 use Illuminate\Support\Facades\Route;
@@ -35,7 +36,7 @@ class BienvenidaController extends Controller
         return Inertia::render('Welcome', [
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
-            'obras' => Obra::with('poster')->find($this->obtenerDoceObrasAleatorias())
+            'obras' => DB::table('obras')->select('obras.titulo', 'p.ruta', 'p.alt')->join('posters AS p', 'obras.id', '=', 'p.obra_id')->whereIn('obras.id', $this->obtenerDoceObrasAleatorias())->get()
         ]);
     }
 }

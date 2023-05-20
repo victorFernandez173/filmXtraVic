@@ -16,7 +16,7 @@ const props = defineProps({
     obra: Object,
     mediaEvaluaciones: Number,
     criticas: Object,
-    saga: Object,
+    saga: [Object, String],
     secuelaPrecuela: Object,
     profesionales: Object
 })
