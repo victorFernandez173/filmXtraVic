@@ -197,24 +197,3 @@ const media = 0;
     </div>
 </template>
 
-<style>
-/******** Tablet ********/
-@media screen and (max-width: 991px) and (min-width: 769px) {
-    .criticas-usuarios {
-
-    }
-}
-
-/******** Movil ********/
-@media screen and (max-width: 768px) {
-    .titulo {
-        font-size: 2.25rem;
-    }
-
-    .contrasenia {
-        margin-top: 3rem;
-    }
-}
-
-</style>
-
