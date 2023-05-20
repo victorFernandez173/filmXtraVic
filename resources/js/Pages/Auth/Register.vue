@@ -38,7 +38,7 @@ const submit = () => {
                     </h1>
                     <form class="space-y-4 md:space-y-6" @submit.prevent="submit">
                         <div class="mt-4">
-                            <InputLabel for="name" value="Name" class="block mb-2 text-sm font-medium text-gray-900" />
+                            <InputLabel for="name" value="Nombre" class="block mb-2 text-sm font-medium text-gray-900" />
                             <TextInput
                                 id="name"
                                 type="name"
