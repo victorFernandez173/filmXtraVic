@@ -128,7 +128,7 @@ class ObtenerObraController extends Controller
         $titulo = rawurldecode($titulo);
         $obra = $this->obtenerDatosObra($titulo);
 
-        return Inertia::render('Obra', [
+        return Inertia::render('Obra2', [
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
             'obra' => $obra,
