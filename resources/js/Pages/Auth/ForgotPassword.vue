@@ -20,8 +20,6 @@ const submit = () => {
 };
 </script>
 
-
-
 <template>
     <Head>
         <title>Password olvidado</title>
@@ -34,9 +32,12 @@ const submit = () => {
             </Link>
             <div class="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
                 <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-                    <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
+                    <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-xl">
                         ¿Has olvidado tu contraseña?
                     </h1>
+                    <h3 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-lg">
+                        Introduce tu email y te enviaremos un link para reiniciar el password.
+                    </h3>
                     <form class="space-y-4 md:space-y-6" @submit.prevent="submit">
                         <div>
                             <InputLabel for="email" value="Correo electrónico" class="block mb-2 text-sm font-medium text-gray-900" />
@@ -52,7 +53,7 @@ const submit = () => {
                             <InputError class="mt-2" :message="form.errors.email"/>
                         </div>
                         <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                            Acceder
+                            Enviar email
                         </PrimaryButton>
                     </form>
                 </div>
