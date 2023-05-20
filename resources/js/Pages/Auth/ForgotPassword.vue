@@ -35,8 +35,8 @@ const submit = () => {
                     <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-xl">
                         ¿Has olvidado tu contraseña?
                     </h1>
-                    <h3 class="text-xl font-medium leading-tight tracking-tight text-gray-900 md:text-lg">
-                        Introduce tu email y te enviaremos un link para reiniciar el password.
+                    <h3 class="text-xl font-normal leading-tight tracking-tight text-gray-900 md:text-lg">
+                        Introduce tu email y te enviaremos un link para reiniciar la contraseña.
                     </h3>
                     <form class="space-y-4 md:space-y-6" @submit.prevent="submit">
                         <div>
