@@ -1,3 +1,8 @@
+<!--select titulo, ruta, alt, avg(evaluacion) nota_media from obras o join posters p on o.id = p.obra_id left join evaluaciones e on o.id = e.obra_id group by titulo, ruta, alt order by nota_media desc, titulo;-->
+
+
+
+
 <!-- ESTILO NORMAL POR SI PRESCINDIMOS DE USAR COMPONENTE POSTER EN SECUELAS
         <div class="flex text-center">
             <span v-for="secuela in secuelaPrecuela">
