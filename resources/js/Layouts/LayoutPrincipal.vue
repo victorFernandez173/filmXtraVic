@@ -38,7 +38,7 @@ onMounted(() => {
                     <img class="w-8 h-8 rounded-full" src="/favicon.png" alt="Foto del usuario">
                 </button>
                 <!-- Menu de usuario desplegable -->
-                <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow" id="user-dropdown">
+                <div class="z-50 hidden  text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow" id="user-dropdown">
                     <div class="px-4 py-3">
                         <span class="block text-sm text-gray-900">FilmXtra</span>
                         <span v-if="$page.props.auth.user" class="block text-sm  text-gray-500 truncate">{{ $page.props.auth.user.email }}</span>
