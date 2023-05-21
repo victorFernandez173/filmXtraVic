@@ -85,47 +85,51 @@ INSERT INTO profesionals (contenido, autor, medio_id, obra_id, fecha) VALUES ('L
 
 
 
-                                                                             ('El padrino son palabras mayores. Las dos primeras partes están entre las 10 mejores películas de la historia del cine.', 'Lourdes A.', 6, 8, '1972-10-10'),
-                                                                             ('Coppola inventa una nueva mirada para el cine y amplía los horizontes de una industria que pedía a gritos savia nueva.', 'Elena T.', 7, 8, '1972-01-22'),
-                                                                             ('Brando hizo de Don Vito algo que rara vez vemos en las películas: un villano-héroe tragicómico.', 'Nuria S.', 8, 8, '1972-12-31'),
-                                                                             ('La secuencia de la boda es un momento cinematográfico virtuoso: Coppola lleva a su gran reparto con tanta destreza que nos hace entrar completamente en el mundo de El Padrino', 'Maite A.', 9, 8, '1972-05-12'),
-                                                                             ('Una obra de arte que perdura el paso de los años.', 'Marisa S.', 10, 8, '1972-07-22'),
+                                                                             ('El padrino son palabras mayores. Las dos primeras partes están entre las 10 mejores películas de la historia del cine.', 'Lourdes A.', 6, 8, '2003-04-02'),
+                                                                             ('Coppola inventa una nueva mirada para el cine y amplía los horizontes de una industria que pedía a gritos savia nueva.', 'Elena T.', 7, 8, '2003-12-21'),
+                                                                             ('Brando hizo de Don Vito algo que rara vez vemos en las películas: un villano-héroe tragicómico.', 'Nuria S.', 8, 8, '2003-10-30'),
+                                                                             ('La secuencia de la boda es un momento cinematográfico virtuoso: Coppola lleva a su gran reparto con tanta destreza que nos hace entrar completamente en el mundo de El Padrino', 'Maite A.', 9, 8, '2003-02-07'),
+                                                                             ('Una obra de arte que perdura el paso de los años.', 'Marisa S.', 10, 8, '2003-08-06'),
 
-                                                                             ('Una de las películas de superhéroes más graves, auto-conscientes y profundamente aburridas en la historia del subgénero.', 'Sandro R.', 11, 9, '2005-05-12'),
-                                                                             ('Penetra en las oscuras y turbulentas profundidades de la leyenda de Batman, creando un superhéroe que, aunque no es creíble, es convincente como justiciero.', 'Ferran T.', 12, 9, '2005-11-24'),
-                                                                             ('Lo que hace que sea tan disfrutable es la manera con la que el director Nolan equilibra los elementos oscuros con aspectos más ligeros y convencionales del género de manera innovadora.', 'Leoniel M.', 13, 9, '2005-03-22'),
-                                                                             ('Una gran película, punto. Es grande porque es auténtica.', 'Benito M.', 14, 9, '2005-11-01'),
-                                                                             ('"Los 50 primeros minutos son magníficos. Sin embargo, es enfundarse Christian Bale el disfraz de Batman, y la película se viene abajo porque se convierte en más de lo mismo.', 'Victoria M.', 15, 9, '2005-22-04'),
+                                                                             ('Una de las películas de superhéroes más graves, auto-conscientes y profundamente aburridas en la historia del subgénero.', 'Sandro R.', 11, 9, '1994-12-23'),
+                                                                             ('Penetra en las oscuras y turbulentas profundidades de la leyenda de Batman, creando un superhéroe que, aunque no es creíble, es convincente como justiciero.', 'Ferran T.', 12, 9, '1994-02-01'),
+                                                                             ('Lo que hace que sea tan disfrutable es la manera con la que el director Nolan equilibra los elementos oscuros con aspectos más ligeros y convencionales del género de manera innovadora.', 'Leoniel M.', 13, 9, '1994-01-01'),
+                                                                             ('Una gran película, punto. Es grande porque es auténtica.', 'Benito M.', 14, 9, '1994-04-10'),
+                                                                             ('"Los 50 primeros minutos son magníficos. Sin embargo, es enfundarse Christian Bale el disfraz de Batman, y la película se viene abajo porque se convierte en más de lo mismo.', 'Victoria M.', 15, 9, '1994-07-27'),
 
-                                                                             ('La mejor versión de miedo actualizada hasta la fecha, es conmovedora y espeluznante. Maravillosa.', 'Carolina I.', 1, 10, '1994-12-03'),
-                                                                             ('Un clásico del cine carcelario que huye del espectáculo barato para ahondar en la amistad de la pareja protagonista.', 'Laura M.', 2, 10, '1994-10-14'),
-                                                                             ('No es un drama carcelario en el sentido convencional de la palabra, en general, la película es una alegoría sobre mantener el sentido de la propia dignidad.', 'Sara P.', 3, 10, '1994-10-01'),
-                                                                             ('Como protagonistas, tanto Robbins como Freeman están espectaculares.', 'Miguel T.', 4, 10, '1994-12-31'),
-                                                                             ('Consigue evitar lo trillado. El guionista y director, Frank Darabont, cuenta su historia con un nivel de cariño afectuoso sorprendente.', 'Víctor G.', 5, 10, '1994-08-22'),
+                                                                             ('La mejor versión de miedo actualizada hasta la fecha, es conmovedora y espeluznante. Maravillosa.', 'Carolina I.', 1, 10, '1999-05-14'),
+                                                                             ('Un clásico del cine carcelario que huye del espectáculo barato para ahondar en la amistad de la pareja protagonista.', 'Laura M.', 2, 10, '1999-09-10'),
+                                                                             ('No es un drama carcelario en el sentido convencional de la palabra, en general, la película es una alegoría sobre mantener el sentido de la propia dignidad.', 'Sara P.', 3, 10, '1999-12-11'),
+                                                                             ('Como protagonistas, tanto Robbins como Freeman están espectaculares.', 'Miguel T.', 4, 10, '1999-04-30'),
+                                                                             ('Consigue evitar lo trillado. El guionista y director, Frank Darabont, cuenta su historia con un nivel de cariño afectuoso sorprendente.', 'Víctor G.', 5, 10, '1999-02-12'),
 
-                                                                             ('El padrino son palabras mayores. Las dos primeras partes están entre las 10 mejores películas de la historia del cine.', 'Javier G.', 6, 11, '1972-10-10'),
-                                                                             ('Coppola inventa una nueva mirada para el cine y amplía los horizontes de una industria que pedía a gritos savia nueva.', 'Sandra P.', 7, 11, '1972-01-22'),
-                                                                             ('Brando hizo de Don Vito algo que rara vez vemos en las películas: un villano-héroe tragicómico.', 'María L.', 8, 11, '1972-12-31'),
-                                                                             ('La secuencia de la boda es un momento cinematográfico virtuoso: Coppola lleva a su gran reparto con tanta destreza que nos hace entrar completamente en el mundo de El Padrino', 'Ingrid E.', 9, 11, '1972-05-12'),
-                                                                             ('Una obra de arte que perdura el paso de los años.', 'Lucía M.', 10, 11, '1972-07-22'),
+                                                                             ('El padrino son palabras mayores. Las dos primeras partes están entre las 10 mejores películas de la historia del cine.', 'Javier G.', 6, 11, '1994-06-16'),
+                                                                             ('Coppola inventa una nueva mirada para el cine y amplía los horizontes de una industria que pedía a gritos savia nueva.', 'Sandra P.', 7, 11, '1994-03-20'),
+                                                                             ('Brando hizo de Don Vito algo que rara vez vemos en las películas: un villano-héroe tragicómico.', 'María L.', 8, 11, '1994-10-30'),
+                                                                             ('La secuencia de la boda es un momento cinematográfico virtuoso: Coppola lleva a su gran reparto con tanta destreza que nos hace entrar completamente en el mundo de El Padrino', 'Ingrid E.', 9, 11, '1994-08-17'),
+                                                                             ('Una obra de arte que perdura el paso de los años.', 'Lucía M.', 10, 11, '1994-02-21'),
 
-                                                                             ('Una de las películas de superhéroes más graves, auto-conscientes y profundamente aburridas en la historia del subgénero.', 'Claudia P.', 11, 12, '2005-05-12'),
-                                                                             ('Penetra en las oscuras y turbulentas profundidades de la leyenda de Batman, creando un superhéroe que, aunque no es creíble, es convincente como justiciero.', 'Leia M.', 12, 12, '2005-11-24'),
-                                                                             ('Lo que hace que sea tan disfrutable es la manera con la que el director Nolan equilibra los elementos oscuros con aspectos más ligeros y convencionales del género de manera innovadora.', 'Tomasa L.', 13, 12, '2005-03-22'),
-                                                                             ('Una gran película, punto. Es grande porque es auténtica.', 'Ramona O.', 14, 12, '2005-11-01'),
-                                                                             ('"Los 50 primeros minutos son magníficos. Sin embargo, es enfundarse Christian Bale el disfraz de Batman, y la película se viene abajo porque se convierte en más de lo mismo.', 'Jon H.', 15, 12, '2005-22-04'),
+                                                                             ('Una de las películas de superhéroes más graves, auto-conscientes y profundamente aburridas en la historia del subgénero.', 'Claudia P.', 11, 12, '1999-09-10'),
+                                                                             ('Penetra en las oscuras y turbulentas profundidades de la leyenda de Batman, creando un superhéroe que, aunque no es creíble, es convincente como justiciero.', 'Leia M.', 12, 12, '1999-10-26'),
+                                                                             ('Lo que hace que sea tan disfrutable es la manera con la que el director Nolan equilibra los elementos oscuros con aspectos más ligeros y convencionales del género de manera innovadora.', 'Tomasa L.', 13, 12, '1999-08-21'),
+                                                                             ('Una gran película, punto. Es grande porque es auténtica.', 'Ramona O.', 14, 12, '1999-10-08'),
+                                                                             ('"Los 50 primeros minutos son magníficos. Sin embargo, es enfundarse Christian Bale el disfraz de Batman, y la película se viene abajo porque se convierte en más de lo mismo.', 'Jon H.', 15, 12, '1999-12-05'),
 
-                                                                             ('La mejor versión de miedo actualizada hasta la fecha, es conmovedora y espeluznante. Maravillosa.', 'Jon N.', 1, 13, '1994-12-03'),
-                                                                             ('Un clásico del cine carcelario que huye del espectáculo barato para ahondar en la amistad de la pareja protagonista.', 'Arya S.', 2, 13, '1994-10-14'),
-                                                                             ('No es un drama carcelario en el sentido convencional de la palabra, en general, la película es una alegoría sobre mantener el sentido de la propia dignidad.', 'Sansa S.', 3, 13, '1994-10-01'),
-                                                                             ('Como protagonistas, tanto Robbins como Freeman están espectaculares.', 'Daenerys T.', 4, 13, '1994-12-31'),
-                                                                             ('Consigue evitar lo trillado. El guionista y director, Frank Darabont, cuenta su historia con un nivel de cariño afectuoso sorprendente.', 'Daniel G.', 5, 13, '1994-08-22'),
+                                                                             ('La mejor versión de miedo actualizada hasta la fecha, es conmovedora y espeluznante. Maravillosa.', 'Jon N.', 1, 13, '2003-11-13'),
+                                                                             ('Un clásico del cine carcelario que huye del espectáculo barato para ahondar en la amistad de la pareja protagonista.', 'Arya S.', 2, 13, '2003-12-24'),
+                                                                             ('No es un drama carcelario en el sentido convencional de la palabra, en general, la película es una alegoría sobre mantener el sentido de la propia dignidad.', 'Sansa S.', 3, 13, '2003-04-21'),
+                                                                             ('Como protagonistas, tanto Robbins como Freeman están espectaculares.', 'Daenerys T.', 4, 13, '2003-02-01'),
+                                                                             ('Consigue evitar lo trillado. El guionista y director, Frank Darabont, cuenta su historia con un nivel de cariño afectuoso sorprendente.', 'Daniel G.', 5, 13, '2003-02-12'),
 
-                                                                             ('El padrino son palabras mayores. Las dos primeras partes están entre las 10 mejores películas de la historia del cine.', 'Juanma J.', 6, 14, '1972-10-10'),
-                                                                             ('Coppola inventa una nueva mirada para el cine y amplía los horizontes de una industria que pedía a gritos savia nueva.', 'Víctor T.', 7, 14, '1972-01-22'),
-                                                                             ('Brando hizo de Don Vito algo que rara vez vemos en las películas: un villano-héroe tragicómico.', 'Leire B.', 8, 14, '1972-12-31'),
-                                                                             ('La secuencia de la boda es un momento cinematográfico virtuoso: Coppola lleva a su gran reparto con tanta destreza que nos hace entrar completamente en el mundo de El Padrino', 'David Z.', 9, 14, '1972-05-12'),
-                                                                             ('Una obra de arte que perdura el paso de los años.', 'Alexandra T.', 10, 14, '1972-07-22'),
+                                                                             ('El padrino son palabras mayores. Las dos primeras partes están entre las 10 mejores películas de la historia del cine.', 'Juanma J.', 6, 14, '2003-12-16'),
+                                                                             ('Coppola inventa una nueva mirada para el cine y amplía los horizontes de una industria que pedía a gritos savia nueva.', 'Víctor T.', 7, 14, '2003-07-21'),
+                                                                             ('Brando hizo de Don Vito algo que rara vez vemos en las películas: un villano-héroe tragicómico.', 'Leire B.', 8, 14, '2003-10-30'),
+                                                                             ('La secuencia de la boda es un momento cinematográfico virtuoso: Coppola lleva a su gran reparto con tanta destreza que nos hace entrar completamente en el mundo de El Padrino', 'David Z.', 9, 14, '2003-07-13'),
+                                                                             ('Una obra de arte que perdura el paso de los años.', 'Alexandra T.', 10, 14, '2003-03-29'),
+
+
+
+
 
                                                                              ('Una de las películas de superhéroes más graves, auto-conscientes y profundamente aburridas en la historia del subgénero.', 'Iván G.', 11, 15, '2005-05-12'),
                                                                              ('Penetra en las oscuras y turbulentas profundidades de la leyenda de Batman, creando un superhéroe que, aunque no es creíble, es convincente como justiciero.', 'María del Mar L.', 12, 15, '2005-11-24'),
@@ -324,13 +328,6 @@ INSERT INTO profesionals (contenido, autor, medio_id, obra_id, fecha) VALUES ('L
                                                                              ('Lo que hace que sea tan disfrutable es la manera con la que el director Nolan equilibra los elementos oscuros con aspectos más ligeros y convencionales del género de manera innovadora.', 'Francisca G.', 13, 47, '2005-03-22'),
                                                                              ('Una gran película, punto. Es grande porque es auténtica.', 'Abril B.', 14, 47, '2005-11-01'),
                                                                              ('"Los 50 primeros minutos son magníficos. Sin embargo, es enfundarse Christian Bale el disfraz de Batman, y la película se viene abajo porque se convierte en más de lo mismo.', 'Soledad M.', 15, 47, '2005-22-04'),
-
-
-
-
-
-
-
 
                                                                              ('La mejor versión de miedo actualizada hasta la fecha, es conmovedora y espeluznante. Maravillosa.', 'Iñigo J.', 1, 48, '1994-12-03'),
                                                                              ('Un clásico del cine carcelario que huye del espectáculo barato para ahondar en la amistad de la pareja protagonista.', 'Jana K.', 2, 48, '1994-10-14'),
