@@ -143,8 +143,8 @@ dayjs.locale('es');
                         <li v-if="saga" class="list-disc ml-5"><span
                             class="font-semibold underline text-lg">Saga:</span> {{ saga[0]['nombre'] }}
                         </li>
-                        <div class="flex flex-row justify-around flex-wrap text-center">
-                            <div v-for="secuela in secuelasOrdenadas"  class="w-[80%] sm:w-[100%] md:w-[250px]">
+                        <div class="text-center grid lg:grid-cols-2 justify-items-center">
+                            <div v-for="secuela in secuelasOrdenadas"  class="w-[80%] sm:w-[100%] md:w-[250px] lg">
                                 <span>
                                 {{
                                         obra[0]['secuela']['orden'] === 0 ? 'Inicio saga' : secuela['secuela']['orden'] === 0 ? 'Spin-off' : secuela['secuela']['orden'] > obra[0]['secuela']['orden'] ? 'Secuela' : 'Precuela'

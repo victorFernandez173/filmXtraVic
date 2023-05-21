@@ -5,7 +5,7 @@ defineProps(['obra', 'titulo']);
 </script>
 
 <template>
-    <div class="w-[80%] sm:w-full p-6">
+    <div class="w-[100%] sm:w-full p-6">
         <h3 v-if="obra['nota_media']">{{ parseFloat(obra['nota_media']).toFixed(1) }}</h3>
         <Link :href="route('obra', encodeURIComponent(obra['titulo']))">
             <div class="cursor-pointer flex justify-center h-[50px] content-center -mb-[10px]">

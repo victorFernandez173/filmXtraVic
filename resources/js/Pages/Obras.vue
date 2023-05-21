@@ -26,7 +26,10 @@ defineProps(['obras', 'titulo', 'filtros']);
 
     <div class="flex overflow-x-hidden max-h-none">
         <!-- Barra lateral -->
-        <BarraLateral/>
+        <div class="w-[20vw] md:w-[25vw]">
+            <BarraLateral/>
+        </div>
+
         <div class="flex flex-wrap content-start">
             <!-- Título -->
             <h1 class="w-full mt-2 font-oswald text-center text-5xl h-[10vh] text-flamingo">Top FilmXtra</h1>
