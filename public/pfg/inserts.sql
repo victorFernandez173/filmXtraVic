@@ -41,7 +41,7 @@ INSERT INTO director_obra VALUES (9, 1), (1, 2), (2, 3), (2, 4), (2, 5), (3, 6),
 
 INSERT INTO profesionals (contenido, autor, medio_id, obra_id, fecha) VALUES ('La mejor versión de miedo actualizada hasta la fecha, es conmovedora y espeluznante.Maravillosa.', 'Sara L.', 1, 1, '1994-12-03'),
                                                                              ('Un clásico del cine carcelario que huye del espectáculo barato para ahondar en la amistad de la pareja protagonista.', 'Leire. S', 2, 1, '1994-10-14'),
-                                                                             ('No es un ''drama carcelario'' en el sentido convencional de la palabra, en general, la película es una alegoría sobre mantener el sentido de la propia dignidad.', 'Marina. B', 3, 1, '1994-10-01'),
+                                                                             ('No es un drama carcelario en el sentido convencional de la palabra, en general, la película es una alegoría sobre mantener el sentido de la propia dignidad.', 'Marina. B', 3, 1, '1994-10-01'),
                                                                              ('Como protagonistas, tanto Robbins como Freeman están espectaculares.', 'Rodrigo. J', 4, 1, '1994-12-31'),
                                                                              ('Consigue evitar lo trillado. El guionista y director, Frank Darabont, cuenta su historia con un nivel de cariño afectuoso sorprendente.', 'Adam. E', 5, 1, '1994-08-22'),
 
