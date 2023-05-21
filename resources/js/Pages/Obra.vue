@@ -44,7 +44,7 @@ dayjs.locale('es');
         <meta name="description" content="Página de bienvenida">
     </Head>
     <div class="container mx-auto mt-10 mb-10">
-        <h1 class="text-center font-bold text-flamingo underline text-3xl">{{ obra[0]['titulo'] }}</h1>
+        <h1 class="text-center font-bold text-flamingo underline text-3xl px-8">{{ obra[0]['titulo'] }}</h1>
         <!--3 apartados para poster, datos y valoraciones-->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 mt-10">
             <!--Poster-->
@@ -109,7 +109,7 @@ dayjs.locale('es');
             </div>
 
             <!--Datos pelicula-->
-            <div class="flex justify-center mr-10 w-full -ml[150px]">
+            <div class="flex justify-center mr-10 w-full md:-ml[150px]">
                 <ul>
                     <!--Datos de la pelicula-->
                     <li class="list-disc font-bold underline text-flamingo text-xl">Obra:</li>
@@ -144,13 +144,13 @@ dayjs.locale('es');
                             class="font-semibold underline text-lg">Saga:</span> {{ saga[0]['nombre'] }}
                         </li>
                         <div class="flex flex-row justify-around flex-wrap text-center">
-                            <div v-for="secuela in secuelasOrdenadas"  class="w-[250px]">
-                                <span class="-ml-[20px]">
+                            <div v-for="secuela in secuelasOrdenadas"  class="w-[80%] sm:w-[100%] md:w-[250px]">
+                                <span>
                                 {{
                                         obra[0]['secuela']['orden'] === 0 ? 'Inicio saga' : secuela['secuela']['orden'] === 0 ? 'Spin-off' : secuela['secuela']['orden'] > obra[0]['secuela']['orden'] ? 'Secuela' : 'Precuela'
                                     }}
                                 </span>
-                                <div class="-my-[25px] -ml-[20px]">
+                                <div class="width-[100%] flex justify-center -my-[25px] md:m:0">
                                     <Poster :obra="secuela" :titulo="`text-lg hover:text-md`"/>
                                 </div>
                             </div>
