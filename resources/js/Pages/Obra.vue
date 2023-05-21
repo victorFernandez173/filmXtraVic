@@ -214,7 +214,7 @@ function alerta(){
                     class="my-5 m-auto text-flamingo bg-white hover:text-black focus:bg-white focus:ring-flamingo focus:text-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5">
                     Ver más valoraciones &rarr;
                 </button>
-                <p v-if="!criticas[0]" class="pt-1">Sin criticas de usuarios todavía. Participa, pon la tuya.</p>
+                <p v-if="!criticas[0]" class="py-3">Sin críticas de usuarios todavía. Participa, pon la tuya.</p>
             </div>
 
             <!--Botones para votar y formulario para escribir-->
