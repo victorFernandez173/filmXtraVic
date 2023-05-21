@@ -20,7 +20,7 @@ class ObtenerObraController extends Controller
      */
     public function obtenerDatosObra($titulo): array|\Illuminate\Database\Eloquent\Collection
     {
-        return Obra::with(['poster', 'secuela:saga_id,obra_id,orden', 'criticas', 'directors:nombre,edad,defuncion,pais', 'festivals:obra_id,nombre,edicion', 'profesionals:obra_id,medio_id,autor,contenido', 'evaluaciones:obra_id,user_id,evaluacion', 'actors:nombre,nombre_real,edad,defuncion,pais', 'generos:genero'])->where('titulo', '=', "$titulo")->get();
+        return Obra::with(['poster', 'secuela:saga_id,obra_id,orden', 'criticas', 'directors:nombre,edad,defuncion,pais', 'festivals:obra_id,nombre,edicion', 'profesionals:obra_id,medio_id,autor,contenido,fecha', 'evaluaciones:obra_id,user_id,evaluacion', 'actors:nombre,nombre_real,edad,defuncion,pais', 'generos:genero'])->where('titulo', '=', "$titulo")->get();
     }
 
     /**
@@ -110,7 +110,7 @@ class ObtenerObraController extends Controller
             $arrayProfesionals = array();
             foreach ( $obra[0]['profesionals'] as $profesional ){
                 $infoMedio = DB::table('medios')->find($profesional['medio_id']);
-                $arrayProfesionals[] =  ['medio' => $infoMedio->nombre, 'web' => $infoMedio->web, 'contenido' => $profesional->contenido, 'autor' => $profesional['autor']];
+                $arrayProfesionals[] =  ['medio' => $infoMedio->nombre, 'web' => $infoMedio->web, 'contenido' => $profesional->contenido, 'autor' => $profesional['autor'], 'fecha' => $profesional['fecha']];
             }
             return $arrayProfesionals;
         }

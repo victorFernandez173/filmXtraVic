@@ -179,16 +179,15 @@ dayjs.locale('es');
                 <ul>
                     <!--Primera critica profesional-->
                     <li v-for="p in profesionales" class="list-disc ml-5"><span class="font-semibold"><a class="underline hover:text-black underline" :href="p['web']" target="_blank"
-                        href="">{{p['medio']}}</a>:</span> {{ p['contenido'] }}. <span class="italic">{{p['autor']}}</span>
-                        (AÑADIR COLUMNA FECHA)
+                        href="">{{p['medio']}}</a>:</span> {{ p['contenido'] }} <span class="italic">{{p['autor']}}</span>
+                        <span v-if="p['fecha']"> ({{ dayjs(p['fecha']).fromNow() }})</span>
                     </li>
                 </ul>
                 <!--Titulo-->
                 <li class="list-disc font-bold text-black text-xl mt-3">Críticas de nuestros usuarios:</li>
                 <ul>
                     <!--Primera critica-->
-                    <li class="list-disc ml-5"><span class="underline font-semibold">Irene:</span> Es mi película
-                        favorita (18/05/2023) - Likes: 32
+                    <li v-for="cri in criticas" class="list-disc ml-5"><span class="underline font-semibold">{{cri['usuario'][0]['name']}}</span>: {{ cri['critica'] }} ({{ dayjs(cri['fecha']).fromNow() }}) - Likes: {{ cri['likes'] }}
                         <!--Mano arriba-->
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="white"
                              class="w-5 h-5 inline-block">
@@ -198,10 +197,11 @@ dayjs.locale('es');
                     </li>
                 </ul>
                 <!--Boton para ver mas valoraciones-->
-                <button
-                    class="mt-5 m-auto text-flamingo bg-white hover:text-black focus:bg-white focus:ring-flamingo focus:text-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5">
+                <button v-if="criticas[0]"
+                    class="my-5 m-auto text-flamingo bg-white hover:text-black focus:bg-white focus:ring-flamingo focus:text-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5">
                     Ver más valoraciones &rarr;
                 </button>
+                <p v-if="!criticas[0]" class="pt-1">Sin criticas de usuarios todavía. Participa, pon la tuya.</p>
             </div>
 
             <!--Botones para votar y formulario para escribir-->
