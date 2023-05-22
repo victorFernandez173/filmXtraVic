@@ -139,9 +139,6 @@ INSERT INTO profesionals (contenido, autor, medio_id, obra_id, fecha) VALUES ('L
                                                                              ('Una gran película, punto. Es grande porque es auténtica.', 'Raúl M.', 14, 16, '2000-11-01'),
                                                                              ('"Los 50 primeros minutos son magníficos. Sin embargo, es enfundarse Christian Bale el disfraz de Batman, y la película se viene abajo porque se convierte en más de lo mismo.', 'Julen L.', 15, 16, '2000-10-04'),
 
-
-
-
                                                                              ('Una de las películas de superhéroes más graves, auto-conscientes y profundamente aburridas en la historia del subgénero.', 'Iván G.', 11, 17, '1988-07-10'),
                                                                              ('Penetra en las oscuras y turbulentas profundidades de la leyenda de Batman, creando un superhéroe que, aunque no es creíble, es convincente como justiciero.', 'María del Mar L.', 12, 17, '1988-10-04'),
                                                                              ('Lo que hace que sea tan disfrutable es la manera con la que el director Nolan equilibra los elementos oscuros con aspectos más ligeros y convencionales del género de manera innovadora.', 'Pedro L.', 13, 17, '1988-07-12'),
@@ -244,17 +241,26 @@ INSERT INTO profesionals (contenido, autor, medio_id, obra_id, fecha) VALUES ('L
                                                                              ('Como protagonistas, tanto Robbins como Freeman están espectaculares.', 'Belén E.', 4, 33, '2001-11-30'),
                                                                              ('Consigue evitar lo trillado. El guionista y director, Frank Darabont, cuenta su historia con un nivel de cariño afectuoso sorprendente.', 'Jorge J.', 5, 33, '2001-09-26'),
 
-                                                                             ('El padrino son palabras mayores. Las dos primeras partes están entre las 10 mejores películas de la historia del cine.', 'Lola F.', 6, 34, '1972-11-11'),
-                                                                             ('Coppola inventa una nueva mirada para el cine y amplía los horizontes de una industria que pedía a gritos savia nueva.', 'Daniel M.', 7, 34, '1972-06-12'),
-                                                                             ('Brando hizo de Don Vito algo que rara vez vemos en las películas: un villano-héroe tragicómico.', 'Rodolfo F.', 8, 34, '1972-11-30'),
-                                                                             ('La secuencia de la boda es un momento cinematográfico virtuoso: Coppola lleva a su gran reparto con tanta destreza que nos hace entrar completamente en el mundo de El Padrino', 'Sergio L.', 9, 34, '1972-07-10'),
-                                                                             ('Una obra de arte que perdura el paso de los años.', 'Rocío Z.', 10, 34, '1972-09-21'),
+                                                                             ('El padrino son palabras mayores. Las dos primeras partes están entre las 10 mejores películas de la historia del cine.', 'Lola F.', 6, 34, '2002-11-11'),
+                                                                             ('Coppola inventa una nueva mirada para el cine y amplía los horizontes de una industria que pedía a gritos savia nueva.', 'Daniel M.', 7, 34, '2002-06-12'),
+                                                                             ('Brando hizo de Don Vito algo que rara vez vemos en las películas: un villano-héroe tragicómico.', 'Rodolfo F.', 8, 34, '2002-11-30'),
+                                                                             ('La secuencia de la boda es un momento cinematográfico virtuoso: Coppola lleva a su gran reparto con tanta destreza que nos hace entrar completamente en el mundo de El Padrino', 'Sergio L.', 9, 34, '2002-07-10'),
+                                                                             ('Una obra de arte que perdura el paso de los años.', 'Rocío Z.', 10, 34, '2002-09-21'),
 
-                                                                             ('Una de las películas de superhéroes más graves, auto-conscientes y profundamente aburridas en la historia del subgénero.', 'Jesús A.', 11, 35, '2005-09-17'),
-                                                                             ('Penetra en las oscuras y turbulentas profundidades de la leyenda de Batman, creando un superhéroe que, aunque no es creíble, es convincente como justiciero.', 'José Tomás M.', 12, 35, '2005-12-22'),
-                                                                             ('Lo que hace que sea tan disfrutable es la manera con la que el director Nolan equilibra los elementos oscuros con aspectos más ligeros y convencionales del género de manera innovadora.', 'Francisca G.', 13, 35, '2005-06-21'),
-                                                                             ('Una gran película, punto. Es grande porque es auténtica.', 'Abril B.', 14, 35, '2005-11-06'),
-                                                                             ('"Los 50 primeros minutos son magníficos. Sin embargo, es enfundarse Christian Bale el disfraz de Batman, y la película se viene abajo porque se convierte en más de lo mismo.', 'Soledad M.', 15, 35, '2005-11-02'),
+                                                                             ('Una de las películas de superhéroes más graves, auto-conscientes y profundamente aburridas en la historia del subgénero.', 'Jesús A.', 11, 35, '2001-09-17'),
+                                                                             ('Penetra en las oscuras y turbulentas profundidades de la leyenda de Batman, creando un superhéroe que, aunque no es creíble, es convincente como justiciero.', 'José Tomás M.', 12, 35, '2001-12-22'),
+                                                                             ('Lo que hace que sea tan disfrutable es la manera con la que el director Nolan equilibra los elementos oscuros con aspectos más ligeros y convencionales del género de manera innovadora.', 'Francisca G.', 13, 35, '2001-06-21'),
+                                                                             ('Una gran película, punto. Es grande porque es auténtica.', 'Abril B.', 14, 35, '2001-11-06'),
+                                                                             ('"Los 50 primeros minutos son magníficos. Sin embargo, es enfundarse Christian Bale el disfraz de Batman, y la película se viene abajo porque se convierte en más de lo mismo.', 'Soledad M.', 15, 35, '2001-11-02'),
+
+
+
+
+
+
+
+
+
 
                                                                              ('La mejor versión de miedo actualizada hasta la fecha, es conmovedora y espeluznante. Maravillosa.', 'Dolores F.', 1, 36, '1994-11-06'),
                                                                              ('Un clásico del cine carcelario que huye del espectáculo barato para ahondar en la amistad de la pareja protagonista.', 'Alma O.', 2, 36, '1994-11-16'),
