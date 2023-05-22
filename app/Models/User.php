@@ -94,6 +94,6 @@ class User extends Authenticatable
      */
     public function likes(): BelongsToMany
     {
-        return $this->belongsToMany(Critica::class);
+        return $this->belongsToMany(Like::class, 'likes', 'user_id', 'critica_id', 'id', );
     }
 }

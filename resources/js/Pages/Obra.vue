@@ -12,6 +12,8 @@ import es from "dayjs/locale/es";
 import relativeTime from 'dayjs/plugin/relativeTime';
 import {Head, Link} from "@inertiajs/vue3";
 import Poster from "../Components/Poster.vue";
+/* Sweetalert2 */
+import Swal from "sweetalert2";
 
 const props = defineProps({
     obra: Object,
@@ -37,10 +39,50 @@ const secuelasOrdenadas = props.secuelaPrecuela != null ? props.secuelaPrecuela.
 dayjs.extend(relativeTime);
 dayjs.locale('es');
 
-/*funciones*/
-function alerta(){
-    alert('Registrate para dar like');
+// Funciones alert
+function alertaDarLike(){
+    Swal.fire({
+        title: 'UPSSS!',
+        text: `Registrate/logueate para dar like`,
+        imageUrl: '../images/dealWithIt.gif',
+        imageWidth: 400,
+        imageAlt: 'ocupate de arreglarlo',
+        confirmButtonColor: '#e37f81'
+    });
 }
+
+//Funciones para procesar listados de nombres
+function procesarEnumeracion(listado){
+    let enumeracionConComas = ' ';
+    for (let a = 0; a < listado.length;  a++) {
+        //Procesamos el nombre del actor
+        let actor = procesarNombre(listado[a]['nombre']);
+        //Lo añadimos
+        enumeracionConComas += actor;
+        //Añadimos punto o coma
+        if(a < listado.length - 1) {
+            enumeracionConComas += ', ';
+        } else {
+            enumeracionConComas += '.';
+        }
+    }
+    return enumeracionConComas;
+}
+function procesarNombre(nombre){
+    // Primero el nombre
+    let nombreProcesado = nombre.substring(nombre.indexOf(',') + 2, nombre.length);
+    // Despues el apellido
+    nombreProcesado += ' ' + nombre.substring(0, nombre.indexOf(','));
+    return nombreProcesado;
+}
+
+// Procesado de listas de nombres
+// Obtenemos los listados de actores y directores
+const actores = props.obra[0]['actors'];
+const directores = props.obra[0]['directors'];
+const actoresProcesados = procesarEnumeracion(actores);
+const directoresProcesados = procesarEnumeracion(directores);
+
 </script>
 
 <template>
@@ -108,7 +150,7 @@ function alerta(){
                             <path
                                 d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
                         </svg>
-                        <p class="text-black">{{ mediaEvaluaciones }}/10 ({{ obra[0]['evaluaciones'].length}} votos)</p>
+                        <p class="text-black"> &nbsp;&nbsp; {{ mediaEvaluaciones }}/10 ({{ obra[0]['evaluaciones'].length}} votos)</p>
                     </div>
                 </div>
             </div>
@@ -117,38 +159,44 @@ function alerta(){
             <div class="flex justify-center mr-10 w-full md:-ml[150px]">
                 <ul>
                     <!--Datos de la pelicula-->
-                    <li class="list-disc font-bold underline text-flamingo text-xl">Obra:</li>
+                    <li class="list-disc font-bold text-flamingo text-xl"><span class="underline">Obra</span>:</li>
                     <ul>
-                        <li class="list-disc ml-5"><span class="font-semibold underline text-lg">Título:</span> {{
+                        <li class="list-disc ml-5"><span class="font-semibold underline text-lg">Título</span>: {{
                                 obra[0]['titulo']
                             }} ({{ obra[0]['titulo_original'] }})
                         </li>
-                        <li class="list-disc ml-5"><span class="font-semibold underline text-lg">Año:</span>
+                        <li class="list-disc ml-5"><span class="font-semibold underline text-lg">Año</span>:
                             {{ obra[0]['fecha'] }}
                         </li>
-                        <li class="list-disc ml-5"><span class="font-semibold underline text-lg">Duración:</span>
+                        <li class="list-disc ml-5"><span class="font-semibold underline text-lg">Duración</span>:
                             {{ Math.floor((parseInt(obra[0]['duracion']) / 60)) }}h
                             {{ parseInt(obra[0]['duracion']) % 60 }}min
                         </li>
-                        <li class="list-disc ml-5"><span class="font-semibold underline text-lg">País:</span>
+                        <li class="list-disc ml-5"><span class="font-semibold underline text-lg">País</span>:
                             {{ obra[0]['pais'] }}
                         </li>
-                        <li v-if="obra[0]['directors'][0]" class="list-disc ml-5"><span class="font-semibold underline text-lg">Dirección:</span> <span
-                            v-for="dir in obra[0]['directors']"> {{ dir['nombre'] }},  </span></li>
-                        <li v-if="obra[0]['actors'][0]" class="list-disc ml-5"><span class="font-semibold underline text-lg">Reparto:</span> <span
-                            v-for="act in obra[0]['actors']">{{ act['nombre'] }}, </span></li>
-                        <li class="list-disc ml-5"><span class="font-semibold underline text-lg">Productora:</span>
+                        <li v-if="obra[0]['directors'][0]" class="list-disc ml-5"><span class="font-semibold underline text-lg">Dirección</span>:<span> {{ directoresProcesados }},  </span></li>
+                        <li v-if="obra[0]['actors'][0]" class="list-disc ml-5"><span class="font-semibold underline text-lg">Reparto</span>: <span>{{ actoresProcesados }}, </span></li>
+                        <li class="list-disc ml-5"><span class="font-semibold underline text-lg">Productora</span>:
                             {{ obra[0]['productora'] }}
                         </li>
-                        <li v-if="obra[0]['generos'][0]" class="list-disc ml-5"><span class="font-semibold underline text-lg">Género:</span> <span
+                        <li v-if="obra[0]['generos'][0]" class="list-disc ml-5"><span class="font-semibold underline text-lg">Género</span>: <span
                             v-for="gen in obra[0]['generos']"> {{ gen['genero'] }}, </span></li>
-                        <li class="list-disc ml-5"><span class="font-semibold underline text-lg">Sinopsis:</span>
+                        <li class="list-disc ml-5"><span class="font-semibold underline text-lg">Sinopsis</span>:
                             {{ obra[0]['sinopsis'] }}
                         </li>
-                        <li v-if="saga" class="list-disc ml-5"><span
-                            class="font-semibold underline text-lg">Saga:</span> {{ saga[0]['nombre'] }}
-                        </li>
-                        <div class="text-center grid lg:grid-cols-2 justify-items-center">
+                        <!--Festivales y premios-->
+                        <li v-if="obra[0]['festivals'][0]" class="list-disc font-bold underline text-flamingo text-xl mt-2">Galardones: </li>
+                        <ul>
+                            <li v-for="fest in obra[0]['festivals']" class="list-disc ml-5"><span
+                                class="font-semibold underline text-lg">Mejor película</span>: {{
+                                    fest['nombre']
+                                }}({{ fest['edicion'] }})
+                            </li>
+                        </ul>
+                        <li v-if="saga" class="list-disc font-bold text-flamingo text-xl mt-2"><span class="underline">Saga</span>:</li>
+                        <!-- Si solo hay un poster en secuelas, flex justify-center -->
+                        <div v-if="secuelasOrdenadas.length <= 1" class="text-center flex justify-center">
                             <div v-for="secuela in secuelasOrdenadas"  class="w-[80%] sm:w-[100%] md:w-[250px] lg">
                                 <span>
                                 {{
@@ -160,15 +208,18 @@ function alerta(){
                                 </div>
                             </div>
                         </div>
-                    </ul>
-                    <!--Festivales y premios-->
-                    <li v-if="obra[0]['festivals'][0]" class="list-disc font-bold underline text-flamingo text-xl mt-2">Galardones:</li>
-                    <ul>
-                        <li v-for="fest in obra[0]['festivals']" class="list-disc ml-5"><span
-                            class="font-semibold underline text-lg">Mejor película:</span> {{
-                                fest['nombre']
-                            }}({{ fest['edicion'] }})
-                        </li>
+                        <div v-else class="text-center grid lg:grid-cols-2 justify-items-center">
+                            <div v-for="secuela in secuelasOrdenadas"  class="w-[80%] sm:w-[100%] md:w-[250px] lg">
+                                <span>
+                                {{
+                                        obra[0]['secuela']['orden'] === 0 ? 'Inicio saga' : secuela['secuela']['orden'] === 0 ? 'Spin-off' : secuela['secuela']['orden'] > obra[0]['secuela']['orden'] ? 'Secuela' : 'Precuela'
+                                    }}
+                                </span>
+                                <div class="width-[100%] flex justify-center -my-[25px] md:m:0">
+                                    <Poster :obra="secuela" :titulo="`text-lg hover:text-md`"/>
+                                </div>
+                            </div>
+                        </div>
                     </ul>
                 </ul>
             </div>
@@ -193,16 +244,36 @@ function alerta(){
                 <ul>
                     <!--Primera critica-->
                     <li v-for="cri in criticas" class="list-disc ml-5"><span class="underline font-semibold">{{cri['usuario'][0]['name']}}</span>: {{ cri['critica'] }} ({{ dayjs(cri['fecha']).fromNow() }}) - Likes: {{ cri['likes'] }}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                         <!--Mano arriba-->
-                        <Link v-if="$page.props.auth.user" @click="alerta"  as="button" method="post" >
-                            <!--:href="route('like')"-->
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="white"
-                                 class="w-5 h-5 inline-block hover:fill-black">
-                                <path
-                                    d="M1 8.25a1.25 1.25 0 112.5 0v7.5a1.25 1.25 0 11-2.5 0v-7.5zM11 3V1.7c0-.268.14-.526.395-.607A2 2 0 0114 3c0 .995-.182 1.948-.514 2.826-.204.54.166 1.174.744 1.174h2.52c1.243 0 2.261 1.01 2.146 2.247a23.864 23.864 0 01-1.341 5.974C17.153 16.323 16.072 17 14.9 17h-3.192a3 3 0 01-1.341-.317l-2.734-1.366A3 3 0 006.292 15H5V8h.963c.685 0 1.258-.483 1.612-1.068a4.011 4.011 0 012.166-1.73c.432-.143.853-.386 1.011-.814.16-.432.248-.9.248-1.388z"/>
-                            </svg>
+                        <Link  class="inline-block" v-if="$page.props.auth.user" as="button" method="post" :href="route('darLike')" :data="{ user_id: $page.props.auth.user['id'], critica_id: cri['id_critica'] }">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="white"
+                                     class="w-5 h-5 inline-block hover:fill-black">
+                                    <path
+                                        d="M1 8.25a1.25 1.25 0 112.5 0v7.5a1.25 1.25 0 11-2.5 0v-7.5zM11 3V1.7c0-.268.14-.526.395-.607A2 2 0 0114 3c0 .995-.182 1.948-.514 2.826-.204.54.166 1.174.744 1.174h2.52c1.243 0 2.261 1.01 2.146 2.247a23.864 23.864 0 01-1.341 5.974C17.153 16.323 16.072 17 14.9 17h-3.192a3 3 0 01-1.341-.317l-2.734-1.366A3 3 0 006.292 15H5V8h.963c.685 0 1.258-.483 1.612-1.068a4.011 4.011 0 012.166-1.73c.432-.143.853-.386 1.011-.814.16-.432.248-.9.248-1.388z"/>
+                                </svg>
                         </Link>
-                        <svg v-else @click="alerta" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="white"
+                        <svg v-else @click="alertaDarLike" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="white"
                              class="w-5 h-5 inline-block hover:fill-black">
                             <path
                                 d="M1 8.25a1.25 1.25 0 112.5 0v7.5a1.25 1.25 0 11-2.5 0v-7.5zM11 3V1.7c0-.268.14-.526.395-.607A2 2 0 0114 3c0 .995-.182 1.948-.514 2.826-.204.54.166 1.174.744 1.174h2.52c1.243 0 2.261 1.01 2.146 2.247a23.864 23.864 0 01-1.341 5.974C17.153 16.323 16.072 17 14.9 17h-3.192a3 3 0 01-1.341-.317l-2.734-1.366A3 3 0 006.292 15H5V8h.963c.685 0 1.258-.483 1.612-1.068a4.011 4.011 0 012.166-1.73c.432-.143.853-.386 1.011-.814.16-.432.248-.9.248-1.388z"/>
@@ -264,10 +335,10 @@ function alerta(){
         <div class="grid grid-cols-1 pt-10">
             <!--Trailer-->
             <div class="flex justify-center">
-                <iframe width="1300" height="600" src="https://www.youtube.com/embed/NaM7nKvX4Es"
+<!--                <iframe width="1300" height="600" src="https://www.youtube.com/embed/NaM7nKvX4Es"
                         title="YouTube video player"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen></iframe>
+                        allowfullscreen></iframe>-->
             </div>
         </div>
     </div>
