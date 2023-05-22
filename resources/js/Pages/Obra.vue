@@ -90,7 +90,6 @@ function procesarGeneros(generos){
         generosProcesados.push(generos[i]['genero']);
     }
     let generosString = generosProcesados.join(', ');
-    console.log('[' + generosString + ']');
     return generosString.substring(0, generosString.length) + '.';
 }
 
@@ -104,7 +103,6 @@ const generosProcesados = procesarGeneros(generos);
         <title>{{ obra[0].titulo }}</title>
         <meta name="description" content="Página de bienvenida">
     </Head>
-    <p>{{$page.props.obra[0]['generos'][0]['genero']}}</p>
     <div class="container mx-auto mt-10 mb-10">
         <h1 class="text-center font-bold text-flamingo underline text-3xl px-8">{{ obra[0]['titulo'] }}</h1>
         <!--3 apartados para poster, datos y valoraciones-->
@@ -258,26 +256,6 @@ const generosProcesados = procesarGeneros(generos);
                 <ul>
                     <!--Primera critica-->
                     <li v-for="cri in criticas" class="list-disc ml-5"><span class="underline font-semibold">{{cri['usuario'][0]['name']}}</span>: {{ cri['critica'] }} ({{ dayjs(cri['fecha']).fromNow() }}) - Likes: {{ cri['likes'] }}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                         <!--Mano arriba-->
                         <Link  class="inline-block" v-if="$page.props.auth.user" as="button" method="post" :href="route('darLike')" :data="{ user_id: $page.props.auth.user['id'], critica_id: cri['id_critica'] }">
