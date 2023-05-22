@@ -153,10 +153,18 @@ function alertaDarLike(){
                         <li class="list-disc ml-5"><span class="font-semibold underline text-lg">Sinopsis:</span>
                             {{ obra[0]['sinopsis'] }}
                         </li>
-                        <li v-if="saga" class="list-disc ml-5"><span
-                            class="font-semibold underline text-lg">Saga:</span> {{ saga[0]['nombre'] }}
-                        </li>
-                        <div class="text-center grid lg:grid-cols-2 justify-items-center">
+                        <!--Festivales y premios-->
+                        <li v-if="obra[0]['festivals'][0]" class="list-disc font-bold underline text-flamingo text-xl mt-2">Galardones:</li>
+                        <ul>
+                            <li v-for="fest in obra[0]['festivals']" class="list-disc ml-5"><span
+                                class="font-semibold underline text-lg">Mejor película:</span> {{
+                                    fest['nombre']
+                                }}({{ fest['edicion'] }})
+                            </li>
+                        </ul>
+                        <li v-if="saga" class="list-disc font-bold underline text-flamingo text-xl mt-2"><span>Saga:</span></li>
+                        <!-- Si solo hay un poster en secuelas, flex justify-center -->
+                        <div v-if="secuelasOrdenadas.length <= 1" class="text-center flex justify-center">
                             <div v-for="secuela in secuelasOrdenadas"  class="w-[80%] sm:w-[100%] md:w-[250px] lg">
                                 <span>
                                 {{
@@ -168,15 +176,18 @@ function alertaDarLike(){
                                 </div>
                             </div>
                         </div>
-                    </ul>
-                    <!--Festivales y premios-->
-                    <li v-if="obra[0]['festivals'][0]" class="list-disc font-bold underline text-flamingo text-xl mt-2">Galardones:</li>
-                    <ul>
-                        <li v-for="fest in obra[0]['festivals']" class="list-disc ml-5"><span
-                            class="font-semibold underline text-lg">Mejor película:</span> {{
-                                fest['nombre']
-                            }}({{ fest['edicion'] }})
-                        </li>
+                        <div v-else class="text-center grid lg:grid-cols-2 justify-items-center">
+                            <div v-for="secuela in secuelasOrdenadas"  class="w-[80%] sm:w-[100%] md:w-[250px] lg">
+                                <span>
+                                {{
+                                        obra[0]['secuela']['orden'] === 0 ? 'Inicio saga' : secuela['secuela']['orden'] === 0 ? 'Spin-off' : secuela['secuela']['orden'] > obra[0]['secuela']['orden'] ? 'Secuela' : 'Precuela'
+                                    }}
+                                </span>
+                                <div class="width-[100%] flex justify-center -my-[25px] md:m:0">
+                                    <Poster :obra="secuela" :titulo="`text-lg hover:text-md`"/>
+                                </div>
+                            </div>
+                        </div>
                     </ul>
                 </ul>
             </div>
