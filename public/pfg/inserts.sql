@@ -253,15 +253,6 @@ INSERT INTO profesionals (contenido, autor, medio_id, obra_id, fecha) VALUES ('L
                                                                              ('Una gran película, punto. Es grande porque es auténtica.', 'Abril B.', 14, 35, '2001-11-06'),
                                                                              ('"Los 50 primeros minutos son magníficos. Sin embargo, es enfundarse Christian Bale el disfraz de Batman, y la película se viene abajo porque se convierte en más de lo mismo.', 'Soledad M.', 15, 35, '2001-11-02'),
 
-
-
-
-
-
-
-
-
-
                                                                              ('La mejor versión de miedo actualizada hasta la fecha, es conmovedora y espeluznante. Maravillosa.', 'Dolores F.', 1, 36, '2000-11-06'),
                                                                              ('Un clásico del cine carcelario que huye del espectáculo barato para ahondar en la amistad de la pareja protagonista.', 'Alma O.', 2, 36, '2000-11-16'),
                                                                              ('No es un drama carcelario en el sentido convencional de la palabra, en general, la película es una alegoría sobre mantener el sentido de la propia dignidad.', 'Ana O.', 3, 36, '2000-12-06'),
