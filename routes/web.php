@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BienvenidaController;
 use App\Http\Controllers\ObtenerObraController;
+use App\Http\Controllers\LikeController;
 
 
 /*
@@ -24,6 +25,8 @@ Route::get('/', [BienvenidaController::class, 'bienvenida'])->name('/');
 Route::get('obra/{titulo}', [ObtenerObraController::class, 'fichaPelicula'])->name('obra');
 
 Route::get('/obras', [FiltrarObrasController::class, 'cargaDatos'])->name('obras');
+
+Route::post('/like', [LikeController::class, 'darLike'])->name('darLike');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

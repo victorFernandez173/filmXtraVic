@@ -3,63 +3,25 @@
 namespace App\Http\Controllers;
 
 use App\Models\Like;
+use DB;
+use Exception;
 use Illuminate\Http\Request;
 
 class LikeController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Da o quita Like
+     * @throws Exception
      */
-    public function index()
+    public function darLike(Request $request)
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Like $like)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Like $like)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Like $like)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Like $like)
-    {
-        //
+        $like = new Like([
+            'user_id' => $request['user_id'],
+            'critica_id' => $request['critica_id'],
+            ]);
+        if(DB::table('likes')->select('*')->where('user_id', $like['user_id'])->where('critica_id', $like['critica_id'])->exists()){
+            ddd('YA EXISTE');
+        }
+        $like->save();
     }
 }

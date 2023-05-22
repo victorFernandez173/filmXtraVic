@@ -50,6 +50,7 @@ class ObtenerObraController extends Controller
         $criticasLikes = array();
         foreach ($criticas as $critica){
             $criticasLikes[] =  [
+                'id_critica' => $critica['id'],
                 'critica' => $critica['critica'],
                 'likes' => DB::table('likes')->where('critica_id', '=', $critica['id'])->count(),
                 'fecha' => $critica['modificada'],
