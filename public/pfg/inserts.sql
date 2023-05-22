@@ -85,17 +85,17 @@ INSERT INTO profesionals (contenido, autor, medio_id, obra_id, fecha) VALUES ('L
 
 
 
-                                                                             ('El padrino son palabras mayores. Las dos primeras partes están entre las 10 mejores películas de la historia del cine.', 'Lourdes A.', 6, 8, '2003-04-02'),
-                                                                             ('Coppola inventa una nueva mirada para el cine y amplía los horizontes de una industria que pedía a gritos savia nueva.', 'Elena T.', 7, 8, '2003-12-21'),
-                                                                             ('Brando hizo de Don Vito algo que rara vez vemos en las películas: un villano-héroe tragicómico.', 'Nuria S.', 8, 8, '2003-10-30'),
-                                                                             ('La secuencia de la boda es un momento cinematográfico virtuoso: Coppola lleva a su gran reparto con tanta destreza que nos hace entrar completamente en el mundo de El Padrino', 'Maite A.', 9, 8, '2003-02-07'),
-                                                                             ('Una obra de arte que perdura el paso de los años.', 'Marisa S.', 10, 8, '2003-08-06'),
+                                                                             ('Es abrumador el dominio del marco visual sobre la materia enmarcada.', 'Lourdes A.', 6, 8, '2003-04-02'),
+                                                                             ('Hay mucha imaginación visual en este superespectáculo, aunque su espectacularidad es tan creciente como la sensación de irrealidad que deja: los efectos especiales no son capaces de dar corporeidad a la fantasía.', 'Elena T.', 7, 8, '2003-12-21'),
+                                                                             ('Es la película que ha ganado más Oscars (11) de la historia del cine (récord que comparte con "Titanic" y "Ben Hur"), con el añadido que obtuvo los 11 Oscars de otra tantas 11 nominaciones, hecho sin precedentes..', 'Nuria S.', 8, 8, '2003-10-30'),
+                                                                             ('Nadie hizo una película mejor ese año.', 'Maite A.', 9, 8, '2003-02-07'),
+                                                                             ('La joya de la corona de la magistral trilogía.', 'Marisa S.', 10, 8, '2003-08-06'),
 
-                                                                             ('Una de las películas de superhéroes más graves, auto-conscientes y profundamente aburridas en la historia del subgénero.', 'Sandro R.', 11, 9, '1994-12-23'),
-                                                                             ('Penetra en las oscuras y turbulentas profundidades de la leyenda de Batman, creando un superhéroe que, aunque no es creíble, es convincente como justiciero.', 'Ferran T.', 12, 9, '1994-02-01'),
-                                                                             ('Lo que hace que sea tan disfrutable es la manera con la que el director Nolan equilibra los elementos oscuros con aspectos más ligeros y convencionales del género de manera innovadora.', 'Leoniel M.', 13, 9, '1994-01-01'),
-                                                                             ('Una gran película, punto. Es grande porque es auténtica.', 'Benito M.', 14, 9, '1994-04-10'),
-                                                                             ('"Los 50 primeros minutos son magníficos. Sin embargo, es enfundarse Christian Bale el disfraz de Batman, y la película se viene abajo porque se convierte en más de lo mismo.', 'Victoria M.', 15, 9, '1994-07-27'),
+                                                                             ('Radical amalgama de comedia sofisticada de diálogos mordaces, drama social de barrio bajo, música pop y violencia explícita macabra.', 'Sandro R.', 11, 9, '1994-12-23'),
+                                                                             ('Tan alabada como denostada, es una sinfonía pop que funciona por acumulación y en la que todo vale salvo el rigor.', 'Ferran T.', 12, 9, '1994-02-01'),
+                                                                             ('Al igual que Ciudadano Kane, Pulp Fiction está construida de una manera no lineal, podrías verla una docena de veces y no ser capaz de recordar lo que viene después.', 'Leoniel M.', 13, 9, '1994-01-01'),
+                                                                             ('Es una gozada de principio a fin. Es el equivalente en película de esas pocas novelas en las que vas comprobando cuántas páginas te quedan con la esperanza de que haya más, y no menos.', 'Benito M.', 14, 9, '1994-04-10'),
+                                                                             ('Pulp Fiction no es sólo divertida. Es tremendamente divertida.', 'Victoria M.', 15, 9, '1994-07-27'),
 
                                                                              ('La mejor versión de miedo actualizada hasta la fecha, es conmovedora y espeluznante. Maravillosa.', 'Carolina I.', 1, 10, '1999-05-14'),
                                                                              ('Un clásico del cine carcelario que huye del espectáculo barato para ahondar en la amistad de la pareja protagonista.', 'Laura M.', 2, 10, '1999-09-10'),
