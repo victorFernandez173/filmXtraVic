@@ -519,23 +519,23 @@ INSERT INTO profesionals (contenido, autor, medio_id, obra_id, fecha) VALUES ('L
                                                                              ('Aquí tenemos un wéstern grasiento, sudoroso, peludo, sangriento y violento. Es delicioso.', 'Alberto T.', 9, 80, '1965-06-13'),
                                                                              ('No tiene la fuerza narrativa de la primera de la trilogía pero las escenas individuales siguen siendo brillantes y cada ingrediente es simplemente perfecto: reparto, música, tono....', 'María Isabel B.', 10, 80, '1965-06-26'),
 
-                                                                             ('Una de las películas de superhéroes más graves, auto-conscientes y profundamente aburridas en la historia del subgénero.', 'Meline G.', 11, 81, '1964-04-16'),
-                                                                             ('Penetra en las oscuras y turbulentas profundidades de la leyenda de Batman, creando un superhéroe que, aunque no es creíble, es convincente como justiciero.', 'Gerard P.', 12, 81, '1964-11-26'),
-                                                                             ('Lo que hace que sea tan disfrutable es la manera con la que el director Nolan equilibra los elementos oscuros con aspectos más ligeros y convencionales del género de manera innovadora.', 'Claudia Z.', 13, 81, '1964-07-23'),
-                                                                             ('Una gran película, punto. Es grande porque es auténtica.', 'Kenti R.', 14, 81, '1964-11-07'),
-                                                                             ('"Los 50 primeros minutos son magníficos. Sin embargo, es enfundarse Christian Bale el disfraz de Batman, y la película se viene abajo porque se convierte en más de lo mismo.', 'Athenea D.', 15,81, '1964-12-03'),
+                                                                             ('Inolvidable cinta que roza en ocasiones el surrealismo puro y duro.', 'Meline G.', 11, 81, '1964-04-16'),
+                                                                             ('El primer western dirigido por Sergio Leone sirvió para diseñar un estilo tan impactante como dudoso. Sus limitaciones no impiden que sus resultados estén muy por encima de la gran cantidad de subproductos de la época.', 'Gerard P.', 12, 81, '1964-11-26'),
+                                                                             ('El magnífico uso que hace Sergio Leone de primeros planos extremos, así como su representación implacable de la violencia, dieron al western un nuevo soplo de vida.', 'Claudia Z.', 13, 81, '1964-07-23'),
+                                                                             ('Aunque es menos épica y satisfactoria que los trabajos posteriores de Leone, su primer spaghetti western con Eastwood sigue siendo elegante, aunque algo imperfecto.', 'Kenti R.', 14, 81, '1964-11-07'),
+                                                                             ('El primer spaghetti western de Sergio Leone es un clásico de un género que la propia película inventó. Y además tiene a Clint. ¿Qué más se puede pedir?.', 'Athenea D.', 15,81, '1964-12-03'),
 
-                                                                             ('La mejor versión de miedo actualizada hasta la fecha, es conmovedora y espeluznante. Maravillosa.', 'Carloina W.', 1, 82, '1971-12-08'),
-                                                                             ('Un clásico del cine carcelario que huye del espectáculo barato para ahondar en la amistad de la pareja protagonista.', 'Adriana N.', 2, 82, '1971-12-17'),
-                                                                             ('No es un drama carcelario en el sentido convencional de la palabra, en general, la película es una alegoría sobre mantener el sentido de la propia dignidad.', 'Ana T.', 3, 82, '1971-10-09'),
-                                                                             ('Como protagonistas, tanto Robbins como Freeman están espectaculares.', 'Michaela S.', 4, 82, '1971-12-30'),
-                                                                             ('Consigue evitar lo trillado. El guionista y director, Frank Darabont, cuenta su historia con un nivel de cariño afectuoso sorprendente.', 'Manuela V.', 5, 82, '1971-03-23'),
+                                                                             ('Encarnizada sátira de una sociedad futura consumida por la violencia y el salvajismo.', 'Carloina W.', 1, 82, '1971-12-08'),
+                                                                             ('Polémica, extraña, agobiante, desagradable y magnética visión de la ultraviolencia a ritmo de Beethoven.', 'Adriana N.', 2, 82, '1971-12-17'),
+                                                                             ('Una demostración de fortaleza que hace de Kubrick un verdadero genio del cine.', 'Ana T.', 3, 82, '1971-10-09'),
+                                                                             ('Un trabajo con un estilo casi intachable.', 'Michaela S.', 4, 82, '1971-12-30'),
+                                                                             ('Una de las pocas películas perfectas que he visto en mi vida.', 'Manuela V.', 5, 82, '1971-03-23'),
 
-                                                                             ('El padrino son palabras mayores. Las dos primeras partes están entre las 10 mejores películas de la historia del cine.', 'Adrián C.', 6, 83, '1960-10-16'),
-                                                                             ('Coppola inventa una nueva mirada para el cine y amplía los horizontes de una industria que pedía a gritos savia nueva.', 'Julieta V.', 7, 83, '1960-01-20'),
-                                                                             ('Brando hizo de Don Vito algo que rara vez vemos en las películas: un villano-héroe tragicómico.', 'Iris A.', 8, 83, '1960-12-30'),
-                                                                             ('La secuencia de la boda es un momento cinematográfico virtuoso: Coppola lleva a su gran reparto con tanta destreza que nos hace entrar completamente en el mundo de El Padrino', 'Julio P.', 9, 83, '1960-05-18'),
-                                                                             ('Una obra de arte que perdura el paso de los años.', 'Nicolás F.', 10, 83, '1960-07-25')
+                                                                             ('Admirable y emotiva.', 'Adrián C.', 6, 83, '1960-10-16'),
+                                                                             ('Es un drama desequilibrado e irregular en el que toda la fase inicial.', 'Julieta V.', 7, 83, '1960-01-20'),
+                                                                             ('Kirk Douglas y Jean Simmons están cautivadores.', 'Iris A.', 8, 83, '1960-12-30'),
+                                                                             ('Ha envejecido sorprendentemente bien.', 'Julio P.', 9, 83, '1960-05-18'),
+                                                                             ('Douglas siempre estaba espectacular en películas que requerían sufrimiento.', 'Nicolás F.', 10, 83, '1960-07-25')
                                                                              ;
 
 
