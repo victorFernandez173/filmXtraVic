@@ -56,9 +56,9 @@ function procesarEnumeracion(listado){
     let enumeracionConComas = ' ';
     for (let a = 0; a < listado.length;  a++) {
         //Procesamos el nombre del actor
-        let actor = procesarNombre(listado[a]['nombre']);
+        let nombre = procesarNombre(listado[a]['nombre']);
         //Lo añadimos
-        enumeracionConComas += actor;
+        enumeracionConComas += nombre;
         //Añadimos punto o coma
         if(a < listado.length - 1) {
             enumeracionConComas += ', ';
@@ -83,6 +83,20 @@ const directores = props.obra[0]['directors'];
 const actoresProcesados = procesarEnumeracion(actores);
 const directoresProcesados = procesarEnumeracion(directores);
 
+// Obtenemos y procesamos los géneros praa añadirles comas y puntos
+function procesarGeneros(generos){
+    const generosProcesados = [];
+    for (let i = 0; i < generos.length; i++){
+        generosProcesados.push(generos[i]['genero']);
+    }
+    let generosString = generosProcesados.join(', ');
+    console.log('[' + generosString + ']');
+    return generosString.substring(0, generosString.length) + '.';
+}
+
+const generos = props.obra[0]['generos'];
+const generosProcesados = procesarGeneros(generos);
+
 </script>
 
 <template>
@@ -90,6 +104,7 @@ const directoresProcesados = procesarEnumeracion(directores);
         <title>{{ obra[0].titulo }}</title>
         <meta name="description" content="Página de bienvenida">
     </Head>
+    <p>{{$page.props.obra[0]['generos'][0]['genero']}}</p>
     <div class="container mx-auto mt-10 mb-10">
         <h1 class="text-center font-bold text-flamingo underline text-3xl px-8">{{ obra[0]['titulo'] }}</h1>
         <!--3 apartados para poster, datos y valoraciones-->
@@ -175,13 +190,12 @@ const directoresProcesados = procesarEnumeracion(directores);
                         <li class="list-disc ml-5"><span class="font-semibold underline text-lg">País</span>:
                             {{ obra[0]['pais'] }}
                         </li>
-                        <li v-if="obra[0]['directors'][0]" class="list-disc ml-5"><span class="font-semibold underline text-lg">Dirección</span>:<span> {{ directoresProcesados }},  </span></li>
-                        <li v-if="obra[0]['actors'][0]" class="list-disc ml-5"><span class="font-semibold underline text-lg">Reparto</span>: <span>{{ actoresProcesados }}, </span></li>
+                        <li v-if="obra[0]['directors'][0]" class="list-disc ml-5"><span class="font-semibold underline text-lg">Dirección</span>:<span> {{ directoresProcesados }}  </span></li>
+                        <li v-if="obra[0]['actors'][0]" class="list-disc ml-5"><span class="font-semibold underline text-lg">Reparto</span>: <span>{{ actoresProcesados }} </span></li>
                         <li class="list-disc ml-5"><span class="font-semibold underline text-lg">Productora</span>:
                             {{ obra[0]['productora'] }}
                         </li>
-                        <li v-if="obra[0]['generos'][0]" class="list-disc ml-5"><span class="font-semibold underline text-lg">Género</span>: <span
-                            v-for="gen in obra[0]['generos']"> {{ gen['genero'] }}, </span></li>
+                        <li v-if="obra[0]['generos'][0]" class="list-disc ml-5"><span class="font-semibold underline text-lg">Género</span>: <span> {{ generosProcesados }} </span></li>
                         <li class="list-disc ml-5"><span class="font-semibold underline text-lg">Sinopsis</span>:
                             {{ obra[0]['sinopsis'] }}
                         </li>
