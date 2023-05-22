@@ -237,7 +237,7 @@ INSERT INTO profesionals (contenido, autor, medio_id, obra_id, fecha) VALUES ('L
 
                                                                              ('La mejor versión de miedo actualizada hasta la fecha, es conmovedora y espeluznante. Maravillosa.', 'Dolores F.', 1, 33, '2001-10-07'),
                                                                              ('Un clásico del cine carcelario que huye del espectáculo barato para ahondar en la amistad de la pareja protagonista.', 'Alma O.', 2, 33, '2001-11-13'),
-                                                                             ('No es un drama carcelario en el sentido convencional de la palabra, en general, la película es una alegoría sobre mantener el sentido de la propia dignidad.', 'Ana O.', 3, 33, '2001-17-06'),
+                                                                             ('No es un drama carcelario en el sentido convencional de la palabra, en general, la película es una alegoría sobre mantener el sentido de la propia dignidad.', 'Ana O.', 3, 33, '2001-12-06'),
                                                                              ('Como protagonistas, tanto Robbins como Freeman están espectaculares.', 'Belén E.', 4, 33, '2001-11-30'),
                                                                              ('Consigue evitar lo trillado. El guionista y director, Frank Darabont, cuenta su historia con un nivel de cariño afectuoso sorprendente.', 'Jorge J.', 5, 33, '2001-09-26'),
 
