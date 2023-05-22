@@ -322,7 +322,7 @@ INSERT INTO profesionals (contenido, autor, medio_id, obra_id, fecha) VALUES ('L
                                                                              ('Una de las películas de superhéroes más graves, auto-conscientes y profundamente aburridas en la historia del subgénero.', 'Jesús A.', 11, 47, '2005-07-19'),
                                                                              ('Penetra en las oscuras y turbulentas profundidades de la leyenda de Batman, creando un superhéroe que, aunque no es creíble, es convincente como justiciero.', 'José Tomás M.', 12, 47, '2005-12-21'),
                                                                              ('Lo que hace que sea tan disfrutable es la manera con la que el director Nolan equilibra los elementos oscuros con aspectos más ligeros y convencionales del género de manera innovadora.', 'Francisca G.', 13, 47, '2005-05-27'),
-                                                                             ('Una gran película, punto. Es grande porque es auténtica.', 'Abril B.', 14, 47, '2005-19-04'),
+                                                                             ('Una gran película, punto. Es grande porque es auténtica.', 'Abril B.', 14, 47, '2005-11-04'),
                                                                              ('"Los 50 primeros minutos son magníficos. Sin embargo, es enfundarse Christian Bale el disfraz de Batman, y la película se viene abajo porque se convierte en más de lo mismo.', 'Soledad M.', 15, 47, '2005-11-05'),
 
                                                                              ('La mejor versión de miedo actualizada hasta la fecha, es conmovedora y espeluznante. Maravillosa.', 'Iñigo J.', 1, 48, '2016-11-06'),
