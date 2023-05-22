@@ -258,7 +258,7 @@ const generosProcesados = procesarGeneros(generos);
                     <li v-for="cri in criticas" class="list-disc ml-5"><span class="underline font-semibold">{{cri['usuario'][0]['name']}}</span>: {{ cri['critica'] }} ({{ dayjs(cri['fecha']).fromNow() }}) - Likes: {{ cri['likes'] }}
 
                         <!--Mano arriba-->
-                        <Link  class="inline-block" v-if="$page.props.auth.user" as="button" method="post" :href="route('darLike')" :data="{ user_id: $page.props.auth.user['id'], critica_id: cri['id_critica'] }">
+                        <Link  class="inline-block" v-if="$page.props.auth.user" as="button" method="post" :href="route('darLike')" :data="{ user_id: $page.props.auth.user['id'], critica_id: cri['id_critica'] }" preserveScroll>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="white"
                                      class="w-5 h-5 inline-block hover:fill-black">
                                     <path
