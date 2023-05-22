@@ -39,7 +39,7 @@ const secuelasOrdenadas = props.secuelaPrecuela != null ? props.secuelaPrecuela.
 dayjs.extend(relativeTime);
 dayjs.locale('es');
 
-/*funciones*/
+// Funciones alert
 function alertaDarLike(){
     Swal.fire({
         title: 'UPSSS!',
@@ -49,6 +49,38 @@ function alertaDarLike(){
         imageAlt: 'ocupate de arreglarlo'
     });
 }
+
+//Funciones para procesar listados de nombres
+function procesarEnumeracion(listado){
+    let enumeracionConComas = ' ';
+    for (let a = 0; a < listado.length;  a++) {
+        //Procesamos el nombre del actor
+        let actor = procesarNombre(listado[a]['nombre']);
+        //Lo añadimos
+        enumeracionConComas += actor;
+        //Añadimos punto o coma
+        if(a < listado.length - 1) {
+            enumeracionConComas += ', ';
+        } else {
+            enumeracionConComas += '.';
+        }
+    }
+    return enumeracionConComas;
+}
+function procesarNombre(nombre){
+    // Primero el nombre
+    let nombreProcesado = nombre.substring(nombre.indexOf(',') + 2, nombre.length);
+    // Despues el apellido
+    nombreProcesado += ' ' + nombre.substring(0, nombre.indexOf(','));
+    return nombreProcesado;
+}
+
+// Procesado de listas de nombres
+// Obtenemos los listados de actores y directores
+const actores = props.obra[0]['actors'];
+const directores = props.obra[0]['directors'];
+const actoresProcesados = procesarEnumeracion(actores);
+const directoresProcesados = procesarEnumeracion(directores);
 </script>
 
 <template>
@@ -125,36 +157,34 @@ function alertaDarLike(){
             <div class="flex justify-center mr-10 w-full md:-ml[150px]">
                 <ul>
                     <!--Datos de la pelicula-->
-                    <li class="list-disc font-bold underline text-flamingo text-xl">Obra:</li>
+                    <li class="list-disc font-bold text-flamingo text-xl"><span class="underline">Obra</span>:</li>
                     <ul>
-                        <li class="list-disc ml-5"><span class="font-semibold underline text-lg">Título:</span> {{
+                        <li class="list-disc ml-5"><span class="font-semibold underline text-lg">Título</span>: {{
                                 obra[0]['titulo']
                             }} ({{ obra[0]['titulo_original'] }})
                         </li>
-                        <li class="list-disc ml-5"><span class="font-semibold underline text-lg">Año:</span>
+                        <li class="list-disc ml-5"><span class="font-semibold underline text-lg">Año</span>:
                             {{ obra[0]['fecha'] }}
                         </li>
-                        <li class="list-disc ml-5"><span class="font-semibold underline text-lg">Duración:</span>
+                        <li class="list-disc ml-5"><span class="font-semibold underline text-lg">Duración</span>:
                             {{ Math.floor((parseInt(obra[0]['duracion']) / 60)) }}h
                             {{ parseInt(obra[0]['duracion']) % 60 }}min
                         </li>
-                        <li class="list-disc ml-5"><span class="font-semibold underline text-lg">País:</span>
+                        <li class="list-disc ml-5"><span class="font-semibold underline text-lg">País</span>:
                             {{ obra[0]['pais'] }}
                         </li>
-                        <li v-if="obra[0]['directors'][0]" class="list-disc ml-5"><span class="font-semibold underline text-lg">Dirección:</span> <span
-                            v-for="dir in obra[0]['directors']"> {{ dir['nombre'] }},  </span></li>
-                        <li v-if="obra[0]['actors'][0]" class="list-disc ml-5"><span class="font-semibold underline text-lg">Reparto:</span> <span
-                            v-for="act in obra[0]['actors']">{{ act['nombre'] }}, </span></li>
-                        <li class="list-disc ml-5"><span class="font-semibold underline text-lg">Productora:</span>
+                        <li v-if="obra[0]['directors'][0]" class="list-disc ml-5"><span class="font-semibold underline text-lg">Dirección</span>:<span> {{ directoresProcesados }},  </span></li>
+                        <li v-if="obra[0]['actors'][0]" class="list-disc ml-5"><span class="font-semibold underline text-lg">Reparto</span>: <span>{{ actoresProcesados }}, </span></li>
+                        <li class="list-disc ml-5"><span class="font-semibold underline text-lg">Productora</span>:
                             {{ obra[0]['productora'] }}
                         </li>
-                        <li v-if="obra[0]['generos'][0]" class="list-disc ml-5"><span class="font-semibold underline text-lg">Género:</span> <span
+                        <li v-if="obra[0]['generos'][0]" class="list-disc ml-5"><span class="font-semibold underline text-lg">Género</span>: <span
                             v-for="gen in obra[0]['generos']"> {{ gen['genero'] }}, </span></li>
-                        <li class="list-disc ml-5"><span class="font-semibold underline text-lg">Sinopsis:</span>
+                        <li class="list-disc ml-5"><span class="font-semibold underline text-lg">Sinopsis</span>:
                             {{ obra[0]['sinopsis'] }}
                         </li>
                         <!--Festivales y premios-->
-                        <li v-if="obra[0]['festivals'][0]" class="list-disc font-bold underline text-flamingo text-xl mt-2">Galardones:</li>
+                        <li v-if="obra[0]['festivals'][0]" class="list-disc font-bold underline text-flamingo text-xl mt-2">Galardones: </li>
                         <ul>
                             <li v-for="fest in obra[0]['festivals']" class="list-disc ml-5"><span
                                 class="font-semibold underline text-lg">Mejor película:</span> {{
@@ -162,7 +192,7 @@ function alertaDarLike(){
                                 }}({{ fest['edicion'] }})
                             </li>
                         </ul>
-                        <li v-if="saga" class="list-disc font-bold underline text-flamingo text-xl mt-2"><span>Saga:</span></li>
+                        <li v-if="saga" class="list-disc font-bold text-flamingo text-xl mt-2"><span class="underline">Saga</span>:</li>
                         <!-- Si solo hay un poster en secuelas, flex justify-center -->
                         <div v-if="secuelasOrdenadas.length <= 1" class="text-center flex justify-center">
                             <div v-for="secuela in secuelasOrdenadas"  class="w-[80%] sm:w-[100%] md:w-[250px] lg">
