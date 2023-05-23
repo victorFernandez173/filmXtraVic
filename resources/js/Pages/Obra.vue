@@ -105,7 +105,6 @@ function procesarGustadas($usuario, $gustadas){
         let valor = Object.values(objetoGustadas[user_id]);
         gustadaPorArray.push(valor[0]);
     }
-    console.log('Hola');
     return gustadaPorArray.includes($usuario['id']);
 }
 </script>
