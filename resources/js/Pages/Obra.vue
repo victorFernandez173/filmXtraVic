@@ -97,8 +97,6 @@ function procesarGeneros(generos) {
 const generos = props.obra[0]['generos'];
 const generosProcesados = procesarGeneros(generos);
 
-// Vamos a generar un array con todas las criticas del usuario
-
 
 </script>
 

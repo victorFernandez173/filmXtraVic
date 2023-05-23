@@ -7,7 +7,6 @@ use DB;
 use Exception;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -25,8 +24,6 @@ class ObtenerObraController extends Controller
         $obra = $this->obtenerDatosObra($titulo);
 
         return Inertia::render('Obra', [
-            'canLogin' => Route::has('login'),
-            'canRegister' => Route::has('register'),
             'obra' => $obra,
             'mediaEvaluaciones' => $this->calcularMediaEvaluaciones($obra[0]['evaluaciones']),
             'criticas' => $this->obtenerArrayInfoCriticas($obra[0]['criticas']),

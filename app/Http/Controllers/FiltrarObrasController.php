@@ -7,7 +7,6 @@ use Carbon\Carbon;
 use DB;
 use Exception;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -37,8 +36,6 @@ class FiltrarObrasController extends Controller
 
         // Renderizamos & props
         return Inertia::render('Obras', [
-            'canLogin' => Route::has('login'),
-            'canRegister' => Route::has('register'),
             'obras' => $obras,
             'generos' => DB::table('generos')->select('genero')->get(),
             'paises' => DB::table('obras')->select('pais')->groupBy('pais')->orderBy('pais')->get(),
