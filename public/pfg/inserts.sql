@@ -956,7 +956,7 @@ INSERT INTO criticas (obra_id, user_id, critica) VALUES (1, 7, 'Con Morgan Freem
                                                         (82, 25, 'Una película provocadora y perturbadora que examina la naturaleza de la violencia y la libre voluntad. Con una dirección magistral de Stanley Kubrick y una actuación memorable'),
 
                                                         (83, 5, 'Un épico drama histórico dirigido por Stanley Kubrick, que narra la historia del famoso esclavo y líder rebelde, con una producción impresionante y una actuación destacada de Kirk Douglas.'),
-                                                        (83, 22, 'Un clásico del cine histórico que narra la historia de un esclavo convertido en líder revolucionario. Con una dirección impactante de Stanley Kubrick y un reparto excepcional, encabezado por Kirk Douglas, esta película cautiva con su representación épica de la lucha por la libertad y la justicia.'),
+                                                        (83, 22, 'Un clásico del cine histórico que narra la historia de un esclavo convertido en líder revolucionario. Con una dirección impactante de Stanley Kubrick y un reparto excepcional, encabezado por Kirk Douglas, esta película cautiva con su representación épica de la lucha por la libertad y la justicia.')
                                                         ;
 
 
