@@ -15,8 +15,8 @@ class LikeController extends Controller
         $like = new Like([
             'user_id' => request('user_id'),
             'critica_id' => request('critica_id'),
-            ]);
-        if(DB::table('likes')->where('user_id', $like['user_id'])->where('critica_id', $like['critica_id'])->exists()){
+        ]);
+        if (DB::table('likes')->where('user_id', $like['user_id'])->where('critica_id', $like['critica_id'])->exists()) {
             DB::table('likes')->where('user_id', $like['user_id'])->where('critica_id', $like['critica_id'])->delete();
         } else {
             $like->save();
