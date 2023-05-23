@@ -71,10 +71,12 @@ class ObtenerObraController extends Controller
         foreach ($criticas as $critica) {
             $criticasLikes[] = [
                 'id_critica' => $critica['id'],
+                'id_usuario' => $critica['user_id'],
                 'critica' => $critica['critica'],
                 'likes' => DB::table('likes')->where('critica_id', '=', $critica['id'])->count(),
                 'fecha' => $critica['modificada'],
-                'usuario' => DB::table('users')->select('name', 'username')->where('id', '=', $critica['user_id'])->get()
+                'usuario' => DB::table('users')->select('name', 'username')->where('id', '=', $critica['user_id'])->get(),
+                'gustadaPor' => DB::table('likes')->select('user_id')->where('critica_id', '=', $critica['id'])->get(),
             ];
         }
         return $criticasLikes;
