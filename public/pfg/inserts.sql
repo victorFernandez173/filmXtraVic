@@ -545,10 +545,6 @@ INSERT INTO secuelas (obra_id, saga_id, orden) VALUES (2, 1, 1), (22, 1, 2), (23
 
 
 
-INSERT INTO criticas (obra_id, user_id, critica) VALUES ( 1, 1,'con Morgan Freeman qué puede salir mal?, para no ser muy de mi estilo estubo bastante bien, la recomiendo que la vean :D. '),( 2, 4,'La mafia siempre triunfa, una muy buena película. La podriamos clasificar como un clasico del cine, un indispensable en la lista de películas que ver.'),( 3, 7, 'Ésta parte es de las que mas me gusta de la saga, y tener como villano de la peli a Nial Neeson (Ras Al Ghul) es una maravilla jeje.'),( 4, 14,'Me gustó mas la 1ª peli, pero no esta mal, aceptable.'),( 5, 5,'Una fotográfia y efectos especiales bastante buenos :) '),( 6, 6,'Esta es la 7ª vez que la veo y no me canso de ella es una de mis películas fav; la actuacion de Viggo Mortensen es de 10 e Ian Mcklein una maravilla todo lo que hace, en ésta película no iba a ser menos :D '),( 7, 13,'Ésta me gustó algo menos que las otras películas de la saga, pero en general,como todas las pelis de la saga, en su conjunto están bastante biien. recomiendo que se hagan maraton de la saga, será tiempo bien invertido XD '),( 8, 11,'nunca habia visto una peli de esta saga y elegí esta al azar, para mi gusto es una peli algo larga pero no ha estado mal :) '),( 9, 19,'Una de las películas de culto de Quentin Tarantino, una delicia de pelicula. Mucha accion y sangre, en pocas palabras me a flipado la actuacion de John Travolta y Samuel L. Jackson'),( 10, 11,'Una película bastante fiosófica, me gusta la forma en la que analizan y critican la sociedad consumista en la que vivivos'),( 12, 11,'Me ha encantado los efectos especiales que están genial para la época. Un flipe de pelii jajaja'),(13, 11,'sinceramente como la primera entrega no hay nada que le haga justicia, pero bueno dentro de lo que cabe no es horrible. Recomiendo verse antes la primeraentrega'),( 14, 11,'No me ha entusiasmado -.- '),(15, 14,'Es la segunda vez que la veo y sigue emocionandome, Tom Hanks y Michael Clacker una pasada. :D'),(16, 15 ,'Si te gustan las peículas de gladiadores, temas que tienen que ver con la antiüa Roma ésta es tu film. Tiene muy buena fotografia y efectos, entre otras cosas. Si teneis tiempo ver la :)) '),(17, 2,'Es una bonita reflexión sobre el asombro infantil (todo es siempre más luminoso, bonito desde la mirada de un niño) y también sobre los anhelos adolescentes; el amor al cine y en el cine, no hay duda que esta es la película por excelencia.'),(18, 11, 'Joaquin Phoenix esta espectacular en la pantalla grande reencarnando al Jocker, un personaje bastante complicado de entender y hacer como hemos visto en las peliculas de batman. Al protagonista le suceden una serie de trágicos sucesos que harán que su visión del mundo se distorsione considerablemente convirtiéndolo en un brillante criminal. Es una vision del mundo, de la sociedad bastante acertada; aunque obviamente está llevada al extremo. Recomendadisima para un dia de palomitas, manta y peli >.< '),(19, 4, 'Sigourney Weaver, una de mis actrices favoritas del mundo mundial, no së cuantas veces he podido llegar a ver este filme, pero es increible para ser del 1979, de todas las peliculas que hay de alien, alien vs predator. La de Alien el Octavo pasajero es la que mas me gusta. Las peliculas posteriores como que han perdido fuelle.'),(20, 17,'Esta segunda parte con Sigourney Weaver a la cabeza del reparto principal no está nada mal, pero como la primera parte no la supera ninguna otra jajja. pero igualmete recomiendo ver mucho ésta 2º parte de Alien y sobretodo la 1ª parte (El octavo pasajero). pero recordar que las películas no están en el orden correcto según los estrenos de las películas como Star Wars'),(21, 8,'Un pasote, aunque los bichos dan mucho asco pa película en sí esta bastante bn, muy currada.'), (1, 2, 'Obra maestra entre obras maestras, debes verla, YA!');
-
-
-
 INSERT INTO likes VALUES (1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (1, 7), (1, 8), (1, 9), (1, 10), (1, 11), (1, 12), (1, 13), (1, 14), (1, 15), (1, 16), (1, 17), (1, 18), (1, 19), (1, 20), (1, 21), (1, 22), (1, 23), (1, 24), (1, 25), (1, 26), (1, 27), (1, 28), (1, 29), (1, 30), (1, 31), (1, 32), (1, 33), (1, 34), (1, 35), (1, 36), (1, 37), (1, 38), (1, 39), (1, 40), (1, 41), (1, 42), (1, 43), (1, 44), (1, 45), (1, 46), (1, 47), (1, 48), (1, 49), (1, 50), (1, 51), (1, 52), (1, 53), (1, 54), (1, 55), (1, 56), (1, 57), (1, 58), (1, 59), (1, 60), (1, 61), (1, 62), (1, 63), (1, 64), (1, 65), (1, 66), (1, 67), (1, 68), (1, 69), (1, 70), (1, 71), (1, 72), (1, 73), (1, 74), (1, 75), (1, 76), (1, 77), (1, 78), (1, 79), (1, 80), (1, 81), (1, 82), (1, 83), (1, 84), (1, 85), (1, 86), (1, 87), (1, 88), (1, 89), (1, 90), (1, 91), (1, 92), (1, 93), (1, 94), (1, 95), (1, 96), (1, 97), (1, 98), (1, 99), (1, 100), (1, 101), (1, 102), (1, 103), (1, 104), (1, 105), (1, 106), (1, 107), (1, 108), (1, 109), (1, 110), (1, 111), (1, 112), (1, 113), (1, 114), (1, 115), (1, 116), (1, 117), (1, 118), (1, 119), (1, 120), (1, 121), (1, 122), (1, 123), (1, 124), (1, 125), (1, 126), (1, 127), (1, 128), (1, 129), (1, 130), (1, 131), (1, 132), (1, 133), (1, 134), (1, 135), (1, 136), (1, 137), (1, 138), (1, 139), (1, 140), (1, 141), (1, 142), (1, 143), (1, 144), (1, 145), (1, 146), (1, 147), (1, 148), (1, 149), (1, 150), (1, 151), (1, 152), (1, 153), (1, 154), (1, 155), (1, 156), (1, 157), (1, 158), (1, 159), (1, 160), (1, 161), (1, 162), (1, 163), (1, 164), (1, 165), (1, 166),
 
                          (2, 2), (2, 4), (2, 6), (2, 8), (2, 10), (2, 12), (2, 14), (2, 16), (2, 18), (2, 20), (2, 22), (2, 24), (2, 26), (2, 28), (2, 30), (2, 32), (2, 34), (2, 36), (2, 38), (2, 40), (2, 42), (2, 44), (2, 46), (2, 48), (2, 50), (2, 52), (2, 54), (2, 56), (2, 58), (2, 60), (2, 62), (2, 64), (2, 66), (2, 68), (2, 70), (2, 72), (2, 74), (2, 76), (2, 78), (2, 80), (2, 82), (2, 84), (2, 86), (2, 88), (2, 90), (2, 92), (2, 94), (2, 96), (2, 98), (2, 100), (2, 102), (2, 104), (2, 106), (2, 108), (2, 110), (2, 112), (2, 114), (2, 116), (2, 118), (2, 120), (2, 122), (2, 124), (2, 126), (2, 128), (2, 130), (2, 132), (2, 134), (2, 136), (2, 138), (2, 140), (2, 142), (2, 144), (2, 146), (2, 148), (2, 150), (2, 152), (2, 154), (2, 156), (2, 158), (2, 160), (2, 162), (2, 164), (2, 166),
@@ -710,6 +706,258 @@ INSERT INTO likes VALUES (1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (1, 7),
                                                                (7, 82, 1), (9.5, 82, 2), (5.8, 82, 3), (8, 82, 4), (6, 82, 5),
                                                                (9, 83, 1), (3.8, 83, 2), (8.6, 83, 3), (5, 83, 4), (9, 83, 5)
                                                                 ;
+
+
+
+INSERT INTO criticas (obra_id, user_id, critica) VALUES (1, 7, 'con Morgan Freeman qué puede salir mal?, para no ser muy de mi estilo estubo bastante bien, la recomiendo que la vean :D.'),
+                                                        (1, 10, 'Obra maestra entre obras maestras, debes verla, YA!'),
+
+                                                        (2, 6, ''),
+                                                        (2, 1, 'La mafia siempre triunfa, una muy buena película. La podríamos clasificar como un clásico del cine, un indispensable en la lista de películas que ver.'),
+
+                                                        (3, 7, 'Ésta parte es de las que mas me gusta de la saga, y tener como villano de la peli a Nial Neeson (Ras Al Ghul) es una maravilla jeje.'),
+                                                        (3, 5, ''),
+
+                                                        (4, 6, ''),
+                                                        (4, 14, 'Me gustó mas la 1ª peli, pero no esta mal, aceptable.'),
+
+                                                        (5, 13, ''),
+                                                        (5, 5, 'Una fotográfia y efectos especiales bastante buenos :)'),
+
+                                                        (6, 2, 'Esta es la 7ª vez que la veo y no me canso de ella es una de mis películas fav; la actuacion de Viggo Mortensen es de 10 e Ian Mcklein una maravilla todo lo que hace, en ésta película no iba a ser menos :D'),
+                                                        (6, 19, ''),
+
+                                                        (7, 4, ''),
+                                                        (7, 13, 'Ésta me gustó algo menos que las otras películas de la saga, pero en general,como todas las pelis de la saga, en su conjunto están bastante biien. recomiendo que se hagan maraton de la saga, será tiempo bien invertido XD'),
+
+                                                        (8, 19, ''),
+                                                        (8, 11, 'nunca habia visto una peli de esta saga y elegí esta al azar, para mi gusto es una peli algo larga pero no ha estado mal :)'),
+
+                                                        (9, 22, ''),
+                                                        (9, 19, 'Una de las películas de culto de Quentin Tarantino, una delicia de pelicula. Mucha accion y sangre, en pocas palabras me a flipado la actuacion de John Travolta y Samuel L. Jackson'),
+
+                                                        (10, 7, ''),
+                                                        (10, 10, 'Una película bastante fiosófica, me gusta la forma en la que analizan y critican la sociedad consumista en la que vivivos'),
+
+                                                        (11, 22, ''),
+                                                        (11, 33, ''),
+
+                                                        (12, 16, 'Me ha encantado los efectos especiales que están genial para la época. Un flipe de pelii jajaja'),
+                                                        (12, 18, ''),
+
+                                                        (13, 13, 'Sinceramente como la primera entrega no hay nada que le haga justicia, pero bueno dentro de lo que cabe no es horrible. Recomiendo verse antes la primer aentrega'),
+                                                        (13, 19, ''),
+
+                                                        (14, 19, 'No me ha entusiasmado -.-'),
+                                                        (14, 33, ''),
+
+                                                        (15, 20, 'Es la segunda vez que la veo y sigue emocionandome, Tom Hanks y Michael Clacker una pasada. :D'),
+                                                        (15, 37, ''),
+
+                                                        (16, 14, 'Si te gustan las peículas de gladiadores, temas que tienen que ver con la antigua Roma ésta es tu film. Tiene muy buena fotografia y efectos, entre otras cosas. Si teneis tiempo ver la :))'),
+                                                        (16, 18, ''),
+
+                                                        (17, 2, 'Es una bonita reflexión sobre el asombro infantil (todo es siempre más luminoso, bonito desde la mirada de un niño) y también sobre los anhelos adolescentes; el amor al cine y en el cine, no hay duda que esta es la película por excelencia.'),
+                                                        (17, 20, ''),
+
+                                                        (18, 15, 'Joaquin Phoenix esta espectacular en la pantalla grande reencarnando al Jocker, un personaje bastante complicado de entender y hacer como hemos visto en las peliculas de batman. Al protagonista le suceden una serie de trágicos sucesos que harán que su visión del mundo se distorsione considerablemente convirtiéndolo en un brillante criminal. Es una vision del mundo, de la sociedad bastante acertada; aunque obviamente está llevada al extremo. Recomendadisima para un dia de palomitas, manta y peli >.<'),
+                                                        (18, 35, ''),
+
+                                                        (19, 7, 'Sigourney Weaver, una de mis actrices favoritas del mundo mundial, no sé cuantas veces he podido llegar a ver este filme, pero es increible para ser del 1979, de todas las peliculas que hay de alien, alien vs predator. La de Alien el Octavo pasajero es la que mas me gusta. Las peliculas posteriores como que han perdido fuelle.'),
+                                                        (19, 27, ''),
+
+                                                        (20, 17, 'Esta segunda parte con Sigourney Weaver a la cabeza del reparto principal no está nada mal, pero como la primera parte no la supera ninguna otra jajja. pero igualmete recomiendo ver mucho ésta 2º parte de Alien y sobretodo la 1ª parte (El octavo pasajero). pero recordar que las películas no están en el orden correcto según los estrenos de las películas como Star Wars.'),
+                                                        (20, 25, ''),
+
+                                                        (21, 8, 'Un pasote, aunque los bichos dan mucho asco pa película en sí esta bastante bn, muy currada.'),
+                                                        (21, 28, ''),
+
+                                                        (22, 19, ''),
+                                                        (22, 12, ''),
+
+                                                        (23, 10, ''),
+                                                        (23, 11, ''),
+
+                                                        (24, 13, ''),
+                                                        (24, 31, ''),
+
+                                                        (25, 22, ''),
+                                                        (25, 35, ''),
+
+                                                        (26, 12, ''),
+                                                        (26, 10, ''),
+
+                                                        (27, 6, ''),
+                                                        (27, 8, ''),
+
+                                                        (28, 9, ''),
+                                                        (28, 10, ''),
+
+                                                        (29, 1, ''),
+                                                        (29, 5, ''),
+
+                                                        (30, 15, ''),
+                                                        (30, 21, ''),
+
+                                                        (31, 4, ''),
+                                                        (31, 22, ''),
+
+                                                        (32, 10, ''),
+                                                        (32, 12, ''),
+
+                                                        (33, 18, ''),
+                                                        (33, 12, ''),
+
+                                                        (34, 14, ''),
+                                                        (34, 36, ''),
+
+                                                        (35, 23, ''),
+                                                        (35, 33, ''),
+
+                                                        (36, 15, ''),
+                                                        (36, 19, ''),
+
+                                                        (37, 8, ''),
+                                                        (37, 24, ''),
+
+                                                        (38, 13, ''),
+                                                        (38, 31, ''),
+
+                                                        (39, 9, ''),
+                                                        (39, 24, ''),
+
+                                                        (40, 14, ''),
+                                                        (40, 22, ''),
+
+                                                        (41, 9, ''),
+                                                        (41, 23, ''),
+
+                                                        (42, 12, ''),
+                                                        (42, 15, ''),
+
+                                                        (43, 16, ''),
+                                                        (43, 14, ''),
+
+                                                        (44, 12, ''),
+                                                        (44, 36, ''),
+
+                                                        (45, 24, ''),
+                                                        (45, 31, ''),
+
+                                                        (46, 11, ''),
+                                                        (46, 16, ''),
+
+                                                        (47, 3, ''),
+                                                        (47, 25, ''),
+
+                                                        (48, 13, ''),
+                                                        (48, 32, ''),
+
+                                                        (49, 5, ''),
+                                                        (49, 28, ''),
+
+                                                        (50, 13, ''),
+                                                        (50, 22, ''),
+
+                                                        (51, 7, ''),
+                                                        (51, 24, ''),
+
+                                                        (52, 14, ''),
+                                                        (52, 12, ''),
+
+                                                        (53, 18, ''),
+                                                        (53, 12, ''),
+
+                                                        (54, 14, ''),
+                                                        (54, 30, ''),
+
+                                                        (55, 22, ''),
+                                                        (55, 30, ''),
+
+                                                        (56, 10, ''),
+                                                        (56, 12, ''),
+
+                                                        (57, 8, ''),
+                                                        (57, 28, ''),
+
+                                                        (58, 17, ''),
+                                                        (58, 33, ''),
+
+                                                        (59, 9, ''),
+                                                        (59, 24, ''),
+
+                                                        (60, 19, ''),
+                                                        (60, 26, ''),
+
+                                                        (61, 9, ''),
+                                                        (61, 26, ''),
+
+                                                        (62, 12, ''),
+                                                        (62, 14, ''),
+
+                                                        (63, 17, ''),
+                                                        (63, 12, ''),
+
+                                                        (64, 17, ''),
+                                                        (64, 32, ''),
+
+                                                        (65, 25, ''),
+                                                        (65, 33, ''),
+
+                                                        (66, 16, ''),
+                                                        (66, 12, ''),
+
+                                                        (67, 6, ''),
+                                                        (67, 23, ''),
+
+                                                        (68, 12, ''),
+                                                        (68, 32, ''),
+
+                                                        (69, 7, ''),
+                                                        (69, 23, ''),
+
+                                                        (70, 12, ''),
+                                                        (70, 27, ''),
+
+                                                        (71, 9, ''),
+                                                        (71, 25, ''),
+
+                                                        (72, 13, ''),
+                                                        (72, 12, ''),
+
+                                                        (73, 17, ''),
+                                                        (73, 15, ''),
+
+                                                        (74, 15, ''),
+                                                        (74, 32, ''),
+
+                                                        (75, 22, ''),
+                                                        (75, 34, ''),
+
+                                                        (76, 17, ''),
+                                                        (76, 12, ''),
+
+                                                        (77, 7, ''),
+                                                        (77, 25, ''),
+
+                                                        (78, 13, ''),
+                                                        (78, 32, ''),
+
+                                                        (79, 7, ''),
+                                                        (79, 28, ''),
+
+                                                        (80, 19, ''),
+                                                        (80, 27, ''),
+
+                                                        (81, 3, ''),
+                                                        (81, 25, ''),
+
+                                                        (82, 9, ''),
+                                                        (82, 25, ''),
+
+                                                        (83, 5, ''),
+                                                        (83, 22, ''),
+                                                        ;
 
 
 
