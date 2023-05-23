@@ -817,71 +817,71 @@ INSERT INTO criticas (obra_id, user_id, critica) VALUES (1, 7, 'Con Morgan Freem
                                                         (36, 15, 'Gran película y gran staff.'),
                                                         (36, 19, 'Con este reparto no se puede pedir más.'),
 
-                                                        (37, 8, ''),
-                                                        (37, 24, ''),
+                                                        (37, 8, 'Muy chula, me gustó bastante.'),
+                                                        (37, 24, 'QUE REPARTO jajajaja me gustó mucho.'),
 
-                                                        (38, 13, ''),
-                                                        (38, 31, ''),
+                                                        (38, 13, 'Una película encantadora que captura perfectamente la magia y la maravilla del mundo de Harry Potter.'),
+                                                        (38, 31, 'Un inicio sólido para la franquicia, pero se siente más orientada hacia un público más joven.'),
 
-                                                        (39, 9, ''),
-                                                        (39, 24, ''),
+                                                        (39, 9, 'Una obra maestra de la acción y la distopía, llena de frenéticas persecuciones y personajes icónicos.'),
+                                                        (39, 24, 'Una película que redefine el género de las películas de acción, pero puede resultar demasiado intensa y violenta para algunos espectadores.'),
 
-                                                        (40, 14, ''),
-                                                        (40, 22, ''),
+                                                        (40, 14, 'Una secuela que supera a su predecesora en todos los aspectos, con una trama más sólida y escenas de acción aún más espectaculares.'),
+                                                        (40, 22, 'Una joya del cine de acción que establece nuevos estándares en cuanto a secuencias de persecución y ambientación postapocalíptica.'),
 
-                                                        (41, 9, ''),
-                                                        (41, 23, ''),
+                                                        (41, 9, 'Aunque no alcanza el nivel de las dos primeras entregas, sigue siendo una película entretenida con momentos visuales impresionantes.'),
+                                                        (41, 23, 'Una entrega que ofrece menos acción y una trama más simplificada, pero aún mantiene el estilo distintivo de la franquicia.'),
 
-                                                        (42, 12, ''),
-                                                        (42, 15, ''),
+                                                        (42, 12, 'Una película icónica que dio inicio a una saga legendaria, con personajes memorables y una historia que trasciende generaciones.'),
+                                                        (42, 15, 'Un clásico del cine de ciencia ficción que ha resistido la prueba del tiempo, aunque algunos efectos visuales pueden sentirse datados.'),
 
-                                                        (43, 16, ''),
-                                                        (43, 14, ''),
+                                                        (43, 16, 'Considerada por muchos como la mejor entrega de la saga, este episodio sorprende con su oscuridad y giros argumentales impactantes.'),
+                                                        (43, 14, 'Un punto alto en la saga, con un tono más sombrío y una profundización en los personajes principales.'),
 
-                                                        (44, 12, ''),
-                                                        (44, 36, ''),
+                                                        (44, 12, 'Un cierre emocionante que concluye la trilogía original con una gran batalla final y momentos de redención poderosos.'),
+                                                        (44, 36, 'Aunque tiene momentos memorables, se siente un poco menos impactante en comparación con las dos entregas anteriores.'),
 
-                                                        (45, 24, ''),
-                                                        (45, 31, ''),
+                                                        (45, 24, 'Una precuela visualmente impresionante que presenta nuevos mundos y personajes, pero se ve obstaculizada por una trama desequilibrada y un tono infantil.'),
+                                                        (45, 31, 'A pesar de sus fallas, tiene momentos destacados y presenta a Darth Maul, uno de los villanos más memorables de la saga.'),
 
-                                                        (46, 11, ''),
-                                                        (46, 16, ''),
+                                                        (46, 11, 'Una entrega que mejora respecto a su predecesora, con una historia más compleja, un romance incipiente y momentos de acción emocionantes.'),
+                                                        (46, 16, 'Aunque tiene algunos momentos destacados, la trama puede sentirse abrumada por subtramas innecesarias y diálogos menos inspirados.'),
 
-                                                        (47, 3, ''),
-                                                        (47, 25, ''),
+                                                        (47, 3, 'La mejor de las precuelas, presenta el trágico y épico ascenso de Anakin Skywalker hacia el lado oscuro, con batallas impresionantes y una narrativa intensa.'),
+                                                        (47, 25, 'Un cierre satisfactorio para la trilogía de precuelas, aunque algunos diálogos y actuaciones pueden ser irregulares en ocasiones.'),
 
-                                                        (48, 13, ''),
-                                                        (48, 32, ''),
+                                                        (48, 13, 'Un emocionante spin-off que amplía el universo Star Wars con una historia de valentía y sacrificio, brindando una conexión perfecta con la trilogía original.'),
+                                                        (48, 32, 'Una película valiente que se destaca por su tono más oscuro y su enfoque en nuevos personajes, pero puede sentirse un poco lenta en su desarrollo.'),
 
-                                                        (49, 5, ''),
-                                                        (49, 28, ''),
+                                                        (49, 5, 'Un retorno triunfal a la galaxia muy, muy lejana, esta película nos entrega nuevas esperanzas, personajes entrañables y la promesa de un emocionante futuro.'),
+                                                        (49, 28, 'Si bien trae consigo una gran dosis de nostalgia, también se siente como una reinvención segura de la trama original, dejando algunas preguntas sin respuesta.'),
 
-                                                        (50, 13, ''),
-                                                        (50, 22, ''),
+                                                        (50, 13, 'Divisiva pero audaz, esta entrega desafía las expectativas con giros sorprendentes y exploraciones más profundas de la Fuerza, aunque puede dejar a algunos fanáticos polarizados.'),
+                                                        (50, 22, 'Una película que arriesga y subvierte las convenciones de Star Wars, aunque algunas decisiones narrativas pueden no satisfacer a todos los seguidores.'),
 
-                                                        (51, 7, ''),
-                                                        (51, 24, ''),
+                                                        (51, 7, 'Aunque intenta cerrar la saga de manera satisfactoria, esta entrega se siente apresurada y abrumada por su propia historia, pero sigue ofreciendo momentos emocionantes y nostálgicos.'),
+                                                        (51, 24, 'Una película que busca complacer a los fanáticos con sucesos y referencias del pasado, pero puede sentirse desordenada y con falta de cohesión narrativa.'),
 
-                                                        (52, 14, ''),
-                                                        (52, 12, ''),
+                                                        (52, 14, 'Un entretenido spin-off que explora los orígenes del querido personaje de Han Solo, con una mezcla de acción, humor y emocionantes aventuras espaciales.'),
+                                                        (52, 12, 'Aunque no alcanza las alturas de las películas principales de Star Wars, ofrece momentos divertidos y un vistazo a la vida de uno de los personajes más icónicos.'),
 
-                                                        (53, 18, ''),
-                                                        (53, 12, ''),
+                                                        (53, 18, 'Un clásico atemporal de aventuras que combina acción emocionante, personajes carismáticos y un sentido del humor encantador.'),
+                                                        (53, 12, 'Una película que estableció el arquetipo del héroe arqueólogo y nos brindó momentos icónicos en la historia del cine.'),
 
-                                                        (54, 14, ''),
-                                                        (54, 30, ''),
+                                                        (54, 14, 'Una secuela trepidante que sigue las emocionantes aventuras del intrépido Indiana Jones, aunque puede carecer del encanto y equilibrio de la primera entrega.'),
+                                                        (54, 30, 'Si bien tiene secuencias impactantes, la oscuridad y la violencia gráfica pueden hacer que esta película sea menos accesible para algunos espectadores.'),
 
-                                                        (55, 22, ''),
-                                                        (55, 30, ''),
+                                                        (55, 22, 'Una magnífica combinación de acción, humor y emociones, esta película es un cierre espectacular para la trilogía original de Indiana Jones.'),
+                                                        (55, 30, 'El regreso de Sean Connery como el padre de Indiana Jones aporta un gran dinamismo a la historia, convirtiéndola en una aventura inolvidable.'),
 
-                                                        (56, 10, ''),
-                                                        (56, 12, ''),
+                                                        (56, 10, 'Aunque no alcanza el nivel de las películas anteriores, esta entrega todavía ofrece entretenimiento con sus elementos característicos de Indiana Jones y su trama de misterio arqueológico.'),
+                                                        (56, 12, 'Algunas decisiones narrativas y la introducción de elementos sobrenaturales pueden dividir a los fanáticos, pero sigue siendo un viaje emocionante con nuestro querido arqueólogo.'),
 
-                                                        (57, 8, ''),
-                                                        (57, 28, ''),
+                                                        (57, 8, 'Una adaptación sólida que nos sumerge más en el mundo mágico de Harry Potter, con nuevos desafíos y revelaciones emocionantes.'),
+                                                        (57, 28, 'Si bien es un capítulo importante en la saga, puede sentirse un poco repetitiva en comparación con la primera película.'),
 
-                                                        (58, 17, ''),
-                                                        (58, 33, ''),
+                                                        (58, 17, 'Una de las entregas más queridas de la saga, esta película introduce elementos oscuros y personajes memorables, elevando el nivel de la historia de Harry Potter.'),
+                                                        (58, 33, 'La dirección de Alfonso Cuarón aporta un estilo visual único, aunque algunos detalles del libro pueden haber quedado fuera.'),
 
                                                         (59, 9, ''),
                                                         (59, 24, ''),
