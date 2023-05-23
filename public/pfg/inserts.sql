@@ -709,113 +709,113 @@ INSERT INTO likes VALUES (1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (1, 7),
 
 
 
-INSERT INTO criticas (obra_id, user_id, critica) VALUES (1, 7, 'con Morgan Freeman qué puede salir mal?, para no ser muy de mi estilo estubo bastante bien, la recomiendo que la vean :D.'),
+INSERT INTO criticas (obra_id, user_id, critica) VALUES (1, 7, 'Con Morgan Freeman qué puede salir mal?, para no ser muy de mi estilo estubo bastante bien, la recomiendo que la vean :D.'),
                                                         (1, 10, 'Obra maestra entre obras maestras, debes verla, YA!'),
 
-                                                        (2, 6, ''),
+                                                        (2, 6, 'Una película de 10, de las que ya no hacen.'),
                                                         (2, 1, 'La mafia siempre triunfa, una muy buena película. La podríamos clasificar como un clásico del cine, un indispensable en la lista de películas que ver.'),
 
                                                         (3, 7, 'Ésta parte es de las que mas me gusta de la saga, y tener como villano de la peli a Nial Neeson (Ras Al Ghul) es una maravilla jeje.'),
-                                                        (3, 5, ''),
+                                                        (3, 5, 'Una película para ver una tarde, pero tampoco tiene mucho, es mejor Marvel.'),
 
-                                                        (4, 6, ''),
+                                                        (4, 6, 'Gran película, no se le puede pedir más.'),
                                                         (4, 14, 'Me gustó mas la 1ª peli, pero no esta mal, aceptable.'),
 
-                                                        (5, 13, ''),
-                                                        (5, 5, 'Una fotográfia y efectos especiales bastante buenos :)'),
+                                                        (5, 13, 'Gran reparto, aunque no me llegó a gustar demasiado.'),
+                                                        (5, 5, 'Una fotografía y efectos especiales bastante buenos :)'),
 
-                                                        (6, 2, 'Esta es la 7ª vez que la veo y no me canso de ella es una de mis películas fav; la actuacion de Viggo Mortensen es de 10 e Ian Mcklein una maravilla todo lo que hace, en ésta película no iba a ser menos :D'),
-                                                        (6, 19, ''),
+                                                        (6, 2, 'Esta es la 7ª vez que la veo y no me canso de ella es una de mis películas fav; la actuación de Viggo Mortensen es de 10 e Ian Mcklein una maravilla todo lo que hace, en ésta película no iba a ser menos :D'),
+                                                        (6, 19, 'IMPRESIONANTE, película de 10!!'),
 
-                                                        (7, 4, ''),
+                                                        (7, 4, 'Gran saga, pero esta me decepcionó un poco.'),
                                                         (7, 13, 'Ésta me gustó algo menos que las otras películas de la saga, pero en general,como todas las pelis de la saga, en su conjunto están bastante biien. recomiendo que se hagan maraton de la saga, será tiempo bien invertido XD'),
 
-                                                        (8, 19, ''),
-                                                        (8, 11, 'nunca habia visto una peli de esta saga y elegí esta al azar, para mi gusto es una peli algo larga pero no ha estado mal :)'),
+                                                        (8, 19, 'Muy larga, me cansan ya!!'),
+                                                        (8, 11, 'Nunca habia visto una peli de esta saga y elegí esta al azar, para mi gusto es una peli algo larga pero no ha estado mal :)'),
 
-                                                        (9, 22, ''),
+                                                        (9, 22, 'Me la recomendaron, pero no me entusiasmo.'),
                                                         (9, 19, 'Una de las películas de culto de Quentin Tarantino, una delicia de pelicula. Mucha accion y sangre, en pocas palabras me a flipado la actuacion de John Travolta y Samuel L. Jackson'),
 
-                                                        (10, 7, ''),
-                                                        (10, 10, 'Una película bastante fiosófica, me gusta la forma en la que analizan y critican la sociedad consumista en la que vivivos'),
+                                                        (10, 7, 'El mensaje que transmite me gustó mucho.'),
+                                                        (10, 10, 'Una película bastante fiosófica, me gusta la forma en la que analizan y critican la sociedad consumista en la que vivivos.'),
 
-                                                        (11, 22, ''),
-                                                        (11, 33, ''),
+                                                        (11, 22, 'Película de culto, nunca decepciona.'),
+                                                        (11, 33, 'Gran reparto, Tom Hanks se sale'),
 
-                                                        (12, 16, 'Me ha encantado los efectos especiales que están genial para la época. Un flipe de pelii jajaja'),
-                                                        (12, 18, ''),
+                                                        (12, 16, 'Me ha encantado los efectos especiales que están genial para la época. Un flipe de peli jajaja'),
+                                                        (12, 18, 'Los efectos especiales son para reirse jajaja, pero bueno, pensando que es de 1999 no me extraña.'),
 
                                                         (13, 13, 'Sinceramente como la primera entrega no hay nada que le haga justicia, pero bueno dentro de lo que cabe no es horrible. Recomiendo verse antes la primer aentrega'),
-                                                        (13, 19, ''),
+                                                        (13, 19, 'Gran mejora de formato.'),
 
                                                         (14, 19, 'No me ha entusiasmado -.-'),
-                                                        (14, 33, ''),
+                                                        (14, 33, 'Está bien, me gusta esta saga.'),
 
                                                         (15, 20, 'Es la segunda vez que la veo y sigue emocionandome, Tom Hanks y Michael Clacker una pasada. :D'),
-                                                        (15, 37, ''),
+                                                        (15, 37, 'Es la típica película que no te cansas de ver, un 10!!'),
 
                                                         (16, 14, 'Si te gustan las peículas de gladiadores, temas que tienen que ver con la antigua Roma ésta es tu film. Tiene muy buena fotografia y efectos, entre otras cosas. Si teneis tiempo ver la :))'),
-                                                        (16, 18, ''),
+                                                        (16, 18, 'Russell Crowe es impresionante como trabaja, me gustó mucho.'),
 
                                                         (17, 2, 'Es una bonita reflexión sobre el asombro infantil (todo es siempre más luminoso, bonito desde la mirada de un niño) y también sobre los anhelos adolescentes; el amor al cine y en el cine, no hay duda que esta es la película por excelencia.'),
-                                                        (17, 20, ''),
+                                                        (17, 20, 'Muy bonita, la recomiendo.'),
 
                                                         (18, 15, 'Joaquin Phoenix esta espectacular en la pantalla grande reencarnando al Jocker, un personaje bastante complicado de entender y hacer como hemos visto en las peliculas de batman. Al protagonista le suceden una serie de trágicos sucesos que harán que su visión del mundo se distorsione considerablemente convirtiéndolo en un brillante criminal. Es una vision del mundo, de la sociedad bastante acertada; aunque obviamente está llevada al extremo. Recomendadisima para un dia de palomitas, manta y peli >.<'),
-                                                        (18, 35, ''),
+                                                        (18, 35, 'Reparto inmejorable, IMPRESIONANTE!!'),
 
                                                         (19, 7, 'Sigourney Weaver, una de mis actrices favoritas del mundo mundial, no sé cuantas veces he podido llegar a ver este filme, pero es increible para ser del 1979, de todas las peliculas que hay de alien, alien vs predator. La de Alien el Octavo pasajero es la que mas me gusta. Las peliculas posteriores como que han perdido fuelle.'),
-                                                        (19, 27, ''),
+                                                        (19, 27, 'No me van mucho estas películas, pero no está nada mal.'),
 
                                                         (20, 17, 'Esta segunda parte con Sigourney Weaver a la cabeza del reparto principal no está nada mal, pero como la primera parte no la supera ninguna otra jajja. pero igualmete recomiendo ver mucho ésta 2º parte de Alien y sobretodo la 1ª parte (El octavo pasajero). pero recordar que las películas no están en el orden correcto según los estrenos de las películas como Star Wars.'),
-                                                        (20, 25, ''),
+                                                        (20, 25, 'Bastante buena, para ser una continuación.'),
 
                                                         (21, 8, 'Un pasote, aunque los bichos dan mucho asco pa película en sí esta bastante bn, muy currada.'),
-                                                        (21, 28, ''),
+                                                        (21, 28, 'Muy buena, la tienes que ver ya!! :)'),
 
-                                                        (22, 19, ''),
-                                                        (22, 12, ''),
+                                                        (22, 19, 'EL PADRINO, con esas palabras basta.'),
+                                                        (22, 12, 'La primera es insuperable, pero está bien.'),
 
-                                                        (23, 10, ''),
-                                                        (23, 11, ''),
+                                                        (23, 10, 'Mmmmm sin más, esperaba más :('),
+                                                        (23, 11, 'Que pena de cierre de una saga tan buena, me quedó con la primera 100%'),
 
-                                                        (24, 13, ''),
-                                                        (24, 31, ''),
+                                                        (24, 13, 'La ví cuando era pequeña con mi prima y me flipó, y hace poco la volví a ver y es genial.'),
+                                                        (24, 31, 'Muy buena, gran reparto.'),
 
-                                                        (25, 22, ''),
-                                                        (25, 35, ''),
+                                                        (25, 22, 'Me gustó más la primera, pero está bien.'),
+                                                        (25, 35, 'Gran película, enhorabuena.'),
 
-                                                        (26, 12, ''),
-                                                        (26, 10, ''),
+                                                        (26, 12, 'Gran película, de mis favorita. El reparto es impresionante, aunque hay fallitos que te descolocan un poco.'),
+                                                        (26, 10, 'Menudo reparto!! Película de 10'),
 
-                                                        (27, 6, ''),
-                                                        (27, 8, ''),
+                                                        (27, 6, 'Sin más, como continuación se me queda un poco atrás.'),
+                                                        (27, 8, 'Hannibal es mucho Hannibal, madre mía!!'),
 
-                                                        (28, 9, ''),
-                                                        (28, 10, ''),
+                                                        (28, 9, 'Con un reparto como el que tiene, ¿cómo va a ser mala?'),
+                                                        (28, 10, 'Muy buena, me sorprendió para bien.'),
 
-                                                        (29, 1, ''),
-                                                        (29, 5, ''),
+                                                        (29, 1, 'Trata temas muy controvertidos, pero está bien.'),
+                                                        (29, 5, 'Sin más, no me gustó mucho.'),
 
-                                                        (30, 15, ''),
-                                                        (30, 21, ''),
+                                                        (30, 15, 'WOW, solo puedo decir eso!!'),
+                                                        (30, 21, 'Menudo reparto, es muy buena!!'),
 
-                                                        (31, 4, ''),
-                                                        (31, 22, ''),
+                                                        (31, 4, 'Como no ver American Beauty? Un clasicazo.'),
+                                                        (31, 22, 'Está guay, pero se me queda un poco antigua.'),
 
-                                                        (32, 10, ''),
-                                                        (32, 12, ''),
+                                                        (32, 10, 'IMPRESIONANTE!! Menuda puesta en escena de los dos protagonistas, una de mis películas favoritas.'),
+                                                        (32, 12, 'Película para verla mil veces y aprender de cada visualización, es que cada vez te das cuenta de una cosa nueva. UN 10!!'),
 
-                                                        (33, 18, ''),
-                                                        (33, 12, ''),
+                                                        (33, 18, 'Que peli más bonita!!'),
+                                                        (33, 12, 'Muy chula, que bien le sientan los años a esta película.'),
 
-                                                        (34, 14, ''),
-                                                        (34, 36, ''),
+                                                        (34, 14, 'Clasicazo, si no la has visto míratela YA!!'),
+                                                        (34, 36, 'Gran fotografía, planos y reparto, me impresionó mucho.'),
 
-                                                        (35, 23, ''),
-                                                        (35, 33, ''),
+                                                        (35, 23, 'Para ser española no está nada mal, pero claro es que el cast es extranjero xD'),
+                                                        (35, 33, 'Muy buena, además las localizaciones de las películas se conservan bastante bien.'),
 
-                                                        (36, 15, ''),
-                                                        (36, 19, ''),
+                                                        (36, 15, 'Gran película y gran staff.'),
+                                                        (36, 19, 'Con este reparto no se puede pedir más.'),
 
                                                         (37, 8, ''),
                                                         (37, 24, ''),
