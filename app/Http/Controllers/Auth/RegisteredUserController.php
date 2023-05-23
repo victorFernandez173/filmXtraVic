@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 use Inertia\Inertia;
 use Inertia\Response;
+use Redirect;
 
 class RegisteredUserController extends Controller
 {
@@ -21,6 +22,8 @@ class RegisteredUserController extends Controller
      */
     public function create(): Response
     {
+        Redirect::setIntendedUrl(url()->previous());
+
         return Inertia::render('Auth/Register');
     }
 
@@ -43,6 +46,6 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        return redirect()->intended(RouteServiceProvider::HOME);
     }
 }
