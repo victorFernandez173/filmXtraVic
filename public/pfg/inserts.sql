@@ -883,49 +883,49 @@ INSERT INTO criticas (obra_id, user_id, critica) VALUES (1, 7, 'Con Morgan Freem
                                                         (58, 17, 'Una de las entregas más queridas de la saga, esta película introduce elementos oscuros y personajes memorables, elevando el nivel de la historia de Harry Potter.'),
                                                         (58, 33, 'La dirección de Alfonso Cuarón aporta un estilo visual único, aunque algunos detalles del libro pueden haber quedado fuera.'),
 
-                                                        (59, 9, ''),
-                                                        (59, 24, ''),
+                                                        (59, 9, 'Emocionante y llena de acción, esta entrega de la saga nos sumerge en un torneo mágico que desafía a nuestros héroes.'),
+                                                        (59, 24, 'Una emocionante entrega que destaca por su increíble diseño de producción y efectos visuales, sumergiendo al espectador en el mundo mágico de Hogwarts.'),
 
-                                                        (60, 19, ''),
-                                                        (60, 26, ''),
+                                                        (60, 19, 'Intensa y cargada de drama, esta película muestra la lucha de Harry contra la oscuridad mientras se forma un grupo de valientes para enfrentar al mal.'),
+                                                        (60, 26, 'Una película que transmite perfectamente la angustia y la tensión de los personajes frente a la creciente amenaza del villano principal, ofreciendo actuaciones sólidas y momentos emocionantes.'),
 
-                                                        (61, 9, ''),
-                                                        (61, 26, ''),
+                                                        (61, 9, 'Intrigante y misteriosa, esta entrega revela secretos oscuros y profundiza en las relaciones de los personajes antes del enfrentamiento final.'),
+                                                        (61, 26, 'Una entrega más enfocada en el desarrollo de los personajes y las relaciones, que nos brinda un vistazo más profundo a la complejidad de sus personalidades y decisiones.'),
 
-                                                        (62, 12, ''),
-                                                        (62, 14, ''),
+                                                        (62, 12, 'Emotiva y tensa, esta primera parte del desenlace nos muestra a nuestros héroes en una peligrosa misión para destruir los Horrocruxes.'),
+                                                        (62, 14, 'Una película que logra capturar la sensación de peligro inminente y desesperación a medida que los protagonistas se enfrentan a los desafíos más difíciles de la saga.'),
 
-                                                        (63, 17, ''),
-                                                        (63, 12, ''),
+                                                        (63, 17, 'Épica y conmovedora, esta última película nos regala batallas finales, sacrificios y un desenlace satisfactorio para los fans.'),
+                                                        (63, 12, 'Un final épico y satisfactorio que culmina en una batalla final llena de emoción y sacrificio, dejando a los fans con una sensación de plenitud y cierre.'),
 
-                                                        (64, 17, ''),
-                                                        (64, 32, ''),
+                                                        (64, 17, 'Un clásico del cine expresionista, esta película te sumerge en un mundo de pesadilla con su estética única y una trama intrigante.'),
+                                                        (64, 32, 'Una obra maestra del cine mudo que desafía los límites narrativos y visuales de su tiempo, creando una atmósfera de pesadilla que perdura en la memoria del espectador.'),
 
-                                                        (65, 25, ''),
-                                                        (65, 33, ''),
+                                                        (65, 25, 'Una obra maestra del cine mudo, esta película revolucionaria nos muestra una emocionante historia de atracos y tensión ferroviaria.'),
+                                                        (65, 33, 'Un hito en la historia del cine que demuestra la genialidad de su director, innovando en la narración cinematográfica y ofreciendo una experiencia visualmente cautivadora.'),
 
-                                                        (66, 16, ''),
-                                                        (66, 12, ''),
+                                                        (66, 16, 'Un hito del cine soviético, esta película impactante y poderosa retrata una revolución y una masacre a través de su famosa secuencia de la escalinata de Odessa.'),
+                                                        (66, 12, 'Una película revolucionaria que utiliza el poder del montaje y la composición visual para retratar la opresión y la resistencia, dejando una huella imborrable en la historia del cine.'),
 
-                                                        (67, 6, ''),
-                                                        (67, 23, ''),
+                                                        (67, 6, 'Surrealista y provocadora, esta colaboración entre Luis Buñuel y Salvador Dalí desafía la lógica y sumerge al espectador en un mundo de imágenes perturbadoras.'),
+                                                        (67, 23, 'Una experiencia surrealista y provocadora que desafía las convenciones narrativas, explorando los sueños y los deseos reprimidos de una manera visualmente impactante.'),
 
-                                                        (68, 12, ''),
-                                                        (68, 32, ''),
+                                                        (68, 12, 'Una comedia clásica de los Hermanos Marx, esta película es una sucesión de gags y situaciones hilarantes que te harán reír sin parar.'),
+                                                        (68, 32, 'Una comedia absurda y llena de ingenio que presenta el humor característico de los Hermanos Marx, con diálogos rápidos y situaciones cómicas que garantizan risas constantes.'),
 
-                                                        (69, 7, ''),
-                                                        (69, 23, ''),
+                                                        (69, 7, 'Un documental emocionante y conmovedor que muestra las historias de los atletas olímpicos y su dedicación para alcanzar la grandeza en el deporte.'),
+                                                        (69, 23, 'Un documental inspirador que celebra la dedicación y el espíritu deportivo de los atletas olímpicos, transmitiendo emociones y mostrando la grandeza humana en la búsqueda de la excelencia.'),
 
-                                                        (70, 12, ''),
-                                                        (70, 27, ''),
+                                                        (70, 12, 'Un cuento fantástico que ha dejado huella en la cultura popular, esta película nos transporta a un mundo mágico lleno de personajes inolvidables y canciones icónicas.'),
+                                                        (70, 27, 'Un clásico atemporal que combina magia, aventura y mensajes inspiradores, transportando a los espectadores a un mundo fantástico lleno de imaginación y aprendizajes valiosos.'),
 
-                                                        (71, 9, ''),
-                                                        (71, 25, ''),
+                                                        (71, 9, 'Un clásico del cine épico, esta película cautiva con su romántica historia ambientada en la Guerra Civil estadounidense y sus deslumbrantes escenas visuales.'),
+                                                        (71, 25, 'Un épico melodrama que cautiva con su romántica historia y actuaciones destacadas, retratando con maestría una época tumultuosa y dejando una profunda impresión en el espectador.'),
 
-                                                        (72, 13, ''),
+                                                        (72, 13, 'Una obra maestra del cine, esta película revolucionaria de Orson Welles nos sumerge en la vida de un magnate de los medios y su búsqueda de la felicidad.'),
                                                         (72, 12, ''),
 
-                                                        (73, 17, ''),
+                                                        (73, 17, 'Un clásico del cine romántico, esta película nos envuelve en una historia de amor y sacrificio en medio de la Segunda Guerra Mundial, con diálogos inolvidables.'),
                                                         (73, 15, ''),
 
                                                         (74, 15, ''),
