@@ -33,7 +33,7 @@ const ordenarAnidado = (p1, p2 = null, sentido = 'asc') => (e1, e2) => {
 }
 
 // Si hay secuelas, se genera un array con el objeto y despues se ordena dicho array
-const secuelasOrdenadas = props.secuelaPrecuela != null ? props.secuelaPrecuela.sort(ordenarAnidado("secuela", "orden", "desc")) : null;
+const secuelasOrdenadas = props.secuelaPrecuela !== null ? props.secuelaPrecuela.sort(ordenarAnidado("secuela", "orden", "desc")) : null;
 
 // Configuración fechas relativas dayjs
 dayjs.extend(relativeTime);
@@ -96,6 +96,9 @@ function procesarGeneros(generos) {
 
 const generos = props.obra[0]['generos'];
 const generosProcesados = procesarGeneros(generos);
+
+// Vamos a generar un array con todas las criticas del usuario
+
 
 </script>
 
@@ -236,7 +239,7 @@ const generosProcesados = procesarGeneros(generos);
                                 class="underline">Saga</span>:
                             </li>
                             <!-- Si solo hay un poster en secuelas, flex justify-center -->
-                            <div v-if="secuelasOrdenadas.length <= 1" class="text-center flex justify-center">
+                            <div v-if="secuelasOrdenadas && secuelasOrdenadas.length <= 1" class="text-center flex justify-center">
                                 <div v-for="secuela in secuelasOrdenadas" class="w-[80%] sm:w-[100%] md:w-[250px] lg">
                                 <span>
                                 {{
