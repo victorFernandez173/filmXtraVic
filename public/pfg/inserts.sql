@@ -923,40 +923,40 @@ INSERT INTO criticas (obra_id, user_id, critica) VALUES (1, 7, 'Con Morgan Freem
                                                         (71, 25, 'Un épico melodrama que cautiva con su romántica historia y actuaciones destacadas, retratando con maestría una época tumultuosa y dejando una profunda impresión en el espectador.'),
 
                                                         (72, 13, 'Una obra maestra del cine, esta película revolucionaria de Orson Welles nos sumerge en la vida de un magnate de los medios y su búsqueda de la felicidad.'),
-                                                        (72, 12, ''),
+                                                        (72, 12, 'Un clásico indiscutible que redefine el lenguaje cinematográfico, con una narrativa innovadora y una actuación magistral de Orson Welles que lo convierte en una obra maestra atemporal.'),
 
                                                         (73, 17, 'Un clásico del cine romántico, esta película nos envuelve en una historia de amor y sacrificio en medio de la Segunda Guerra Mundial, con diálogos inolvidables.'),
-                                                        (73, 15, ''),
+                                                        (73, 15, 'Una historia de amor y sacrificio ambientada en la Segunda Guerra Mundial, que destaca por su guion brillante, diálogos inolvidables y las actuaciones carismáticas de Humphrey Bogart e Ingrid Bergman.'),
 
-                                                        (74, 15, ''),
-                                                        (74, 32, ''),
+                                                        (74, 15, 'Una película épica que retrata la vida del famoso zar ruso, dirigida por Sergei Eisenstein, con una dirección artística impresionante y una narrativa histórica cautivadora.'),
+                                                        (74, 32, 'Una obra maestra histórica dirigida por Sergei Eisenstein que retrata con maestría la vida del zar Iván el Terrible. Con una dirección visualmente impresionante y un enfoque en la psicología del personaje, esta película captura la grandeza y la brutalidad del poder.'),
 
-                                                        (75, 22, ''),
-                                                        (75, 34, ''),
+                                                        (75, 22, 'La segunda parte de la saga de Iván el Terrible que profundiza en las conspiraciones políticas y muestra la lucha por el poder de manera intensa y visualmente impactante.'),
+                                                        (75, 34, 'La continuación de la saga de Iván el Terrible, que profundiza en las luchas políticas y las conspiraciones en la corte rusa. Con una dirección magistral y actuaciones convincentes, esta película ofrece una mirada fascinante a la intriga y la traición.'),
 
-                                                        (76, 17, ''),
-                                                        (76, 12, ''),
+                                                        (76, 17, 'Una obra maestra del cine japonés dirigida por Akira Kurosawa, que desafía la percepción de la verdad al presentar diferentes puntos de vista sobre un mismo evento, explorando la naturaleza humana y la subjetividad de la realidad.'),
+                                                        (76, 12, 'Una película revolucionaria dirigida por Akira Kurosawa que desafía la objetividad de la verdad al presentar diferentes versiones de un mismo evento. Con una narrativa ingeniosa y actuaciones conmovedoras, Rashomon explora la subjetividad de la percepción y la complejidad de la naturaleza humana.'),
 
-                                                        (77, 7, ''),
-                                                        (77, 25, ''),
+                                                        (77, 7, 'Un poderoso drama que aborda el tema del abuso y la corrupción en el ámbito eclesiástico, con actuaciones destacadas y una narrativa cruda que deja una fuerte impresión emocional.'),
+                                                        (77, 25, 'Un drama poderoso que expone la corrupción en el sistema legal y eclesiástico. Con una dirección hábil y actuaciones intensas, esta película aborda temas profundos como la moralidad y el silencio cómplice.'),
 
-                                                        (78, 13, ''),
-                                                        (78, 32, ''),
+                                                        (78, 13, 'Una epopeya cinematográfica que narra la vida del aventurero británico T.E. Lawrence, con una dirección magistral, paisajes impresionantes y una actuación memorable de Peter O''Toole.'),
+                                                        (78, 32, 'Una epopeya cinematográfica que sigue la vida de T.E. Lawrence, un personaje histórico fascinante. Con paisajes impresionantes, una dirección impecable y una actuación magnética de Peter O''Toole, esta película es un logro cinematográfico épico.'),
 
-                                                        (79, 7, ''),
-                                                        (79, 28, ''),
+                                                        (79, 7, 'Un clásico del spaghetti western que destaca por su estilo visual único, su música icónica y las interpretaciones carismáticas de Clint Eastwood, Lee Van Cleef y Eli Wallach.'),
+                                                        (79, 28, 'Un clásico del western que combina acción, humor y personajes inolvidables. Con una dirección magistral de Sergio Leone y actuaciones carismáticas de Clint Eastwood, Lee Van Cleef y Eli Wallach, esta película es un festín para los amantes del género.'),
 
-                                                        (80, 19, ''),
-                                                        (80, 27, ''),
+                                                        (80, 19, ' Otra obra maestra del director Sergio Leone en el género del western, que combina acción, humor y una narrativa envolvente, con actuaciones estelares y duelos memorables.'),
+                                                        (80, 27, 'Un western icónico lleno de tensión y estilo visual, con una trama intrigante y duelos memorables. La dirección de Sergio Leone y la actuación de Clint Eastwood hacen de esta película un verdadero tesoro del género.'),
 
-                                                        (81, 3, ''),
-                                                        (81, 25, ''),
+                                                        (81, 3, 'Una película que marca el inicio de la trilogía del dólar de Sergio Leone, presentando a Clint Eastwood como el icónico personaje del Hombre sin Nombre en un relato lleno de intriga y venganza.'),
+                                                        (81, 25, 'Un clásico spaghetti western que presenta al legendario Hombre sin Nombre interpretado por Clint Eastwood. Con su estilo distintivo y su narrativa llena de suspense, esta película es un hito en el género y una delicia para los aficionados al cine.'),
 
-                                                        (82, 9, ''),
-                                                        (82, 25, ''),
+                                                        (82, 9, 'Una película impactante y provocadora dirigida por Stanley Kubrick, que plantea cuestiones éticas y sociales a través de su representación distópica y la actuación deslumbrante de Malcolm McDowell.'),
+                                                        (82, 25, 'Una película provocadora y perturbadora que examina la naturaleza de la violencia y la libre voluntad. Con una dirección magistral de Stanley Kubrick y una actuación memorable'),
 
-                                                        (83, 5, ''),
-                                                        (83, 22, ''),
+                                                        (83, 5, 'Un épico drama histórico dirigido por Stanley Kubrick, que narra la historia del famoso esclavo y líder rebelde, con una producción impresionante y una actuación destacada de Kirk Douglas.'),
+                                                        (83, 22, 'Un clásico del cine histórico que narra la historia de un esclavo convertido en líder revolucionario. Con una dirección impactante de Stanley Kubrick y un reparto excepcional, encabezado por Kirk Douglas, esta película cautiva con su representación épica de la lucha por la libertad y la justicia.'),
                                                         ;
 
 
