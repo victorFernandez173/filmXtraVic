@@ -25,15 +25,15 @@ const props = defineProps({
 })
 
 // Funcion para ordenar array por clave interna
-const nestedSort = (prop1, prop2 = null, direction = 'asc') => (e1, e2) => {
-    const a = prop2 ? e1[prop1][prop2] : e1[prop1],
-        b = prop2 ? e2[prop1][prop2] : e2[prop1],
-        sortOrder = direction === "asc" ? 1 : -1
-    return (a < b) ? -sortOrder : (a > b) ? sortOrder : 0;
+const ordenarAnidado = (p1, p2 = null, sentido = 'asc') => (e1, e2) => {
+    const a = p2 ? e1[p1][p2] : e1[p1],
+        b = p2 ? e2[p1][p2] : e2[p1],
+        ordenarPor = sentido === "asc" ? 1 : -1
+    return (a < b) ? -ordenarPor : (a > b) ? ordenarPor : 0;
 }
 
 // Si hay secuelas, se genera un array con el objeto y despues se ordena dicho array
-const secuelasOrdenadas = props.secuelaPrecuela != null ? props.secuelaPrecuela.sort(nestedSort("secuela", "orden", "desc")) : null;
+const secuelasOrdenadas = props.secuelaPrecuela != null ? props.secuelaPrecuela.sort(ordenarAnidado("secuela", "orden", "desc")) : null;
 
 // Configuración fechas relativas dayjs
 dayjs.extend(relativeTime);
