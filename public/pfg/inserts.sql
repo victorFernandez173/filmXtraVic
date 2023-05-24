@@ -1309,5 +1309,5 @@ INSERT INTO trailers (obra_id, trailers) VALUES (1, 'https://www.youtube.com/emb
                                                 (80, ''),
                                                 (81, ''),
                                                 (82, ''),
-                                                (83, ')
+                                                (83, '')
                                                 ;
