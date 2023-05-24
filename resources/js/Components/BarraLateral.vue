@@ -4,87 +4,87 @@ import {Link} from "@inertiajs/vue3";
 
 <template>
     <!-- Seccion columna izquierda -->
-    <section class="seccion-columna p-4 pb-8">
+    <section class="w-[4/12] text-xs sm:text-base sm:[&>ul>li]:pr-3 bg-flamingo p-4 pb-8 hover:[&>ul>li]:text-white [&>ul>li]:overflow-ellipsis [&>ul>li]:overflow-hidden">
         <!-- Genero -->
         <h5 class="py-4 font-bold underline">Género</h5>
         <ul>
             <li>
-                <Link :href="route('obras')" :data="{ genero : 'accion' }" method="get" as="button">Acción</Link>
+                <Link :href="route('top')" :data="{ genero : 'acción', barraLateral: 'genero' }">Acción</Link>
             </li>
             <li>
-                <Link :href="route('obras')" :data="{ genero : 'aventuras' }" method="get" as="button">Aventuras</Link>
+                <Link :href="route('top')" :data="{ genero : 'aventuras', barraLateral: 'genero' }">Aventuras</Link>
             </li>
             <li>
-                <Link :href="route('obras')" :data="{ genero : 'biografico' }" method="get" as="button">Biográfico</Link>
+                <Link :href="route('top')" :data="{ genero : 'biográfico', barraLateral: 'genero' }">Biográfico</Link>
             </li>
             <li>
-                <Link :href="route('obras')" :data="{ genero : 'belico' }" method="get" as="button">Bélico</Link>
+                <Link :href="route('top')" :data="{ genero : 'bélico', barraLateral: 'genero' }">Bélico</Link>
             </li>
             <li>
-                <Link :href="route('obras')" :data="{ genero : 'ciencia ficcion' }" method="get" as="button">Ciencia ficción</Link>
+                <Link :href="route('top')" :data="{ genero : 'ciencia ficción', barraLateral: 'genero' }">Ciencia ficción</Link>
             </li>
             <li>
-                <Link :href="route('obras')" :data="{ genero : 'cine mudo' }" method="get" as="button">Cine Mudo</Link>
+                <Link :href="route('top')" :data="{ genero : 'cine mudo', barraLateral: 'genero' }">Cine Mudo</Link>
             </li>
             <li>
-                <Link :href="route('obras')" :data="{ genero : 'cine negro' }" method="get" as="button">Cine Negro</Link>
+                <Link :href="route('top')" :data="{ genero : 'cine negro', barraLateral: 'genero' }">Cine Negro</Link>
             </li>
             <li>
-                <Link :href="route('obras')" :data="{ genero : 'comedia' }" method="get" as="button">Comedia</Link>
+                <Link :href="route('top')" :data="{ genero : 'comedia', barraLateral: 'genero' }">Comedia</Link>
             </li>
             <li>
-                <Link :href="route('obras')" :data="{ genero : 'cortometraje' }" method="get" as="button">Cortometraje</Link>
+                <Link :href="route('top')" :data="{ genero : 'cortometraje', barraLateral: 'genero' }">Cortometraje</Link>
             </li>
             <li>
-                <Link :href="route('obras')" :data="{ genero : 'crimen' }" method="get" as="button">Crimen</Link>
+                <Link :href="route('top')" :data="{ genero : 'crimen', barraLateral: 'genero' }">Crimen</Link>
             </li>
             <li>
-                <Link :href="route('obras')" :data="{ genero : 'deportiva' }" method="get" as="button">Deportiva</Link>
+                <Link :href="route('top')" :data="{ genero : 'deportiva', barraLateral: 'genero' }">Deportiva</Link>
             </li>
             <li>
-                <Link :href="route('obras')" :data="{ genero : 'documental' }" method="get" as="button">Documental</Link>
+                <Link :href="route('top')" :data="{ genero : 'documental', barraLateral: 'genero' }">Documental</Link>
             </li>
             <li>
-                <Link :href="route('obras')" :data="{ genero : 'drama' }" method="get" as="button">Drama</Link>
+                <Link :href="route('top')" :data="{ genero : 'drama', barraLateral: 'genero' }">Drama</Link>
             </li>
             <li>
-                <Link :href="route('obras')" :data="{ genero : 'fantastico' }" method="get" as="button">Fantástico</Link>
+                <Link :href="route('top')" :data="{ genero : 'fantástico', barraLateral: 'genero' }">Fantástico</Link>
             </li>
             <li>
-                <Link :href="route('obras')" :data="{ genero : 'historica' }" method="get" as="button">Histórica</Link>
+                <Link :href="route('top')" :data="{ genero : 'historica', barraLateral: 'genero' }">Histórica</Link>
             </li>
             <li>
-                <Link :href="route('obras')" :data="{ genero : 'infantil' }" method="get" as="button">Infantil</Link>
+                <Link :href="route('top')" :data="{ genero : 'infantil', barraLateral: 'genero' }">Infantil</Link>
             </li>
             <li>
-                <Link :href="route('obras')" :data="{ genero : 'intriga' }" method="get" as="button">Intriga</Link>
+                <Link :href="route('top')" :data="{ genero : 'intriga', barraLateral: 'genero' }">Intriga</Link>
             </li>
             <li>
-                <Link :href="route('obras')" :data="{ genero : 'musical' }" method="get" as="button">Musical</Link>
+                <Link :href="route('top')" :data="{ genero : 'musical', barraLateral: 'genero' }">Musical</Link>
             </li>
             <li>
-                <Link :href="route('obras')" :data="{ genero : 'policiaca' }" method="get" as="button">Policiaca</Link>
+                <Link :href="route('top')" :data="{ genero : 'policiaca', barraLateral: 'genero' }">Policiaca</Link>
             </li>
             <li>
-                <Link :href="route('obras')" :data="{ genero : 'propagand%stico' }" method="get" as="button">Propagandístico</Link>
+                <Link :href="route('top')" :data="{ genero : 'propagandístico', barraLateral: 'genero' }">Propagandístico</Link>
             </li>
             <li>
-                <Link :href="route('obras')" :data="{ genero : 'pelicula de culto' }" method="get" as="button">Película de culto</Link>
+                <Link :href="route('top')" :data="{ genero : 'película de culto', barraLateral: 'genero' }">Película de culto</Link>
             </li>
             <li>
-                <Link :href="route('obras')" :data="{ genero : 'road movie' }" method="get" as="button">Road Movie</Link>
+                <Link :href="route('top')" :data="{ genero : 'road movie', barraLateral: 'genero' }">Road Movie</Link>
             </li>
             <li>
-                <Link :href="route('obras')" :data="{ genero : 'romance' }" method="get" as="button">Romance</Link>
+                <Link :href="route('top')" :data="{ genero : 'romance', barraLateral: 'genero' }">Romance</Link>
             </li>
             <li>
-                <Link :href="route('obras')" :data="{ genero : 'terror' }" method="get" as="button">Terror</Link>
+                <Link :href="route('top')" :data="{ genero : 'terror', barraLateral: 'genero' }">Terror</Link>
             </li>
             <li>
-                <Link :href="route('obras')" :data="{ genero : 'thriller' }" method="get" as="button">Thriller</Link>
+                <Link :href="route('top')" :data="{ genero : 'thriller', barraLateral: 'genero' }">Thriller</Link>
             </li>
             <li>
-                <Link :href="route('obras')" :data="{ genero : 'western' }" method="get" as="button">Western</Link>
+                <Link :href="route('top')" :data="{ genero : 'western', barraLateral: 'genero' }">Western</Link>
             </li>
         </ul>
 
@@ -92,37 +92,37 @@ import {Link} from "@inertiajs/vue3";
         <h5 class="py-4 font-bold underline">Década</h5>
         <ul>
             <li>
-                <Link :href="route('obras')" :data="{ fecha : '201_' }" method="get" as="button">2010s</Link>
+                <Link :href="route('top')" :data="{ desde : '2010', hasta : '2019', barraLateral: 'decada' }">2010s</Link>
             </li>
             <li>
-                <Link :href="route('obras')" :data="{ fecha : '200_' }" method="get" as="button">2000s</Link>
+                <Link :href="route('top')" :data="{ desde : '2000', hasta : '2009', barraLateral: 'decada' }">2000s</Link>
             </li>
             <li>
-                <Link :href="route('obras')" :data="{ fecha : '199_' }" method="get" as="button">90s</Link>
+                <Link :href="route('top')" :data="{ desde : '1990', hasta : '1999', barraLateral: 'decada' }">90s</Link>
             </li>
             <li>
-                <Link :href="route('obras')" :data="{ fecha : '198_' }" method="get" as="button">80s</Link>
+                <Link :href="route('top')" :data="{ desde : '1980', hasta : '1989', barraLateral: 'decada' }">80s</Link>
             </li>
             <li>
-                <Link :href="route('obras')" :data="{ fecha : '197_' }" method="get" as="button">70s</Link>
+                <Link :href="route('top')" :data="{ desde : '1970', hasta : '1979', barraLateral: 'decada' }">70s</Link>
             </li>
             <li>
-                <Link :href="route('obras')" :data="{ fecha : '196_' }" method="get" as="button">60s</Link>
+                <Link :href="route('top')" :data="{ desde : '1960', hasta : '1969', barraLateral: 'decada' }">60s</Link>
             </li>
             <li>
-                <Link :href="route('obras')" :data="{ fecha : '195_' }" method="get" as="button">50s</Link>
+                <Link :href="route('top')" :data="{ desde : '1950', hasta : '1959', barraLateral: 'decada' }">50s</Link>
             </li>
             <li>
-                <Link :href="route('obras')" :data="{ fecha : '194_' }" method="get" as="button">40s</Link>
+                <Link :href="route('top')" :data="{ desde : '1940', hasta : '1949', barraLateral: 'decada' }">40s</Link>
             </li>
             <li>
-                <Link :href="route('obras')" :data="{ fecha : '193_' }" method="get" as="button">30s</Link>
+                <Link :href="route('top')" :data="{ desde : '1930', hasta : '1939', barraLateral: 'decada' }">30s</Link>
             </li>
             <li>
-                <Link :href="route('obras')" :data="{ fecha : '192_' }" method="get" as="button">20s</Link>
+                <Link :href="route('top')" :data="{ desde : '1920', hasta : '1929', barraLateral: 'decada' }">20s</Link>
             </li>
             <li>
-                <Link :href="route('obras')" :data="{ fecha : '190_' }" method="get" as="button">00s</Link>
+                <Link :href="route('top')" :data="{ desde : '1900', hasta : '1910', barraLateral: 'decada' }">00s</Link>
             </li>
         </ul>
 
@@ -130,81 +130,38 @@ import {Link} from "@inertiajs/vue3";
         <h5 class="py-4 font-bold underline">País</h5>
         <ul>
             <li>
-                <Link :href="route('obras')" :data="{ pais : 'alemania' }" method="get" as="button">Alemania</Link>
+                <Link :href="route('top')" :data="{ pais : 'Alemania', barraLateral: 'pais' }">Alemania</Link>
             </li>
             <li>
-                <Link :href="route('obras')" :data="{ pais : 'australia' }" method="get" as="button">Australia</Link>
+                <Link :href="route('top')" :data="{ pais : 'Australia', barraLateral: 'pais' }">Australia</Link>
             </li>
             <li>
-                <Link :href="route('obras')" :data="{ pais : 'españa' }" method="get" as="button">España</Link>
+                <Link :href="route('top')" :data="{ pais : 'España', barraLateral: 'pais' }">España</Link>
             </li>
             <li>
                 <div id="tio">
-                  <Link :href="route('obras')" :data="{ pais : 'estados unidos de america' }" method="get" as="button">Estados Unidos de América</Link>
+                  <Link :href="route('top')" :data="{ pais : 'Estados Unidos de America', barraLateral: 'pais' }">Estados Unidos de América</Link>
                 </div>
 
             </li>
             <li>
-                <Link :href="route('obras')" :data="{ pais : 'francia' }" method="get" as="button">Francia</Link>
+                <Link :href="route('top')" :data="{ pais : 'Francia', barraLateral: 'pais' }">Francia</Link>
             </li>
             <li>
-                <Link :href="route('obras')" :data="{ pais : 'italia' }" method="get" as="button">Italia</Link>
+                <Link :href="route('top')" :data="{ pais : 'Italia', barraLateral: 'pais' }">Italia</Link>
             </li>
             <li>
-                <Link :href="route('obras')" :data="{ pais : 'japon' }" method="get" as="button">Japón</Link>
+                <Link :href="route('top')" :data="{ pais : 'Japón', barraLateral: 'pais' }">Japón</Link>
             </li>
             <li>
-                <Link :href="route('obras')" :data="{ pais : 'nueva zelanda' }" method="get" as="button">Nueva Zelanda</Link>
+                <Link :href="route('top')" :data="{ pais : 'Nueva Zelanda', barraLateral: 'pais' }">Nueva Zelanda</Link>
             </li>
             <li>
-                <Link :href="route('obras')" :data="{ pais : 'reino unido' }" method="get" as="button">Reino Unido</Link>
+                <Link :href="route('top')" :data="{ pais : 'Reino Unido', barraLateral: 'pais' }">Reino Unido</Link>
             </li>
             <li>
-                <Link :href="route('obras')" :data="{ pais : 'ussr' }" method="get" as="button">USSR</Link>
+                <Link :href="route('top')" :data="{ pais : 'USSR', barraLateral: 'pais' }">USSR</Link>
             </li>
         </ul>
     </section>
 </template>
-
-<style scoped>
-/****************************************** Seccion columna ******************************************/
-.seccion-columna {
-    background-color: #e37f81;
-    width: 12%;
-    padding: 1rem 2rem 1rem 1rem;
-}
-
-button {
-    text-align: left;
-    width: 100%;
-    display: block;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-}
-
-.seccion-columna li:hover {
-    color: white;
-}
-
-/****************************RESPONSIVE****************************/
-/************Tablet************/
-@media screen and (max-width: 1024px) {
-    li{
-        font-size: 0.9rem;
-    }
-}
-
-/************Movil************/
-@media screen and (max-width: 768px) {
-    /******* Seccion columna *******/
-    .seccion-columna {
-        width: 20%;
-        padding-right: 0.5rem;
-    }
-
-    li{
-        font-size: 0.7rem;
-    }
-}
-</style>

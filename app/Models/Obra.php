@@ -70,9 +70,9 @@ class Obra extends Model
     /**
      * Get the secuelas of the obra.
      */
-    public function secuelas(): HasMany
+    public function secuela(): HasOne
     {
-        return $this->hasMany(Secuela::class);
+        return $this->hasOne(Secuela::class);
     }
 
     /**
@@ -81,6 +81,14 @@ class Obra extends Model
     public function poster(): HasOne
     {
         return $this->hasOne(Poster::class);
+    }
+
+    /**
+     * Get the Trailer object associated with the obra.
+     */
+    public function trailer(): HasOne
+    {
+        return $this->hasOne(Trailer::class);
     }
 
     /**

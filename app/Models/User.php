@@ -37,20 +37,16 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    const CREATED_AT = 'creado';
-    const UPDATED_AT = 'modificado';
-
-
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
     protected $fillable = [
-        'nombre',
-        'apellido',
-        'edad',
-        'pais',
+        'name',
+        'username',
+        'age',
+        'country',
         'email',
         'password',
     ];
@@ -71,7 +67,7 @@ class User extends Authenticatable
      * @var array<string, string>
      */
     protected $casts = [
-        'edad' => 'datetime',
+        'age' => 'datetime',
         'creado' => 'datetime',
         'modificado' => 'datetime',
         'email_verified_at' => 'timestamp',
@@ -98,6 +94,6 @@ class User extends Authenticatable
      */
     public function likes(): BelongsToMany
     {
-        return $this->belongsToMany(Critica::class);
+        return $this->belongsToMany(Like::class, 'likes', 'user_id', 'critica_id', 'id', );
     }
 }

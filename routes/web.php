@@ -1,10 +1,12 @@
 <?php
 
-use App\Http\Controllers\FiltrarObrasController;
+use App\Http\Controllers\TopObrasController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ValoracionesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BienvenidaController;
 use App\Http\Controllers\ObtenerObraController;
+use App\Http\Controllers\LikeController;
 
 
 /*
@@ -18,26 +20,16 @@ use App\Http\Controllers\ObtenerObraController;
 |
 */
 
-////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////
-/*PARA CONTROLAR CON AUTENTICACIÓN Y VERIFICACIÓN DE EMAIL LAS RUTAS*/
-/*->middleware(['auth', 'verified'])->name('Welcome');*/
-////////////////////////////////////////////////////////////////////////
-/*PARA TESTEOS*/
-/*Route::get('/filter',  function () {
-    return Inertia::render('Filter', ['obras' => Obra::with('poster')->limit(16)->get()]);
-});*/
-////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////
 
 Route::get('/', [BienvenidaController::class, 'bienvenida'])->name('/');
 
 Route::get('obra/{titulo}', [ObtenerObraController::class, 'fichaPelicula'])->name('obra');
 
-Route::controller(FiltrarObrasController::class)->group(function () {
-    Route::get('/obras', 'cargaDatos')->name('obras');
-    Route::post('/obras', 'formulario')->name('obrasPost');
-});
+Route::get('top', [TopObrasController::class, 'cargarDatos'])->name('top');
+
+Route::get('valoraciones', [ValoracionesController::class, 'cargarDatos'])->name('valoraciones');
+
+Route::post('/like', [LikeController::class, 'darLike'])->name('darLike');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('obra_id')->constrained();
             $table->foreignId('user_id')->constrained();
-            $table->decimal('evaluacion',2, 1, true);
+            $table->decimal('evaluacion',3, 1, true);
 
             $table->timestamp(Evaluacion::CREATED_AT)->useCurrent();
             $table->timestamp(Evaluacion::UPDATED_AT)->useCurrent();
