@@ -1,6 +1,5 @@
 <script setup>
 import { Link } from "@inertiajs/vue3";
-import Estrellitas from "./Estrellitas.vue";
 
 defineProps(['obra', 'titulo']);
 </script>
@@ -17,6 +16,7 @@ defineProps(['obra', 'titulo']);
             <img class="hover:border-[10px] border-[10px] hover:border-flamingo border-white hover:border-solid border-solid w-full mt-0" :src="'../posters/' + [obra['ruta'] ? obra['ruta'] : obra['poster']['ruta']]"
                  :alt="obra['alt']">
         </Link>
+        <!-- Sección de nota y numero de valoraciones -->
         <h3 v-if="obra['nota_media']">{{ parseFloat(obra['nota_media']).toFixed(1) }}</h3>
         <h3 v-if="obra['num_valoraciones']">({{obra['num_valoraciones']}} valoraciones)</h3>
 

@@ -15,6 +15,7 @@ import Poster from "../Components/Poster.vue";
 /* Sweetalert2 */
 import Swal from "sweetalert2";
 import Estrellitas from "../Components/Estrellitas.vue";
+import Trailers from "../Components/Trailers.vue";
 
 const props = defineProps({
     obra: Object,
@@ -99,10 +100,10 @@ const generos = props.obra[0]['generos'];
 const generosProcesados = procesarGeneros(generos);
 
 // Coloreado de los likes
-function procesarGustadas($usuario, $gustadas){
-   let objetoGustadas = Object.values($gustadas['gustadaPor']);
+function procesarGustadas($usuario, $gustadas) {
+    let objetoGustadas = Object.values($gustadas['gustadaPor']);
     let gustadaPorArray = []
-    for (const user_id in objetoGustadas){
+    for (const user_id in objetoGustadas) {
         let valor = Object.values(objetoGustadas[user_id]);
         gustadaPorArray.push(valor[0]);
     }
@@ -182,7 +183,8 @@ function procesarGustadas($usuario, $gustadas){
                                 class="underline">Saga</span>:
                             </li>
                             <!-- Si solo hay un poster en secuelas, flex justify-center -->
-                            <div v-if="secuelasOrdenadas && secuelasOrdenadas.length <= 1" class="text-center flex justify-center">
+                            <div v-if="secuelasOrdenadas && secuelasOrdenadas.length <= 1"
+                                 class="text-center flex justify-center">
                                 <div v-for="secuela in secuelasOrdenadas" class="w-[80%] sm:w-[100%] md:w-[250px] lg">
                                 <span>
                                 {{
@@ -247,7 +249,8 @@ function procesarGustadas($usuario, $gustadas){
                               :href="route('darLike')"
                               :data="{ user_id: $page.props.auth.user['id'], critica_id: cri['id_critica'] }"
                               preserveScroll>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" :fill=" procesarGustadas($page.props.auth.user, $page.props.criticas[i]) ? 'black' : 'white'"
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                 :fill=" procesarGustadas($page.props.auth.user, $page.props.criticas[i]) ? 'black' : 'white'"
                                  class="w-5 h-5 inline-block hover:fill-yellow-300">
                                 <path
                                     d="M1 8.25a1.25 1.25 0 112.5 0v7.5a1.25 1.25 0 11-2.5 0v-7.5zM11 3V1.7c0-.268.14-.526.395-.607A2 2 0 0114 3c0 .995-.182 1.948-.514 2.826-.204.54.166 1.174.744 1.174h2.52c1.243 0 2.261 1.01 2.146 2.247a23.864 23.864 0 01-1.341 5.974C17.153 16.323 16.072 17 14.9 17h-3.192a3 3 0 01-1.341-.317l-2.734-1.366A3 3 0 006.292 15H5V8h.963c.685 0 1.258-.483 1.612-1.068a4.011 4.011 0 012.166-1.73c.432-.143.853-.386 1.011-.814.16-.432.248-.9.248-1.388z"/>
@@ -311,16 +314,8 @@ function procesarGustadas($usuario, $gustadas){
             </div>
 
         </div>
+        <!-- Componente para el trailer-->
+        <Trailers :obra="obra" />
 
-        <!--1 apartado para el trailer-->
-        <div class="grid grid-cols-1 pt-10">
-            <!--Trailer-->
-            <div class="flex justify-center">
-                <!--                <iframe width="1300" height="600" src="https://www.youtube.com/embed/NaM7nKvX4Es"
-                                        title="YouTube video player"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                        allowfullscreen></iframe>-->
-            </div>
-        </div>
     </div>
 </template>
