@@ -272,12 +272,20 @@ function procesarGustadas($usuario, $gustadas) {
                 <!--Titulo-->
                 <h3 class="font-bold underline text-black text-xl my-5 text-center">¿Quieres valorar esta
                     película?</h3>
-                <h4>En filmXtra queremos que compartas y opines sobre nuestra gran pasión que es el cine por eso puedes:</h4>
+                <h4>En filmXtra queremos que opines sobre nuestra gran pasión que es el cine por eso puedes:</h4>
                 <ul class="list-disc ml-[20px]">
                     <li>Evaluar películas (sobre 10)</li>
                     <li>Hacer críticas más elaboradas de ellas si te gusta entrar en detalles</li>
                     <li>Dar like a las críticas de otros usuarios </li>
                 </ul>
+                <Link as="button"
+                        class="my-5 m-auto text-flamingo bg-white hover:text-black focus:bg-white focus:ring-flamingo focus:text-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5">
+                    Ver más valoraciones &rarr;
+                </Link>
+                <Link as="button" :href="route('valoraciones')"
+                      class="mb-5 m-auto text-flamingo bg-white hover:text-black focus:bg-white focus:ring-flamingo focus:text-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5">
+                    top valoraciones &rarr;
+                </Link>
             </div>
 
         </div>
