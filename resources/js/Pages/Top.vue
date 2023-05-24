@@ -20,8 +20,8 @@ defineProps(['obras', 'titulo', 'filtros']);
 
 <template>
     <Head>
-        <title>Filtrar películas</title>
-        <meta name="filter" content="Página de filtrar">
+        <title>top filmXtra</title>
+        <meta name="filter" content="Página top filmXtra">
     </Head>
 
     <div class="flex overflow-x-hidden max-h-none">
