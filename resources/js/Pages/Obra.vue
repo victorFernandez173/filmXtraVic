@@ -216,9 +216,9 @@ function procesarGustadas($usuario, $gustadas) {
 
         <!--Contenedor criticas-->
         <div
-            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 mt-10 mb-15 justify-center bg-flamingo text-white rounded lg:divide-x md:divide-x divide-y">
+            class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-10 mb-15 justify-center bg-flamingo text-white rounded lg:divide-x md:divide-x divide-y">
             <!--Criticas-->
-            <div class="pl-10">
+            <div class="pl-10 lg:col-span-3 md:col-span-2">
                 <!--Titulo-->
                 <ul>
                     <li v-if="profesionales" class="list-disc font-bold text-black text-xl mt-5">Críticas
