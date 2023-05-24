@@ -218,15 +218,15 @@ function procesarGustadas($usuario, $gustadas) {
         <div
             class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-10 mb-15 justify-center bg-flamingo text-white rounded lg:divide-x md:divide-x divide-y">
             <!--Criticas-->
-            <div class="pl-10 lg:col-span-3 md:col-span-2">
+            <div class="py-10 pl-12 lg:col-span-3 md:col-span-2">
                 <!--Titulo-->
                 <ul>
-                    <li v-if="profesionales" class="list-disc font-bold text-black text-xl mt-5">Críticas
+                    <li v-if="profesionales" class="list-disc font-bold text-black text-xl">Críticas
                         profesionales:
                     </li>
                 </ul>
                 <ul>
-                    <!--Primera critica profesional-->
+                    <!--Críticas profesionales-->
                     <li v-for="p in profesionales" class="list-disc ml-5"><span class="font-semibold"><a
                         class="underline hover:text-black" :href="p['web']" target="_blank"
                         href="">{{ p['medio'] }}</a>:</span> {{ p['contenido'] }} <span
@@ -239,7 +239,7 @@ function procesarGustadas($usuario, $gustadas) {
                     <li class="list-disc font-bold text-black text-xl mt-3">Críticas de nuestros usuarios:</li>
                 </ul>
                 <ul>
-                    <!--Primera critica-->
+                    <!--Críticas usuarios-->
                     <li v-for="(cri, i) in criticas" class="list-disc ml-5"><span
                         class="underline font-semibold">{{ cri['usuario'][0]['name'] }}</span>: {{ cri['critica'] }}
                         ({{ dayjs(cri['fecha']).fromNow() }}) - Likes: {{ cri['likes'] }}
@@ -264,53 +264,20 @@ function procesarGustadas($usuario, $gustadas) {
                         </svg>
                     </li>
                 </ul>
-                <!--Boton para ver mas valoraciones-->
-                <button v-if="criticas[0]"
-                        class="my-5 m-auto text-flamingo bg-white hover:text-black focus:bg-white focus:ring-flamingo focus:text-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5">
-                    Ver más valoraciones &rarr;
-                </button>
                 <p v-if="!criticas[0]" class="py-3">Sin críticas de usuarios todavía. Participa, pon la tuya.</p>
             </div>
 
             <!--Botones para votar y formulario para escribir-->
-            <div>
+            <div class="py-5 px-5">
                 <!--Titulo-->
-                <h3 class="font-bold underline text-black text-xl mt-5 pl-5 text-center">¿Quieres valorar esta
+                <h3 class="font-bold underline text-black text-xl my-5 text-center">¿Quieres valorar esta
                     película?</h3>
-                <!--Formulario para escribir-->
-                <form>
-                    <div class="w-[70%] m-auto mt-4 mb-4 rounded-lg bg-gray-300">
-                        <div class="px-4 py-2 bg-gray-300 rounded-t-lg">
-                            <!--Parte de escribir-->
-                            <label for="comment" class="sr-only">Tu comentario</label>
-                            <textarea id="comment" rows="4"
-                                      class="w-full px-0 text-sm text-gray-900 bg-gray-300 border-0 focus:ring-red-400 focus:border-red-400"
-                                      placeholder="Escribe tu valoración..." required></textarea>
-                            <!--Parte de nota-->
-                            <select name="nota"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-base focus:ring-red-400 focus:border-red-400 block w-full p-2.5">
-                                <option disabled value="">Nota</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                                <option>7</option>
-                                <option>8</option>
-                                <option>9</option>
-                                <option>10</option>
-                            </select>
-                        </div>
-                        <!--Boton enviar valoracion-->
-                        <div class="flex items-center justify-between px-3 py-2 border-t">
-                            <button type="submit"
-                                    class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-flamingo rounded-lg focus:ring-4 focus:ring-flamingo hover:bg-flamingo hover:text-black">
-                                Enviar valoración
-                            </button>
-                        </div>
-                    </div>
-                </form>
+                <h4>En filmXtra queremos que compartas y opines sobre nuestra gran pasión que es el cine por eso puedes:</h4>
+                <ul class="list-disc ml-[20px]">
+                    <li>Evaluar películas (sobre 10)</li>
+                    <li>Hacer críticas más elaboradas de ellas si te gusta entrar en detalles</li>
+                    <li>Dar like a las críticas de otros usuarios </li>
+                </ul>
             </div>
 
         </div>
