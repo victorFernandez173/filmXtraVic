@@ -264,6 +264,10 @@ function procesarGustadas($usuario, $gustadas) {
                         </svg>
                     </li>
                 </ul>
+                <Link as="button"
+                      class="my-5 m-auto text-flamingo bg-white hover:text-black focus:bg-white focus:ring-flamingo focus:text-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5">
+                    Valorar &#8810;{{ obra[0]['titulo']}}&#8811;	  &rarr;
+                </Link>
                 <p v-if="!criticas[0]" class="py-3">Sin críticas de usuarios todavía. Participa, pon la tuya.</p>
             </div>
 
@@ -278,14 +282,12 @@ function procesarGustadas($usuario, $gustadas) {
                     <li>Hacer críticas más elaboradas de ellas si te gusta entrar en detalles</li>
                     <li>Dar like a las críticas de otros usuarios </li>
                 </ul>
-                <Link as="button"
-                        class="my-5 m-auto text-flamingo bg-white hover:text-black focus:bg-white focus:ring-flamingo focus:text-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5">
-                    Ver más valoraciones &rarr;
-                </Link>
-                <Link as="button" :href="route('valoraciones')"
-                      class="mb-5 m-auto text-flamingo bg-white hover:text-black focus:bg-white focus:ring-flamingo focus:text-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5">
-                    top valoraciones &rarr;
-                </Link>
+                <div class="mt-10">
+                    <Link as="button" :href="route('valoraciones')"
+                          class="my-15 m-auto text-flamingo bg-white hover:text-black focus:bg-white focus:ring-flamingo focus:text-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 block">
+                        top valoraciones &rarr;
+                    </Link>
+                </div>
             </div>
 
         </div>
