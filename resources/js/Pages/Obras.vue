@@ -47,6 +47,7 @@ defineProps(['obras', 'titulo', 'filtros']);
                 {{ filtros[2] === '' ? '' : ` desde: ${filtros[2]}`  }}
                 {{(filtros[3] !== '' && filtros[4] !== '') ? ',' : ''}}
                 {{ filtros[3] === '' ? '' : ` hasta: ${filtros[3]}`  }}
+                {{ filtros[0] !== null ? '.' : '' }}
             </div>
             <div v-else class="w-full text-center"><p>Sin filtros</p></div>
             <!-- Seccion Principal de contenido -->

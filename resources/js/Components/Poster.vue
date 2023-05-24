@@ -6,7 +6,6 @@ defineProps(['obra', 'titulo']);
 
 <template>
     <div class="w-[100%] sm:w-full p-6">
-        <h3 v-if="obra['nota_media']">{{ parseFloat(obra['nota_media']).toFixed(1) }}</h3>
         <Link :href="route('obra', encodeURIComponent(obra['titulo']))">
             <div class="cursor-pointer flex justify-center h-[50px] content-center -mb-[10px]">
                 <h3 :class="titulo" class="hover:text-white hover:bg-flamingo hover:overflow-visible hover:z-10 py-2 hover:py-2.5 px-3 hover:px-3 hover:relative text-flamingo font-bold underline font-oswald overflow-ellipsis overflow-hidden whitespace-nowrap">{{ obra['titulo'] }}</h3>
