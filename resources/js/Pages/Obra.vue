@@ -285,7 +285,7 @@ function procesarGustadas($usuario, $gustadas) {
                 <div class="mt-10">
                     <Link as="button" :href="route('valoraciones')"
                           class="my-15 m-auto text-flamingo bg-white hover:text-black focus:bg-white focus:ring-flamingo focus:text-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 block">
-                        top valoraciones &rarr;
+                        Top Valoraciones &rarr;
                     </Link>
                 </div>
             </div>
