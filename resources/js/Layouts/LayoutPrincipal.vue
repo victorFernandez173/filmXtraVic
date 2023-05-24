@@ -79,7 +79,7 @@ onMounted(() => {
                         <Link :href="route('/')" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0">Inicio</Link>
                     </li>
                     <li>
-                        <Link :href="route('obras')" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0">Películas</Link>
+                        <Link :href="route('top')" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0">Películas</Link>
                     </li>
                     <li>
                         <Link href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 ">Valoraciones</Link>
@@ -113,7 +113,7 @@ onMounted(() => {
                                 <Link :href="route('/')">FilmXtra</Link>
                             </li>
                             <li class="mb-4">
-                                <Link :href="route('obras')">Películas</Link>
+                                <Link :href="route('top')">Películas</Link>
                             </li>
                             <li class="mb-4">
                                 <Link href="#">Valoraciones</Link>

@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Inertia\Inertia;
 use Inertia\Response;
 
-class FiltrarObrasController extends Controller
+class TopObrasController extends Controller
 {
     /**
      * Peticiones GET: carga inicial o enlaces de filtrado de la barra lateral
@@ -35,7 +35,7 @@ class FiltrarObrasController extends Controller
         })->groupBy('obras.titulo', 'p.ruta', 'p.alt')->orderBy('nota_media', 'desc')->orderBy('obras.titulo')->paginate(12)->withQueryString();
 
         // Renderizamos & props
-        return Inertia::render('Obras', [
+        return Inertia::render('Top', [
             'obras' => $obras,
             'generos' => DB::table('generos')->select('genero')->get(),
             'paises' => DB::table('obras')->select('pais')->groupBy('pais')->orderBy('pais')->get(),

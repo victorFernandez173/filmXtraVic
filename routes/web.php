@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\FiltrarObrasController;
+use App\Http\Controllers\TopObrasController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BienvenidaController;
@@ -24,7 +24,7 @@ Route::get('/', [BienvenidaController::class, 'bienvenida'])->name('/');
 
 Route::get('obra/{titulo}', [ObtenerObraController::class, 'fichaPelicula'])->name('obra');
 
-Route::get('/obras', [FiltrarObrasController::class, 'cargaDatos'])->name('obras');
+Route::get('/top', [TopObrasController::class, 'cargaDatos'])->name('top');
 
 Route::post('/like', [LikeController::class, 'darLike'])->name('darLike');
 
