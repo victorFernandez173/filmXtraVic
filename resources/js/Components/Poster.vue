@@ -17,8 +17,8 @@ defineProps(['obra', 'titulo']);
                  :alt="obra['alt']">
         </Link>
         <!-- Sección de nota y numero de valoraciones -->
-        <h3 v-if="obra['nota_media']">{{ parseFloat(obra['nota_media']).toFixed(1) }}</h3>
-        <h3 v-if="obra['num_valoraciones']">({{obra['num_valoraciones']}} valoraciones)</h3>
+        <h3 class="font-bold text-flamingo" v-if="obra['nota_media']">{{ parseFloat(obra['nota_media']).toFixed(1) }}</h3>
+        <h3 class="font-medium" v-if="obra['num_valoraciones']">({{obra['num_valoraciones']}} valoraciones)</h3>
 
     </div>
 </template>
