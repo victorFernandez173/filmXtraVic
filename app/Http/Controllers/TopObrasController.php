@@ -17,7 +17,7 @@ class TopObrasController extends Controller
      * @return Response
      * @throws Exception
      */
-    public function cargaDatos(): Response
+    public function cargarDatos(): Response
     {
         // Si no hay valor se asigna valor vacío
         $desde = request('desde') ?? '';

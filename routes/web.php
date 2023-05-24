@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\TopObrasController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ValoracionesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BienvenidaController;
 use App\Http\Controllers\ObtenerObraController;
@@ -24,7 +25,9 @@ Route::get('/', [BienvenidaController::class, 'bienvenida'])->name('/');
 
 Route::get('obra/{titulo}', [ObtenerObraController::class, 'fichaPelicula'])->name('obra');
 
-Route::get('/top', [TopObrasController::class, 'cargaDatos'])->name('top');
+Route::get('top', [TopObrasController::class, 'cargarDatos'])->name('top');
+
+Route::get('valoraciones', [ValoracionesController::class, 'cargarDatos'])->name('valoraciones');
 
 Route::post('/like', [LikeController::class, 'darLike'])->name('darLike');
 
