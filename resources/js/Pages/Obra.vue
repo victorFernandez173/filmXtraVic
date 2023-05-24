@@ -266,7 +266,7 @@ function procesarGustadas($usuario, $gustadas) {
                 </ul>
                 <Link as="button"
                       class="my-5 m-auto text-flamingo bg-white hover:text-black focus:bg-white focus:ring-flamingo focus:text-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5">
-                    Valorar &#8810;{{ obra[0]['titulo']}}&#8811;	  &rarr;
+                    Valorar &#8810;{{ obra[0]['titulo']}}&#8811; &rarr;
                 </Link>
                 <p v-if="!criticas[0]" class="py-3">Sin críticas de usuarios todavía. Participa, pon la tuya.</p>
             </div>
