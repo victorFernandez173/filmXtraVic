@@ -29,7 +29,7 @@ class FiltrarObrasController extends Controller
         $d = request('desde') ?: '1870';
         $h = request('hasta') ?: Carbon::now()->format('Y');
 
-        $obras = Obra::select('obras.titulo', 'p.ruta', 'p.alt', DB::raw('AVG(e.evaluacion) AS nota_media'))->join('posters AS p', 'obras.id', '=', 'p.obra_id')->leftJoin('evaluaciones AS e', 'obras.id', '=', 'e.obra_id')->where(
+        $obras = Obra::select('obras.titulo', 'p.ruta', 'p.alt', DB::raw('AVG(e.evaluacion) AS nota_media, COUNT(*) as num_valoraciones'))->join('posters AS p', 'obras.id', '=', 'p.obra_id')->leftJoin('evaluaciones AS e', 'obras.id', '=', 'e.obra_id')->where(
             'obras.pais', 'LIKE', '%' . $pais . '%')->whereBetween('obras.fecha', [$d, $h])->whereHas('generos', function (Builder $query) use ($genero) {
             $query->where('genero', 'like', '%' . $genero . '%');
         })->groupBy('obras.titulo', 'p.ruta', 'p.alt')->orderBy('nota_media', 'desc')->orderBy('obras.titulo')->paginate(12)->withQueryString();
