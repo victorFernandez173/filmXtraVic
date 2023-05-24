@@ -18,7 +18,7 @@ defineProps(['obras', 'titulo', 'filtros']);
 
 <template>
     <Head>
-        <title>top valoraciones</title>
+        <title>Top Valoraciones</title>
         <meta name="filter" content="Página de top de valoraciones">
     </Head>
 
@@ -26,7 +26,7 @@ defineProps(['obras', 'titulo', 'filtros']);
 
         <div class="flex flex-wrap content-start">
             <!-- Título -->
-            <h1 class="w-full mt-2 font-oswald text-center text-5xl h-[10vh] text-flamingo">Top valoraciones</h1>
+            <h1 class="w-full mt-2 font-oswald text-center text-5xl h-[10vh] text-flamingo">Top Valoraciones</h1>
             <!-- Seccion Principal de contenido -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 seccion-peliculas text-center w-full justify-items-center pl-8 pr-8">
                 <!-- Cada poster es un componente -->
