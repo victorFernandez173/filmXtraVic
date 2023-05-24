@@ -20,7 +20,7 @@ defineProps(['obras', 'titulo', 'filtros']);
 
 <template>
     <Head>
-        <title>top filmXtra</title>
+        <title>Top FilmXtra</title>
         <meta name="filter" content="Página top filmXtra">
     </Head>
 
