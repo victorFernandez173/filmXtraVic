@@ -1228,8 +1228,8 @@ drop procedure actor_obra;*/
 
 
 INSERT INTO trailers (obra_id, trailers) VALUES (1, 'https://www.youtube.com/embed/4u87tmlj4oE'),
-                                                (2, 'https://www.youtube.com/embed/4u87tmlj4oE'),
-                                                (3, 'https://www.youtube.com/embed/4u87tmlj4oE'),
+                                                (2, 'https://youtu.be/UaVTIH8mujA'),
+                                                (3, 'https://youtu.be/neY2xVmOfUM'),
                                                 (4, 'https://www.youtube.com/embed/4u87tmlj4oE'),
                                                 (5, 'https://www.youtube.com/embed/4u87tmlj4oE'),
                                                 (6, 'https://www.youtube.com/embed/4u87tmlj4oE'),
