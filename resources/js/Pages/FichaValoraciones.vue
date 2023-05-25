@@ -76,9 +76,9 @@ function procesarGustadas($usuario, $gustadas) {
                         profesionales:
                     </li>
                 </ul>
-                <ul v-for="p in profesionales">
+                <ul v-for="(p, i) in profesionales">
                     <!--Críticas profesionales-->
-                    <li class="list-disc ml-5"><span class="font-semibold"><a
+                    <li v-if="i < 5" class="list-disc ml-5"><span class="font-semibold"><a
                         class="underline hover:text-white" :href="p['web']" target="_blank"
                         href="">{{ p['medio'] }}</a>:</span> {{ p['contenido'] }} <span
                         class="italic">{{ p['autor'] }}</span>
@@ -91,7 +91,7 @@ function procesarGustadas($usuario, $gustadas) {
                         usuarios:
                     </li>
                 </ul>
-                <ul v-for="cri in criticas">
+                <ul v-for="(cri, i) in criticas">
                     <!--Críticas usuarios-->
                     <li class="list-disc ml-5"><span
                         class="underline font-semibold">{{ cri['usuario'][0]['name'] }}</span>: {{ cri['critica'] }}
