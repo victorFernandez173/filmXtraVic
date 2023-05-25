@@ -63,7 +63,7 @@ function procesarGustadas($usuario, $gustadas) {
                 <div class="m-auto mb-10">
                     <Link :href="route('obra', encodeURIComponent(obra[0]['titulo']))" as="button"
                           class="w-full text-white bg-flamingo hover:text-black focus:bg-flamingo focus:ring-flamingo focus:border-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 mt-10 text-center">
-                        &larr; Ver datos de la película
+                        &larr; Ficha {{ obra[0]['titulo'] }}
                     </Link>
                 </div>
             </div>
@@ -72,7 +72,9 @@ function procesarGustadas($usuario, $gustadas) {
             <div class="criticas-profesionales rounded mx-5 col-span-3 bg-flamingo px-8 lg:px-20 pb-5">
                 <!--Titulo profesionales-->
                 <ul>
-                    <li class="list-disc font-bold underline text-black text-xl mt-5 pt-3 text-white">Críticas profesionales:</li>
+                    <li class="list-disc font-bold underline text-black text-xl mt-5 pt-3 text-white">Críticas
+                        profesionales:
+                    </li>
                 </ul>
                 <ul v-for="(p, i) in profesionales">
                     <!--Críticas profesionales-->
@@ -85,7 +87,8 @@ function procesarGustadas($usuario, $gustadas) {
                 </ul>
                 <!--Titulo usuarios-->
                 <ul>
-                    <li class="list-disc font-bold underline text-black text-xl mt-3 text-white">Críticas de nuestros usuarios:
+                    <li class="list-disc font-bold underline text-black text-xl mt-3 text-white">Críticas de nuestros
+                        usuarios:
                     </li>
                 </ul>
                 <ul v-for="(cri, i) in criticas">
