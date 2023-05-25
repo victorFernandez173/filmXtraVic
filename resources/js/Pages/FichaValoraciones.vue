@@ -69,7 +69,7 @@ function procesarGustadas($usuario, $gustadas) {
             </div>
 
             <!--Criticas-->
-            <div class="criticas-profesionales rounded mx-5 col-span-3 bg-flamingo px-8 lg:px-20 pb-5">
+            <div class="criticas-profesionales rounded mx-5 lg:mr-0 col-span-3 bg-flamingo px-8 lg:px-20 pb-5">
                 <!--Titulo profesionales-->
                 <ul>
                     <li class="list-disc font-bold underline text-black text-xl mt-5 pt-3 text-white">Críticas
@@ -119,6 +119,15 @@ function procesarGustadas($usuario, $gustadas) {
                 </ul>
             </div>
         </div>
+        <div class="container mt-5 rounded bg-flamingo lg:mx-0">
+            <form class="p-2 w-full">
+                hola
+            </form>
+            <form class="p-2 w-full">
+                hola
+            </form>
+        </div>
+
     </div>
 </template>
 
