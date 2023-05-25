@@ -34,6 +34,8 @@ const media = 0;
                 <div class="flex justify-start flex-col m-auto h-[100%] w-[90%]">
                     <img :src="'../posters/' + obra[0]['poster']['ruta']" :alt="obra[0].poster.alt">
                     <Estrellitas :mediaEvaluaciones="mediaEvaluaciones" :obra="obra"/>
+                    <p class="text-black text-center"> &nbsp;&nbsp; {{ mediaEvaluaciones }}/10
+                        ({{ obra[0]['evaluaciones'].length }} votos)</p>
                 </div>
                 <br>
                 <!--Boton para llevarte a la pagina de datos de la película-->

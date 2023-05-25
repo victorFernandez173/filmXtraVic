@@ -124,7 +124,7 @@ function procesarGustadas($usuario, $gustadas) {
             <div class="flex justify-start flex-col m-auto h-[100%] w-[90%]">
                 <img :src="'../posters/' + obra[0]['poster']['ruta']" :alt="obra[0].poster.alt">
                 <!--Puntuacion-->
-                <Estrellitas :mediaEvaluaciones="mediaEvaluaciones" :obra="obra"/>
+                <Estrellitas :mediaEvaluaciones="mediaEvaluaciones" :obra="obra" :mostrar-votos="true"/>
             </div>
 
             <!--Datos pelicula-->
