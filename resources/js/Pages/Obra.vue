@@ -271,7 +271,7 @@ function procesarGustadas($usuario, $gustadas) {
                 </ul>
                 <p>[...]</p>
                 <Link :href="route('fichaValoraciones', encodeURIComponent(obra[0]['titulo']))" as="button"
-                      class="my-5 m-auto text-flamingo bg-white hover:text-black focus:bg-white focus:ring-flamingo focus:text-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5">
+                      class="my-5 m-auto text-flamingo bg-white hover:text-black focus:bg-white focus:ring-flamingo focus:text-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5"  preserve-scroll>
                     Valorar &#8810;{{ obra[0]['titulo'] }}&#8811; &rarr;
                 </Link>
                 <p v-if="!criticas[0]" class="py-3">Sin críticas de usuarios todavía. Participa, pon la tuya.</p>
@@ -290,7 +290,7 @@ function procesarGustadas($usuario, $gustadas) {
                 </ul>
                 <div class="mt-10">
                     <Link as="button" :href="route('valoraciones')"
-                          class="my-15 m-auto text-flamingo bg-white hover:text-black focus:bg-white focus:ring-flamingo focus:text-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 block">
+                          class="my-15 m-auto text-flamingo bg-white hover:text-black focus:bg-white focus:ring-flamingo focus:text-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 block" preserve-scroll>
                         Top Valoraciones &rarr;
                     </Link>
                 </div>
