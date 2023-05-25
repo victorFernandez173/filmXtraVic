@@ -49,32 +49,28 @@ function procesarGustadas($usuario, $gustadas) {
     </Head>
     <div class="container mx-auto mt-10 mb-10">
         <h1 class="text-center font-bold text-flamingo underline text-3xl">{{ obra[0].titulo }}</h1>
-        <!--3 apartados para poster, criticas profesionales y criticas de los usuarios-->
-        <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-4 gap-6 mt-10">
+        <!--2 bloque para poster, criticas profesionales & usuarios-->
+        <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-4 mt-10">
             <!--Poster-->
-            <div class="m-auto col-span-1 h-full">
-                <!--Poster-->
-                <div class="flex justify-start flex-col m-auto h-[100%] w-[90%]">
+            <div class="flex flex-wrap m-auto w-[80%]">
+                <div>
                     <img :src="'../posters/' + obra[0]['poster']['ruta']" :alt="obra[0].poster.alt">
                     <Estrellitas :mediaEvaluaciones="mediaEvaluaciones" :obra="obra"/>
                     <p class="text-black text-center"> &nbsp;&nbsp; {{ mediaEvaluaciones }}/10
                         ({{ obra[0]['evaluaciones'].length }} votos)</p>
                 </div>
-                <br>
                 <!--Boton para llevarte a la pagina de datos de la película-->
-                <div class="flex">
-                    <div class="m-auto">
-                        <Link :href="route('obra', encodeURIComponent(obra[0]['titulo']))" as="button"
-                              class="w-full text-white bg-flamingo hover:text-black focus:bg-flamingo focus:ring-flamingo focus:border-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-                            &larr; Ver datos de la película
-                        </Link>
-                    </div>
+                <div class="m-auto">
+                    <Link :href="route('obra', encodeURIComponent(obra[0]['titulo']))" as="button"
+                          class="w-full text-white bg-flamingo hover:text-black focus:bg-flamingo focus:ring-flamingo focus:border-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 mt-10 text-center">
+                        &larr; Ver datos de la película
+                    </Link>
                 </div>
             </div>
 
-            <!--Criticas profesionales-->
-            <div class="criticas-profesionales ml-10 mr-10 col-span-3">
-                <!--Titulo-->
+            <!--Criticas-->
+            <div class="criticas-profesionales ml-10 mr-10 col-span-3 bg-flamingo px-10 py-2 rounded">
+                <!--Titulo profesionales-->
                 <ul>
                     <li class="list-disc font-bold underline text-black text-xl mt-5">Críticas profesionales:</li>
                 </ul>
@@ -87,7 +83,7 @@ function procesarGustadas($usuario, $gustadas) {
                         <span v-if="p['fecha']"> ({{ dayjs(p['fecha']).fromNow() }})</span>
                     </li>
                 </ul>
-                <!--Titulo-->
+                <!--Titulo usuarios-->
                 <ul>
                     <li class="list-disc font-bold underline text-black text-xl mt-3">Críticas de nuestros usuarios:
                     </li>
