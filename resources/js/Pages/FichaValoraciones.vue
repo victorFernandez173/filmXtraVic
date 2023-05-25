@@ -52,15 +52,15 @@ function procesarGustadas($usuario, $gustadas) {
         <!--2 bloque para poster, criticas profesionales & usuarios-->
         <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-4 mt-10">
             <!--Poster-->
-            <div class="flex flex-wrap m-auto w-[80%]">
-                <div>
+            <div class="flex flex-wrap m-auto w-[100%]">
+                <div class="w-full flex justify-center flex-wrap items-center">
                     <img :src="'../posters/' + obra[0]['poster']['ruta']" :alt="obra[0].poster.alt">
                     <Estrellitas :mediaEvaluaciones="mediaEvaluaciones" :obra="obra"/>
-                    <p class="text-black text-center"> &nbsp;&nbsp; {{ mediaEvaluaciones }}/10
+                    <p class="text-black text-center pt-4"> &nbsp;&nbsp; {{ mediaEvaluaciones }}/10
                         ({{ obra[0]['evaluaciones'].length }} votos)</p>
                 </div>
                 <!--Boton para llevarte a la pagina de datos de la película-->
-                <div class="m-auto">
+                <div class="m-auto mb-10">
                     <Link :href="route('obra', encodeURIComponent(obra[0]['titulo']))" as="button"
                           class="w-full text-white bg-flamingo hover:text-black focus:bg-flamingo focus:ring-flamingo focus:border-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 mt-10 text-center">
                         &larr; Ver datos de la película
@@ -69,15 +69,15 @@ function procesarGustadas($usuario, $gustadas) {
             </div>
 
             <!--Criticas-->
-            <div class="criticas-profesionales ml-10 mr-10 col-span-3 bg-flamingo px-10 py-2 rounded">
+            <div class="criticas-profesionales rounded mx-5 col-span-3 bg-flamingo px-8 lg:px-20 pb-5">
                 <!--Titulo profesionales-->
                 <ul>
-                    <li class="list-disc font-bold underline text-black text-xl mt-5">Críticas profesionales:</li>
+                    <li class="list-disc font-bold underline text-black text-xl mt-5 pt-3 text-white">Críticas profesionales:</li>
                 </ul>
                 <ul v-for="(p, i) in profesionales">
                     <!--Críticas profesionales-->
                     <li v-if="i < 5" class="list-disc ml-5"><span class="font-semibold"><a
-                        class="underline hover:text-black" :href="p['web']" target="_blank"
+                        class="underline hover:text-white" :href="p['web']" target="_blank"
                         href="">{{ p['medio'] }}</a>:</span> {{ p['contenido'] }} <span
                         class="italic">{{ p['autor'] }}</span>
                         <span v-if="p['fecha']"> ({{ dayjs(p['fecha']).fromNow() }})</span>
@@ -85,7 +85,7 @@ function procesarGustadas($usuario, $gustadas) {
                 </ul>
                 <!--Titulo usuarios-->
                 <ul>
-                    <li class="list-disc font-bold underline text-black text-xl mt-3">Críticas de nuestros usuarios:
+                    <li class="list-disc font-bold underline text-black text-xl mt-3 text-white">Críticas de nuestros usuarios:
                     </li>
                 </ul>
                 <ul v-for="(cri, i) in criticas">
