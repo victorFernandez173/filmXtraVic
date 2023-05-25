@@ -121,7 +121,7 @@ function procesarGustadas($usuario, $gustadas) {
             </div>
 
             <!--Datos pelicula-->
-            <div class="flex justify-center mr-10 w-full md:-ml[150px]">
+            <div class="flex justify-center mr-10 pl-10 pr-10 w-full md:-ml[150px]">
                 <ul>
                     <!--Datos de la pelicula-->
                     <li class="list-disc font-bold text-flamingo text-xl"><span class="underline">Obra</span>:</li>
@@ -211,7 +211,7 @@ function procesarGustadas($usuario, $gustadas) {
 
         <!--Contenedor criticas-->
         <div
-            class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-10 mb-15 justify-center bg-flamingo text-white rounded lg:divide-x md:divide-x divide-y">
+            class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-10 mb-15 pr-10 justify-center bg-flamingo text-white rounded lg:divide-x md:divide-x divide-y ">
             <!--Criticas-->
             <div class="py-10 pl-12 lg:col-span-3 md:col-span-2">
                 <!--Titulo-->
@@ -277,8 +277,8 @@ function procesarGustadas($usuario, $gustadas) {
                 <p v-if="!criticas[0]" class="py-3">Sin críticas de usuarios todavía. Participa, pon la tuya.</p>
             </div>
 
-            <!--Botones para votar y formulario para escribir-->
-            <div class="py-5 px-5">
+            <!--Seccion valorar-->
+            <div class="py-5 px-5 pl-10">
                 <!--Titulo-->
                 <h3 class="font-bold underline text-black text-xl my-5 text-center">¿Quieres valorar esta
                     película?</h3>
