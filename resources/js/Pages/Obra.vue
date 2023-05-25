@@ -290,7 +290,7 @@ function procesarGustadas($usuario, $gustadas) {
                 </ul>
                 <div class="mt-10">
                     <Link :href="route('fichaValoraciones', encodeURIComponent(obra[0]['titulo']))" as="button"
-                          class="my-5 m-auto text-flamingo bg-white hover:text-black focus:bg-white focus:ring-flamingo focus:text-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5">
+                          class="my-15 m-auto text-flamingo bg-white hover:text-black focus:bg-white focus:ring-flamingo focus:text-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 block">
                         Valorar "{{ obra[0]['titulo'] }}" &rarr;
                     </Link>
                 </div>
