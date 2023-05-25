@@ -173,9 +173,9 @@ function procesarGustadas($usuario, $gustadas) {
                                 </ul>
                             </li>
                             <li v-if="saga" class="list-disc font-bold text-flamingo text-xl mt-2"><span
-                                class="underline">Saga</span>: <span class="inline-block w-full text-center mb-1">&nbsp; &#8810;{{
+                                class="underline">Saga</span>: <span class="inline-block w-full text-center mb-1">&nbsp;{{
                                     saga[0]['nombre']
-                                }}&#8811;</span>
+                                }}</span>
                             </li>
                             <!-- Si solo hay un poster en secuelas, flex justify-center -->
                             <div v-if="secuelasOrdenadas && secuelasOrdenadas.length <= 1"
@@ -272,7 +272,7 @@ function procesarGustadas($usuario, $gustadas) {
                 <p>[...]</p>
                 <Link :href="route('fichaValoraciones', encodeURIComponent(obra[0]['titulo']))" as="button"
                       class="my-5 m-auto text-flamingo bg-white hover:text-black focus:bg-white focus:ring-flamingo focus:text-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5"  preserve-scroll>
-                    Valorar &#8810;{{ obra[0]['titulo'] }}&#8811; &rarr;
+                    Valorar{{ obra[0]['titulo'] }}&rarr;
                 </Link>
                 <p v-if="!criticas[0]" class="py-3">Sin críticas de usuarios todavía. Participa, pon la tuya.</p>
             </div>
