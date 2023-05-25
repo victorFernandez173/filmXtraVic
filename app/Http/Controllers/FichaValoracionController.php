@@ -7,8 +7,14 @@ use Inertia\Response;
 
 class FichaValoracionController extends Controller
 {
-    public function obtenerFichaValoracion(): Response
+    public function obtenerFichaValoracion($titulo): Response
     {
-        return Inertia::render('FichaValoraciones');
+        $titulo = rawurldecode($titulo);
+        $obra = ObtenerObraController::obtenerDatosObra($titulo);
+
+        return Inertia::render('FichaValoraciones', [
+            'obra' => $obra,
+            'mediaEvaluaciones' => ObtenerObraController::calcularMediaEvaluaciones($obra[0]['evaluaciones']),
+        ]);
     }
 }

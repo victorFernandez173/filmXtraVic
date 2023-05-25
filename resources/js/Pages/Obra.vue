@@ -264,7 +264,7 @@ function procesarGustadas($usuario, $gustadas) {
                         </svg>
                     </li>
                 </ul>
-                <Link :href="route('fichaValoraciones', encodeURIComponent(obra['titulo']))" as="button"
+                <Link :href="route('fichaValoraciones', encodeURIComponent(obra[0]['titulo']))" as="button"
                       class="my-5 m-auto text-flamingo bg-white hover:text-black focus:bg-white focus:ring-flamingo focus:text-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5">
                     Valorar &#8810;{{ obra[0]['titulo']}}&#8811; &rarr;
                 </Link>

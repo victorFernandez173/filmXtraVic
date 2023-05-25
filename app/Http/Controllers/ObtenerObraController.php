@@ -38,7 +38,7 @@ class ObtenerObraController extends Controller
      * @param $titulo
      * @return \Illuminate\Database\Eloquent\Collection|Builder[]
      */
-    public function obtenerDatosObra($titulo): array|\Illuminate\Database\Eloquent\Collection
+    static function obtenerDatosObra($titulo): array|\Illuminate\Database\Eloquent\Collection
     {
         return Obra::with(['poster', 'secuela:saga_id,obra_id,orden', 'criticas', 'directors:nombre,edad,defuncion,pais', 'festivals:obra_id,nombre,edicion', 'profesionals:obra_id,medio_id,autor,contenido,fecha', 'evaluaciones:obra_id,user_id,evaluacion', 'actors:nombre,nombre_real,edad,defuncion,pais', 'generos:genero', 'trailer'])->where('titulo', '=', "$titulo")->get();
     }
@@ -48,7 +48,7 @@ class ObtenerObraController extends Controller
      * @param $evaluaciones
      * @return float
      */
-    public function calcularMediaEvaluaciones($evaluaciones): float
+    static function calcularMediaEvaluaciones($evaluaciones): float
     {
         $sumatorio = 0;
         foreach ($evaluaciones as $eva) {
