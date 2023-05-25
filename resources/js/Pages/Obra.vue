@@ -17,14 +17,7 @@ import Swal from "sweetalert2";
 import Estrellitas from "../Components/Estrellitas.vue";
 import Trailers from "../Components/Trailers.vue";
 
-const props = defineProps({
-    obra: Object,
-    mediaEvaluaciones: Number,
-    criticas: Object,
-    saga: [Object, String],
-    secuelaPrecuela: Object,
-    profesionales: Object
-})
+const props = defineProps(['obra', 'mediaEvaluaciones', 'criticas', 'saga', 'secuelaPrecuela', 'profesionales']);
 
 // Funcion para ordenar array por clave interna
 const ordenarAnidado = (p1, p2 = null, sentido = 'asc') => (e1, e2) => {
@@ -180,7 +173,9 @@ function procesarGustadas($usuario, $gustadas) {
                                 </ul>
                             </li>
                             <li v-if="saga" class="list-disc font-bold text-flamingo text-xl mt-2"><span
-                                class="underline">Saga</span>: <span class="inline-block w-full text-center mb-1">&nbsp; &#8810;{{ saga[0]['nombre'] }}&#8811;</span>
+                                class="underline">Saga</span>: <span class="inline-block w-full text-center mb-1">&nbsp; &#8810;{{
+                                    saga[0]['nombre']
+                                }}&#8811;</span>
                             </li>
                             <!-- Si solo hay un poster en secuelas, flex justify-center -->
                             <div v-if="secuelasOrdenadas && secuelasOrdenadas.length <= 1"
@@ -225,23 +220,33 @@ function procesarGustadas($usuario, $gustadas) {
                         profesionales:
                     </li>
                 </ul>
-                <ul>
+                <ul v-for="(p, i) in profesionales">
                     <!--Críticas profesionales-->
-                    <li v-for="p in profesionales" class="list-disc ml-5"><span class="font-semibold"><a
-                        class="underline hover:text-black" :href="p['web']" target="_blank"
-                        href="">{{ p['medio'] }}</a>:</span> {{ p['contenido'] }} <span
-                        class="italic">{{ p['autor'] }}</span>
-                        <span v-if="p['fecha']"> ({{ dayjs(p['fecha']).fromNow() }})</span>
+                    <li v-if="i < 5" class="list-disc ml-5">
+                        <span class="font-semibold">
+                            <a
+                                class="underline hover:text-black" :href="p['web']" target="_blank"
+                            >{{ p['medio'] }}
+                            </a>:
+                        </span> {{ p['contenido'] }}
+                        <span
+                            class="italic">{{ p['autor'] }}
+                        </span>
+                        <span v-if="p['fecha']"> ({{ dayjs(p['fecha']).fromNow() }})
+                        </span>
                     </li>
                 </ul>
+                <p>[...]</p>
                 <!--Titulo-->
                 <ul>
                     <li class="list-disc font-bold text-black text-xl mt-3">Críticas de nuestros usuarios:</li>
                 </ul>
-                <ul>
+                <ul v-for="(cri, i) in criticas">
                     <!--Críticas usuarios-->
-                    <li v-for="(cri, i) in criticas" class="list-disc ml-5"><span
-                        class="underline font-semibold">{{ cri['usuario'][0]['name'] }}</span>: {{ cri['critica'] }}
+                    <li v-if="i < 5" class="list-disc ml-5">
+                        <span
+                            class="underline font-semibold">{{ cri['usuario'][0]['name'] }}
+                        </span>: {{ cri['critica'] }}
                         ({{ dayjs(cri['fecha']).fromNow() }}) - Likes: {{ cri['likes'] }}
 
                         <!--Mano arriba-->
@@ -264,9 +269,10 @@ function procesarGustadas($usuario, $gustadas) {
                         </svg>
                     </li>
                 </ul>
+                <p>[...]</p>
                 <Link :href="route('fichaValoraciones', encodeURIComponent(obra[0]['titulo']))" as="button"
                       class="my-5 m-auto text-flamingo bg-white hover:text-black focus:bg-white focus:ring-flamingo focus:text-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5">
-                    Valorar &#8810;{{ obra[0]['titulo']}}&#8811; &rarr;
+                    Valorar &#8810;{{ obra[0]['titulo'] }}&#8811; &rarr;
                 </Link>
                 <p v-if="!criticas[0]" class="py-3">Sin críticas de usuarios todavía. Participa, pon la tuya.</p>
             </div>
@@ -280,7 +286,7 @@ function procesarGustadas($usuario, $gustadas) {
                 <ul class="list-disc ml-[20px]">
                     <li>Evaluar películas (sobre 10)</li>
                     <li>Hacer críticas más elaboradas de ellas si te gusta entrar en detalles</li>
-                    <li>Dar like a las críticas de otros usuarios </li>
+                    <li>Dar like a las críticas de otros usuarios</li>
                 </ul>
                 <div class="mt-10">
                     <Link as="button" :href="route('valoraciones')"
@@ -292,7 +298,7 @@ function procesarGustadas($usuario, $gustadas) {
 
         </div>
         <!-- Componente para el trailer-->
-        <Trailers :obra="obra" />
+        <Trailers :obra="obra"/>
 
     </div>
 </template>

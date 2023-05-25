@@ -65,7 +65,7 @@ class ObtenerObraController extends Controller
      * @param $criticas
      * @return array
      */
-    public function obtenerArrayInfoCriticas($criticas): array
+    static function obtenerArrayInfoCriticas($criticas): array
     {
         $criticasLikes = array();
         foreach ($criticas as $critica) {
@@ -127,7 +127,7 @@ class ObtenerObraController extends Controller
      * @return array|null
      * @throws Exception
      */
-    public function obtenerInfoMediosProfesionals($obra): ?array
+    static function obtenerInfoMediosProfesionals($obra): ?array
     {
         if (count($obra[0]['profesionals']) > 0) {
             $arrayProfesionals = array();
