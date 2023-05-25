@@ -1,8 +1,9 @@
 <?php
 
+use App\Http\Controllers\FichaValoracionController;
 use App\Http\Controllers\TopObrasController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\ValoracionesController;
+use App\Http\Controllers\TopValoracionesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BienvenidaController;
 use App\Http\Controllers\ObtenerObraController;
@@ -27,7 +28,9 @@ Route::get('obra/{titulo}', [ObtenerObraController::class, 'fichaPelicula'])->na
 
 Route::get('top', [TopObrasController::class, 'cargarDatos'])->name('top');
 
-Route::get('valoraciones', [ValoracionesController::class, 'cargarDatos'])->name('valoraciones');
+Route::get('valoraciones', [TopValoracionesController::class, 'cargarDatos'])->name('valoraciones');
+
+Route::get('valoraciones/{titulo}', [FichaValoracionController::class, 'obtenerFichaValoracion'])->name('fichaValoraciones');
 
 Route::post('/like', [LikeController::class, 'darLike'])->name('darLike');
 
