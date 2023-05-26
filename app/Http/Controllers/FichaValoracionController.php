@@ -10,7 +10,7 @@ use Inertia\Response;
 class FichaValoracionController extends Controller
 {
     /**
-     * Para cargar la vista con la info necesaria
+     * Para cargar la vista con la info necesaria, se basa en las funcionalidades de ObtenerObraControler.php
      *
      * @throws Exception
      */

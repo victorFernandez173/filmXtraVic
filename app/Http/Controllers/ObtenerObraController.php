@@ -62,7 +62,7 @@ class ObtenerObraController extends Controller
     }
 
     /**
-     * Crea un array con el contenido, likes y fecha de cada critica para la vista a partir de todas las criticas de la película
+     * Crea un array con el contenido, likes y fecha de cada critica para la vista a partir de todas las criticas de la película y devuelve dicha información paginada
      * @param $criticas
      * @return LengthAwarePaginator
      */

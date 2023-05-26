@@ -126,7 +126,7 @@ const form = useForm({
                         </svg>
                     </li>
                 </ul>
-                <div class="flex justify-center mt-2">
+                <div class="flex justify-center mt-5">
                     <Paginacion :obras="criticas"></Paginacion>
                 </div>
             </div>
