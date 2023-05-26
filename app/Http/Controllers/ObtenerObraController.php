@@ -6,6 +6,7 @@ use App\Models\Obra;
 use DB;
 use Exception;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -63,9 +64,9 @@ class ObtenerObraController extends Controller
     /**
      * Crea un array con el contenido, likes y fecha de cada critica para la vista a partir de todas las criticas de la película
      * @param $criticas
-     * @return array
+     * @return LengthAwarePaginator
      */
-    static function obtenerArrayInfoCriticas($criticas): array
+    static function obtenerArrayInfoCriticas($criticas): LengthAwarePaginator
     {
         $criticasLikes = array();
         foreach ($criticas as $critica) {
@@ -79,7 +80,7 @@ class ObtenerObraController extends Controller
                 'gustadaPor' => DB::table('likes')->select('user_id')->where('critica_id', '=', $critica['id'])->get(),
             ];
         }
-        return $criticasLikes;
+        return Paginacion::paginar($criticasLikes, 2);
     }
 
     /**

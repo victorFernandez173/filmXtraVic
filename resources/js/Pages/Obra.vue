@@ -241,9 +241,9 @@ function procesarGustadas($usuario, $gustadas) {
                 <ul>
                     <li class="list-disc font-bold text-black text-xl mt-3">Críticas de nuestros usuarios:</li>
                 </ul>
-                <ul v-for="(cri, i) in criticas">
+                <ul v-for="(cri, i) in criticas['data']">
                     <!--Críticas usuarios-->
-                    <li v-if="i < 5" class="list-disc ml-5">
+                    <li v-if="i < 2" class="list-disc ml-5">
                         <span
                             class="underline font-semibold">{{ cri['usuario'][0]['name'] }}
                         </span>: {{ cri['critica'] }}
@@ -255,7 +255,7 @@ function procesarGustadas($usuario, $gustadas) {
                               :data="{ user_id: $page.props.auth.user['id'], critica_id: cri['id_critica'] }"
                               preserveScroll>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                 :fill=" procesarGustadas($page.props.auth.user, $page.props.criticas[i]) ? 'black' : 'white'"
+                                 :fill=" procesarGustadas($page.props.auth.user, $page.props.criticas['data'][i]) ? 'black' : 'white'"
                                  class="w-5 h-5 inline-block hover:fill-yellow-300">
                                 <path
                                     d="M1 8.25a1.25 1.25 0 112.5 0v7.5a1.25 1.25 0 11-2.5 0v-7.5zM11 3V1.7c0-.268.14-.526.395-.607A2 2 0 0114 3c0 .995-.182 1.948-.514 2.826-.204.54.166 1.174.744 1.174h2.52c1.243 0 2.261 1.01 2.146 2.247a23.864 23.864 0 01-1.341 5.974C17.153 16.323 16.072 17 14.9 17h-3.192a3 3 0 01-1.341-.317l-2.734-1.366A3 3 0 006.292 15H5V8h.963c.685 0 1.258-.483 1.612-1.068a4.011 4.011 0 012.166-1.73c.432-.143.853-.386 1.011-.814.16-.432.248-.9.248-1.388z"/>
@@ -270,11 +270,11 @@ function procesarGustadas($usuario, $gustadas) {
                     </li>
                 </ul>
                 <p>[...]</p>
+                <p v-if="!criticas['data'][0]" class="py-3">Sin críticas de usuarios todavía. Participa, pon la tuya.</p>
                 <Link :href="route('fichaValoraciones', encodeURIComponent(obra[0]['titulo']))" as="button"
                       class="my-5 m-auto text-flamingo bg-white hover:text-black focus:bg-white focus:ring-flamingo focus:text-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5"  preserve-scroll>
-                    Valorar {{ obra[0]['titulo'] }}&rarr;
+                    Ver otras críticas/Valorar {{ obra[0]['titulo'] }}&rarr;
                 </Link>
-                <p v-if="!criticas[0]" class="py-3">Sin críticas de usuarios todavía. Participa, pon la tuya.</p>
             </div>
 
             <!--Seccion valorar-->

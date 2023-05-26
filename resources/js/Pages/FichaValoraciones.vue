@@ -15,6 +15,7 @@ import Estrellitas from "../Components/Estrellitas.vue";
 import Swal from "sweetalert2";
 import SelectRango from "../Components/SelectRango.vue";
 import InputError from "../Components/InputError.vue";
+import Paginacion from "../Components/Paginacion.vue";
 
 defineProps(['obra', 'mediaEvaluaciones', 'profesionales', 'criticas']);
 dayjs.extend(relativeTime);
@@ -99,7 +100,7 @@ const form = useForm({
                         usuarios:
                     </li>
                 </ul>
-                <ul v-for="(cri, i) in criticas">
+                <ul v-for="(cri, i) in criticas['data']">
                     <!--Críticas usuarios-->
                     <li class="list-disc ml-5"><span
                         class="underline font-semibold">{{ cri['usuario'][0]['name'] }}</span>: {{ cri['critica'] }}
@@ -111,7 +112,7 @@ const form = useForm({
                               :data="{ user_id: $page.props.auth.user['id'], critica_id: cri['id_critica'] }"
                               preserveScroll>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                 :fill=" procesarGustadas($page.props.auth.user, $page.props.criticas[i]) ? 'black' : 'white'"
+                                 :fill=" procesarGustadas($page.props.auth.user, $page.props.criticas['data'][i]) ? 'black' : 'white'"
                                  class="w-5 h-5 inline-block hover:fill-yellow-300">
                                 <path
                                     d="M1 8.25a1.25 1.25 0 112.5 0v7.5a1.25 1.25 0 11-2.5 0v-7.5zM11 3V1.7c0-.268.14-.526.395-.607A2 2 0 0114 3c0 .995-.182 1.948-.514 2.826-.204.54.166 1.174.744 1.174h2.52c1.243 0 2.261 1.01 2.146 2.247a23.864 23.864 0 01-1.341 5.974C17.153 16.323 16.072 17 14.9 17h-3.192a3 3 0 01-1.341-.317l-2.734-1.366A3 3 0 006.292 15H5V8h.963c.685 0 1.258-.483 1.612-1.068a4.011 4.011 0 012.166-1.73c.432-.143.853-.386 1.011-.814.16-.432.248-.9.248-1.388z"/>
@@ -125,6 +126,9 @@ const form = useForm({
                         </svg>
                     </li>
                 </ul>
+                <div class="flex justify-center mt-2">
+                    <Paginacion :obras="criticas"></Paginacion>
+                </div>
             </div>
             <!-- Sección formularios container-->
             <div class="col-span-1 lg:col-span-4 mt-5 bg-flamingo rounded container">
@@ -133,25 +137,28 @@ const form = useForm({
                     <div
                         class="col-span-1 md:col-span-3 lg:col-span-2 flex justify-center flex-wrap content-start border border-[2px] border-solid border-black rounded p-1">
                         <div class="w-full text-center">
-                            <label class="">Evaluar: </label>
+                            <label class="font-bold">Evaluar: </label>
                         </div>
                         <div class="w-full">
                             <SelectRango class="w-2/5 sm:w-1/4 md:w-3/4 text-center" :limite="11" @emision="(e) => form.notaEvaluacion = e" >Nota
                             </SelectRango>
                         </div>
                         <div class="w-full text-center">
+                            <p class="text-yellow-300 w-2/5 sm:w-1/4 md:w-3/4 text-center m-auto" >{{$page.props.errors['evaluacion']}}</p>
+                        </div>
+                        <div class="w-full text-center">
                             <Link
                                 as="button" method="post"
                                 :href="route('evaluar')"
                                 :data="{ user_id: $page.props.auth.user['id'], obra_id: obra[0]['id'], evaluacion: form.notaEvaluacion }"
-                                class="w-2/5 sm:w-1/4 md:w-3/4 text-black bg-white hover:text-white hover:bg-black focus:bg-flamingo focus:ring-flamingo focus:border-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 my-2 text-center">
+                                class="w-2/5 sm:w-1/4 md:w-3/4 text-black bg-white hover:text-white hover:bg-black focus:bg-flamingo focus:ring-flamingo focus:border-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 my-2 text-center" preserveScroll>
                                 Evaluar {{ obra[0]['titulo'] }} &rarr;
                             </Link>
                         </div>
                     </div>
                     <!-- Formulario críticas -->
                     <div class="col-span-1 md:col-span-9 lg:col-span-10 border border-[2px] border-solid border-black rounded p-1 lg:ml-1 flex justify-center flex-wrap">
-                        <label class="w-full text-center">Reseña {{obra[0]['titulo']}} <span :class="[form.critica.length > 5000 ? 'text-yellow-300  font-extrabold' : 'text-black']">({{ form.critica.length }}/5000 caracteres){{form.critica.length > 5000 ? ' Máximo de caracteres sobrepasado' : ''}}</span></label>
+                        <label class="w-full text-center font-bold">Reseña {{obra[0]['titulo']}} <span :class="[form.critica.length > 5000 ? 'text-yellow-300  font-extrabold' : 'text-black']">({{ form.critica.length }}/5000 caracteres){{form.critica.length > 5000 ? ' Máximo de caracteres sobrepasado' : ''}}</span></label>
                         <form class="w-11/12">
                             <textarea class="w-full h-[200px] m-1" v-model="form.critica"></textarea>
                         </form>
