@@ -141,13 +141,13 @@ const form = useForm({
                             Evaluar {{ obra[0]['titulo'] }} &rarr;
                         </Link>
                     </div>
-                    <div class="col-span-1 md:col-span-9 lg:col-span-10 border border-[2px] border-solid border-black rounded p-1 ml-1 flex justify-center flex-wrap">
-                        <label class="w-full text-center">Reseña {{obra[0]['titulo']}} <span :class="[form.critica.length > 5000 ? 'text-red-700  font-extrabold' : 'text-black']">({{ form.critica.length }}/5000 caracteres)</span></label>
+                    <div class="col-span-1 md:col-span-9 lg:col-span-10 border border-[2px] border-solid border-black rounded p-1 lg:ml-1 flex justify-center flex-wrap">
+                        <label class="w-full text-center">Reseña {{obra[0]['titulo']}} <span :class="[form.critica.length > 5000 ? 'text-yellow-300  font-extrabold' : 'text-black']">({{ form.critica.length }}/5000 caracteres){{form.critica.length > 5000 ? ' Máximo de caracteres sobrepasado' : ''}}</span></label>
                         <form class="w-11/12">
                             <textarea class="w-full h-[200px] m-1" v-model="form.critica"></textarea>
                         </form>
                         <InputError class="mt-2" :message="form.errors.critica"/>
-                        <Button class="w-1/5 text-black bg-white hover:text-white hover:bg-black focus:bg-flamingo focus:ring-flamingo focus:border-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 my-2 text-center">Reseñar {{obra[0]['titulo']}} &rarr;</Button>
+                        <Button class="w-2/5 text-black bg-white hover:text-white hover:bg-black focus:bg-flamingo focus:ring-flamingo focus:border-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 my-2 text-center">Reseñar {{obra[0]['titulo']}} &rarr;</Button>
                     </div>
                 </div>
                 <div v-else class="grid grid-cols-1 md:grid-cols-12 lg:grid-cols-12 p-1">
