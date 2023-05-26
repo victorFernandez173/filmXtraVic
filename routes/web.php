@@ -5,7 +5,6 @@ use App\Http\Controllers\FichaValoracionController;
 use App\Http\Controllers\TopObrasController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TopValoracionesController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BienvenidaController;
 use App\Http\Controllers\ObtenerObraController;
 use App\Http\Controllers\LikeController;
