@@ -10,10 +10,11 @@ export default {
 import dayjs from "dayjs";
 import es from "dayjs/locale/es";
 import relativeTime from 'dayjs/plugin/relativeTime';
-import {Head, Link} from "@inertiajs/vue3";
+import {Head, Link, useForm} from "@inertiajs/vue3";
 import Estrellitas from "../Components/Estrellitas.vue";
 import Swal from "sweetalert2";
 import SelectRango from "../Components/SelectRango.vue";
+import {ref} from "vue";
 
 defineProps(['obra', 'mediaEvaluaciones', 'profesionales', 'criticas']);
 dayjs.extend(relativeTime);
@@ -41,6 +42,14 @@ function procesarGustadas($usuario, $gustadas) {
     }
     return gustadaPorArray.includes($usuario['id']);
 }
+
+// Formularios
+
+/*const form = useForm({
+    nota: '',
+});*/
+
+const nota = ref('');
 </script>
 
 <template>
@@ -119,17 +128,30 @@ function procesarGustadas($usuario, $gustadas) {
                     </li>
                 </ul>
             </div>
-            <div class="col-span-1 lg:col-span-4 mt-5 mx-5 md:mx-0 ed bg-flamingo rounded">
-                <form class="p-2 w-full m-1 width">
-                    <SelectRango class="w-4/5" :limite-inferior="0" :limite-superior="10">Nota</SelectRango>
-                    <Link :href="route('obra', encodeURIComponent(obra[0]['titulo']))" as="button"
-                          class="w-4/5 text-flamingo bg-white hover:text-black focus:bg-flamingo focus:ring-flamingo focus:border-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 mt-10 text-center">
-                        Evaluar {{ obra[0]['titulo'] }} &rarr;
-                    </Link>
-                </form>
-                <form class="p-2 w-full m-1">
-                    form CRÍTICAS
-                </form>
+            <div class="col-span-1 lg:col-span-4 mt-5 bg-flamingo rounded container">
+                <div v-if="$page.props.auth.user" class="grid grid-cols-1 md:grid-cols-12 lg:grid-cols-12 p-1">
+                    <div
+                        class="col-span-1 md:col-span-3 lg:col-span-2 flex justify-center flex-wrap border border-[2px] border-solid border-black rounded p-1">
+                        <label>Poner nota:</label>
+                        <SelectRango class="w-3/5" :limite="11" @emision="(e) => nota = e">Nota
+                        </SelectRango>
+                        <Link
+                             as="button" method="post"
+                            :href="route('darLike')"
+                            :data="{ user_id: $page.props.auth.user['id'], obra_id: obra[0]['id'] }"
+                            preserveScroll
+                            class="w-4/5 text-flamingo bg-white hover:text-black focus:bg-flamingo focus:ring-flamingo focus:border-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 my-2 text-center">
+                            Evaluar {{ obra[0]['titulo'] }} &rarr;
+                        </Link>
+                    </div>
+                    <form
+                        class="col-span-1 md:col-span-9 lg:col-span-10 border border-[2px] border-solid border-black rounded p-1 ml-1">
+                        form CRÍTICAS
+                    </form>
+                </div>
+                <div v-else class="grid grid-cols-1 md:grid-cols-12 lg:grid-cols-12 p-1">
+                    PARA PODER EVALUAR O PONER NOTAS TIENES QUE ESTAR LOGUEADO/REGISTRADO
+                </div>
             </div>
         </div>
 
