@@ -13,6 +13,7 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 import {Head, Link} from "@inertiajs/vue3";
 import Estrellitas from "../Components/Estrellitas.vue";
 import Swal from "sweetalert2";
+import SelectRango from "../Components/SelectRango.vue";
 
 defineProps(['obra', 'mediaEvaluaciones', 'profesionales', 'criticas']);
 dayjs.extend(relativeTime);
@@ -52,15 +53,15 @@ function procesarGustadas($usuario, $gustadas) {
         <!--2 bloque para poster, criticas profesionales & usuarios-->
         <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-4 mt-10">
             <!--Poster-->
-            <div class="flex flex-wrap m-auto w-[100%]">
+            <div>
                 <div class="w-full flex justify-center flex-wrap items-center">
                     <img :src="'../posters/' + obra[0]['poster']['ruta']" :alt="obra[0].poster.alt">
-                    <Estrellitas :mediaEvaluaciones="mediaEvaluaciones" :obra="obra"/>
+                    <Estrellitas class="w-full" :mediaEvaluaciones="mediaEvaluaciones" :obra="obra"/>
                     <p class="text-black text-center pt-4"> &nbsp;&nbsp; {{ mediaEvaluaciones }}/10
                         ({{ obra[0]['evaluaciones'].length }} votos)</p>
                 </div>
                 <!--Boton para llevarte a la pagina de datos de la película-->
-                <div class="m-auto mb-10">
+                <div class="m-auto mb-10 w-3/4">
                     <Link :href="route('obra', encodeURIComponent(obra[0]['titulo']))" as="button"
                           class="w-full text-white bg-flamingo hover:text-black focus:bg-flamingo focus:ring-flamingo focus:border-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 mt-10 text-center">
                         &larr; Ficha {{ obra[0]['titulo'] }}
@@ -118,14 +119,14 @@ function procesarGustadas($usuario, $gustadas) {
                     </li>
                 </ul>
             </div>
-        </div>
-        <div class="container mt-5 rounded bg-flamingo lg:mx-0">
-            <form class="p-2 w-full">
-                hola
-            </form>
-            <form class="p-2 w-full">
-                hola
-            </form>
+            <div class="col-span-1 lg:col-span-4 mt-5 mx-5 md:mx-0 ed bg-flamingo rounded">
+                <form class="p-2 w-full m-1 width">
+                    <SelectRango :limite-inferior="0" :limite-superior="10">Nota</SelectRango>
+                </form>
+                <form class="p-2 w-full m-1">
+                    form CRÍTICAS
+                </form>
+            </div>
         </div>
 
     </div>
