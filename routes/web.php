@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EvaluacionController;
 use App\Http\Controllers\FichaValoracionController;
 use App\Http\Controllers\TopObrasController;
 use App\Http\Controllers\ProfileController;
@@ -32,6 +33,8 @@ Route::get('valoraciones', [TopValoracionesController::class, 'cargarDatos'])->n
 Route::get('valoraciones/{titulo}', [FichaValoracionController::class, 'obtenerFichaValoracion'])->name('fichaValoraciones');
 
 Route::post('/like', [LikeController::class, 'darLike'])->name('darLike');
+
+Route::post('evaluar', [EvaluacionController::class, 'evaluar'])->name('evaluar');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

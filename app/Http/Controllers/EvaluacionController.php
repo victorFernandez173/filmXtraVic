@@ -3,63 +3,27 @@
 namespace App\Http\Controllers;
 
 use App\Models\Evaluacion;
-use Illuminate\Http\Request;
 
 class EvaluacionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
+    public function evaluar(){
+       /*
+        // Si el like ya existe, se elimina
+        if (DB::table('likes')->where('user_id', $like['user_id'])->where('critica_id', $like['critica_id'])->exists()) {
+            DB::table('likes')->where('user_id', $like['user_id'])->where('critica_id', $like['critica_id'])->delete();
+        } else {
+            // Sino, se guarda
+            $like->save();*/
+        $evaluacion = new Evaluacion([
+            'user_id' => request('user_id'),
+            'obra_id' => request('obra_id'),
+            'evaluacion' => request('notaEvaluacion')
+        ]);
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Evaluacion $evaluacion)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Evaluacion $evaluacion)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Evaluacion $evaluacion)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Evaluacion $evaluacion)
-    {
-        //
+        if(DB::table('evaluaciones')->where()->where()->where()->exists()){
+            // Si la evaluación ya existía, se modifica
+        } else {
+            // Sino, se guarda
+        }
     }
 }

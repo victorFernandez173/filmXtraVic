@@ -44,12 +44,9 @@ function procesarGustadas($usuario, $gustadas) {
 }
 
 // Formularios
-
-/*const form = useForm({
-    nota: '',
-});*/
-
-const nota = ref('');
+const form = useForm({
+    notaEvaluacion: '',
+});
 </script>
 
 <template>
@@ -133,21 +130,22 @@ const nota = ref('');
                     <div
                         class="col-span-1 md:col-span-3 lg:col-span-2 flex justify-center flex-wrap border border-[2px] border-solid border-black rounded p-1">
                         <label>Poner nota:</label>
-                        <SelectRango class="w-3/5" :limite="11" @emision="(e) => nota = e">Nota
+                        <SelectRango class="w-3/5" :limite="11" @emision="(e) => form.notaEvaluacion = e">Nota
                         </SelectRango>
                         <Link
                              as="button" method="post"
-                            :href="route('darLike')"
-                            :data="{ user_id: $page.props.auth.user['id'], obra_id: obra[0]['id'] }"
-                            preserveScroll
+                            :href="route('evaluar')"
+                            :data="{ user_id: $page.props.auth.user['id'], obra_id: obra[0]['id'], evaluacion: form.notaEvaluacion }"
                             class="w-4/5 text-flamingo bg-white hover:text-black focus:bg-flamingo focus:ring-flamingo focus:border-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 my-2 text-center">
                             Evaluar {{ obra[0]['titulo'] }} &rarr;
                         </Link>
                     </div>
-                    <form
-                        class="col-span-1 md:col-span-9 lg:col-span-10 border border-[2px] border-solid border-black rounded p-1 ml-1">
-                        form CRÍTICAS
-                    </form>
+                    <div class="col-span-1 md:col-span-9 lg:col-span-10 border border-[2px] border-solid border-black rounded p-1 ml-1 flex justify-center flex-wrap">
+                        <label class="w-full text-center">Reseña {{obra[0]['titulo']}}</label>
+                        <form class="w-11/12">
+                            <textarea class="w-full h-[200px] m-1"></textarea>
+                        </form>
+                    </div>
                 </div>
                 <div v-else class="grid grid-cols-1 md:grid-cols-12 lg:grid-cols-12 p-1">
                     PARA PODER EVALUAR O PONER NOTAS TIENES QUE ESTAR LOGUEADO/REGISTRADO
