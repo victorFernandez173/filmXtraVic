@@ -14,6 +14,7 @@ import {Head, Link, useForm} from "@inertiajs/vue3";
 import Estrellitas from "../Components/Estrellitas.vue";
 import Swal from "sweetalert2";
 import SelectRango from "../Components/SelectRango.vue";
+import InputError from "../Components/InputError.vue";
 
 defineProps(['obra', 'mediaEvaluaciones', 'profesionales', 'criticas']);
 dayjs.extend(relativeTime);
@@ -128,15 +129,15 @@ const form = useForm({
             <div class="col-span-1 lg:col-span-4 mt-5 bg-flamingo rounded container">
                 <div v-if="$page.props.auth.user" class="grid grid-cols-1 md:grid-cols-12 lg:grid-cols-12 p-1">
                     <div
-                        class="col-span-1 md:col-span-3 lg:col-span-2 flex justify-center flex-wrap border border-[2px] border-solid border-black rounded p-1">
-                        <label>Poner nota:</label>
-                        <SelectRango class="w-3/5" :limite="11" @emision="(e) => form.notaEvaluacion = e">Nota
+                        class="col-span-1 md:col-span-3 lg:col-span-2 flex justify-center flex-wrap content-start border border-[2px] border-solid border-black rounded p-1">
+                        <label>Poner nota: </label>
+                        <SelectRango class="w-3/5" :limite="11" @emision="(e) => form.notaEvaluacion = e" >Nota
                         </SelectRango>
                         <Link
                              as="button" method="post"
                             :href="route('evaluar')"
                             :data="{ user_id: $page.props.auth.user['id'], obra_id: obra[0]['id'], evaluacion: form.notaEvaluacion }"
-                            class="w-4/5 text-flamingo bg-white hover:text-black focus:bg-flamingo focus:ring-flamingo focus:border-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 my-2 text-center">
+                            class="w-4/5 text-black bg-white hover:text-white hover:bg-black focus:bg-flamingo focus:ring-flamingo focus:border-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 my-2 text-center">
                             Evaluar {{ obra[0]['titulo'] }} &rarr;
                         </Link>
                     </div>
@@ -146,6 +147,7 @@ const form = useForm({
                             <textarea class="w-full h-[200px] m-1" v-model="form.critica"></textarea>
                         </form>
                         <InputError class="mt-2" :message="form.errors.critica"/>
+                        <Button class="w-1/5 text-black bg-white hover:text-white hover:bg-black focus:bg-flamingo focus:ring-flamingo focus:border-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 my-2 text-center">Reseñar {{obra[0]['titulo']}} &rarr;</Button>
                     </div>
                 </div>
                 <div v-else class="grid grid-cols-1 md:grid-cols-12 lg:grid-cols-12 p-1">
