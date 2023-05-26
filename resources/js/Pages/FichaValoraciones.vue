@@ -121,7 +121,11 @@ function procesarGustadas($usuario, $gustadas) {
             </div>
             <div class="col-span-1 lg:col-span-4 mt-5 mx-5 md:mx-0 ed bg-flamingo rounded">
                 <form class="p-2 w-full m-1 width">
-                    <SelectRango :limite-inferior="0" :limite-superior="10">Nota</SelectRango>
+                    <SelectRango class="w-4/5" :limite-inferior="0" :limite-superior="10">Nota</SelectRango>
+                    <Link :href="route('obra', encodeURIComponent(obra[0]['titulo']))" as="button"
+                          class="w-4/5 text-flamingo bg-white hover:text-black focus:bg-flamingo focus:ring-flamingo focus:border-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 mt-10 text-center">
+                        Evaluar {{ obra[0]['titulo'] }} &rarr;
+                    </Link>
                 </form>
                 <form class="p-2 w-full m-1">
                     form CRÍTICAS
