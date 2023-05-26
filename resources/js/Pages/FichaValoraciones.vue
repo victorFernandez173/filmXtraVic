@@ -126,21 +126,30 @@ const form = useForm({
                     </li>
                 </ul>
             </div>
+            <!-- Sección formularios container-->
             <div class="col-span-1 lg:col-span-4 mt-5 bg-flamingo rounded container">
                 <div v-if="$page.props.auth.user" class="grid grid-cols-1 md:grid-cols-12 lg:grid-cols-12 p-1">
+                    <!-- Formulario evas -->
                     <div
                         class="col-span-1 md:col-span-3 lg:col-span-2 flex justify-center flex-wrap content-start border border-[2px] border-solid border-black rounded p-1">
-                        <label>Poner nota: </label>
-                        <SelectRango class="w-3/5" :limite="11" @emision="(e) => form.notaEvaluacion = e" >Nota
-                        </SelectRango>
-                        <Link
-                             as="button" method="post"
-                            :href="route('evaluar')"
-                            :data="{ user_id: $page.props.auth.user['id'], obra_id: obra[0]['id'], evaluacion: form.notaEvaluacion }"
-                            class="w-4/5 text-black bg-white hover:text-white hover:bg-black focus:bg-flamingo focus:ring-flamingo focus:border-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 my-2 text-center">
-                            Evaluar {{ obra[0]['titulo'] }} &rarr;
-                        </Link>
+                        <div class="w-full text-center">
+                            <label class="">Evaluar: </label>
+                        </div>
+                        <div class="w-full">
+                            <SelectRango class="w-2/5 sm:w-1/4 md:w-3/4 text-center" :limite="11" @emision="(e) => form.notaEvaluacion = e" >Nota
+                            </SelectRango>
+                        </div>
+                        <div class="w-full text-center">
+                            <Link
+                                as="button" method="post"
+                                :href="route('evaluar')"
+                                :data="{ user_id: $page.props.auth.user['id'], obra_id: obra[0]['id'], evaluacion: form.notaEvaluacion }"
+                                class="w-2/5 sm:w-1/4 md:w-3/4 text-black bg-white hover:text-white hover:bg-black focus:bg-flamingo focus:ring-flamingo focus:border-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 my-2 text-center">
+                                Evaluar {{ obra[0]['titulo'] }} &rarr;
+                            </Link>
+                        </div>
                     </div>
+                    <!-- Formulario críticas -->
                     <div class="col-span-1 md:col-span-9 lg:col-span-10 border border-[2px] border-solid border-black rounded p-1 lg:ml-1 flex justify-center flex-wrap">
                         <label class="w-full text-center">Reseña {{obra[0]['titulo']}} <span :class="[form.critica.length > 5000 ? 'text-yellow-300  font-extrabold' : 'text-black']">({{ form.critica.length }}/5000 caracteres){{form.critica.length > 5000 ? ' Máximo de caracteres sobrepasado' : ''}}</span></label>
                         <form class="w-11/12">
