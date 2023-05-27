@@ -165,8 +165,10 @@ const form = useForm({
                         <Button class="w-2/5 text-flamingo bg-white hover:text-black focus:bg-white focus:ring-flamingo focus:text-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 my-2 text-center">Reseñar {{obra[0]['titulo']}} &rarr;</Button>
                     </div>
                 </div>
-                <div v-else class="grid grid-cols-1 md:grid-cols-12 lg:grid-cols-12 p-1">
-                    PARA PODER EVALUAR O PONER NOTAS TIENES QUE ESTAR LOGUEADO/REGISTRADO
+                <div v-else class="grid grid-cols-1 p-10 font-bold text-white text-3xl text-center">
+                    Para poder evaluar o poner notas a la película tienes que estar logueado.
+                    <Link as="button" :href="route('login')" class="boton-login-valorar m-auto mt-5 text-flamingo bg-white hover:text-black focus:bg-white focus:ring-flamingo focus:text-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 my-2 text-center">Loguearse</Link>
+                    <img src="/images/logo-blanco.png" class="w-40 pt-5 m-auto">
                 </div>
             </div>
         </div>
@@ -181,6 +183,10 @@ const form = useForm({
     .evaluaciones {
         padding-top: 25%;
     }
+
+    .boton-login-valorar {
+        width: 20%;
+    }
 }
 
 /********* Tablet *********/
@@ -189,5 +195,19 @@ const form = useForm({
     .evaluaciones {
         padding-top: 25%;
     }
+
+    .boton-login-valorar {
+        width: 20%;
+    }
+}
+
+/********* Tablet *********/
+/********* Formulario evaluaciones *********/
+@media screen and (max-width: 768px) {
+    .boton-login-valorar {
+        width: 30%;
+    }
 }
 </style>
+
+
