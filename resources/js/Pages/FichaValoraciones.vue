@@ -150,7 +150,7 @@ const form = useForm({
                                 as="button" method="post"
                                 :href="route('evaluar')"
                                 :data="{ user_id: $page.props.auth.user['id'], obra_id: obra[0]['id'], evaluacion: form.notaEvaluacion }"
-                                class="w-2/5 sm:w-1/4 md:w-3/4 text-flamingo bg-white hover:text-black focus:bg-white focus:ring-flamingo focus:text-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 my-2 text-center" preserveScroll>
+                                class="w-2/5 sm:w-1/4 md:w-3/4 text-flamingo bg-white hover:text-black font-medium rounded-lg text-sm px-5 py-2.5 my-2 text-center" preserveScroll>
                                 Evaluar {{ obra[0]['titulo'] }} &rarr;
                             </Link>
                         </div>
