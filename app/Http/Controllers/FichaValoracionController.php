@@ -23,7 +23,6 @@ class FichaValoracionController extends Controller
             'obra' => $obra,
             'mediaEvaluaciones' => ObtenerObraController::calcularMediaEvaluaciones($obra[0]['evaluaciones']),
             'criticas' => ObtenerObraController::obtenerArrayInfoCriticas($obra[0]['criticas']),
-            'profesionales' => ObtenerObraController::obtenerInfoMediosProfesionals($obra),
         ]);
     }
 }

@@ -216,13 +216,13 @@ function procesarGustadas($usuario, $gustadas) {
             <div class="py-10 pl-12 lg:col-span-3 md:col-span-2">
                 <!--Titulo-->
                 <ul>
-                    <li v-if="profesionales" class="list-disc font-bold text-black text-xl">Críticas
+                    <li v-if="profesionales" class="list-disc font-bold text-black text-xl mb-5">Críticas
                         profesionales:
                     </li>
                 </ul>
-                <ul v-for="(p, i) in profesionales">
+                <ul v-for="p in profesionales">
                     <!--Críticas profesionales-->
-                    <li class="list-disc ml-5 mb-5">
+                    <li class="list-disc ml-5 mb-4">
                         <span class="font-semibold">
                             <a
                                 class="underline hover:text-black" :href="p['web']" target="_blank"
@@ -238,11 +238,11 @@ function procesarGustadas($usuario, $gustadas) {
                 </ul>
                 <!--Titulo-->
                 <ul>
-                    <li class="list-disc font-bold text-black text-xl mt-3">Críticas de nuestros usuarios:</li>
+                    <li class="list-disc font-bold text-black text-xl mt-10 mb-5">Críticas de nuestros usuarios:</li>
                 </ul>
                 <ul v-for="(cri, i) in criticas['data']">
                     <!--Críticas usuarios-->
-                    <li v-if="i < 2" class="list-disc ml-5 mb-5">
+                    <li v-if="i < 2" class="list-disc ml-5 mb-4">
                         <span
                             class="underline font-semibold">{{ cri['usuario'][0]['name'] }}
                         </span>: {{ cri['critica'] }}
@@ -272,7 +272,7 @@ function procesarGustadas($usuario, $gustadas) {
                 <p v-if="!criticas['data'][0]" class="py-3">Sin críticas de usuarios todavía. Participa, pon la tuya.</p>
                 <Link :href="route('fichaValoraciones', encodeURIComponent(obra[0]['titulo']))" as="button"
                       class="my-5 m-auto text-flamingo bg-white hover:text-black focus:bg-white focus:ring-flamingo focus:text-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5"  preserve-scroll>
-                    Ver más críticas/Valorar {{ obra[0]['titulo'] }}&rarr;
+                    Ver más críticas de usuarios/Valorar {{ obra[0]['titulo'] }}&rarr;
                 </Link>
             </div>
 

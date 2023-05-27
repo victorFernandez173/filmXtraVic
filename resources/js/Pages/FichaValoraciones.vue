@@ -79,30 +79,15 @@ const form = useForm({
 
             <!--Criticas-->
             <div class="criticas-profesionales rounded mx-5 lg:mr-0 col-span-3 bg-flamingo px-8 lg:px-20 pb-5">
-                <!--Titulo profesionales-->
-                <ul>
-                    <li class="list-disc font-bold underline text-xl mt-5 pt-3 text-white">Críticas
-                        profesionales:
-                    </li>
-                </ul>
-                <ul v-for="(p, i) in profesionales">
-                    <!--Críticas profesionales-->
-                    <li v-if="i < 5" class="list-disc ml-5"><span class="font-semibold"><a
-                        class="underline hover:text-white" :href="p['web']" target="_blank"
-                        href="">{{ p['medio'] }}</a>:</span> {{ p['contenido'] }} <span
-                        class="italic">{{ p['autor'] }}</span>
-                        <span v-if="p['fecha']"> ({{ dayjs(p['fecha']).fromNow() }})</span>
-                    </li>
-                </ul>
                 <!--Titulo usuarios-->
                 <ul>
-                    <li class="list-disc font-bold underline text-xl mt-3 text-white">Críticas de nuestros
+                    <li class="list-disc font-bold underline text-xl mt-10 mb-5 text-white">Críticas de nuestros
                         usuarios:
                     </li>
                 </ul>
                 <ul v-for="(cri, i) in criticas['data']">
                     <!--Críticas usuarios-->
-                    <li class="list-disc ml-5"><span
+                    <li class="list-disc ml-5 mb-4"><span
                         class="underline font-semibold">{{ cri['usuario'][0]['name'] }}</span>: {{ cri['critica'] }}
                         ({{ dayjs(cri['fecha']).fromNow() }}) - Likes: {{ cri['likes'] }}
 
@@ -168,7 +153,7 @@ const form = useForm({
                 <div v-else class="grid grid-cols-1 p-10 font-bold text-white text-3xl text-center">
                     Para poder evaluar o poner notas a la película tienes que estar logueado.
                     <Link as="button" :href="route('login')" class="boton-login-valorar m-auto mt-5 text-flamingo bg-white hover:text-black focus:bg-white focus:ring-flamingo focus:text-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 my-2 text-center">Loguearse</Link>
-                    <img src="/images/logo-blanco.png" class="w-40 pt-5 m-auto">
+                    <img src="/images/logo-blanco.png" class="w-40 pt-5 m-auto" alt="Logo de la web">
                 </div>
             </div>
         </div>
