@@ -187,7 +187,8 @@ function procesarGustadas($usuario, $gustadas) {
                                     }}
                                 </span>
                                     <div class="width-[100%] flex justify-center -my-[25px] md:m:0">
-                                        <Poster :obra="secuela" :titulo="`text-lg hover:text-md`"/>
+                                        <Poster :obra="secuela" :titulo="`text-lg hover:text-md`"
+                                        :info="true"/>
                                     </div>
                                 </div>
                             </div>
@@ -199,7 +200,8 @@ function procesarGustadas($usuario, $gustadas) {
                                     }}
                                 </span>
                                     <div class="width-[100%] flex justify-center -my-[25px] md:m:0">
-                                        <Poster :obra="secuela" :titulo="`text-lg hover:text-md`"/>
+                                        <Poster :obra="secuela" :titulo="`text-lg hover:text-md`"
+                                        :info="true"/>
                                     </div>
                                 </div>
                             </div>
