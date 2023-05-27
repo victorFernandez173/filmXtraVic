@@ -218,7 +218,7 @@ function procesarGustadas($usuario, $gustadas) {
             <div class="py-10 pl-12 lg:col-span-3 md:col-span-2">
                 <!--Titulo-->
                 <ul>
-                    <li v-if="profesionales" class="list-disc font-bold text-black text-xl mb-5">Críticas
+                    <li v-if="profesionales" class="list-disc font-bold text-black text-xl mb-5 underline">Críticas
                         profesionales:
                     </li>
                 </ul>
@@ -240,7 +240,7 @@ function procesarGustadas($usuario, $gustadas) {
                 </ul>
                 <!--Titulo-->
                 <ul>
-                    <li class="list-disc font-bold text-black text-xl mt-10 mb-5">Críticas de nuestros usuarios:</li>
+                    <li class="list-disc font-bold text-black text-xl mt-10 mb-5 underline">Críticas de nuestros usuarios:</li>
                 </ul>
                 <ul v-for="(cri, i) in criticas['data']">
                     <!--Críticas usuarios-->

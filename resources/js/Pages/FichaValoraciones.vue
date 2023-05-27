@@ -81,13 +81,13 @@ const form = useForm({
             <div class="criticas-profesionales rounded mx-5 lg:mr-0 col-span-3 bg-flamingo px-8 lg:px-20 pb-5">
                 <!--Titulo usuarios-->
                 <ul>
-                    <li class="list-disc font-bold underline text-xl mt-10 mb-5 text-white">Críticas de nuestros
+                    <li class="list-disc font-bold underline text-xl mt-10 mb-5">Críticas de nuestros
                         usuarios:
                     </li>
                 </ul>
                 <ul v-for="(cri, i) in criticas['data']">
                     <!--Críticas usuarios-->
-                    <li class="list-disc ml-5 mb-4"><span
+                    <li class="list-disc ml-5 mb-4 text-white"><span
                         class="underline font-semibold">{{ cri['usuario'][0]['name'] }}</span>: {{ cri['critica'] }}
                         ({{ dayjs(cri['fecha']).fromNow() }}) - Likes: {{ cri['likes'] }}
 
