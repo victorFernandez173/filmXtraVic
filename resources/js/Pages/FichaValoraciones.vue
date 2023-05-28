@@ -35,8 +35,8 @@ function alertaDarLike() {
 function alertaCritica(pelicula) {
     Swal.fire({
         title: 'Bravo!',
-        text: `Has criticado ` + pelicula,
-        imageUrl: '../gif/t2.gif',
+        text: `Has puesto tu critica a ` + pelicula,
+        imageUrl: '../gif/terminator.gif',
         imageWidth: 400,
         imageAlt: 'Critica exitosa',
         confirmButtonColor: '#e37f81'
@@ -160,7 +160,10 @@ const form = useForm({
 
                         <p v-if="form.recentlySuccessful">{{alertaCritica(obra[0]['titulo'])}}</p>
 
-                        <form @submit.prevent="form.post(route('criticar'))" class="w-11/12 text-center">
+                        <form @submit.prevent="form.post(route('criticar'), {
+  preserveScroll: true,
+  onSuccess: () => form.reset('critica'),
+})" class="w-11/12 text-center">
                             <textarea class="w-full h-[200px] m-1" v-model="form.critica"></textarea>
                             <div class="w-full text-center">
                                 <p class="text-yellow-300 w-2/5 sm:w-1/4 md:w-3/4 text-center m-auto" >{{$page.props.errors['critica']}}</p>
@@ -168,7 +171,7 @@ const form = useForm({
                             <Button
                                 :data="{ user_id: $page.props.auth.user['id'], obra_id: obra[0]['id'], critica: form.critica }"
                                 @click="form.user_id = $page.props.auth.user['id']; form.obra_id = obra[0]['id']"
-                                class="w-2/5 text-flamingo bg-white hover:text-black focus:bg-white focus:ring-flamingo focus:text-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 my-2 text-center" preserveScroll>Reseñar {{obra[0]['titulo']}} &rarr;
+                                class="w-2/5 text-flamingo bg-white hover:text-black focus:bg-white focus:ring-flamingo focus:text-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 my-2 text-center" >Reseñar {{obra[0]['titulo']}} &rarr;
                             </Button>
                         </form>
 
