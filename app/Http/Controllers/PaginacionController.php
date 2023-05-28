@@ -6,7 +6,7 @@ use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
 
-class Paginacion extends Controller
+class PaginacionController extends Controller
 {
     /**
      * @param $items
