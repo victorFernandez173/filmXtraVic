@@ -3,18 +3,25 @@
 namespace App\Http\Controllers;
 
 use App\Models\Critica;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class CriticaController extends Controller
 {
 
-    public function criticar(Request $request){
+    /**
+     * Para poner o modificar critica de una obra
+     * @param Request $request
+     * @return void
+     * @throws Exception
+     */
+    public function criticar(Request $request)
+    {
 
         $validated = $request->validate([
-            'critica' => 'required|min:10|max:5000',
+            'critica' => 'required|max:5000',
         ], ['critica.required' => 'No has escrito nada.',
-            'critica.min' => 'Al menos da alguna razón',
             'critica.max' => 'No puedes sobrepasar los 5000 caracteres.']);
 
         $critica = new Critica([
