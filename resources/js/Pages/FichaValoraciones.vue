@@ -121,26 +121,26 @@ const form = useForm({
             <div class="col-span-1 lg:col-span-4 mt-5 bg-flamingo rounded container">
                 <div v-if="$page.props.auth.user" class="grid grid-cols-1 md:grid-cols-12 lg:grid-cols-12 p-1">
                     <!-- Formulario evas -->
-                    <div class="evaluaciones col-span-1 md:col-span-3 lg:col-span-2 flex justify-center flex-wrap content-start p-1 border-r">
-                        <div class="w-full text-center">
-                            <label class="font-bold underline text-xl mt-3 text-white">Evaluar: </label>
-                        </div>
-                        <div class="w-full">
-                            <SelectRango class="w-2/5 sm:w-1/4 md:w-3/4 text-center" :limite="11" @emision="(e) => form.notaEvaluacion = e" >Nota
-                            </SelectRango>
-                        </div>
-                        <div class="w-full text-center">
-                            <p class="text-yellow-300 w-2/5 sm:w-1/4 md:w-3/4 text-center m-auto" >{{$page.props.errors['evaluacion']}}</p>
-                        </div>
-                        <div class="w-full text-center">
-                            <Link
-                                as="button" method="post"
-                                :href="route('evaluar')"
-                                :data="{ user_id: $page.props.auth.user['id'], obra_id: obra[0]['id'], evaluacion: form.notaEvaluacion }"
-                                class="w-2/5 sm:w-1/4 md:w-3/4 text-flamingo bg-white hover:text-black font-medium rounded-lg text-sm px-5 py-2.5 my-2 text-center" preserveScroll>
-                                Evaluar {{ obra[0]['titulo'] }} &rarr;
-                            </Link>
-                        </div>
+                    <div class="col-span-1 md:col-span-3 lg:col-span-2 flex justify-center flex-wrap p-1 border-b md:border-r content-center">
+                            <div class="w-full text-center">
+                                <label class="font-bold underline text-xl text-white">Evaluar: </label>
+                            </div>
+                            <div class="w-full">
+                                <SelectRango class="w-2/5 sm:w-1/4 md:w-3/4 text-center" :limite="11" @emision="(e) => form.notaEvaluacion = e" >Nota
+                                </SelectRango>
+                            </div>
+                            <div class="w-full text-center">
+                                <p class="text-yellow-300 w-2/5 sm:w-1/4 md:w-3/4 text-center m-auto" >{{$page.props.errors['evaluacion']}}</p>
+                            </div>
+                            <div class="w-full text-center">
+                                <Link
+                                    as="button" method="post"
+                                    :href="route('evaluar')"
+                                    :data="{ user_id: $page.props.auth.user['id'], obra_id: obra[0]['id'], evaluacion: form.notaEvaluacion }"
+                                    class="w-2/5 sm:w-1/4 md:w-3/4 text-flamingo bg-white hover:text-black font-medium rounded-lg text-sm px-5 py-2.5 my-2 text-center" preserveScroll>
+                                    Evaluar {{ obra[0]['titulo'] }} &rarr;
+                                </Link>
+                            </div>
                     </div>
                     <!-- Formulario críticas -->
                     <div class="col-span-1 md:col-span-9 lg:col-span-10 rounded p-1 lg:ml-1 flex justify-center flex-wrap">
@@ -154,7 +154,7 @@ const form = useForm({
                 </div>
                 <div v-else class="grid grid-cols-1 p-10 font-bold text-white text-3xl text-center">
                     Para poder evaluar o poner notas a la película tienes que estar logueado.
-                    <Link as="button" :href="route('login')" class="boton-login-valorar m-auto mt-5 text-flamingo bg-white hover:text-black focus:bg-white focus:ring-flamingo focus:text-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 my-2 text-center">Loguearse</Link>
+                    <Link as="button" :href="route('login')" class="m-auto mt-5 text-flamingo bg-white hover:text-black focus:bg-white focus:ring-flamingo focus:text-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 my-2 text-center">Loguearse</Link>
                     <img src="/images/logo-blanco.png" class="w-40 pt-5 m-auto" alt="Logo de la web">
                 </div>
             </div>
@@ -162,39 +162,5 @@ const form = useForm({
     </div>
 </template>
 
-<style>
-/********* RESPONSIVE *********/
-/********* Ordenador *********/
-/********* Formulario evaluaciones *********/
-@media screen and (min-width: 992px) {
-    .evaluaciones {
-        padding-top: 25%;
-    }
-
-    .boton-login-valorar {
-        width: 20%;
-    }
-}
-
-/********* Tablet *********/
-/********* Formulario evaluaciones *********/
-@media screen and (max-width: 991px) and (min-width: 769px) {
-    .evaluaciones {
-        padding-top: 25%;
-    }
-
-    .boton-login-valorar {
-        width: 20%;
-    }
-}
-
-/********* Tablet *********/
-/********* Formulario evaluaciones *********/
-@media screen and (max-width: 768px) {
-    .boton-login-valorar {
-        width: 30%;
-    }
-}
-</style>
 
 

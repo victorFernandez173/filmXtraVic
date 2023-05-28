@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CriticaController;
 use App\Http\Controllers\EvaluacionController;
 use App\Http\Controllers\FichaValoracionController;
 use App\Http\Controllers\TopObrasController;
@@ -34,6 +35,8 @@ Route::get('valoraciones/{titulo}', [FichaValoracionController::class, 'obtenerF
 Route::post('/like', [LikeController::class, 'darLike'])->name('darLike');
 
 Route::post('evaluar', [EvaluacionController::class, 'evaluar'])->name('evaluar');
+
+Route::post('criticar', [CriticaController::class, 'criticar'])->name('criticar');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

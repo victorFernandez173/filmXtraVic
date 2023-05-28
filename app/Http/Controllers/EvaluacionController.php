@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class EvaluacionController extends Controller
 {
+    /**
+     * Añade una evaluacion o la modifica
+     * @param Request $request
+     * @return void
+     */
     public function evaluar(Request $request){
 
         $validated = $request->validate([

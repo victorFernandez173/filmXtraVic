@@ -4,62 +4,31 @@ namespace App\Http\Controllers;
 
 use App\Models\Critica;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CriticaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+    public function criticar(Request $request){
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        $validated = $request->validate([
+            'critica' => 'required|min:10|max:5000',
+        ], ['critica.required' => 'No has escrito nada.',
+            'critica.min' => 'Al menos da alguna razón',
+            'critica.max' => 'No puedes sobrepasar los 5000 caracteres.']);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Critica $critica)
-    {
-        //
-    }
+        $critica = new Critica([
+            'user_id' => $request['user_id'],
+            'obra_id' => $request['obra_id'],
+            'critica' => $validated['critica']
+        ]);
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Critica $critica)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Critica $critica)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Critica $critica)
-    {
-        //
+        if(DB::table('criticas')->where('user_id', $critica->user_id)->where('obra_id', $critica->obra_id)->exists()){
+            // Si la critica ya existía, se modifica
+            $critica->where('user_id', $critica->user_id)->where('obra_id', $critica->obra_id)->update(['critica'=>$critica->critica]);
+        } else {
+            // Sino, se guarda
+            $critica->save();
+        }
     }
 }
