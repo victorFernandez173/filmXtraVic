@@ -144,7 +144,7 @@ const form = useForm({
                     </div>
                     <!-- Formulario críticas -->
                     <div class="col-span-1 md:col-span-9 lg:col-span-10 rounded p-1 lg:ml-1 flex justify-center flex-wrap">
-                        <label class="w-full text-center font-bold underline text-xl mt-3 text-white">Reseña {{obra[0]['titulo']}} <span :class="[form.critica.length > 5000 ? 'text-white  font-bold' : 'text-white']">({{ form.critica.length }}/5000 caracteres){{form.critica.length > 5000 ? ' Máximo de caracteres sobrepasado' : ''}}</span></label>
+                        <label class="w-full text-center font-bold underline text-xl mt-3 text-white">Reseña {{obra[0]['titulo']}} <span :class="[form.critica.length > 5000 ? 'text-yellow-300  font-bold' : 'text-white']">({{ form.critica.length }}/5000 caracteres){{form.critica.length > 5000 ? ' Máximo de caracteres sobrepasado' : ''}}</span></label>
                         <form class="w-11/12">
                             <textarea class="w-full h-[200px] m-1" v-model="form.critica"></textarea>
                         </form>
