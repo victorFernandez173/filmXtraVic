@@ -186,20 +186,20 @@ function procesarGustadas($usuario, $gustadas) {
                                         obra[0]['secuela']['orden'] === 0 ? 'Inicio saga' : secuela['secuela']['orden'] === 0 ? 'Spin-off' : secuela['secuela']['orden'] > obra[0]['secuela']['orden'] ? 'Secuela' : 'Precuela'
                                     }}
                                 </span>
-                                    <div class="width-[100%] flex justify-center -my-[25px] md:m:0">
+                                    <div class="w-[80%] md:w-full mx-auto flex justify-center -my-[25px] md:m:0 mt-0.5">
                                         <Poster :obra="secuela" :titulo="`text-lg hover:text-md`"
                                         :info="true"/>
                                     </div>
                                 </div>
                             </div>
                             <div v-else class="text-center grid lg:grid-cols-2 justify-items-center">
-                                <div v-for="secuela in secuelasOrdenadas" class="w-[80%] sm:w-[100%] md:w-[250px] lg">
+                                <div v-for="secuela in secuelasOrdenadas" class="w-[80%] sm:w-[100%] md:w-[250px] lg mb-5">
                                 <span>
                                 {{
                                         obra[0]['secuela']['orden'] === 0 ? 'Inicio saga' : secuela['secuela']['orden'] === 0 ? 'Spin-off' : secuela['secuela']['orden'] > obra[0]['secuela']['orden'] ? 'Secuela' : 'Precuela'
                                     }}
                                 </span>
-                                    <div class="width-[100%] flex justify-center -my-[25px] md:m:0">
+                                    <div class="w-[80%] md:w-[90%] mx-auto flex justify-center -my-[25px] md:m:0 mt-0.5">
                                         <Poster :obra="secuela" :titulo="`text-lg hover:text-md`"
                                         :info="true"/>
                                     </div>
