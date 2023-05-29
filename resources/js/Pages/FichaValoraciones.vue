@@ -18,7 +18,7 @@ import Paginacion from "../Components/Paginacion.vue";
 import {computed, ref} from "vue";
 
 const page = usePage();
-const props = defineProps(['obra', 'mediaEvaluaciones', 'profesionales', 'criticas', 'pelicula_criticas']);
+const props = defineProps(['obra', 'mediaEvaluaciones', 'profesionales', 'criticas', 'pelicula_criticas', 'pelicula_evaluaciones']);
 dayjs.extend(relativeTime);
 dayjs.locale('es');
 
@@ -70,7 +70,20 @@ const form2 = useForm({
 });
 
 
-// Funcion para determinar si el usuario ya ha puesto critica a esa obra
+// Procesado de las criticas/evaluaciones
+function existeLaEvaluacion(usuario, obra){
+    const objetoEvaluacionesExistentes = ref(props.pelicula_evaluaciones);
+    const arrayEvaluacionesExistentes = [];
+    for (const e of Object.values(objetoEvaluacionesExistentes['_value'])) {
+        arrayEvaluacionesExistentes.push(Object.values(e));
+    }
+    for (let i = 0; i < arrayEvaluacionesExistentes.length; i++){
+        if(arrayEvaluacionesExistentes[i][1] === usuario && arrayEvaluacionesExistentes[i][2] === obra){
+            return  true;
+        }
+        return false;
+    }
+}
 function existeLaCritica(usuario, obra){
     const objetoCriticasExistentes = ref(props.pelicula_criticas);
     const arrayCriticasExistentes = [];
@@ -82,6 +95,21 @@ function existeLaCritica(usuario, obra){
             return  true;
         }
         return false;
+    }
+}
+
+
+function cargarContenidoEvaluacionUsuario(usuario, obra){
+    const objetoEvaluacionesExistentes = ref(props.pelicula_evaluaciones);
+    const arrayEvaluacionesExistentes = [];
+    for (const e of Object.values(objetoEvaluacionesExistentes['_value'])) {
+        arrayEvaluacionesExistentes.push(Object.values(e));
+    }
+    for (let i = 0; i < arrayEvaluacionesExistentes.length; i++){
+        if(arrayEvaluacionesExistentes[i][1] === usuario && arrayEvaluacionesExistentes[i][2] === obra){
+            return parseInt(arrayEvaluacionesExistentes[i][3]).toString();
+        }
+        return '';
     }
 }
 function cargarContenidoCriticaUsuario(usuario, obra){
@@ -97,7 +125,17 @@ function cargarContenidoCriticaUsuario(usuario, obra){
         return '';
     }
 }
-// Requiere de un computed ya que la variable que chequea hay que procesarla
+
+
+const existeLaEvaluacionVarComputed = computed(() => {
+    if(existeLaEvaluacion(page.props.auth.user['id'], page.props.obra[0]['id']) !== existeLaEvaluacionVar.value){
+        existeLaEvaluacionVar.value = true;
+        return alertaCritica(page.props.obra[0]['titulo'], 'Has puesto tu critica de ', '../gif/terminator.gif', 'Bravo!!!');
+    }
+    return alertaCritica(page.props.obra[0]['titulo'], 'Has modificado tu critica de ', '../gif/resplandor.gif', 'Atención:');
+
+});
+
 const existeLaCriticaVarComputed = computed(() => {
     if(existeLaCritica(page.props.auth.user['id'], page.props.obra[0]['id']) !== existeLaCriticaVar.value){
      existeLaCriticaVar.value = true;
@@ -107,7 +145,12 @@ const existeLaCriticaVarComputed = computed(() => {
 
 });
 
+
+const existeLaEvaluacionVar = ref(existeLaEvaluacion(page.props.auth.user?page.props.auth.user['id']:null, page.props.obra[0]['id']));
+
 const existeLaCriticaVar = ref(existeLaCritica(page.props.auth.user?page.props.auth.user['id']:null, page.props.obra[0]['id']));
+
+
 </script>
 
 <template>
@@ -180,6 +223,7 @@ const existeLaCriticaVar = ref(existeLaCritica(page.props.auth.user?page.props.a
             <div class="col-span-1 lg:col-span-4 mt-5 bg-flamingo rounded container">
                 <div v-if="$page.props.auth.user" class="grid grid-cols-1 md:grid-cols-12 lg:grid-cols-12 p-1">
                     <!-- Formulario evas -->
+
                     <form
                         @submit.prevent="form2.post(
                                 route('evaluar'),
@@ -187,12 +231,13 @@ const existeLaCriticaVar = ref(existeLaCritica(page.props.auth.user?page.props.a
                                         preserveScroll: true,
                                         })"
                         class="col-span-1 md:col-span-3 lg:col-span-2 flex justify-center flex-wrap p-1 border-b md:border-r md:border-b-0 content-center">
+
                         <div class="w-full text-center">
                             <label class="font-bold underline text-xl text-white">Evaluar: </label>
                         </div>
                         <div class="w-full">
-                            <SelectRango class="w-2/5 sm:w-1/4 md:w-3/4 text-center" :limite="11"
-                                         @emision="(e) => form2.evaluacion = e">Nota
+                            <SelectRango class="w-2/5 sm:w-1/4 md:w-3/4 text-center" :limite="11" :valor="cargarContenidoEvaluacionUsuario(page.props.auth.user['id'], page.props.obra[0]['id']) ? cargarContenidoEvaluacionUsuario(page.props.auth.user['id'], page.props.obra[0]['id']) : 'Nota'"
+                                         @emision="(e) => form2.evaluacion = e">
                             </SelectRango>
                         </div>
                         <div class="w-full text-center">
@@ -202,8 +247,7 @@ const existeLaCriticaVar = ref(existeLaCritica(page.props.auth.user?page.props.a
                         <div class="w-full text-center">
                             <button
                                 @click="form2.user_id = $page.props.auth.user['id']; form2.obra_id = obra[0]['id']"
-                                class="w-2/5 sm:w-1/4 md:w-3/4 text-flamingo bg-white hover:text-black font-medium rounded-lg text-sm px-5 py-2.5 my-2 text-center"
-                                preserveScroll>
+                                class="w-2/5 sm:w-1/4 md:w-3/4 text-flamingo bg-white hover:text-black font-medium rounded-lg text-sm px-5 py-2.5 my-2 text-center>
                                 Evaluar {{ obra[0]['titulo'] }} &rarr;
                             </button>
                         </div>
@@ -218,6 +262,7 @@ const existeLaCriticaVar = ref(existeLaCritica(page.props.auth.user?page.props.a
                                 }}/5000 caracteres){{ form.critica.length > 5000 ? ' Máximo de caracteres sobrepasado' : '' }}</span></label>
 
                         <p v-if="form.recentlySuccessful">{{existeLaCriticaVarComputed}}</p>
+                        <p v-if="form.recentlySuccessful">{{existeLaEvaluacionVarComputed}}</p>
 
                         <form
                             @submit.prevent="form.post(

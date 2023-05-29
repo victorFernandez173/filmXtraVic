@@ -24,7 +24,7 @@ class FichaValoracionController extends Controller
             'mediaEvaluaciones' => InfoController::calcularMediaEvaluaciones($obra[0]['evaluaciones']),
             'criticas' => InfoController::obtenerArrayInfoCriticas($obra[0]['criticas']),
             'pelicula_criticas' => DB::table('criticas')->select('user_id', 'obra_id', 'critica')->join('obras', 'obras.id', '=', 'obra_id')->where('titulo', $titulo)->get(),
-            'pelicula_evaluaciones' => DB::table('evaluaciones')->select('id', 'user_id', 'obra_id', 'critica')->join('obras', 'obras.id', '=', 'obra_id')->where('titulo', $titulo)->get(),
+            'pelicula_evaluaciones' => DB::table('evaluaciones')->select('evaluaciones.id', 'user_id', 'obra_id', 'evaluacion')->join('obras', 'obras.id', '=', 'obra_id')->where('titulo', $titulo)->get(),
         ]);
     }
 }
