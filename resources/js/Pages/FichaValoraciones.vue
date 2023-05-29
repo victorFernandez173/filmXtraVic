@@ -10,13 +10,15 @@ export default {
 import dayjs from "dayjs";
 import es from "dayjs/locale/es";
 import relativeTime from 'dayjs/plugin/relativeTime';
-import {Head, Link, useForm} from "@inertiajs/vue3";
+import {Head, Link, useForm, usePage} from "@inertiajs/vue3";
 import Estrellitas from "../Components/Estrellitas.vue";
 import Swal from "sweetalert2";
 import SelectRango from "../Components/SelectRango.vue";
 import Paginacion from "../Components/Paginacion.vue";
+import {computed, ref} from "vue";
 
-defineProps(['obra', 'mediaEvaluaciones', 'profesionales', 'criticas']);
+const page = usePage();
+const props = defineProps(['obra', 'mediaEvaluaciones', 'profesionales', 'criticas', 'pelicula_criticas']);
 dayjs.extend(relativeTime);
 dayjs.locale('es');
 
@@ -32,10 +34,10 @@ function alertaDarLike() {
     });
 }
 
-function alertaCritica(pelicula) {
+function alertaCritica(pelicula, mensaje) {
     Swal.fire({
         title: 'Bravo!',
-        text: `Has puesto tu critica a ` + pelicula,
+        text: mensaje + ' ' + pelicula,
         imageUrl: '../gif/terminator.gif',
         imageWidth: 400,
         imageAlt: 'Critica exitosa',
@@ -61,6 +63,33 @@ const form = useForm({
     notaEvaluacion: '',
     critica: ''
 });
+
+
+// Funcion para determinar si el usuario ya ha puesto critica a esa obra
+function existeLaCritica(usuario, obra){
+    const objetoCriticasExistentes = ref(props.pelicula_criticas);
+    const arrayCriticasExistentes = [];
+    for (const e of Object.values(objetoCriticasExistentes['_value'])) {
+        arrayCriticasExistentes.push(Object.values(e));
+    }
+    for (let i = 0; i < arrayCriticasExistentes.length; i++){
+        if(arrayCriticasExistentes[i][0] === usuario && arrayCriticasExistentes[i][1] === obra){
+            return true;
+        }
+        return false;
+    }
+}
+// Requiere de un computed ya que la variable que chequea hay que procesarla
+const existeLaCriticaVarComputed = computed(() => {
+    if(existeLaCritica(page.props.auth.user['id'], page.props.obra[0]['id']) !== existeLaCriticaVar.value){
+     existeLaCriticaVar.value = true;
+     return alertaCritica(page.props.obra[0]['titulo'], 'Has puesto tu critica de ');
+    }
+    return alertaCritica(page.props.obra[0]['titulo'], 'Has modificado tu critica de ');
+
+});
+
+const existeLaCriticaVar = ref(existeLaCritica(page.props.auth.user?page.props.auth.user['id']:null, page.props.obra[0]['id']));
 </script>
 
 <template>
@@ -133,53 +162,71 @@ const form = useForm({
             <div class="col-span-1 lg:col-span-4 mt-5 bg-flamingo rounded container">
                 <div v-if="$page.props.auth.user" class="grid grid-cols-1 md:grid-cols-12 lg:grid-cols-12 p-1">
                     <!-- Formulario evas -->
-                    <div class="col-span-1 md:col-span-3 lg:col-span-2 flex justify-center flex-wrap p-1 border-b md:border-r md:border-b-0 content-center">
-                            <div class="w-full text-center">
-                                <label class="font-bold underline text-xl text-white">Evaluar: </label>
-                            </div>
-                            <div class="w-full">
-                                <SelectRango class="w-2/5 sm:w-1/4 md:w-3/4 text-center" :limite="11" @emision="(e) => form.notaEvaluacion = e" >Nota
-                                </SelectRango>
-                            </div>
-                            <div class="w-full text-center">
-                                <p class="text-yellow-300 w-2/5 sm:w-1/4 md:w-3/4 text-center m-auto" >{{$page.props.errors['evaluacion']}}</p>
-                            </div>
-                            <div class="w-full text-center">
-                                <Link
-                                    as="button" method="post"
-                                    :href="route('evaluar')"
-                                    :data="{ user_id: $page.props.auth.user['id'], obra_id: obra[0]['id'], evaluacion: form.notaEvaluacion }"
-                                    class="w-2/5 sm:w-1/4 md:w-3/4 text-flamingo bg-white hover:text-black font-medium rounded-lg text-sm px-5 py-2.5 my-2 text-center" preserveScroll>
-                                    Evaluar {{ obra[0]['titulo'] }} &rarr;
-                                </Link>
-                            </div>
+                    <div
+                        class="col-span-1 md:col-span-3 lg:col-span-2 flex justify-center flex-wrap p-1 border-b md:border-r md:border-b-0 content-center">
+                        <div class="w-full text-center">
+                            <label class="font-bold underline text-xl text-white">Evaluar: </label>
+                        </div>
+                        <div class="w-full">
+                            <SelectRango class="w-2/5 sm:w-1/4 md:w-3/4 text-center" :limite="11"
+                                         @emision="(e) => form.notaEvaluacion = e">Nota
+                            </SelectRango>
+                        </div>
+                        <div class="w-full text-center">
+                            <p class="text-yellow-300 w-2/5 sm:w-1/4 md:w-3/4 text-center m-auto">
+                                {{ $page.props.errors['evaluacion'] }}</p>
+                        </div>
+                        <div class="w-full text-center">
+                            <Link
+                                as="button" method="post"
+                                :href="route('evaluar')"
+                                :data="{ user_id: $page.props.auth.user['id'], obra_id: obra[0]['id'], evaluacion: form.notaEvaluacion }"
+                                class="w-2/5 sm:w-1/4 md:w-3/4 text-flamingo bg-white hover:text-black font-medium rounded-lg text-sm px-5 py-2.5 my-2 text-center"
+                                preserveScroll>
+                                Evaluar {{ obra[0]['titulo'] }} &rarr;
+                            </Link>
+                        </div>
                     </div>
                     <!-- Formulario críticas -->
-                    <div class="col-span-1 md:col-span-9 lg:col-span-10 rounded p-1 lg:ml-1 flex justify-center flex-wrap">
-                        <label class="w-full text-center font-bold underline text-xl mt-3 text-white">Reseña {{obra[0]['titulo']}} <span :class="[form.critica.length > 5000 ? 'text-yellow-300  font-bold' : 'text-white']">({{ form.critica.length }}/5000 caracteres){{form.critica.length > 5000 ? ' Máximo de caracteres sobrepasado' : ''}}</span></label>
+                    <div
+                        class="col-span-1 md:col-span-9 lg:col-span-10 rounded p-1 lg:ml-1 flex justify-center flex-wrap">
+                        <label class="w-full text-center font-bold underline text-xl mt-3 text-white">Reseña
+                            {{ obra[0]['titulo'] }} <span
+                                :class="[form.critica.length > 5000 ? 'text-yellow-300  font-bold' : 'text-white']">({{
+                                    form.critica.length
+                                }}/5000 caracteres){{ form.critica.length > 5000 ? ' Máximo de caracteres sobrepasado' : '' }}</span></label>
 
-                        <p v-if="form.recentlySuccessful">{{alertaCritica(obra[0]['titulo'])}}</p>
+                        <p v-if="form.recentlySuccessful">{{existeLaCriticaVarComputed}}</p>
 
-                        <form @submit.prevent="form.post(route('criticar'), {
-  preserveScroll: true,
-  onSuccess: () => form.reset('critica'),
-})" class="w-11/12 text-center">
+                        <form
+                            @submit.prevent="form.post(
+                                route('criticar'),
+                                {
+                                        preserveScroll: true,
+                                        onSuccess: () => form.reset('critica'),
+                                        })"
+                            class="w-11/12 text-center">
                             <textarea class="w-full h-[200px] m-1" v-model="form.critica"></textarea>
                             <div class="w-full text-center">
-                                <p class="text-yellow-300 w-2/5 sm:w-1/4 md:w-3/4 text-center m-auto" >{{$page.props.errors['critica']}}</p>
+                                <p class="text-yellow-300 w-2/5 sm:w-1/4 md:w-3/4 text-center m-auto">
+                                    {{ $page.props.errors['critica'] }}</p>
                             </div>
-                            <Button
+                            <button
                                 :data="{ user_id: $page.props.auth.user['id'], obra_id: obra[0]['id'], critica: form.critica }"
                                 @click="form.user_id = $page.props.auth.user['id']; form.obra_id = obra[0]['id']"
-                                class="w-2/5 text-flamingo bg-white hover:text-black focus:bg-white focus:ring-flamingo focus:text-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 my-2 text-center" >Reseñar {{obra[0]['titulo']}} &rarr;
-                            </Button>
+                                class="w-2/5 text-flamingo bg-white hover:text-black focus:bg-white focus:ring-flamingo focus:text-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 my-2 text-center">
+                                Reseñar {{ obra[0]['titulo'] }} &rarr;
+                            </button>
                         </form>
 
                     </div>
                 </div>
                 <div v-else class="grid grid-cols-1 p-10 font-bold text-white text-3xl text-center">
                     Para poder evaluar o poner notas a la película tienes que estar logueado.
-                    <Link as="button" :href="route('login')" class="m-auto mt-5 text-flamingo bg-white hover:text-black focus:bg-white focus:ring-flamingo focus:text-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 my-2 text-center">Loguearse</Link>
+                    <Link as="button" :href="route('login')"
+                          class="m-auto mt-5 text-flamingo bg-white hover:text-black focus:bg-white focus:ring-flamingo focus:text-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 my-2 text-center">
+                        Loguearse
+                    </Link>
                     <img src="/images/logo-blanco.png" class="w-40 pt-5 m-auto" alt="Logo de la web">
                 </div>
             </div>
