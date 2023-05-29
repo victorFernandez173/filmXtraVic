@@ -61,7 +61,7 @@ function procesarGustadas($usuario, $gustadas) {
 const form = useForm({
     user_id: '',
     obra_id: '',
-    critica: cargarContenidoCriticaUsuario(page.props.auth.user?page.props.auth.user['id']:null, page.props.obra[0]['id']),
+    critica: cargarContenidoCriticaUsuario(page.props.auth.user ? page.props.auth.user['id'] : null, page.props.obra[0]['id']),
 });
 const form2 = useForm({
     user_id: '',
@@ -71,84 +71,72 @@ const form2 = useForm({
 
 
 // Procesado de las criticas/evaluaciones
-function existeLaEvaluacion(usuario, obra){
+function existeLaEvaluacion(usuario, obra) {
     const objetoEvaluacionesExistentes = ref(props.pelicula_evaluaciones);
     const arrayEvaluacionesExistentes = [];
     for (const e of Object.values(objetoEvaluacionesExistentes['_value'])) {
         arrayEvaluacionesExistentes.push(Object.values(e));
     }
-    for (let i = 0; i < arrayEvaluacionesExistentes.length; i++){
-        if(arrayEvaluacionesExistentes[i][1] === usuario && arrayEvaluacionesExistentes[i][2] === obra){
-            return  true;
+    for (let i = 0; i < arrayEvaluacionesExistentes.length; i++) {
+        if (arrayEvaluacionesExistentes[i][1] === usuario && arrayEvaluacionesExistentes[i][2] === obra) {
+            return true;
         }
         return false;
     }
 }
-function existeLaCritica(usuario, obra){
+
+function existeLaCritica(usuario, obra) {
     const objetoCriticasExistentes = ref(props.pelicula_criticas);
     const arrayCriticasExistentes = [];
     for (const e of Object.values(objetoCriticasExistentes['_value'])) {
         arrayCriticasExistentes.push(Object.values(e));
     }
-    for (let i = 0; i < arrayCriticasExistentes.length; i++){
-        if(arrayCriticasExistentes[i][0] === usuario && arrayCriticasExistentes[i][1] === obra){
-            return  true;
+    for (let i = 0; i < arrayCriticasExistentes.length; i++) {
+        if (arrayCriticasExistentes[i][0] === usuario && arrayCriticasExistentes[i][1] === obra) {
+            return true;
         }
         return false;
     }
 }
 
-
-function cargarContenidoEvaluacionUsuario(usuario, obra){
+function cargarContenidoEvaluacionUsuario(usuario, obra) {
     const objetoEvaluacionesExistentes = ref(props.pelicula_evaluaciones);
     const arrayEvaluacionesExistentes = [];
     for (const e of Object.values(objetoEvaluacionesExistentes['_value'])) {
         arrayEvaluacionesExistentes.push(Object.values(e));
     }
-    for (let i = 0; i < arrayEvaluacionesExistentes.length; i++){
-        if(arrayEvaluacionesExistentes[i][1] === usuario && arrayEvaluacionesExistentes[i][2] === obra){
+    for (let i = 0; i < arrayEvaluacionesExistentes.length; i++) {
+        if (arrayEvaluacionesExistentes[i][1] === usuario && arrayEvaluacionesExistentes[i][2] === obra) {
             return parseInt(arrayEvaluacionesExistentes[i][3]).toString();
         }
         return '';
     }
 }
-function cargarContenidoCriticaUsuario(usuario, obra){
+
+function cargarContenidoCriticaUsuario(usuario, obra) {
     const objetoCriticasExistentes = ref(props.pelicula_criticas);
     const arrayCriticasExistentes = [];
     for (const e of Object.values(objetoCriticasExistentes['_value'])) {
         arrayCriticasExistentes.push(Object.values(e));
     }
-    for (let i = 0; i < arrayCriticasExistentes.length; i++){
-        if(arrayCriticasExistentes[i][0] === usuario && arrayCriticasExistentes[i][1] === obra){
+    for (let i = 0; i < arrayCriticasExistentes.length; i++) {
+        if (arrayCriticasExistentes[i][0] === usuario && arrayCriticasExistentes[i][1] === obra) {
             return arrayCriticasExistentes[i][2];
         }
         return '';
     }
 }
 
-
-const existeLaEvaluacionVarComputed = computed(() => {
-    if(existeLaEvaluacion(page.props.auth.user['id'], page.props.obra[0]['id']) !== existeLaEvaluacionVar.value){
-        existeLaEvaluacionVar.value = true;
+const existeLaCriticaVarComputed = computed(() => {
+    if (existeLaCritica(page.props.auth.user['id'], page.props.obra[0]['id']) !== existeLaCriticaVar.value) {
+        existeLaCriticaVar.value = true;
         return alertaCritica(page.props.obra[0]['titulo'], 'Has puesto tu critica de ', '../gif/terminator.gif', 'Bravo!!!');
     }
     return alertaCritica(page.props.obra[0]['titulo'], 'Has modificado tu critica de ', '../gif/resplandor.gif', 'Atención:');
 
 });
 
-const existeLaCriticaVarComputed = computed(() => {
-    if(existeLaCritica(page.props.auth.user['id'], page.props.obra[0]['id']) !== existeLaCriticaVar.value){
-     existeLaCriticaVar.value = true;
-     return alertaCritica(page.props.obra[0]['titulo'], 'Has puesto tu critica de ', '../gif/terminator.gif', 'Bravo!!!');
-    }
-    return alertaCritica(page.props.obra[0]['titulo'], 'Has modificado tu critica de ', '../gif/resplandor.gif', 'Atención:');
-
-});
-
-
-const existeLaEvaluacionVar = ref(existeLaEvaluacion(page.props.auth.user?page.props.auth.user['id']:null, page.props.obra[0]['id']));
-
-const existeLaCriticaVar = ref(existeLaCritica(page.props.auth.user?page.props.auth.user['id']:null, page.props.obra[0]['id']));
+const existeLaCriticaVar = ref(existeLaCritica(page.props.auth.user ? page.props.auth.user['id'] : null, page.props.obra[0]['id']));
 
 
 </script>
@@ -236,13 +224,16 @@ const existeLaCriticaVar = ref(existeLaCritica(page.props.auth.user?page.props.a
                             <label class="font-bold underline text-xl text-white">Evaluar: </label>
                         </div>
                         <div class="w-full">
-                            <SelectRango class="w-2/5 sm:w-1/4 md:w-3/4 text-center" :limite="11" :valor="cargarContenidoEvaluacionUsuario(page.props.auth.user['id'], page.props.obra[0]['id']) ? cargarContenidoEvaluacionUsuario(page.props.auth.user['id'], page.props.obra[0]['id']) : 'Nota'"
+                            <SelectRango class="w-2/5 sm:w-1/4 md:w-3/4 text-center" :limite="11"
+                                         :valor="cargarContenidoEvaluacionUsuario(page.props.auth.user['id'], page.props.obra[0]['id']) ? cargarContenidoEvaluacionUsuario(page.props.auth.user['id'], page.props.obra[0]['id']) : 'Nota'"
                                          @emision="(e) => form2.evaluacion = e">
                             </SelectRango>
                         </div>
                         <div class="w-full text-center">
                             <p class="text-yellow-300 w-2/5 sm:w-1/4 md:w-3/4 text-center m-auto">
-                                {{ $page.props.errors['evaluacion'] }}</p>
+                                {{ $page.props.errors['evaluacion'] }}
+                            </p>
+                            <p v-if="form2.recentlySuccessful">Evaluación exitosa</p>
                         </div>
                         <div class="w-full text-center">
                             <button
@@ -256,13 +247,15 @@ const existeLaCriticaVar = ref(existeLaCritica(page.props.auth.user?page.props.a
                     <div
                         class="col-span-1 md:col-span-9 lg:col-span-10 rounded p-1 lg:ml-1 flex justify-center flex-wrap">
                         <label class="w-full text-center font-bold underline text-xl mt-3 text-white">Reseña
-                            {{ obra[0]['titulo'] }} <span
+                            {{ obra[0]['titulo'] }}
+                            <span
                                 :class="[form.critica.length > 5000 ? 'text-yellow-300  font-bold' : 'text-white']">({{
                                     form.critica.length
-                                }}/5000 caracteres){{ form.critica.length > 5000 ? ' Máximo de caracteres sobrepasado' : '' }}</span></label>
-
-                        <p v-if="form.recentlySuccessful">{{existeLaCriticaVarComputed}}</p>
-                        <p v-if="form.recentlySuccessful">{{existeLaEvaluacionVarComputed}}</p>
+                                }}/5000 caracteres){{
+                                    form.critica.length > 5000 ? ' Máximo de caracteres sobrepasado' : ''
+                                }}
+                            </span>
+                        </label>
 
                         <form
                             @submit.prevent="form.post(
@@ -275,6 +268,7 @@ const existeLaCriticaVar = ref(existeLaCritica(page.props.auth.user?page.props.a
                             <div class="w-full text-center">
                                 <p class="text-yellow-300 w-2/5 sm:w-1/4 md:w-3/4 text-center m-auto">
                                     {{ $page.props.errors['critica'] }}</p>
+                                <p class="invisible" v-if="form.recentlySuccessful">{{ existeLaCriticaVarComputed }}</p>
                             </div>
                             <button
                                 @click="form.user_id = $page.props.auth.user['id']; form.obra_id = obra[0]['id']"
