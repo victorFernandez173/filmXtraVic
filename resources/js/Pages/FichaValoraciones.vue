@@ -247,7 +247,7 @@ const existeLaCriticaVar = ref(existeLaCritica(page.props.auth.user?page.props.a
                         <div class="w-full text-center">
                             <button
                                 @click="form2.user_id = $page.props.auth.user['id']; form2.obra_id = obra[0]['id']"
-                                class="w-2/5 sm:w-1/4 md:w-3/4 text-flamingo bg-white hover:text-black font-medium rounded-lg text-sm px-5 py-2.5 my-2 text-center>
+                                class="w-2/5 sm:w-1/4 md:w-3/4 text-flamingo bg-white hover:text-black font-medium rounded-lg text-sm px-5 py-2.5 my-2 text-center">
                                 Evaluar {{ obra[0]['titulo'] }} &rarr;
                             </button>
                         </div>
