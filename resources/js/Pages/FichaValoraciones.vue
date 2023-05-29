@@ -56,12 +56,13 @@ function procesarGustadas($usuario, $gustadas) {
     return gustadaPorArray.includes($usuario['id']);
 }
 
+
 // Formularios
 const form = useForm({
     user_id: '',
     obra_id: '',
     notaEvaluacion: '',
-    critica: ''
+    critica: cargarContenidoCriticaUsuario(page.props.auth.user?page.props.auth.user['id']:null, page.props.obra[0]['id']),
 });
 
 
@@ -74,9 +75,22 @@ function existeLaCritica(usuario, obra){
     }
     for (let i = 0; i < arrayCriticasExistentes.length; i++){
         if(arrayCriticasExistentes[i][0] === usuario && arrayCriticasExistentes[i][1] === obra){
-            return true;
+            return  arrayCriticasExistentes[i][2];
         }
-        return false;
+        return '';
+    }
+}
+function cargarContenidoCriticaUsuario(usuario, obra){
+    const objetoCriticasExistentes = ref(props.pelicula_criticas);
+    const arrayCriticasExistentes = [];
+    for (const e of Object.values(objetoCriticasExistentes['_value'])) {
+        arrayCriticasExistentes.push(Object.values(e));
+    }
+    for (let i = 0; i < arrayCriticasExistentes.length; i++){
+        if(arrayCriticasExistentes[i][0] === usuario && arrayCriticasExistentes[i][1] === obra){
+            return arrayCriticasExistentes[i][2];
+        }
+        return '';
     }
 }
 // Requiere de un computed ya que la variable que chequea hay que procesarla
@@ -203,7 +217,6 @@ const existeLaCriticaVar = ref(existeLaCritica(page.props.auth.user?page.props.a
                                 route('criticar'),
                                 {
                                         preserveScroll: true,
-                                        onSuccess: () => form.reset('critica'),
                                         })"
                             class="w-11/12 text-center">
                             <textarea class="w-full h-[200px] m-1" v-model="form.critica"></textarea>
