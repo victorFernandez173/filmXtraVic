@@ -34,11 +34,11 @@ function alertaDarLike() {
     });
 }
 
-function alertaCritica(pelicula, mensaje) {
+function alertaCritica(pelicula, mensaje, gif, titulo) {
     Swal.fire({
-        title: 'Bravo!',
+        title: titulo,
         text: mensaje + ' ' + pelicula,
-        imageUrl: '../gif/terminator.gif',
+        imageUrl: gif,
         imageWidth: 400,
         imageAlt: 'Critica exitosa',
         confirmButtonColor: '#e37f81'
@@ -97,9 +97,9 @@ function cargarContenidoCriticaUsuario(usuario, obra){
 const existeLaCriticaVarComputed = computed(() => {
     if(existeLaCritica(page.props.auth.user['id'], page.props.obra[0]['id']) !== existeLaCriticaVar.value){
      existeLaCriticaVar.value = true;
-     return alertaCritica(page.props.obra[0]['titulo'], 'Has puesto tu critica de ');
+     return alertaCritica(page.props.obra[0]['titulo'], 'Has puesto tu critica de ', '../gif/terminator.gif', 'Bravo!!!');
     }
-    return alertaCritica(page.props.obra[0]['titulo'], 'Has modificado tu critica de ');
+    return alertaCritica(page.props.obra[0]['titulo'], 'Has modificado tu critica de ', '../gif/resplandor.gif', 'Atención:');
 
 });
 
