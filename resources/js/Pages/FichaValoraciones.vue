@@ -75,9 +75,9 @@ function existeLaCritica(usuario, obra){
     }
     for (let i = 0; i < arrayCriticasExistentes.length; i++){
         if(arrayCriticasExistentes[i][0] === usuario && arrayCriticasExistentes[i][1] === obra){
-            return  arrayCriticasExistentes[i][2];
+            return  true;
         }
-        return '';
+        return false;
     }
 }
 function cargarContenidoCriticaUsuario(usuario, obra){
