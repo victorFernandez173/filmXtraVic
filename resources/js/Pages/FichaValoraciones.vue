@@ -61,8 +61,12 @@ function procesarGustadas($usuario, $gustadas) {
 const form = useForm({
     user_id: '',
     obra_id: '',
-    notaEvaluacion: '',
     critica: cargarContenidoCriticaUsuario(page.props.auth.user?page.props.auth.user['id']:null, page.props.obra[0]['id']),
+});
+const form2 = useForm({
+    user_id: '',
+    obra_id: '',
+    evaluacion: '',
 });
 
 
@@ -176,14 +180,19 @@ const existeLaCriticaVar = ref(existeLaCritica(page.props.auth.user?page.props.a
             <div class="col-span-1 lg:col-span-4 mt-5 bg-flamingo rounded container">
                 <div v-if="$page.props.auth.user" class="grid grid-cols-1 md:grid-cols-12 lg:grid-cols-12 p-1">
                     <!-- Formulario evas -->
-                    <div
+                    <form
+                        @submit.prevent="form2.post(
+                                route('evaluar'),
+                                {
+                                        preserveScroll: true,
+                                        })"
                         class="col-span-1 md:col-span-3 lg:col-span-2 flex justify-center flex-wrap p-1 border-b md:border-r md:border-b-0 content-center">
                         <div class="w-full text-center">
                             <label class="font-bold underline text-xl text-white">Evaluar: </label>
                         </div>
                         <div class="w-full">
                             <SelectRango class="w-2/5 sm:w-1/4 md:w-3/4 text-center" :limite="11"
-                                         @emision="(e) => form.notaEvaluacion = e">Nota
+                                         @emision="(e) => form2.evaluacion = e">Nota
                             </SelectRango>
                         </div>
                         <div class="w-full text-center">
@@ -191,16 +200,14 @@ const existeLaCriticaVar = ref(existeLaCritica(page.props.auth.user?page.props.a
                                 {{ $page.props.errors['evaluacion'] }}</p>
                         </div>
                         <div class="w-full text-center">
-                            <Link
-                                as="button" method="post"
-                                :href="route('evaluar')"
-                                :data="{ user_id: $page.props.auth.user['id'], obra_id: obra[0]['id'], evaluacion: form.notaEvaluacion }"
+                            <button
+                                @click="form2.user_id = $page.props.auth.user['id']; form2.obra_id = obra[0]['id']"
                                 class="w-2/5 sm:w-1/4 md:w-3/4 text-flamingo bg-white hover:text-black font-medium rounded-lg text-sm px-5 py-2.5 my-2 text-center"
                                 preserveScroll>
                                 Evaluar {{ obra[0]['titulo'] }} &rarr;
-                            </Link>
+                            </button>
                         </div>
-                    </div>
+                    </form>
                     <!-- Formulario críticas -->
                     <div
                         class="col-span-1 md:col-span-9 lg:col-span-10 rounded p-1 lg:ml-1 flex justify-center flex-wrap">

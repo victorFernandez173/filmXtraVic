@@ -19,6 +19,7 @@ class EvaluacionController extends Controller
             'evaluacion' => 'required|int|min:0|max:10',
         ], ['evaluacion' => 'No has elegido una puntuación.']);
 
+
         $evaluacion = new Evaluacion([
             'user_id' => $request['user_id'],
             'obra_id' => $request['obra_id'],
