@@ -232,7 +232,6 @@ const existeLaCriticaVar = ref(existeLaCritica(page.props.auth.user?page.props.a
                                     {{ $page.props.errors['critica'] }}</p>
                             </div>
                             <button
-                                :data="{ user_id: $page.props.auth.user['id'], obra_id: obra[0]['id'], critica: form.critica }"
                                 @click="form.user_id = $page.props.auth.user['id']; form.obra_id = obra[0]['id']"
                                 class="w-2/5 text-flamingo bg-white hover:text-black focus:bg-white focus:ring-flamingo focus:text-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 my-2 text-center">
                                 Reseñar {{ obra[0]['titulo'] }} &rarr;
