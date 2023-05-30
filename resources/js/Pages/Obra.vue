@@ -186,7 +186,7 @@ function procesarGustadas($usuario, $gustadas) {
                                         obra[0]['secuela']['orden'] === 0 ? 'Inicio saga' : secuela['secuela']['orden'] === 0 ? 'Spin-off' : secuela['secuela']['orden'] > obra[0]['secuela']['orden'] ? 'Secuela' : 'Precuela'
                                     }}
                                 </span>
-                                    <div class="w-[60%] md:w-full mx-auto flex justify-center -my-[25px] md:m:0 mt-0.5">
+                                    <div class="w-[60%] md:w-[70%] mx-auto flex justify-center -my-[25px] md:m:0 mt-0.5">
                                         <Poster :obra="secuela" :titulo="`text-lg hover:text-md`"
                                                 :info="true"/>
                                     </div>
