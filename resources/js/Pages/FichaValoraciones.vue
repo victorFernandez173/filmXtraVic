@@ -142,7 +142,7 @@ function comprobarSiExisteLaCritica(usuario, obra) {
 
 // Cada vez que se envía el formulario se envía un alert en funcion del estado actual de la bandera vs una comprobación en tiempo real de la bbdd y se modifica la bandera si ha cambiado
 const existeLaCriticaVarComputed = computed(() => {
-    let num = Math.floor(Math.random() * 4) + 1;
+    let num = Math.floor(Math.random() * 25) + 1;
     if (comprobarSiExisteLaCritica(page.props.auth.user['id'], page.props.obra[0]['id']) !== existeLaCriticaBandera.value) {
         existeLaCriticaBandera.value = true;
         return alertaCritica(page.props.obra[0]['titulo'], 'Has puesto tu critica de ', '../gif/' + num + '.gif', 'Bravo!!!');
