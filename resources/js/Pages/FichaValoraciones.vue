@@ -120,10 +120,10 @@ function cargarContenidoCriticaUsuario(usuario, obra) {
 
 
 
+// Al cargar la página se establece si existe o no la critica para el usuario con comprobarSiExisteLaCritica(usuario, obra)
+const existeLaCriticaBandera = ref(comprobarSiExisteLaCritica(page.props.auth.user ? page.props.auth.user['id'] : null, page.props.obra[0]['id']));
 
-
-
-function existeLaCritica(usuario, obra) {
+function comprobarSiExisteLaCritica(usuario, obra) {
     const objetoCriticasExistentes = ref(props.pelicula_criticas);
     const arrayCriticasExistentes = [];
     for (const e of Object.values(objetoCriticasExistentes['_value'])) {
@@ -137,16 +137,17 @@ function existeLaCritica(usuario, obra) {
     return false;
 }
 
+// Cada vez que se envía el formulario se envía un alert en funcion del estado actual de la bandera vs una comprobación en tiempo real de la bbdd y se modifica la bandera si ha cambiado
 const existeLaCriticaVarComputed = computed(() => {
-    if (existeLaCritica(page.props.auth.user['id'], page.props.obra[0]['id']) !== existeLaCriticaVar.value) {
-        existeLaCriticaVar.value = true;
+    if (comprobarSiExisteLaCritica(page.props.auth.user['id'], page.props.obra[0]['id']) !== existeLaCriticaBandera.value) {
+        existeLaCriticaBandera.value = true;
         return alertaCritica(page.props.obra[0]['titulo'], 'Has puesto tu critica de ', '../gif/terminator.gif', 'Bravo!!!');
     }
     return alertaCritica(page.props.obra[0]['titulo'], 'Has modificado tu critica de ', '../gif/resplandor.gif', 'Atención:');
 
 });
 
-const existeLaCriticaVar = ref(existeLaCritica(page.props.auth.user ? page.props.auth.user['id'] : null, page.props.obra[0]['id']));
+
 
 
 
