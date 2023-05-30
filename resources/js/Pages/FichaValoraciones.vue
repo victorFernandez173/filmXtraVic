@@ -71,7 +71,8 @@ const form2 = useForm({
 
 
 // Procesado de las criticas/evaluaciones
-function existeLaEvaluacion(usuario, obra) {
+const existeLaEvaluacionBandera = ref(comprobarSiExisteLaEvaluacion(page.props.auth.user ? page.props.auth.user['id'] : null, page.props.obra[0]['id']));
+function comprobarSiExisteLaEvaluacion(usuario, obra) {
     const objetoEvaluacionesExistentes = ref(props.pelicula_evaluaciones);
     const arrayEvaluacionesExistentes = [];
     for (const e of Object.values(objetoEvaluacionesExistentes['_value'])) {
@@ -84,7 +85,14 @@ function existeLaEvaluacion(usuario, obra) {
     }
     return false;
 }
-const existeLaEvaluacionBandera = ref(true);
+const existeLaEvaluacionVarComputed = computed(() => {
+    if (comprobarSiExisteLaEvaluacion(page.props.auth.user['id'], page.props.obra[0]['id']) !== existeLaEvaluacionBandera.value) {
+        existeLaEvaluacionBandera.value = true;
+        return 'Evaluación exitosa';
+    }
+    return 'Evaluación modificada exitosamente';
+
+});
 
 
 function cargarContenidoEvaluacionUsuario(usuario, obra) {
@@ -115,11 +123,6 @@ function cargarContenidoCriticaUsuario(usuario, obra) {
     return '';
 }
 
-
-
-
-
-
 // Al cargar la página se establece si existe o no la critica para el usuario con comprobarSiExisteLaCritica(usuario, obra)
 const existeLaCriticaBandera = ref(comprobarSiExisteLaCritica(page.props.auth.user ? page.props.auth.user['id'] : null, page.props.obra[0]['id']));
 
@@ -146,20 +149,6 @@ const existeLaCriticaVarComputed = computed(() => {
     return alertaCritica(page.props.obra[0]['titulo'], 'Has modificado tu critica de ', '../gif/resplandor.gif', 'Atención:');
 
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </script>
 
 <template>
@@ -255,8 +244,7 @@ const existeLaCriticaVarComputed = computed(() => {
                             <p class="text-yellow-300 w-2/5 sm:w-1/4 md:w-3/4 text-center m-auto">
                                 {{ $page.props.errors['evaluacion'] }}
                             </p>
-                            <p v-if="form2.recentlySuccessful">{{  existeLaEvaluacionBandera ? 'Evaluación modificada' : 'Evaluación exitosa'  }}</p>
-                        </div>
+                            <p v-if="form2.recentlySuccessful">{{  existeLaEvaluacionVarComputed }}</p></div>
                         <div class="w-full text-center">
                             <button
                                 @click="form2.user_id = $page.props.auth.user['id']; form2.obra_id = obra[0]['id']"
