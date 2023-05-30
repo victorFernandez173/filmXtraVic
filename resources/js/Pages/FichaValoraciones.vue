@@ -278,7 +278,7 @@ const existeLaCriticaVarComputed = computed(() => {
                                         preserveScroll: true,
                                         })"
                             class="w-11/12 text-center">
-                            <textarea class="w-full h-[200px] m-1" v-model="form.critica"></textarea>
+                            <textarea class="w-full h-[200px] m-1 focus:border-black focus:border-[3px] focus:ring-0" v-model="form.critica"></textarea>
                             <div class="w-full text-center">
                                 <p class="text-yellow-300 w-2/5 sm:w-1/4 md:w-3/4 text-center m-auto">
                                     {{ $page.props.errors['critica'] }}</p>
