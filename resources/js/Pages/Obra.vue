@@ -180,28 +180,30 @@ function procesarGustadas($usuario, $gustadas) {
                             <!-- Si solo hay un poster en secuelas, flex justify-center -->
                             <div v-if="secuelasOrdenadas && secuelasOrdenadas.length <= 1"
                                  class="text-center flex justify-center">
-                                <div v-for="secuela in secuelasOrdenadas" class="w-[80%] sm:w-[100%] md:w-[250px] lg">
+                                <div v-for="secuela in secuelasOrdenadas" class="w-[60%] sm:w-[100%] md:w-[80%] lg">
                                 <span>
                                 {{
                                         obra[0]['secuela']['orden'] === 0 ? 'Inicio saga' : secuela['secuela']['orden'] === 0 ? 'Spin-off' : secuela['secuela']['orden'] > obra[0]['secuela']['orden'] ? 'Secuela' : 'Precuela'
                                     }}
                                 </span>
-                                    <div class="w-[80%] md:w-full mx-auto flex justify-center -my-[25px] md:m:0 mt-0.5">
+                                    <div class="w-[40%] md:w-full mx-auto flex justify-center -my-[25px] md:m:0 mt-0.5">
                                         <Poster :obra="secuela" :titulo="`text-lg hover:text-md`"
-                                        :info="true"/>
+                                                :info="true"/>
                                     </div>
                                 </div>
                             </div>
                             <div v-else class="text-center grid lg:grid-cols-2 justify-items-center">
-                                <div v-for="secuela in secuelasOrdenadas" class="w-[80%] sm:w-[100%] md:w-[250px] lg mb-5">
+                                <div v-for="secuela in secuelasOrdenadas"
+                                     class="w-[80%] sm:w-[100%] md:w-[80%] lg mb-5">
                                 <span>
                                 {{
                                         obra[0]['secuela']['orden'] === 0 ? 'Inicio saga' : secuela['secuela']['orden'] === 0 ? 'Spin-off' : secuela['secuela']['orden'] > obra[0]['secuela']['orden'] ? 'Secuela' : 'Precuela'
                                     }}
                                 </span>
-                                    <div class="w-[80%] md:w-[90%] mx-auto flex justify-center -my-[25px] md:m:0 mt-0.5">
+                                    <div
+                                        class="w-[60%] md:w-[90%] mx-auto flex justify-center -my-[25px] md:m:0 mt-0.5">
                                         <Poster :obra="secuela" :titulo="`text-lg hover:text-md`"
-                                        :info="true"/>
+                                                :info="true"/>
                                     </div>
                                 </div>
                             </div>
@@ -240,7 +242,9 @@ function procesarGustadas($usuario, $gustadas) {
                 </ul>
                 <!--Titulo-->
                 <ul>
-                    <li class="list-disc font-bold text-black text-xl mt-10 mb-5 underline">Críticas de nuestros usuarios:</li>
+                    <li class="list-disc font-bold text-black text-xl mt-10 mb-5 underline">Críticas de nuestros
+                        usuarios:
+                    </li>
                 </ul>
                 <ul v-for="(cri, i) in criticas['data']">
                     <!--Críticas usuarios-->
@@ -271,9 +275,11 @@ function procesarGustadas($usuario, $gustadas) {
                     </li>
                 </ul>
                 <p>[...]</p>
-                <p v-if="!criticas['data'][0]" class="py-3">Sin críticas de usuarios todavía. Participa, pon la tuya.</p>
+                <p v-if="!criticas['data'][0]" class="py-3">Sin críticas de usuarios todavía. Participa, pon la
+                    tuya.</p>
                 <Link :href="route('fichaValoraciones', encodeURIComponent(obra[0]['titulo']))" as="button"
-                      class="my-5 m-auto text-flamingo bg-white hover:text-black focus:bg-white focus:ring-flamingo focus:text-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5"  preserve-scroll>
+                      class="my-5 m-auto text-flamingo bg-white hover:text-black focus:bg-white focus:ring-flamingo focus:text-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5"
+                      preserve-scroll>
                     Ver más críticas de usuarios/Valorar {{ obra[0]['titulo'] }}&rarr;
                 </Link>
             </div>
@@ -286,12 +292,18 @@ function procesarGustadas($usuario, $gustadas) {
                 <h4>En FilmXtra nos apasiona el cine y queremos escuchar tu voz. ¡Exprésate como quieras!</h4>
                 <ul class="list-disc ml-[20px]">
                     <li>Puedes ponerle una puntuación del 1 al 10 a las películas que veas.</li>
-                    <li>Si te gusta entrar en detalles, déjanos tus críticas más elaboradas. ¡Suelta todo lo que piensas!</li>
-                    <li>Y, por supuesto, dale un buen "like" a las críticas de otros usuarios que te parezcan geniales. ¡Comparte el amor cinéfilo!</li>
+                    <li>Si te gusta entrar en detalles, déjanos tus críticas más elaboradas. ¡Suelta todo lo que
+                        piensas!
+                    </li>
+                    <li>Y, por supuesto, dale un buen "like" a las críticas de otros usuarios que te parezcan geniales.
+                        ¡Comparte el amor cinéfilo!
+                    </li>
                 </ul>
                 <p class="pt-7">¡Tu voz cinéfila importa! Exprésate libremente y comparte el amor por el cine.</p>
                 <div class="mt-10">
-                    <Link as="button" :href="route('valoraciones')" class="my-15 m-auto text-flamingo bg-white hover:text-black focus:bg-white focus:ring-flamingo focus:text-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 block" preserve-scroll>
+                    <Link as="button" :href="route('valoraciones')"
+                          class="my-15 m-auto text-flamingo bg-white hover:text-black focus:bg-white focus:ring-flamingo focus:text-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 block"
+                          preserve-scroll>
                         Top Valoraciones &rarr;
                     </Link>
                 </div>
@@ -300,6 +312,7 @@ function procesarGustadas($usuario, $gustadas) {
         </div>
         <!-- Componente para el trailer-->
         <Trailers :obra="obra"/>
+
 
     </div>
 </template>
