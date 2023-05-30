@@ -23,11 +23,14 @@ dayjs.extend(relativeTime);
 dayjs.locale('es');
 
 // Funciones alert
-function alertaDarLike() {
+function devolverAleatorio(){
+    return (Math.floor(Math.random() * 25) + 1);
+}
+function alertaDarLike(gif) {
     Swal.fire({
         title: 'UPSSS!',
         text: `Registrate/logueate para dar like`,
-        imageUrl: '../images/dealWithIt.gif',
+        imageUrl: gif,
         imageWidth: 400,
         imageAlt: 'ocupate de arreglarlo',
         confirmButtonColor: '#e37f81'
@@ -142,12 +145,11 @@ function comprobarSiExisteLaCritica(usuario, obra) {
 
 // Cada vez que se envía el formulario se envía un alert en funcion del estado actual de la bandera vs una comprobación en tiempo real de la bbdd y se modifica la bandera si ha cambiado
 const existeLaCriticaVarComputed = computed(() => {
-    let num = Math.floor(Math.random() * 25) + 1;
     if (comprobarSiExisteLaCritica(page.props.auth.user['id'], page.props.obra[0]['id']) !== existeLaCriticaBandera.value) {
         existeLaCriticaBandera.value = true;
-        return alertaCritica(page.props.obra[0]['titulo'], 'Has puesto tu critica de ', '../gif/' + num + '.gif', 'Bravo!!!');
+        return alertaCritica(page.props.obra[0]['titulo'], 'Has puesto tu critica de ', '../gif/' + devolverAleatorio() + '.gif', 'Bravo!!!');
     }
-    return alertaCritica(page.props.obra[0]['titulo'], 'Has modificado tu critica de ', '../gif/' + num +  '.gif', 'Atención:');
+    return alertaCritica(page.props.obra[0]['titulo'], 'Has modificado tu critica de ', '../gif/' + devolverAleatorio() +  '.gif', 'Atención:');
 
 });
 </script>
@@ -205,7 +207,7 @@ const existeLaCriticaVarComputed = computed(() => {
                                         d="M1 8.25a1.25 1.25 0 112.5 0v7.5a1.25 1.25 0 11-2.5 0v-7.5zM11 3V1.7c0-.268.14-.526.395-.607A2 2 0 0114 3c0 .995-.182 1.948-.514 2.826-.204.54.166 1.174.744 1.174h2.52c1.243 0 2.261 1.01 2.146 2.247a23.864 23.864 0 01-1.341 5.974C17.153 16.323 16.072 17 14.9 17h-3.192a3 3 0 01-1.341-.317l-2.734-1.366A3 3 0 006.292 15H5V8h.963c.685 0 1.258-.483 1.612-1.068a4.011 4.011 0 012.166-1.73c.432-.143.853-.386 1.011-.814.16-.432.248-.9.248-1.388z"/>
                                 </svg>
                             </Link>
-                            <svg v-else @click="alertaDarLike" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                            <svg v-else @click="alertaDarLike('../gif/' + devolverAleatorio() + '.gif')" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
                                  fill="white"
                                  class="w-5 h-5 inline-block hover:fill-yellow-300">
                                 <path
@@ -235,7 +237,7 @@ const existeLaCriticaVarComputed = computed(() => {
                         <div class="w-full text-center">
                             <label class="font-bold underline text-xl text-white">Evaluar: </label>
                         </div>
-                        <p v-if="existeLaEvaluacionBandera" class="text-center">(Ya has evaluado esta película, puedes modificar tu evaluacion):</p>
+                        <p v-if="existeLaEvaluacionBandera" class="text-center text-xs">(Ya has evaluado esta película, puedes modificar tu evaluación):</p>
                         <div class="w-full">
                             <SelectRango class="w-2/5 sm:w-1/4 md:w-3/4 text-center" :limite="11"
                                          :valor="cargarContenidoEvaluacionUsuario(page.props.auth.user['id'], page.props.obra[0]['id']) ? cargarContenidoEvaluacionUsuario(page.props.auth.user['id'], page.props.obra[0]['id']) : 'Nota'"
@@ -268,7 +270,7 @@ const existeLaCriticaVarComputed = computed(() => {
                                 }}
                             </span>
                         </label>
-                        <p v-if="existeLaCriticaBandera" class="text-center">(Ya has reseñado esta película, puedes modificar tu crítica):</p>
+                        <p v-if="existeLaCriticaBandera" class="text-center text-xs">(Ya has reseñado esta película, puedes modificar tu crítica):</p>
                         <form
                             @submit.prevent="form.post(
                                 route('criticar'),

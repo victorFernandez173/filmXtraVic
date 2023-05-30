@@ -39,7 +39,7 @@ function alertaDarLike() {
     Swal.fire({
         title: 'UPSSS!',
         text: `Registrate/logueate para dar like`,
-        imageUrl: '../images/dealWithIt.gif',
+        imageUrl: '../gif/' + (Math.floor(Math.random() * 25) + 1) + '.gif',
         imageWidth: 400,
         imageAlt: 'ocupate de arreglarlo',
         confirmButtonColor: '#e37f81'
