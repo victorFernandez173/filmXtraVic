@@ -81,23 +81,11 @@ function existeLaEvaluacion(usuario, obra) {
         if (arrayEvaluacionesExistentes[i][1] === usuario && arrayEvaluacionesExistentes[i][2] === obra) {
             return true;
         }
-        return false;
     }
+    return false;
 }
+const existeLaEvaluacionBandera = ref(true);
 
-function existeLaCritica(usuario, obra) {
-    const objetoCriticasExistentes = ref(props.pelicula_criticas);
-    const arrayCriticasExistentes = [];
-    for (const e of Object.values(objetoCriticasExistentes['_value'])) {
-        arrayCriticasExistentes.push(Object.values(e));
-    }
-    for (let i = 0; i < arrayCriticasExistentes.length; i++) {
-        if (arrayCriticasExistentes[i][0] === usuario && arrayCriticasExistentes[i][1] === obra) {
-            return true;
-        }
-        return false;
-    }
-}
 
 function cargarContenidoEvaluacionUsuario(usuario, obra) {
     const objetoEvaluacionesExistentes = ref(props.pelicula_evaluaciones);
@@ -109,8 +97,8 @@ function cargarContenidoEvaluacionUsuario(usuario, obra) {
         if (arrayEvaluacionesExistentes[i][1] === usuario && arrayEvaluacionesExistentes[i][2] === obra) {
             return parseInt(arrayEvaluacionesExistentes[i][3]).toString();
         }
-        return '';
     }
+    return '';
 }
 
 function cargarContenidoCriticaUsuario(usuario, obra) {
@@ -123,8 +111,30 @@ function cargarContenidoCriticaUsuario(usuario, obra) {
         if (arrayCriticasExistentes[i][0] === usuario && arrayCriticasExistentes[i][1] === obra) {
             return arrayCriticasExistentes[i][2];
         }
-        return '';
     }
+    return '';
+}
+
+
+
+
+
+
+
+
+
+function existeLaCritica(usuario, obra) {
+    const objetoCriticasExistentes = ref(props.pelicula_criticas);
+    const arrayCriticasExistentes = [];
+    for (const e of Object.values(objetoCriticasExistentes['_value'])) {
+        arrayCriticasExistentes.push(Object.values(e));
+    }
+    for (let i = 0; i < arrayCriticasExistentes.length; i++) {
+        if (arrayCriticasExistentes[i][0] === usuario && arrayCriticasExistentes[i][1] === obra) {
+            return true;
+        }
+    }
+    return false;
 }
 
 const existeLaCriticaVarComputed = computed(() => {
@@ -137,6 +147,16 @@ const existeLaCriticaVarComputed = computed(() => {
 });
 
 const existeLaCriticaVar = ref(existeLaCritica(page.props.auth.user ? page.props.auth.user['id'] : null, page.props.obra[0]['id']));
+
+
+
+
+
+
+
+
+
+
 
 
 </script>
@@ -207,6 +227,7 @@ const existeLaCriticaVar = ref(existeLaCritica(page.props.auth.user ? page.props
                     <Paginacion :obras="criticas"></Paginacion>
                 </div>
             </div>
+
             <!-- Sección formularios container-->
             <div class="col-span-1 lg:col-span-4 mt-5 bg-flamingo rounded container">
                 <div v-if="$page.props.auth.user" class="grid grid-cols-1 md:grid-cols-12 lg:grid-cols-12 p-1">
@@ -233,7 +254,7 @@ const existeLaCriticaVar = ref(existeLaCritica(page.props.auth.user ? page.props
                             <p class="text-yellow-300 w-2/5 sm:w-1/4 md:w-3/4 text-center m-auto">
                                 {{ $page.props.errors['evaluacion'] }}
                             </p>
-                            <p v-if="form2.recentlySuccessful">Evaluación exitosa</p>
+                            <p v-if="form2.recentlySuccessful">{{  existeLaEvaluacionBandera ? 'Evaluación modificada' : 'Evaluación exitosa'  }}</p>
                         </div>
                         <div class="w-full text-center">
                             <button
@@ -256,7 +277,6 @@ const existeLaCriticaVar = ref(existeLaCritica(page.props.auth.user ? page.props
                                 }}
                             </span>
                         </label>
-
                         <form
                             @submit.prevent="form.post(
                                 route('criticar'),
