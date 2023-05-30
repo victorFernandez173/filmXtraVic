@@ -234,6 +234,7 @@ const existeLaCriticaVarComputed = computed(() => {
                         <div class="w-full text-center">
                             <label class="font-bold underline text-xl text-white">Evaluar: </label>
                         </div>
+                        <p v-if="existeLaEvaluacionBandera" class="text-center">(Ya has evaluado esta película, puedes modificar tu evaluacion):</p>
                         <div class="w-full">
                             <SelectRango class="w-2/5 sm:w-1/4 md:w-3/4 text-center" :limite="11"
                                          :valor="cargarContenidoEvaluacionUsuario(page.props.auth.user['id'], page.props.obra[0]['id']) ? cargarContenidoEvaluacionUsuario(page.props.auth.user['id'], page.props.obra[0]['id']) : 'Nota'"
@@ -266,6 +267,7 @@ const existeLaCriticaVarComputed = computed(() => {
                                 }}
                             </span>
                         </label>
+                        <p v-if="existeLaCriticaBandera" class="text-center">(Ya has reseñado esta película, puedes modificar tu crítica):</p>
                         <form
                             @submit.prevent="form.post(
                                 route('criticar'),
