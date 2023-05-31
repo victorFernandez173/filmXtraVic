@@ -57,7 +57,7 @@ class InfoController extends Controller
                 'gustadaPor' => DB::table('likes')->select('user_id')->where('critica_id', '=', $critica['id'])->get(),
             ];
         }
-        return PaginacionController::paginar($criticasLikes, 2);
+        return PaginacionController::paginar($criticasLikes, 3);
     }
 
     /**
