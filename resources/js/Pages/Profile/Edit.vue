@@ -30,7 +30,7 @@ defineProps({
     </Head>
     <!--Contenedor completo con el fondo-->
     <div class="py-12 bg-cover bg-[url('/images/posters-fondo.png')]">
-        <h1 class="titulo font-semibold underline text-5xl text-center text-flamingo">Página de cuenta</h1>
+        <h1 class="titulo font-semibold underline text-5xl text-center text-white">Página de cuenta</h1>
         <!--Contenedor superior con varias columnas-->
         <div class="pt-12 grid grid-cols-1 lg:grid-cols-2 gap-12">
             <!--Contenedor actualizacion perfil-->
