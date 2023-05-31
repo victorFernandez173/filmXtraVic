@@ -37,7 +37,7 @@ const form = useForm({
                     {
                     preserveScroll: true,
                     })">
-                        <input v-model="form.titulo" type="text" id="search-navbar" class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500" placeholder="Buscar...">
+                        <input v-model="form.titulo" type="text" id="search-navbar" class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:border-flamingo focus:border-[3px] focus:ring-0" placeholder="Buscar...">
                     </form>
                 </div>
             </div>
