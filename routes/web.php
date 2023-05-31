@@ -24,6 +24,8 @@ use App\Http\Controllers\LikeController;
 
 Route::get('/', [BienvenidaController::class, 'bienvenida'])->name('/');
 
+Route::post('/', [BienvenidaController::class, 'buscarTitulo'])->name('/buscado');
+
 Route::get('obra/{titulo}', [ObtenerObraController::class, 'fichaPelicula'])->name('obra');
 
 Route::get('top', [TopObrasController::class, 'cargarDatos'])->name('top');

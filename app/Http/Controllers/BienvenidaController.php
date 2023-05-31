@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use DB;
+use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Exception;
 
@@ -30,6 +31,23 @@ class BienvenidaController extends Controller
      * @throws Exception
      */
     public function bienvenida(){
+        return Inertia::render('Welcome', [
+            'obras' => DB::table('obras')->select('obras.titulo', 'p.ruta', 'p.alt')->join('posters AS p', 'obras.id', '=', 'p.obra_id')->whereIn('obras.id', $this->obtenerDoceObrasAleatorias())->get()
+        ]);
+    }
+
+    /**
+     * Devuelve la vista de bienvenida con esos 16 id
+     * @throws Exception
+     */
+    public function buscarTitulo(Request $request){
+
+        if(!empty($request['titulo'])){
+            return Inertia::render('Welcome', [
+                'obras' => DB::table('obras')->select('obras.titulo', 'p.ruta', 'p.alt')->join('posters AS p', 'obras.id', '=', 'p.obra_id')->where('obras.titulo', 'like', '%' . $request['titulo'] . '%')->get()
+                ]);
+        }
+
         return Inertia::render('Welcome', [
             'obras' => DB::table('obras')->select('obras.titulo', 'p.ruta', 'p.alt')->join('posters AS p', 'obras.id', '=', 'p.obra_id')->whereIn('obras.id', $this->obtenerDoceObrasAleatorias())->get()
         ]);
