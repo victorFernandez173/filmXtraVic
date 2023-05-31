@@ -8,8 +8,8 @@ const props = defineProps(['obra', 'titulo', 'info']);
     <div class="w-full p-2">
         <Link :href="route([props.info ? 'obra':'fichaValoraciones'], encodeURIComponent(obra['titulo']))">
             <div class="cursor-pointer flex justify-center h-[35px] font-oswald ">
-                <h3 :class="titulo" class="hover:text-white hover:bg-flamingo hover:overflow-visible hover:z-10 hover:py-2.5 px-3 hover:px-3 hover:relative text-flamingo font-bold underline overflow-ellipsis overflow-hidden whitespace-nowrap self-center text-xs sm:text-base">{{ obra['titulo'] }}</h3>
-                <h3 :class="titulo" class="absolute font-bold underline  whitespace-nowrap top-0 group-hidden opacity-0 transition-opacity duration-500 ease-out text-sm" >{{ obra['titulo'] }}</h3>
+                <h3 :class="titulo" class="hover:text-white hover:bg-flamingo hover:overflow-visible hover:z-10 hover:py-2.5 px-3 hover:px-3 hover:relative text-flamingo font-bold underline overflow-ellipsis overflow-hidden whitespace-nowrap self-center">{{ obra['titulo'] }}</h3>
+                <h3 :class="titulo" class="absolute font-bold underline  whitespace-nowrap top-0 group-hidden opacity-0 transition-opacity duration-500 ease-out" >{{ obra['titulo'] }}</h3>
             </div>
         </Link>
 
