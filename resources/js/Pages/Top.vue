@@ -55,7 +55,9 @@ defineProps(['obras', 'titulo', 'filtros']);
                     <Poster v-for="obra in obras.data" :key="obra['id']" :obra="obra" :titulo="`text-2xl hover:text-xl`" :info="true"/>
                 </div>
                 <!-- Componente para la paginación -->
-                <Paginacion class="m-auto" :obras="obras"/>
+                <div class="w-full flex mt-8 mb-2">
+                    <Paginacion class="mx-auto" :obras="obras"/>
+                </div>
             </div>
     </div>
 </template>
