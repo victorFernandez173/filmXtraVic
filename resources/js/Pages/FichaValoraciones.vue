@@ -181,40 +181,47 @@ const existeLaCriticaVarComputed = computed(() => {
             </div>
 
             <!--Criticas-->
-            <div class="rounded mx-5 lg:mr-0 col-span-3 bg-flamingo px-8 lg:px-20 pb-5 flex flex-wrap">
+            <div class="rounded mx-5 lg:mr-0 col-span-3 flex flex-wrap ">
                 <!--Titulo usuarios-->
                 <div>
-                    <ul>
-                        <li class="list-disc font-bold underline text-xl mt-10 mb-5">Críticas de nuestros
-                            usuarios:
-                        </li>
-                    </ul>
-                    <ul v-for="(cri, i) in criticas['data']">
-                        <!--Críticas usuarios-->
-                        <li class="list-disc ml-5 mb-4 text-white"><span
-                            class="underline font-semibold">{{ cri['usuario'][0]['name'] }}</span>: {{ cri['critica'] }}
-                            ({{ dayjs(cri['fecha']).fromNow() }}) - Likes: {{ cri['likes'] }}
+                    <div class="block bg-flamingo pt-5 pb-10">
+                        <div class="pl-12 pr-10">
+                            <ul>
+                                <li class="list-disc font-bold underline text-xl mt-10 mb-5">Críticas de nuestros
+                                    usuarios:
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="px-12">
+                            <ul v-for="(cri, i) in criticas['data']">
+                                <!--Críticas usuarios-->
+                                <li class="list-disc ml-5 mb-4 text-white"><span
+                                    class="underline font-semibold">{{ cri['usuario'][0]['name'] }}</span>: {{ cri['critica'] }}
+                                    ({{ dayjs(cri['fecha']).fromNow() }}) - Likes: {{ cri['likes'] }}
 
-                            <!--Mano arriba-->
-                            <Link v-if="$page.props.auth.user" class="inline-block" as="button" method="post"
-                                  :href="route('darLike')"
-                                  :data="{ user_id: $page.props.auth.user['id'], critica_id: cri['id_critica'] }"
-                                  preserveScroll>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                     :fill=" procesarGustadas($page.props.auth.user, $page.props.criticas['data'][i]) ? 'black' : 'white'"
-                                     class="w-5 h-5 inline-block hover:fill-yellow-300">
-                                    <path
-                                        d="M1 8.25a1.25 1.25 0 112.5 0v7.5a1.25 1.25 0 11-2.5 0v-7.5zM11 3V1.7c0-.268.14-.526.395-.607A2 2 0 0114 3c0 .995-.182 1.948-.514 2.826-.204.54.166 1.174.744 1.174h2.52c1.243 0 2.261 1.01 2.146 2.247a23.864 23.864 0 01-1.341 5.974C17.153 16.323 16.072 17 14.9 17h-3.192a3 3 0 01-1.341-.317l-2.734-1.366A3 3 0 006.292 15H5V8h.963c.685 0 1.258-.483 1.612-1.068a4.011 4.011 0 012.166-1.73c.432-.143.853-.386 1.011-.814.16-.432.248-.9.248-1.388z"/>
-                                </svg>
-                            </Link>
-                            <svg v-else @click="alertaDarLike('../gif/' + devolverAleatorio() + '.gif')" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                 fill="white"
-                                 class="w-5 h-5 inline-block hover:fill-yellow-300">
-                                <path
-                                    d="M1 8.25a1.25 1.25 0 112.5 0v7.5a1.25 1.25 0 11-2.5 0v-7.5zM11 3V1.7c0-.268.14-.526.395-.607A2 2 0 0114 3c0 .995-.182 1.948-.514 2.826-.204.54.166 1.174.744 1.174h2.52c1.243 0 2.261 1.01 2.146 2.247a23.864 23.864 0 01-1.341 5.974C17.153 16.323 16.072 17 14.9 17h-3.192a3 3 0 01-1.341-.317l-2.734-1.366A3 3 0 006.292 15H5V8h.963c.685 0 1.258-.483 1.612-1.068a4.011 4.011 0 012.166-1.73c.432-.143.853-.386 1.011-.814.16-.432.248-.9.248-1.388z"/>
-                            </svg>
-                        </li>
-                    </ul>
+                                    <!--Mano arriba-->
+                                    <Link v-if="$page.props.auth.user" class="inline-block" as="button" method="post"
+                                          :href="route('darLike')"
+                                          :data="{ user_id: $page.props.auth.user['id'], critica_id: cri['id_critica'] }"
+                                          preserveScroll>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                             :fill=" procesarGustadas($page.props.auth.user, $page.props.criticas['data'][i]) ? 'black' : 'white'"
+                                             class="w-5 h-5 inline-block hover:fill-yellow-300">
+                                            <path
+                                                d="M1 8.25a1.25 1.25 0 112.5 0v7.5a1.25 1.25 0 11-2.5 0v-7.5zM11 3V1.7c0-.268.14-.526.395-.607A2 2 0 0114 3c0 .995-.182 1.948-.514 2.826-.204.54.166 1.174.744 1.174h2.52c1.243 0 2.261 1.01 2.146 2.247a23.864 23.864 0 01-1.341 5.974C17.153 16.323 16.072 17 14.9 17h-3.192a3 3 0 01-1.341-.317l-2.734-1.366A3 3 0 006.292 15H5V8h.963c.685 0 1.258-.483 1.612-1.068a4.011 4.011 0 012.166-1.73c.432-.143.853-.386 1.011-.814.16-.432.248-.9.248-1.388z"/>
+                                        </svg>
+                                    </Link>
+                                    <svg v-else @click="alertaDarLike('../gif/' + devolverAleatorio() + '.gif')" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                         fill="white"
+                                         class="w-5 h-5 inline-block hover:fill-yellow-300">
+                                        <path
+                                            d="M1 8.25a1.25 1.25 0 112.5 0v7.5a1.25 1.25 0 11-2.5 0v-7.5zM11 3V1.7c0-.268.14-.526.395-.607A2 2 0 0114 3c0 .995-.182 1.948-.514 2.826-.204.54.166 1.174.744 1.174h2.52c1.243 0 2.261 1.01 2.146 2.247a23.864 23.864 0 01-1.341 5.974C17.153 16.323 16.072 17 14.9 17h-3.192a3 3 0 01-1.341-.317l-2.734-1.366A3 3 0 006.292 15H5V8h.963c.685 0 1.258-.483 1.612-1.068a4.011 4.011 0 012.166-1.73c.432-.143.853-.386 1.011-.814.16-.432.248-.9.248-1.388z"/>
+                                    </svg>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
                 </div>
                 <div class="w-full flex justify-center self-end mt-5">
                     <Paginacion :obras="criticas"></Paginacion>
