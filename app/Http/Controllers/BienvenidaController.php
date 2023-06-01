@@ -42,14 +42,18 @@ class BienvenidaController extends Controller
      */
     public function buscarTitulo(Request $request){
 
-        if(!empty($request['titulo'])){
-            return Inertia::render('Welcome', [
-                'obras' => DB::table('obras')->select('obras.titulo', 'p.ruta', 'p.alt')->join('posters AS p', 'obras.id', '=', 'p.obra_id')->where('obras.titulo', 'like', '%' . $request['titulo'] . '%')->get()
-                ]);
-        }
+        $obras = DB::table('obras')->select('obras.titulo', 'p.ruta', 'p.alt')->join('posters AS p', 'obras.id', '=', 'p.obra_id')->where('obras.titulo', 'like', '%' . $request['titulo'] . '%')->get();
 
+        if($request['titulo'] == null || count($obras) == 0){
+            return Inertia::render('Welcome', [
+                'obras' => DB::table('obras')->select('obras.titulo', 'p.ruta', 'p.alt')->join('posters AS p', 'obras.id', '=', 'p.obra_id')->whereIn('obras.id', $this->obtenerDoceObrasAleatorias())->get(),
+                'numResultados' => 0
+            ]);
+        }
         return Inertia::render('Welcome', [
-            'obras' => DB::table('obras')->select('obras.titulo', 'p.ruta', 'p.alt')->join('posters AS p', 'obras.id', '=', 'p.obra_id')->whereIn('obras.id', $this->obtenerDoceObrasAleatorias())->get()
+            'obras' => $obras,
+            'numResultados' => count($obras)
         ]);
+
     }
 }
