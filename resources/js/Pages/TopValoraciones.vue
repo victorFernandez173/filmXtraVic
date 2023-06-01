@@ -22,7 +22,7 @@ defineProps(['obras', 'titulo', 'filtros']);
         <meta name="filter" content="Página de top de valoraciones">
     </Head>
 
-    <div class="flex overflow-x-hidden max-h-none">
+    <div class="flex mx-auto w-10/12 max-h-none">
 
         <div class="flex flex-wrap content-start">
             <!-- Título -->
