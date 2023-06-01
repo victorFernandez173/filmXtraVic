@@ -12,7 +12,6 @@ import es from "dayjs/locale/es";
 import relativeTime from 'dayjs/plugin/relativeTime';
 import {Head, Link} from "@inertiajs/vue3";
 import Poster from "../Components/Poster.vue";
-/* Sweetalert2 */
 import Swal from "sweetalert2";
 import Estrellitas from "../Components/Estrellitas.vue";
 import Trailers from "../Components/Trailers.vue";
@@ -20,7 +19,7 @@ import Trailers from "../Components/Trailers.vue";
 const props = defineProps(['obra', 'mediaEvaluaciones', 'criticas', 'saga', 'secuelaPrecuela', 'profesionales']);
 
 // Funcion para ordenar array por clave interna
-// Necesaria para devolver las secuelas de la saga ordenadas por columna 'orden' si hubiera vairas varias
+// Necesaria para devolver las secuelas de la saga ordenadas por columna/propiedad interna 'orden' si hubiera vairas varias
 const ordenarAnidado = (p1, p2 = null, sentido = 'asc') => (e1, e2) => {
     const a = p2 ? e1[p1][p2] : e1[p1],
         b = p2 ? e2[p1][p2] : e2[p1],
