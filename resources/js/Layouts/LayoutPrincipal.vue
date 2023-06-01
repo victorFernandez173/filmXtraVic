@@ -8,6 +8,7 @@ onMounted(() => {
     initFlowbite();
 })
 
+// Para el formulario de busqueda
 const form = useForm({
     titulo : ''
 });

@@ -13,11 +13,10 @@ use App\Http\Controllers\LikeController;
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| Rutas web
 |--------------------------------------------------------------------------
 |
-| These routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
+| Rutas cargadas para por el RouteServiceProvider desde un grupo que contiene el grupo "web" middleware.
 |
 */
 
