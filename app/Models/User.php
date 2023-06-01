@@ -38,7 +38,7 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
-     * The attributes that are mass assignable.
+     * Atributos asignables.
      *
      * @var array<int, string>
      */
@@ -52,7 +52,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be hidden for serialization.
+     * Atributos escondidos.
      *
      * @var array<int, string>
      */
@@ -62,7 +62,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be cast.
+     * Castings.
      *
      * @var array<string, string>
      */
@@ -74,7 +74,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * Get the criticas that belong to the user.
+     * Obtiene las críticas.
      */
     public function criticas(): HasMany
     {
@@ -82,7 +82,7 @@ class User extends Authenticatable
     }
 
     /**
-     * Get the evaluaciones that belong to the user.
+     * Obtiene las evaluaciones.
      */
     public function evaluaciones(): HasMany
     {
@@ -90,10 +90,10 @@ class User extends Authenticatable
     }
 
     /**
-     * Get the likes that belong to the user.
+     * Obtiene los likes.
      */
     public function likes(): BelongsToMany
     {
-        return $this->belongsToMany(Like::class, 'likes', 'user_id', 'critica_id', 'id', );
+        return $this->belongsToMany(Critica::class, 'likes', 'user_id', 'critica_id', 'id', );
     }
 }

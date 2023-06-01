@@ -3,63 +3,35 @@
 namespace App\Http\Controllers;
 
 use App\Models\Evaluacion;
+use DB;
 use Illuminate\Http\Request;
 
 class EvaluacionController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Añade una evaluacion o la modifica
+     * @param Request $request
+     * @return void
      */
-    public function index()
-    {
-        //
-    }
+    public function evaluar(Request $request){
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+        $validated = $request->validate([
+            'evaluacion' => 'required|int|min:0|max:10',
+        ], ['evaluacion' => 'No has elegido una puntuación.']);
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Evaluacion $evaluacion)
-    {
-        //
-    }
+        $evaluacion = new Evaluacion([
+            'user_id' => $request['user_id'],
+            'obra_id' => $request['obra_id'],
+            'evaluacion' => $validated['evaluacion']
+        ]);
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Evaluacion $evaluacion)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Evaluacion $evaluacion)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Evaluacion $evaluacion)
-    {
-        //
+        if(DB::table('evaluaciones')->where('user_id', $evaluacion->user_id)->where('obra_id', $evaluacion->obra_id)->exists()){
+            // Si la evaluación ya existía, se modifica
+            $evaluacion->where('user_id', $evaluacion->user_id)->where('obra_id', $evaluacion->obra_id)->update(['evaluacion'=>$evaluacion->evaluacion]);
+        } else {
+            // Sino, se guarda
+            $evaluacion->save();
+        }
     }
 }

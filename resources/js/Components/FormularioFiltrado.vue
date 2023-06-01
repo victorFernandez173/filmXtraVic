@@ -2,8 +2,9 @@
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import SelectConsulta from "./SelectConsulta.vue";
 import {useForm, Link} from '@inertiajs/vue3';
-import SelectRango from "./SelectRango.vue";
+import SelectRangoAnno from "./SelectRangoAnno.vue";
 
+// Formulario
 const form = useForm({
     genero: '',
     pais: '',
@@ -11,10 +12,12 @@ const form = useForm({
     hasta: '',
 });
 
+// Entrega del formulario
 const submit = () => {
     form.get(route('top'), {preserveState: true});
 };
 
+// Props
 const props = defineProps({
     generos: Object,
     paises: Object,
@@ -30,7 +33,6 @@ const annoActual = (new Date().getFullYear() + 1);
     <form @submit.prevent="submit" class="m-auto flex border-solid border-flamingo border-3 p-[5px] w-4.5/5">
         <div class="m-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 hover:[&>div>select]:cursor-pointer">
             <!-- Selects-->
-            <!-- TODO sería interesante crear componentes de estos select, para que se carguen con datos en función de props -->
             <div>
                 <SelectConsulta :consulta="generos" :clave="`genero`" @emision="(e) => form.genero = e">Género
                 </SelectConsulta>
@@ -40,12 +42,12 @@ const annoActual = (new Date().getFullYear() + 1);
                 </SelectConsulta>
             </div>
             <div>
-                <SelectRango :limite-inferior="peliPionera" :limite-superior="annoActual" @emision="(e) => form.desde = e">Desde
-                </SelectRango>
+                <SelectRangoAnno :limite-inferior="peliPionera" :limite-superior="annoActual" @emision="(e) => form.desde = e">Desde
+                </SelectRangoAnno>
             </div>
             <div>
-                <SelectRango :limite-inferior="peliPionera" :limite-superior="annoActual" @emision="(e) => form.hasta = e">Hasta
-                </SelectRango>
+                <SelectRangoAnno :limite-inferior="peliPionera" :limite-superior="annoActual" @emision="(e) => form.hasta = e">Hasta
+                </SelectRangoAnno>
             </div>
 
             <!-- Botones -->

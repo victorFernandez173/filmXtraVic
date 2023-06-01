@@ -25,7 +25,7 @@ class Evaluacion extends Model
 {
 
     /**
-     * The table associated with the model.
+     * Tabla
      *
      * @var string
      */
@@ -36,28 +36,27 @@ class Evaluacion extends Model
 
     /**
      * Castings
-     *
      * @var string[]
      */
     protected $casts = [
         'obra_id' => 'int',
         'user_id' => 'int',
-        'evaluacion' => 'float',
+        'evaluacion' => 'int',
     ];
 
     /**
-     * The attributes that are mass assignable.
+     * Attributos asignables
      *
      * @var array<int, string>
      */
     protected $fillable = [
-        'obra_id' => 'int',
-        'user_id' => 'int',
+        'obra_id',
+        'user_id',
         'evaluacion',
     ];
 
     /**
-     * Get the obra associated with the evaluación.
+     * Obtener la obra
      */
     public function obra(): BelongsTo
     {
@@ -65,7 +64,7 @@ class Evaluacion extends Model
     }
 
     /**
-     * Get the user associated with the evaluación.
+     * Obtener la obra
      */
     public function user(): BelongsTo
     {
