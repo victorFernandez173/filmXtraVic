@@ -20,6 +20,7 @@ import Trailers from "../Components/Trailers.vue";
 const props = defineProps(['obra', 'mediaEvaluaciones', 'criticas', 'saga', 'secuelaPrecuela', 'profesionales']);
 
 // Funcion para ordenar array por clave interna
+// Necesaria para devolver las secuelas de la saga ordenadas por columna 'orden' si hubiera vairas varias
 const ordenarAnidado = (p1, p2 = null, sentido = 'asc') => (e1, e2) => {
     const a = p2 ? e1[p1][p2] : e1[p1],
         b = p2 ? e2[p1][p2] : e2[p1],
@@ -34,23 +35,23 @@ const secuelasOrdenadas = props.secuelaPrecuela !== null ? props.secuelaPrecuela
 dayjs.extend(relativeTime);
 dayjs.locale('es');
 
-// Funciones alert
+// Función alert para avisar que no pueder dar like sin estar registrado y logueado
 function alertaDarLike() {
     Swal.fire({
         title: 'UPSSS!',
-        text: `Registrate/logueate para dar like`,
+        text: `Regístrate y logueate para dar like`,
         imageUrl: '../gif/' + (Math.floor(Math.random() * 25) + 1) + '.gif',
         imageWidth: 400,
-        imageAlt: 'ocupate de arreglarlo',
+        imageAlt: 'ocupate de arreglarlo, imagen para Regístrate y logueate para dar like',
         confirmButtonColor: '#e37f81'
     });
 }
 
-//Funciones para procesar listados de nombres
+//Se le pasa listado de actores/directores y va generando un string que contiene con asíndeton con comas
 function procesarEnumeracion(listado) {
     let enumeracionConComas = ' ';
     for (let a = 0; a < listado.length; a++) {
-        //Procesamos el nombre del actor
+        //Procesamos el nombre del individuo
         let nombre = procesarNombre(listado[a]['nombre']);
         //Lo añadimos
         enumeracionConComas += nombre;
@@ -64,6 +65,7 @@ function procesarEnumeracion(listado) {
     return enumeracionConComas;
 }
 
+//Antepone el nombre al apellido al estar (apellido, nombre) en la BBDD y devuelve el string
 function procesarNombre(nombre) {
     // Primero el nombre
     let nombreProcesado = nombre.substring(nombre.indexOf(',') + 2, nombre.length);
@@ -72,14 +74,10 @@ function procesarNombre(nombre) {
     return nombreProcesado;
 }
 
-// Procesado de listas de nombres
-// Obtenemos los listados de actores y directores
-const actores = props.obra[0]['actors'];
-const directores = props.obra[0]['directors'];
-const actoresProcesados = procesarEnumeracion(actores);
-const directoresProcesados = procesarEnumeracion(directores);
-
-// Obtenemos y procesamos los géneros praa añadirles comas y puntos
+// Obtenemos y procesamos los géneros para añadirles comas y puntos como una enumeración correcta.
+// Se le pasa el array con los generos y se procesa con un for añadiendo dichos generos a un array.
+//Se transforman a un string, uniendolos con comas.
+//Se devuelve el string con un punto final.
 function procesarGeneros(generos) {
     const generosProcesados = [];
     for (let i = 0; i < generos.length; i++) {
@@ -89,10 +87,10 @@ function procesarGeneros(generos) {
     return generosString.substring(0, generosString.length) + '.';
 }
 
-const generos = props.obra[0]['generos'];
-const generosProcesados = procesarGeneros(generos);
-
 // Coloreado de los likes
+//Se le pasa el usuario logueado y un json con los datos de la critica en concreto que se recoje con el inidice del v-for que va cargando las criticas.
+//A continuación se tranforma a array el objeto gustaPor.
+//Y si este incluye el id del usuario logueado, es que el like fue activado, se colorea de negro pues.
 function procesarGustadas($usuario, $gustadas) {
     let objetoGustadas = Object.values($gustadas['gustadaPor']);
     let gustadaPorArray = []
@@ -143,18 +141,18 @@ function procesarGustadas($usuario, $gustadas) {
                             </li>
                             <li v-if="obra[0]['directors'][0]" class="list-disc ml-5"><span
                                 class="font-semibold underline text-lg">Dirección</span>:<span> {{
-                                    directoresProcesados
+                                    procesarEnumeracion(props.obra[0]['directors'])
                                 }}  </span></li>
                             <li v-if="obra[0]['actors'][0]" class="list-disc ml-5"><span
                                 class="font-semibold underline text-lg">Reparto</span>: <span>{{
-                                    actoresProcesados
+                                    procesarEnumeracion(props.obra[0]['actors'])
                                 }} </span></li>
                             <li class="list-disc ml-5"><span class="font-semibold underline text-lg">Productora</span>:
                                 {{ obra[0]['productora'] }}
                             </li>
                             <li v-if="obra[0]['generos'][0]" class="list-disc ml-5"><span
                                 class="font-semibold underline text-lg">Género</span>: <span> {{
-                                    generosProcesados
+                                    procesarGeneros(props.obra[0]['generos'])
                                 }} </span></li>
                             <li class="list-disc ml-5"><span class="font-semibold underline text-lg">Sinopsis</span>:
                                 {{ obra[0]['sinopsis'] }}
@@ -260,7 +258,7 @@ function procesarGustadas($usuario, $gustadas) {
                               :data="{ user_id: $page.props.auth.user['id'], critica_id: cri['id_critica'] }"
                               preserveScroll>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                 :fill=" procesarGustadas($page.props.auth.user, $page.props.criticas['data'][i]) ? 'black' : 'white'"
+                                 :fill="procesarGustadas($page.props.auth.user, $page.props.criticas['data'][i]) ? 'black' : 'white'"
                                  class="w-5 h-5 inline-block hover:fill-yellow-300">
                                 <path
                                     d="M1 8.25a1.25 1.25 0 112.5 0v7.5a1.25 1.25 0 11-2.5 0v-7.5zM11 3V1.7c0-.268.14-.526.395-.607A2 2 0 0114 3c0 .995-.182 1.948-.514 2.826-.204.54.166 1.174.744 1.174h2.52c1.243 0 2.261 1.01 2.146 2.247a23.864 23.864 0 01-1.341 5.974C17.153 16.323 16.072 17 14.9 17h-3.192a3 3 0 01-1.341-.317l-2.734-1.366A3 3 0 006.292 15H5V8h.963c.685 0 1.258-.483 1.612-1.068a4.011 4.011 0 012.166-1.73c.432-.143.853-.386 1.011-.814.16-.432.248-.9.248-1.388z"/>

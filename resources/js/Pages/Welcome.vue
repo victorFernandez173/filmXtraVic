@@ -7,7 +7,7 @@ export default {
 }
 </script>
 
-<!--script estandar para lo habitual-->
+<!--script estándar-->
 <script setup>
 import {Head} from "@inertiajs/vue3";
 import Carrusel from "../Components/Carrusel.vue";
@@ -39,7 +39,7 @@ defineProps(['obras', 'numResultados']);
         <div v-if="$page.props.numResultados > 0" class="col-span-full  text-center my-3">
             <h4 class="text-lg">Resultados:</h4>
         </div>
-        <!-- Componente poster -->
+        <!-- Posters -->
         <Poster v-for="obra in obras" :obra="obra" :titulo="`text-lg hover:text-lg sm:text-xl sm:hover:text-xl xl:text-xl xl:hover:text-xl`"
                 :info="true"/>
     </div>
