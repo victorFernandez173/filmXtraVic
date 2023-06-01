@@ -26,6 +26,8 @@ class ObtenerObraController extends Controller
             'saga' => InfoController::obtenerSaga($obra[0]['secuela']),
             'secuelaPrecuela' => InfoController::obtenerSecuelaPrecuela($obra),
             'profesionales' => InfoController::obtenerInfoMediosProfesionals($obra),
+            //Numero de gifs disponibles en public/gif
+            'nGifs' => count(glob( public_path('/gif/') . '*')) - 2
         ]);
     }
 }

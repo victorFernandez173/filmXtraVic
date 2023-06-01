@@ -30,6 +30,8 @@ class FichaValoracionController extends Controller
             'pelicula_criticas' => DB::table('criticas')->select('user_id', 'obra_id', 'critica')->join('obras', 'obras.id', '=', 'obra_id')->where('titulo', $titulo)->get(),
             // Evaluaciones relacionadas con esta película
             'pelicula_evaluaciones' => DB::table('evaluaciones')->select('evaluaciones.id', 'user_id', 'obra_id', 'evaluacion')->join('obras', 'obras.id', '=', 'obra_id')->where('titulo', $titulo)->get(),
+            //Numero de gifs disponibles en public/gif
+            'nGifs' => count(glob( public_path('/gif/') . '*')) - 2
         ]);
     }
 }

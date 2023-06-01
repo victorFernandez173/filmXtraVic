@@ -10,13 +10,13 @@ export default {
 import dayjs from "dayjs";
 import es from "dayjs/locale/es";
 import relativeTime from 'dayjs/plugin/relativeTime';
-import {Head, Link} from "@inertiajs/vue3";
+import {Head, Link, usePage} from "@inertiajs/vue3";
 import Poster from "../Components/Poster.vue";
 import Swal from "sweetalert2";
 import Estrellitas from "../Components/Estrellitas.vue";
 import Trailers from "../Components/Trailers.vue";
 
-const props = defineProps(['obra', 'mediaEvaluaciones', 'criticas', 'saga', 'secuelaPrecuela', 'profesionales']);
+const props = defineProps(['obra', 'mediaEvaluaciones', 'criticas', 'saga', 'secuelaPrecuela', 'profesionales', 'nGifs']);
 
 // Funcion para ordenar array por clave interna
 // Necesaria para devolver las secuelas de la saga ordenadas por columna/propiedad interna 'orden' si hubiera vairas varias
@@ -39,7 +39,7 @@ function alertaDarLike() {
     Swal.fire({
         title: 'UPSSS!',
         text: `Regístrate y logueate para dar like`,
-        imageUrl: '../gif/' + (Math.floor(Math.random() * 25) + 1) + '.gif',
+        imageUrl: '../gif/' + (Math.floor(Math.random() * usePage().props.nGifs) + 1) + '.gif',
         imageWidth: 400,
         imageAlt: 'ocupate de arreglarlo, imagen para Regístrate y logueate para dar like',
         confirmButtonColor: '#e37f81'

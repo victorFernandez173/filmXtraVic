@@ -18,14 +18,17 @@ import Paginacion from "../Components/Paginacion.vue";
 import {computed, ref} from "vue";
 
 const page = usePage();
-const props = defineProps(['obra', 'mediaEvaluaciones', 'profesionales', 'criticas', 'pelicula_criticas', 'pelicula_evaluaciones']);
+const props = defineProps(['obra', 'mediaEvaluaciones', 'profesionales', 'criticas', 'pelicula_criticas', 'pelicula_evaluaciones', 'nGifs']);
+// Para las fechas relativas
 dayjs.extend(relativeTime);
 dayjs.locale('es');
 
-// Funciones alert
+// Para calcular un numero aleatorio que represente un gif en funcion del numero de gifs disponibles
 function devolverAleatorio(){
-    return (Math.floor(Math.random() * 25) + 1);
+    return (Math.floor(Math.random() * page.props.nGifs) + 1);
 }
+
+// Alerts para cuando se da like sin estar logueado y cuando de edita/crea crítica
 function alertaDarLike(gif) {
     Swal.fire({
         title: 'UPSSS!',
@@ -49,6 +52,9 @@ function alertaCritica(pelicula, mensaje, gif, titulo) {
 }
 
 // Coloreado de los likes
+//Se le pasa el usuario logueado y un json con los datos de la critica en concreto que se recoje con el inidice del v-for que va cargando las criticas.
+//A continuación se tranforma a array el objeto gustaPor.
+//Y si este incluye el id del usuario logueado, es que el like fue activado, se colorea de negro pues.
 function procesarGustadas($usuario, $gustadas) {
     let objetoGustadas = Object.values($gustadas['gustadaPor']);
     let gustadaPorArray = []
@@ -60,7 +66,7 @@ function procesarGustadas($usuario, $gustadas) {
 }
 
 
-// Formularios
+// Formularios y campos dinámicos
 const form = useForm({
     user_id: '',
     obra_id: '',
@@ -73,14 +79,18 @@ const form2 = useForm({
 });
 
 
-// Procesado de las criticas/evaluaciones
+// Procesado de las evaluaciones
+// Al cargar la página se establece si existe o no la evaluación para el usuario con comprobarSiExisteLaEvaluacioion(usuario, obra)
 const existeLaEvaluacionBandera = ref(comprobarSiExisteLaEvaluacion(page.props.auth.user ? page.props.auth.user['id'] : null, page.props.obra[0]['id']));
+// Funcion que comprueba si el usuario logueado ya ha puesto evaluación en la película y devuelve boolean
 function comprobarSiExisteLaEvaluacion(usuario, obra) {
+    // Se crea un array iterable con las evaluaciones
     const objetoEvaluacionesExistentes = ref(props.pelicula_evaluaciones);
     const arrayEvaluacionesExistentes = [];
     for (const e of Object.values(objetoEvaluacionesExistentes['_value'])) {
         arrayEvaluacionesExistentes.push(Object.values(e));
     }
+    // Si hay una con ese usuario y pelicula es que existe evaluacion
     for (let i = 0; i < arrayEvaluacionesExistentes.length; i++) {
         if (arrayEvaluacionesExistentes[i][1] === usuario && arrayEvaluacionesExistentes[i][2] === obra) {
             return true;
@@ -88,16 +98,17 @@ function comprobarSiExisteLaEvaluacion(usuario, obra) {
     }
     return false;
 }
+// Computed que devuelve mensaje informativo de lo que se ha hecho poner o modificar evaluacion comparando comprobarSiExisteLaEvaluacion() y existeLaEvaluacionBandera
+// También cambia el valor de la bandera en caso de false
 const existeLaEvaluacionVarComputed = computed(() => {
     if (comprobarSiExisteLaEvaluacion(page.props.auth.user['id'], page.props.obra[0]['id']) !== existeLaEvaluacionBandera.value) {
         existeLaEvaluacionBandera.value = true;
         return 'Evaluación exitosa';
     }
     return 'Evaluación modificada exitosamente';
-
 });
 
-
+// Si ya existiera, obtiene la evaluación que el usuario ha puesto a la pelicula y la retorna para pasarselo al input del formulario
 function cargarContenidoEvaluacionUsuario(usuario, obra) {
     const objetoEvaluacionesExistentes = ref(props.pelicula_evaluaciones);
     const arrayEvaluacionesExistentes = [];
@@ -112,6 +123,7 @@ function cargarContenidoEvaluacionUsuario(usuario, obra) {
     return '';
 }
 
+// Para cargar el contenido actual de la critica si hay usuario logueado y ya ha puesto crítica, retornándola para pasarsela al textarea
 function cargarContenidoCriticaUsuario(usuario, obra) {
     const objetoCriticasExistentes = ref(props.pelicula_criticas);
     const arrayCriticasExistentes = [];
@@ -129,6 +141,7 @@ function cargarContenidoCriticaUsuario(usuario, obra) {
 // Al cargar la página se establece si existe o no la critica para el usuario con comprobarSiExisteLaCritica(usuario, obra)
 const existeLaCriticaBandera = ref(comprobarSiExisteLaCritica(page.props.auth.user ? page.props.auth.user['id'] : null, page.props.obra[0]['id']));
 
+// Funcion que comprueba si el usuario logueado ya ha puesto crítica en la película y devuelve boolean
 function comprobarSiExisteLaCritica(usuario, obra) {
     const objetoCriticasExistentes = ref(props.pelicula_criticas);
     const arrayCriticasExistentes = [];
@@ -143,7 +156,7 @@ function comprobarSiExisteLaCritica(usuario, obra) {
     return false;
 }
 
-// Cada vez que se envía el formulario se envía un alert en funcion del estado actual de la bandera vs una comprobación en tiempo real de la bbdd y se modifica la bandera si ha cambiado
+// Cada vez que se envía el formulario esta computada activa un alert en funcion del estado actual de la bandera comparado con la bandera y se modifica la bandera si ha cambiado
 const existeLaCriticaVarComputed = computed(() => {
     if (comprobarSiExisteLaCritica(page.props.auth.user['id'], page.props.obra[0]['id']) !== existeLaCriticaBandera.value) {
         existeLaCriticaBandera.value = true;
