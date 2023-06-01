@@ -9,7 +9,7 @@ use Inertia\Response;
 class ObtenerObraController extends Controller
 {
     /**
-     * Se organizan y recopilan todos los datos necesarios para pasar a la ficha de película
+     * Datos necesarios para pasar a la ficha de película
      * @param $titulo
      * @return Response
      * @throws Exception

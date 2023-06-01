@@ -18,17 +18,18 @@ use Redirect;
 class RegisteredUserController extends Controller
 {
     /**
-     * Display the registration view.
+     * Muestra la vista de registro
      */
     public function create(): Response
     {
+        // Establece la url objetivo como la de origen
         Redirect::setIntendedUrl(url()->previous());
 
         return Inertia::render('Auth/Register');
     }
 
     /**
-     * Handle an incoming registration request.
+     * Maneja la solicitud de registro.
      *
      * @throws ValidationException
      */
@@ -46,6 +47,7 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
+        // Manda de vuelta a la url objetivo o sino a default
         return redirect()->intended(RouteServiceProvider::HOME);
     }
 }

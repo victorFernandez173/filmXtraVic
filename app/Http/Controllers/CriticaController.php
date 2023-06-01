@@ -18,12 +18,13 @@ class CriticaController extends Controller
      */
     public function criticar(Request $request)
     {
-
+        // Validación (reglas y mensajes de error)
         $validated = $request->validate([
             'critica' => 'required|max:5000',
         ], ['critica.required' => 'No has escrito nada.',
             'critica.max' => 'No puedes sobrepasar los 5000 caracteres.']);
 
+        // Creamos el objeto
         $critica = new Critica([
             'user_id' => $request['user_id'],
             'obra_id' => $request['obra_id'],

@@ -10,7 +10,7 @@ use Illuminate\Validation\Rules\Password;
 class RegisterRequest extends FormRequest
 {
     /**
-     * Determine if the user is authorized to make this request.
+     * Determina si el usuario está autorizado a hacer esta petición.
      */
     public function authorize(): bool
     {
@@ -18,6 +18,7 @@ class RegisterRequest extends FormRequest
     }
 
     /**
+     * Reglas
      * @return array
      */
     public function rules(): array
@@ -31,7 +32,7 @@ class RegisterRequest extends FormRequest
 
 
     /**
-     * Mensages de error
+     * Mensajes de error
      * @return array
      */
     public function messages(): array

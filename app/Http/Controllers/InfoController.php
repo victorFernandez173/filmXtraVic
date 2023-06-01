@@ -75,7 +75,7 @@ class InfoController extends Controller
     }
 
     /**
-     * Para obtener la secuela/precuela si las hubiera
+     * Para obtener secuelas/precuelas si las hubiera
      * @param $obra
      * @return mixed
      */
