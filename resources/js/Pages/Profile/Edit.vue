@@ -30,12 +30,12 @@ defineProps({
     </Head>
     <!--Contenedor completo con el fondo-->
     <div class="py-12 bg-cover bg-[url('/images/posters-fondo.png')]">
-        <h1 class="titulo font-semibold underline text-5xl text-center text-white">Página de cuenta</h1>
+        <h1 class="font-semibold underline text-5xl text-center text-white">Página de cuenta</h1>
         <!--Contenedor superior con varias columnas-->
-        <div class="pt-12 grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div class="pt-12 grid grid-cols-1 lg:grid-cols-2">
             <!--Contenedor actualizacion perfil-->
             <div class="m-auto">
-                <div class="perfil p-8 bg-white shadow rounded-lg">
+                <div class="lg:ml-55 p-8 bg-white shadow rounded-lg">
                     <UpdateProfileInformationForm
                         :must-verify-email="mustVerifyEmail"
                         :status="status"
@@ -46,7 +46,7 @@ defineProps({
 
             <!--Contenedor actualizacion perfil-->
             <div class="justify-center m-auto">
-                <div class="contrasenia p-8 bg-white shadow rounded-lg">
+                <div class="lg:mr-55 p-8 bg-white shadow rounded-lg mt-10 lg:mt-0">
                     <UpdatePasswordForm class="max-w-xl"/>
                 </div>
             </div>
@@ -63,26 +63,3 @@ defineProps({
     </div>
 </template>
 
-<style>
-/******** Ordenador ********/
-@media screen and (min-width: 992px) {
-    .perfil {
-        margin-left: 20rem;
-    }
-
-    .contrasenia {
-        margin-right: 20rem;
-    }
-}
-
-/******** Movil ********/
-@media screen and (max-width: 768px) {
-    .titulo {
-        font-size: 2.25rem;
-    }
-
-    .contrasenia {
-        margin-top: 3rem;
-    }
-}
-</style>
