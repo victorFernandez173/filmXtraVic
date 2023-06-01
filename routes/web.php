@@ -33,11 +33,11 @@ Route::get('valoraciones', [TopValoracionesController::class, 'cargarDatos'])->n
 
 Route::get('valoraciones/{titulo}', [FichaValoracionController::class, 'obtenerFichaValoracion'])->name('fichaValoraciones');
 
-Route::post('/like', [LikeController::class, 'darLike'])->name('darLike');
+Route::post('/like', [LikeController::class, 'darLike'])->name('darLike')->middleware('auth', 'verified');
 
-Route::post('evaluar', [EvaluacionController::class, 'evaluar'])->name('evaluar');
+Route::post('evaluar', [EvaluacionController::class, 'evaluar'])->name('evaluar')->middleware('auth', 'verified');
 
-Route::post('criticar', [CriticaController::class, 'criticar'])->name('criticar');
+Route::post('criticar', [CriticaController::class, 'criticar'])->name('criticar')->middleware('auth', 'verified');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
