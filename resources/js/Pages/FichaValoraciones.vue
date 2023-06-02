@@ -73,7 +73,7 @@ const form = useForm({
     obra_id: '',
     critica: cargarContenidoCriticaUsuario(page.props.auth.user ? page.props.auth.user['id'] : null, page.props.obra[0]['id']),
 });
-// Reseña
+// Evaluación
 const form2 = useForm({
     user_id: '',
     obra_id: '',
