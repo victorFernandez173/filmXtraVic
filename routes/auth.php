@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\Auth\SocialAuthController;
 use Illuminate\Support\Facades\Route;
 
 // Rutas para invitados
@@ -35,6 +36,12 @@ Route::middleware('guest')->group(function () {
     Route::post('reset-password', [NewPasswordController::class, 'store'])
                 ->name('password.store');
 });
+
+    Route::get('login-google', [SocialAuthController::class, 'redirectToProvider'])
+                ->name('google.login');
+            
+    Route::get('auth/google/callback', [SocialAuthController::class, 'handleCallback'])
+                ->name('google.login.callback');
 
 // Rutas para usuarios
 Route::middleware('auth')->group(function () {
