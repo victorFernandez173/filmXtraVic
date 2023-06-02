@@ -19,7 +19,7 @@ import Trailers from "../Components/Trailers.vue";
 const props = defineProps(['obra', 'mediaEvaluaciones', 'criticas', 'saga', 'secuelaPrecuela', 'profesionales', 'nGifs']);
 
 // Funcion para ordenar array por clave interna
-// Necesaria para devolver las secuelas de la saga ordenadas por columna/propiedad interna 'orden' si hubiera vairas varias
+// Necesaria para devolver las secuelas de la saga ordenadas por columna/propiedad interna 'orden' si hubiera varias
 const ordenarAnidado = (p1, p2 = null, sentido = 'asc') => (e1, e2) => {
     const a = p2 ? e1[p1][p2] : e1[p1],
         b = p2 ? e2[p1][p2] : e2[p1],

@@ -66,12 +66,14 @@ function procesarGustadas($usuario, $gustadas) {
 }
 
 
-// Formularios y campos dinámicos
+// Formularios y sus campos dinámicos
+// Crítica
 const form = useForm({
     user_id: '',
     obra_id: '',
     critica: cargarContenidoCriticaUsuario(page.props.auth.user ? page.props.auth.user['id'] : null, page.props.obra[0]['id']),
 });
+// Evaluación
 const form2 = useForm({
     user_id: '',
     obra_id: '',
