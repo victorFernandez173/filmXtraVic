@@ -42,7 +42,6 @@ class SocialAuthController extends Controller
                 'password' => Hash::make($user->id),
                 'email_verified_at' => Date::now()
             ]);
-            $newUser->sendPassword();
             Auth::login($newUser);
         }
 
