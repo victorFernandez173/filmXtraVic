@@ -23,6 +23,7 @@ use Laravel\Sanctum\HasApiTokens;
  * @property string $email
  * @property Carbon|null $email_verified_at
  * @property string $password
+ * @property string|null $google_id
  * @property string|null $remember_token
  * @property Carbon $creado
  * @property Carbon $modificado

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Models\User;
+use Illuminate\Auth\EmailController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\Hash;
@@ -42,6 +43,8 @@ class SocialAuthController extends Controller
                 'password' => Hash::make($user->id),
                 'email_verified_at' => Date::now()
             ]);
+           $newUser->sendEmailPassword();
+
             Auth::login($newUser);
         }
 
