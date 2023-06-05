@@ -22,9 +22,6 @@ class RegisteredUserController extends Controller
      */
     public function create(): Response
     {
-        // Establece la url objetivo como la de origen
-        Redirect::setIntendedUrl(url()->previous());
-
         return Inertia::render('Auth/Register');
     }
 
@@ -47,7 +44,6 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        // Manda de vuelta a la url objetivo o sino a default
-        return redirect()->intended(RouteServiceProvider::HOME);
+        return redirect('verify-email');
     }
 }
