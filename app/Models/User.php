@@ -24,6 +24,7 @@ use Laravel\Sanctum\HasApiTokens;
  * @property Carbon|null $email_verified_at
  * @property string $password
  * @property string|null $google_id
+ * @property int|null $number
  * @property string|null $remember_token
  * @property Carbon $creado
  * @property Carbon $modificado
@@ -51,7 +52,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'email',
         'password',
         'email_verified_at',
-        'google_id'
+        'google_id',
+        'number'
     ];
 
     /**
