@@ -47,8 +47,6 @@ class SocialAuthController extends Controller
 
             Auth::login($newUser);
         }
-
         return redirect('/');
-
     }
 }
