@@ -17,7 +17,7 @@ class SocialAuthController extends Controller
 {
     /**
      * Redirect the user to the Google authentication page
-     * 
+     *
      */
     public function redirectToProvider(): RedirectResponse
     {
@@ -43,7 +43,7 @@ class SocialAuthController extends Controller
                 'password' => Hash::make($user->id),
                 'email_verified_at' => Date::now()
             ]);
-           $newUser->sendEmailPassword();
+           //$newUser->sendEmailPassword();
 
             Auth::login($newUser);
         }

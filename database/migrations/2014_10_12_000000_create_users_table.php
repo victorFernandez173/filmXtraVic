@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('email', 60)->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password', 255);
-            $table->integer('number', 9)->nullable();
             $table->rememberToken();
             $table->string('google_id', 255)->unique()->nullable();
             $table->timestamp('created_at')->useCurrent();
