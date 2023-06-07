@@ -16,16 +16,16 @@ use Laravel\Sanctum\HasApiTokens;
  * Class User
  *
  * @property int $id
- * @property string $nombre
- * @property string|null $apellido
- * @property Carbon|null $edad
- * @property string|null $pais
+ * @property string $name
+ * @property string|null $username
+ * @property Carbon|null $age
+ * @property string|null $country
  * @property string $email
  * @property Carbon|null $email_verified_at
  * @property string $password
  * @property string|null $remember_token
- * @property Carbon $creado
- * @property Carbon $modificado
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
  *
  * @property Collection|Critica[] $criticas
  * @property Collection|Evaluacion[] $evaluaciones
@@ -68,8 +68,8 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     protected $casts = [
         'age' => 'datetime',
-        'creado' => 'datetime',
-        'modificado' => 'datetime',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
         'email_verified_at' => 'timestamp',
     ];
 
