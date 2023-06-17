@@ -1,15 +1,9 @@
-    <?php
+<?php
+
+declare(strict_types=1);
 
 return [
-
-    /*
-    |--------------------------------------------------------------------------
-    | Lineas de autenticación
-    |--------------------------------------------------------------------------
-    |
-    */
-    'failed' => 'Las credenciales son erróneas.',
-    'password' => 'El password es incorrecto.',
-    'throttle' => 'Demasiados intentos. Pruebe en unos segundos.',
-
+    'failed'   => 'Estas credenciales no coinciden con nuestros registros.',
+    'password' => 'La contraseña es incorrecta.',
+    'throttle' => 'Demasiados intentos de acceso. Por favor intente nuevamente en :seconds segundos.',
 ];

@@ -3,17 +3,13 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Auth\LoginRequest;
 use App\Models\User;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Auth\EmailController;
+use Exception;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Redirect;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Http\RedirectResponse;
-use Notification;
 
 class SocialAuthController extends Controller
 {
@@ -31,7 +27,7 @@ class SocialAuthController extends Controller
         try{
             $user = Socialite::driver('google')->user();
             $userExist = User::where('google_id', $user->id)->first();
-        } catch(\Exception $e) {
+        } catch(Exception $e) {
             return redirect('/login');
         }
 
@@ -47,7 +43,8 @@ class SocialAuthController extends Controller
                 'password' => Hash::make($user->id),
                 'email_verified_at' => Date::now()
             ]);
-           //$newUser->sendEmailPassword();
+            // TODO enviar email/sms al loguearse
+            //$newUser->sendEmailPassword();
 
             Auth::login($newUser);
         }

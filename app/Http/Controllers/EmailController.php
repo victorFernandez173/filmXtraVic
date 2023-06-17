@@ -8,7 +8,7 @@ use Mail;
 
 class EmailController extends Controller
 {
-   
+
     public function sendPassword (User $user)
     {
         $message = 'Aquí te envíamos tu nueva contraseña por si deseas
