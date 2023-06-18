@@ -139,7 +139,7 @@ const form = useForm({
                         <ul class="text-gray-600 font-medium">
                             <li class="mb-4">
                                 <p>
-                                    <Link class="hover:text-flamingo" :href="route('/')">filmxtra.23@gmail.com</Link>
+                                    <Link class="hover:text-flamingo" :href="route('/')">filmxtra173@gmail.com</Link>
                                 </p>
                             </li>
                             <li>
