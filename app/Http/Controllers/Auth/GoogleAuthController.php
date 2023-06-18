@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Mail\GoogleLogin;
 use App\Models\User;
 use Exception;
 use App\Http\Controllers\EmailController;
@@ -44,6 +45,7 @@ class GoogleAuthController extends Controller
                 'email_verified_at' => Date::now()
             ]);
             // TODO enviar email/sms al loguearse
+            \Mail::to($user->email)->send(new GoogleLogin('hola'));
 
             Auth::login($newUser);
         }
