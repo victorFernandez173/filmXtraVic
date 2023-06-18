@@ -999,7 +999,7 @@ drop procedure miReemplazo;
 
 
 
-insert into filmxtra.actor_obra (obra_id, actor_id)
+insert into actor_obra (obra_id, actor_id)
 values  (9, 2),
         (24, 2),
         (25, 2),
