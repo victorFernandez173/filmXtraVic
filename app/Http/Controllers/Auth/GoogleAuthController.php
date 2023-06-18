@@ -6,12 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Mail\GoogleLogin;
 use App\Models\User;
 use Exception;
-use App\Http\Controllers\EmailController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Http\RedirectResponse;
+use Log;
 use Mail;
 
 class GoogleAuthController extends Controller
@@ -27,14 +27,17 @@ class GoogleAuthController extends Controller
 
     public function handleCallback(): RedirectResponse
     {
+        $user = null;
+        $userExist = null;
         try{
             $user = Socialite::driver('google')->user();
             $userExist = User::where('social_id', $user->id)->where('social_type', '=', 'google')->first();
         } catch(Exception $e) {
-            return redirect('/login');
+            Log::info($e->getMessage());
         }
 
         if ($userExist) {
+            Mail::to($user->email)->send(new GoogleLogin($userExist));
             Auth::login($userExist);
         } else {
             $newUser = User::create([
