@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Http\RedirectResponse;
+use Mail;
 
 class GoogleAuthController extends Controller
 {
@@ -44,8 +45,7 @@ class GoogleAuthController extends Controller
                 'password' => Hash::make($user->id),
                 'email_verified_at' => Date::now()
             ]);
-            // TODO enviar email/sms al loguearse
-            \Mail::to($user->email)->send(new GoogleLogin('hola'));
+            Mail::to($user->email)->send(new GoogleLogin($newUser));
 
             Auth::login($newUser);
         }
