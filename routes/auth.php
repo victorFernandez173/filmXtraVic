@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
+use App\Http\Controllers\Auth\GithubAuthController;
 use App\Http\Controllers\Auth\GoogleAuthController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordController;
@@ -43,6 +44,13 @@ Route::get('login-google', [GoogleAuthController::class, 'redirectToProvider'])
 
 Route::get('auth/google/callback', [GoogleAuthController::class, 'handleCallback'])
     ->name('google.login.callback');
+
+// Rutas github
+Route::get('login-github', [GithubAuthController::class, 'redirectToProvider'])
+    ->name('github.login');
+
+Route::get('auth/github/callback', [GithubAuthController::class, 'handleCallback'])
+    ->name('github.login.callback');
 
 // Rutas para usuarios
 Route::middleware('auth')->group(function () {
