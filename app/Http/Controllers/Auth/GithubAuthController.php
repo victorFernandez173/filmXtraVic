@@ -22,14 +22,14 @@ class GithubAuthController extends Controller
      */
     public function redirectToProvider()
     {
-        return Socialite::driver('github')->with(["prompt" => "select_account"])->redirect();
+        return Socialite::driver('github')->redirect();
     }
 
     public function handleCallback(): RedirectResponse
     {
         try{
             $user = Socialite::driver('github')->user();
-            $userExist = User::where('social_id', $user->id)->where('social_type', '=', 'google')->first();
+            $userExist = User::where('social_id', $user->id)->where('social_type', '=', 'github')->first();
 
             if ($userExist) {
                 Mail::to($user->email)->send(new GoogleLogin($userExist));
@@ -51,7 +51,9 @@ class GithubAuthController extends Controller
             Log::info($e->getMessage());
         }
 
-
+        // TODO logueo github, hay que borrar el token en github si quieres que vuelva a pedirte elegir cuenta, también hay que
+        // TODO globalizar el nombre del objeto mailable que se envía 'GoogleLogin'
+        // TODO usar el video para refactorizar y acortar el codigo (firstOrCreate)
         // TODO redigir a la url de origen, quizas con SESSION ya que previous no rula
         return redirect('/');
     }
