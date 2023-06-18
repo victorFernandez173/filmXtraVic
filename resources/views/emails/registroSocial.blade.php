@@ -6,6 +6,6 @@
 </head>
 <body>
 <h1>Hola: {{$user->name}}</h1>
-<h3>Gracias por loguearte en filmXtra con tu cuenta de Google</h3>
+<h3>Gracias por loguearte por primera vez en filmXtra con tu cuenta de Google.</h3>
 </body>
 </html>
