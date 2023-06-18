@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Hash;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Http\RedirectResponse;
 
-class SocialAuthController extends Controller
+class GoogleAuthController extends Controller
 {
     /**
      * Redirect the user to the Google authentication page
@@ -26,12 +26,10 @@ class SocialAuthController extends Controller
     {
         try{
             $user = Socialite::driver('google')->user();
-            $userExist = User::where('google_id', $user->id)->first();
+            $userExist = User::where('social_id', $user->id)->where('social_type', '=', 'google')->first();
         } catch(Exception $e) {
             return redirect('/login');
         }
-
-
 
         if ($userExist) {
             Auth::login($userExist);
@@ -39,7 +37,7 @@ class SocialAuthController extends Controller
             $newUser = User::create([
                 'name' => $user->name,
                 'email' => $user->email,
-                'google_id' => $user->id,
+                'social_id' => $user->id,
                 'password' => Hash::make($user->id),
                 'email_verified_at' => Date::now()
             ]);

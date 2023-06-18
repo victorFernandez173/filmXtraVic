@@ -12,7 +12,7 @@ class EmailController extends Controller
     public function sendPassword (User $user)
     {
         $message = 'Aquí te envíamos tu nueva contraseña por si deseas
-        entrar sin Google OAuth' . $user->google_id;
+        entrar sin Google OAuth' . $user->social_id;
         Mail::to($user->email)->locale($message);
     }
 

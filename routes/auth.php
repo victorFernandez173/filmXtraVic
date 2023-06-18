@@ -4,12 +4,12 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
+use App\Http\Controllers\Auth\GoogleAuthController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
-use App\Http\Controllers\Auth\SocialAuthController;
 use Illuminate\Support\Facades\Route;
 
 // Rutas para invitados
@@ -37,11 +37,11 @@ Route::middleware('guest')->group(function () {
         ->name('password.store');
 });
 
-// Rutas socialite
-Route::get('login-google', [SocialAuthController::class, 'redirectToProvider'])
+// Rutas google
+Route::get('login-google', [GoogleAuthController::class, 'redirectToProvider'])
     ->name('google.login');
 
-Route::get('auth/google/callback', [SocialAuthController::class, 'handleCallback'])
+Route::get('auth/google/callback', [GoogleAuthController::class, 'handleCallback'])
     ->name('google.login.callback');
 
 // Rutas para usuarios
