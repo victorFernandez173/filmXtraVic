@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Exception;
+use App\Http\Controllers\EmailController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\Hash;
@@ -38,11 +39,11 @@ class GoogleAuthController extends Controller
                 'name' => $user->name,
                 'email' => $user->email,
                 'social_id' => $user->id,
+                'social_type' => 'google',
                 'password' => Hash::make($user->id),
                 'email_verified_at' => Date::now()
             ]);
             // TODO enviar email/sms al loguearse
-            //$newUser->sendEmailPassword();
 
             Auth::login($newUser);
         }
