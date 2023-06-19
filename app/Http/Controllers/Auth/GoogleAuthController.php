@@ -32,7 +32,6 @@ class GoogleAuthController extends Controller
             $userExist = User::where('social_id', $user->id)->where('social_type', '=', 'google')->first();
 
             if ($userExist) {
-                Mail::to($user->email)->send(new GoogleLogin($userExist));
                 Auth::login($userExist);
             } else {
                 $newUser = User::create([

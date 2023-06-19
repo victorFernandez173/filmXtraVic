@@ -77,7 +77,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'age' => 'datetime',
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
-        'email_verified_at' => 'timestamp',
+        'email_verified_at' => 'datetime',
     ];
 
     /**

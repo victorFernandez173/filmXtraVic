@@ -32,7 +32,6 @@ class GithubAuthController extends Controller
             $userExist = User::where('social_id', $user->id)->where('social_type', '=', 'github')->first();
 
             if ($userExist) {
-                Mail::to($user->email)->send(new GoogleLogin($userExist));
                 Auth::login($userExist);
             } else {
                 $newUser = User::create([
@@ -55,6 +54,9 @@ class GithubAuthController extends Controller
         // TODO globalizar el nombre del objeto mailable que se envía 'GoogleLogin'
         // TODO usar el video para refactorizar y acortar el codigo (firstOrCreate)
         // TODO redigir a la url de origen, quizas con SESSION ya que previous no rula
+        // TODO tener en cuenta que si una persona accede con google y tambien github y el correo es el mismo, debería dar error ya que el correo ha de ser unique??
+        // TODO on delete cascade for users, etc ...
+        // TODO estudiar redirecciones on login in/out & register
         return redirect('/');
     }
 }
