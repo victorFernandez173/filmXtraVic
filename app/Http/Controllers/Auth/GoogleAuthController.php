@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Mail\GoogleLogin;
+use App\Mail\SocialiteLoginMail;
 use App\Models\User;
 use Exception;
 use Illuminate\Support\Facades\Auth;
@@ -32,17 +32,18 @@ class GoogleAuthController extends Controller
             $userExist = User::where('social_id', $user->id)->where('social_type', '=', 'google')->first();
 
             if ($userExist) {
+                Mail::to($user->email)->send(new SocialiteLoginMail($userExist));
                 Auth::login($userExist);
             } else {
                 $newUser = User::create([
                     'name' => $user->name,
                     'email' => $user->email,
                     'social_id' => $user->id,
-                    'social_type' => 'google',
+                    'social_type' => 'Google',
                     'password' => Hash::make($user->id),
                     'email_verified_at' => Date::now()
                 ]);
-                Mail::to($user->email)->send(new GoogleLogin($newUser));
+                Mail::to($user->email)->send(new SocialiteLoginMail($newUser));
 
                 Auth::login($newUser);
             }
@@ -50,10 +51,6 @@ class GoogleAuthController extends Controller
             Log::info($e->getMessage());
         }
 
-        // TODO redigir a la url de origen, quizas con SESSION ya que previous no rula
-        // TODO por ejemplo, si te has registrado con vic@g normalmente y pruebas despues a entrar por google con el mismo correo, no se loguea porque el correo ya existe en la bbdd? crear mensaje
-        // TODO personalizar correo de registro para google/git
-        // TODO pantalla seleccion cuenta github porque sale lo de rooodri????
         return redirect('/');
     }
 }

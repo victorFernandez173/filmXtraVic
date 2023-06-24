@@ -10,7 +10,7 @@ use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 use App\Models\User;
 
-class GoogleLogin extends Mailable
+class SocialiteLoginMail extends Mailable
 {
     use Queueable, SerializesModels;
     public User $user;
@@ -28,7 +28,7 @@ class GoogleLogin extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Login en filmXtra con Google',
+            subject: 'Login en filmXtra con ' . $this->user->social_type,
         );
     }
 

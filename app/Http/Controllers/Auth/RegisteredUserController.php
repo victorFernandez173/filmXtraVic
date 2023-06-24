@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 use Inertia\Inertia;
 use Inertia\Response;
-use Redirect;
 
 class RegisteredUserController extends Controller
 {
