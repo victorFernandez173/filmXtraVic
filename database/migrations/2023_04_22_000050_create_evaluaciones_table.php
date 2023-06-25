@@ -14,8 +14,8 @@ return new class extends Migration
     {
         Schema::create('evaluaciones', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('obra_id')->constrained();
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('obra_id')->constrained()->onDelete('CASCADE');
+            $table->foreignId('user_id')->constrained()->onDelete('CASCADE');
             $table->decimal('evaluacion',3, 1, true)->nullable(false);
 
             $table->timestamp(Evaluacion::CREATED_AT)->useCurrent();

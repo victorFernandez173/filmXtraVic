@@ -13,7 +13,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('secuelas', function (Blueprint $table) {
-            $table->foreignId('obra_id')->constrained();
+            $table->foreignId('obra_id')->constrained()->onDelete('CASCADE');
             $table->integer('orden')->unsigned()->default(0)->nullable(false);
             $table->string('saga', 255)->nullable(false);
 

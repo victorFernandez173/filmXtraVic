@@ -13,7 +13,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('posters', function (Blueprint $table) {
-            $table->foreignId('obra_id')->constrained();
+            $table->foreignId('obra_id')->constrained()->onDelete('CASCADE');
             $table->string('ruta', 255)->nullable(false);
             $table->string('alt', 255)->nullable(false);
 

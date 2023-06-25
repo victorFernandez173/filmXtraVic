@@ -51,6 +51,7 @@ class GithubAuthController extends Controller
             Log::info($e->getMessage());
         }
 
+        // TODO arreglar estilos bloque criticas users
         // TODO eventserviceprovider event envio mail registros
         // TODO usar el video para refactorizar y acortar el codigo (firstOrCreate)
         // TODO Manejo de las contraseñas con socialite?

@@ -14,8 +14,8 @@ return new class extends Migration
     {
         Schema::create('profesionals', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('obra_id')->constrained();
-            $table->foreignId('medio_id')->constrained();
+            $table->foreignId('obra_id')->constrained()->onDelete('CASCADE');
+            $table->foreignId('medio_id')->nullable()->constrained();
             $table->string('autor', 200)->nullable(false);
             $table->string('contenido', 5000)->nullable(false);
             $table->date('fecha')->nullable();

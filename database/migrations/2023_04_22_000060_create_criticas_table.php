@@ -14,8 +14,8 @@ return new class extends Migration
     {
         Schema::create('criticas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('obra_id')->constrained();
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('obra_id')->constrained()->onDelete('CASCADE');
+            $table->foreignId('user_id')->constrained()->onDelete('CASCADE');
             $table->string('critica', 5000)->nullable(false);
             $table->timestamp(Critica::CREATED_AT)->useCurrent();
             $table->timestamp(Critica::UPDATED_AT)->useCurrent();

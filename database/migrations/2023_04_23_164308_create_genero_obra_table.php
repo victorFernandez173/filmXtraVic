@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('genero_obra', function (Blueprint $table) {
 
-            $table->foreignId('obra_id')->constrained();
-            $table->foreignId('genero_id')->constrained();
+            $table->foreignId('obra_id')->constrained()->onDelete('CASCADE');
+            $table->foreignId('genero_id')->constrained()->onDelete('CASCADE');
 
             $table->unique(['genero_id', 'obra_id']);
 

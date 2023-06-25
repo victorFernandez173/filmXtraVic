@@ -13,7 +13,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('trailers', function (Blueprint $table) {
-            $table->foreignId('obra_id')->constrained();
+            $table->foreignId('obra_id')->constrained()->onDelete('CASCADE');
             $table->string('trailers', 500)->nullable(false);
 
             $table->timestamp(Trailer::CREATED_AT)->useCurrent();

@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('festivals', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('obra_id')->constrained();
+            $table->foreignId('obra_id')->constrained()->onDelete('CASCADE');
             $table->string('nombre', 120)->nullable(false);
             $table->year('edicion')->nullable(false);
 
