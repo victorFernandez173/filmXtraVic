@@ -77,3 +77,4 @@ require __DIR__.'/auth.php';
 // TODO pop ups para el logueo, registro, likes...
 // TODO corregir tooltip en titulos componente Poster.vue
 // TODO codigo ficha valoraciones, solucionar
+// TODO aplicar video optimización de código de favoritos
