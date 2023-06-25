@@ -16,8 +16,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('obra_id')->constrained();
             $table->foreignId('medio_id')->constrained();
-            $table->string('autor', 200);
-            $table->string('contenido', 5000);
+            $table->string('autor', 200)->nullable(false);
+            $table->string('contenido', 5000)->nullable(false);
             $table->date('fecha')->nullable();
 
             $table->timestamp(Profesional::CREATED_AT)->useCurrent();

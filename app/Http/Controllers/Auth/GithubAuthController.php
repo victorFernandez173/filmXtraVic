@@ -55,7 +55,7 @@ class GithubAuthController extends Controller
         // TODO usar el video para refactorizar y acortar el codigo (firstOrCreate)
         // TODO Manejo de las contraseñas con socialite?
         // TODO tener en cuenta que si una persona accede con google y tambien github y el correo es el mismo, debería dar error ya que el correo ha de ser unique??
-        // TODO on delete cascade for users, etc ...
+        // TODO on delete cascade for users, etc tb NULLS...
         // TODO estudiar redirecciones on login in/out & register
         return redirect('/');
     }

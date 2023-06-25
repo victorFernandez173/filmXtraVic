@@ -14,11 +14,11 @@ return new class extends Migration
     {
         Schema::create('actors', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre', 120);
-            $table->string('nombre_real', 120);
-            $table->date('edad');
+            $table->string('nombre', 120)->nullable(false);
+            $table->string('nombre_real', 120)->nullable();
+            $table->date('edad')->nullable();
             $table->date('defuncion')->nullable();
-            $table->string('pais', 120);
+            $table->string('pais', 120)->nullable(false)->default('apátrida');
 
             $table->timestamp(Actor::CREATED_AT)->useCurrent();
             $table->timestamp(Actor::UPDATED_AT)->useCurrent();

@@ -14,8 +14,8 @@ return new class extends Migration
     {
         Schema::create('medios', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre', 120);
-            $table->string('web', 200);
+            $table->string('nombre', 120)->nullable(false);
+            $table->string('web', 200)->nullable();
 
             $table->timestamp(Medio::CREATED_AT)->useCurrent();
             $table->timestamp(Medio::UPDATED_AT)->useCurrent();

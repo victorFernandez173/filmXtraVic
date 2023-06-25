@@ -14,10 +14,10 @@ return new class extends Migration
     {
         Schema::create('directors', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre', 120);
-            $table->date('edad');
+            $table->string('nombre', 123)->nullable(false);
+            $table->date('edad')->nullable(false);
             $table->date('defuncion')->nullable();
-            $table->string('pais', 120);
+            $table->string('pais', 120)->nullable(false)->default('apátrida');
 
             $table->timestamp(Director::CREATED_AT)->useCurrent();
             $table->timestamp(Director::UPDATED_AT)->useCurrent();

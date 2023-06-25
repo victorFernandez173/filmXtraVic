@@ -14,8 +14,8 @@ return new class extends Migration
     {
         Schema::create('secuelas', function (Blueprint $table) {
             $table->foreignId('obra_id')->constrained();
-            $table->integer('orden')->unsigned()->default(0);
-            $table->string('saga', 255);
+            $table->integer('orden')->unsigned()->default(0)->nullable(false);
+            $table->string('saga', 255)->nullable(false);
 
             $table->unique(['obra_id', 'orden']);
 
