@@ -13,11 +13,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('secuelas', function (Blueprint $table) {
-            $table->foreignId('saga_id')->constrained();
             $table->foreignId('obra_id')->constrained();
             $table->integer('orden')->unsigned()->default(0);
+            $table->string('saga', 255);
 
-            $table->unique(['obra_id', 'saga_id', 'orden']);
+            $table->unique(['obra_id', 'orden']);
 
             $table->timestamp(Secuela::CREATED_AT)->useCurrent();
             $table->timestamp(Secuela::UPDATED_AT)->useCurrent();

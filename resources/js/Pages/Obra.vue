@@ -171,7 +171,7 @@ function procesarGustadas($usuario, $gustadas) {
                             </li>
                             <li v-if="saga" class="list-disc font-bold text-flamingo text-xl mt-2"><span
                                 class="underline">Saga</span>: <span class="inline-block w-full text-center mb-1">&nbsp;{{
-                                    saga[0]['nombre']
+                                    saga
                                 }}</span>
                             </li>
                             <!-- Si solo hay un poster en secuelas, flex justify-center -->

@@ -53,7 +53,6 @@ class GithubAuthController extends Controller
 
         // TODO eventserviceprovider event envio mail registros
         // TODO usar el video para refactorizar y acortar el codigo (firstOrCreate)
-        // TODO redigir a la url de origen, quizas con SESSION ya que previous no rula
         // TODO Manejo de las contraseñas con socialite?
         // TODO tener en cuenta que si una persona accede con google y tambien github y el correo es el mismo, debería dar error ya que el correo ha de ser unique??
         // TODO on delete cascade for users, etc ...
