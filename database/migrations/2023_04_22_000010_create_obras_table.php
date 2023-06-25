@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('obras', function (Blueprint $table) {
             $table->id();
-            $table->string('titulo', 200)->nullable(false);
+            $table->string('titulo', 200)->nullable(false)->unique();
             $table->string('titulo_original', 200)->nullable(false);
             $table->string('pais', 60)->nullable(false);
             $table->decimal('duracion', 3, 0, true)->nullable(false);

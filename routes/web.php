@@ -46,3 +46,34 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+
+
+
+// TODO eventserviceprovider event envio mail registros puede ser util?
+// TODO tener en cuenta que si una persona accede con google y tambien github y el correo es el mismo, debería dar error ya que el correo ha de ser unique??
+// TODO estudiar redirecciones on login in/out & register socialite
+// TODO borrar cuenta/editar contraseña con cuenta de redes sociales???
+// TODO 'route model binding' para las rutas de obra
+// TODO rutas agrupadas por bloques
+// TODO rediseño rutas ej. una ruta para poner crítica otra para modificarla
+// TODO chequear consultas & inyección de dependencias (service container)
+// TODO sección de la web: listas propias/usuarios
+// TODO honeypot (tallpad)
+// TODO evaluación/criticas en el perfil de usuario
+// TODO podcast en el permanent layout
+// TODO avatar de usuario
+// TODO sección fotos de pelicula
+// TODO roles para los gestores en una posible futura sección de gestion de datos
+// TODO notificaciones de algún tipo?? likes? criticas? estudiar (bootcamp ojear codigo)
+// TODO policies para las modificaciones (bootcamp ojear codigo)
+// TODO api de cines? hay algo?
+// TODO error 404 y otras paginas de error mejorar configuración
+// TODO mail, documentación al final de bootcamp
+// TODO despliegue? posibilidades
+// TODO ordenamiento: de críticas, otros ordenamientos para obras...
+// TODO buscador mejorar: paginación, mensajes con los resultados...
+// TODO session bbdd driver, tabla con almacenamiento de sesiones
+// TODO pop ups para el logueo, registro, likes...
+// TODO corregir tooltip en titulos componente Poster.vue
+// TODO codigo ficha valoraciones, solucionar
