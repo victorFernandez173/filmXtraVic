@@ -23,7 +23,7 @@ class ObtenerObraController extends Controller
             'obra' => $obra,
             'mediaEvaluaciones' => InfoController::calcularMediaEvaluaciones($obra[0]['evaluaciones']),
             'criticas' => InfoController::obtenerArrayInfoCriticas($obra[0]['criticas']),
-            'saga' => $obra[0]['secuela']['saga'],
+            'saga' => $obra[0]['secuela']['saga'] ?? '',
             'secuelaPrecuela' => InfoController::obtenerSecuelaPrecuela($obra),
             'profesionales' => InfoController::obtenerInfoMediosProfesionals($obra),
             //Numero de gifs disponibles en public/gif

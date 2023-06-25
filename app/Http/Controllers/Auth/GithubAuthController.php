@@ -48,6 +48,6 @@ class GithubAuthController extends Controller
         } catch(Exception $e) {
             Log::info($e->getMessage());
         }
-        return redirect('/');
+        return redirect()->intended();
     }
 }
