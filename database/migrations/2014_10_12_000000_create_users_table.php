@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('country', 73)->nullable();
             $table->string('email', 73)->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password', 253)->nullable(false);
+            $table->string('password', 253)->nullable();
             $table->rememberToken();
             $table->string('social_id')->unique()->nullable();
             $table->string('social_type')->nullable();

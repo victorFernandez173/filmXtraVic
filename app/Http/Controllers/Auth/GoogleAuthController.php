@@ -8,7 +8,6 @@ use App\Models\User;
 use Exception;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Date;
-use Illuminate\Support\Facades\Hash;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Http\RedirectResponse;
 use Log;
@@ -25,32 +24,30 @@ class GoogleAuthController extends Controller
         return Socialite::driver('google')->with(["prompt" => "select_account"])->redirect();
     }
 
+    /**
+     * Log ins the user
+     * @return RedirectResponse
+     */
     public function handleCallback(): RedirectResponse
     {
         try{
-            $user = Socialite::driver('google')->user();
-            $userExist = User::where('social_id', $user->id)->where('social_type', '=', 'google')->first();
-
-            if ($userExist) {
-                Mail::to($user->email)->send(new SocialiteLoginMail($userExist));
-                Auth::login($userExist);
-            } else {
-                $newUser = User::create([
-                    'name' => $user->name,
-                    'email' => $user->email,
-                    'social_id' => $user->id,
+            $userExist = Socialite::driver('google')->user();
+            $user = User::firstOrCreate(
+                [
+                    'social_id' => $userExist->id,
+                ],
+                [
+                    'name' => $userExist->name,
+                    'email' => $userExist->email,
                     'social_type' => 'Google',
-                    'password' => Hash::make($user->id),
                     'email_verified_at' => Date::now()
-                ]);
-                Mail::to($user->email)->send(new SocialiteLoginMail($newUser));
-
-                Auth::login($newUser);
-            }
+                ]
+            );
+            Mail::to($user->email)->send(new SocialiteLoginMail($user));
+            Auth::login($user);
         } catch(Exception $e) {
             Log::info($e->getMessage());
         }
-
         return redirect('/');
     }
 }
