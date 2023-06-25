@@ -51,8 +51,8 @@ require __DIR__.'/auth.php';
 
 
 // TODO eventserviceprovider event envio mail registros puede ser util?
-// TODO tener en cuenta que si una persona accede con google y tambien github y el correo es el mismo, debería dar error ya que el correo ha de ser unique??
-// TODO estudiar redirecciones on login in/out & register socialite
+// TODO tener en cuenta que si una persona accede con google y tambien github y el correo es el mismo, debería dar error ya que el correo ha de ser unique que hacer?? ADEMAS si ya hay cuenta de google con X correo y te intentas registrar con una cuenta estandar con ese mismo correo, el formulario de registro no deja, que hacer en este caso???
+// TODO añadir boton con redirección a la pagina en la que ya estabamos a las vistas de verificación de email quizas -> (return redirect()->intended();)
 // TODO borrar cuenta/editar contraseña con cuenta de redes sociales???
 // TODO 'route model binding' para las rutas de obra
 // TODO rutas agrupadas por bloques
@@ -62,7 +62,7 @@ require __DIR__.'/auth.php';
 // TODO honeypot (tallpad)
 // TODO evaluación/criticas en el perfil de usuario
 // TODO podcast en el permanent layout
-// TODO avatar de usuario
+// TODO avatar de usuario, completar las posibilidades de edición de datos personales en pagina de usuario
 // TODO sección fotos de pelicula
 // TODO roles para los gestores en una posible futura sección de gestion de datos
 // TODO notificaciones de algún tipo?? likes? criticas? estudiar (bootcamp ojear codigo)
