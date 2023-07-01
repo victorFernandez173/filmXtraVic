@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Date;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Http\RedirectResponse;
-use Log;
 use Mail;
 
 class GoogleAuthController extends Controller
@@ -25,10 +24,10 @@ class GoogleAuthController extends Controller
     }
 
     /**
-     * Log ins the user
-     * @return RedirectResponse
+     * Logs in the user
+     * @return RedirectResponse|void
      */
-    public function handleCallback(): RedirectResponse
+    public function handleCallback()
     {
         try{
             $userExist = Socialite::driver('google')->user();
@@ -45,9 +44,10 @@ class GoogleAuthController extends Controller
             );
             Mail::to($user->email)->send(new SocialiteLoginMail($user));
             Auth::login($user);
+            return redirect()->intended();
         } catch(Exception $e) {
-            Log::info($e->getMessage());
+            dd($e->getMessage());
         }
-        return redirect()->intended();
+
     }
 }

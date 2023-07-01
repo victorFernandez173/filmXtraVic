@@ -28,8 +28,7 @@ class SocialiteLoginMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Login en filmXtra con ' . $this->user->social_type,
-        );
+            subject: 'Login en filmXtra con ' . $this->user->social_type);
     }
 
     /**
@@ -38,7 +37,7 @@ class SocialiteLoginMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.loginSocialite',
+            view: 'emails.socialiteLogin',
         );
     }
 
