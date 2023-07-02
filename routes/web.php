@@ -50,7 +50,6 @@ require __DIR__.'/auth.php';
 
 // TODO en la pagina de usuario se debería esconder el bloque de contraseña para cuentas o'auth
 // TODO uso de nickname (unique) como identificador, estudiar: en el registro su implementacion?
-// TODO corregir tooltip en titulos componente Poster.vue
 // TODO codigo ficha valoraciones, solucionar
 // TODO aplicar video optimización de código de favoritos & optimizaciones de rutas & optimizaciones de consultas??
 // TODO eventserviceprovider event envio mail registros puede ser util?

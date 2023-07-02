@@ -40,7 +40,7 @@ defineProps(['obras', 'numResultados']);
             <h4 class="text-lg">Resultados:</h4>
         </div>
         <!-- Posters -->
-        <Poster v-for="obra in obras" :obra="obra" :titulo="`text-lg hover:text-lg sm:text-xl sm:hover:text-xl xl:text-xl xl:hover:text-xl`"
+        <Poster v-for="obra in obras" :obra="obra" :titulo="`text-lg hover:text-sm sm:text-xl sm:hover:text-xl`"
                 :info="true"/>
     </div>
 </template>
