@@ -101,6 +101,6 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function likes(): BelongsToMany
     {
-        return $this->belongsToMany(Critica::class, 'likes', 'user_id', 'critica_id', 'id', );
+        return $this->belongsToMany(Critica::class, 'likes', 'user_id', 'critica_id', 'id');
     }
 }
