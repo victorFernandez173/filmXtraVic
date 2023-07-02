@@ -17,14 +17,16 @@ return new class extends Migration
             $table->string('username', 33)->nullable();
             $table->date('age')->nullable();
             $table->string('country', 73)->nullable();
-            $table->string('email', 73)->unique();
+            $table->string('email', 73);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password', 253)->nullable();
             $table->rememberToken();
             $table->string('social_id')->unique()->nullable();
-            $table->string('social_type')->nullable();
+            $table->string('social_type')->default('filmXtra');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
+
+            $table->unique(['email', 'social_type']);
 
             $table->engine = 'InnoDB';
             $table->charset = 'utf8mb4';
