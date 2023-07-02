@@ -200,7 +200,7 @@ const existeLaCriticaVarComputed = computed(() => {
                 <!--Titulo usuarios-->
                 <div>
                     <div class="flex flex-wrap pt-5 pb-12">
-                        <div class="pl-12 pr-10">
+                        <div class="w-full pl-12 pr-10">
                             <ul>
                                 <li class="list-disc font-bold underline text-xl mt-10 mb-5">Críticas de nuestros
                                     usuarios:

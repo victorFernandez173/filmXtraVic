@@ -48,8 +48,6 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 
-
-// TODO fallo en el bloque de criticas, ej. EL PADRINO 2
 // TODO en la pagina de usuario se debería esconder el bloque de contraseña para cuentas o'auth
 // TODO uso de nickname (unique) como identificador, estudiar: en el registro su implementacion?
 // TODO corregir tooltip en titulos componente Poster.vue
