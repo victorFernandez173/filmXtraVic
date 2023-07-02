@@ -50,8 +50,11 @@ require __DIR__.'/auth.php';
 
 
 // TODO fallo en el bloque de criticas, ej. EL PADRINO 2
-// TODO tener en cuenta que si una persona accede con google y te intentas registrar despues con una cuenta estandar con ese mismo correo, el formulario de registro no deja. Pero quizas en la pagina de usuario se debería permitir asignar una contraseña para esa cuenta que en origen se creo con socialite.
-// TODO otra situacion es la inversa: estar registrado con una cuenta standard e intentar loguearse con google con el mismo email. Como controlar eso? Por ahora hay un dd(e->getMessage())
+// TODO en la pagina de usuario se debería esconder el bloque de contraseña para cuentas o'auth
+// TODO uso de nickname (unique) como identificador, estudiar: en el registro su implementacion?
+// TODO corregir tooltip en titulos componente Poster.vue
+// TODO codigo ficha valoraciones, solucionar
+// TODO aplicar video optimización de código de favoritos & optimizaciones de rutas & optimizaciones de consultas??
 // TODO eventserviceprovider event envio mail registros puede ser util?
 // TODO event en RegisteredUserController, implementar para algo
 // TODO 'route model binding' para las rutas de obra
@@ -75,6 +78,3 @@ require __DIR__.'/auth.php';
 // TODO buscador mejorar: paginación, mensajes con los resultados...
 // TODO session bbdd driver, tabla con almacenamiento de sesiones
 // TODO pop ups para el logueo, registro, likes...
-// TODO corregir tooltip en titulos componente Poster.vue
-// TODO codigo ficha valoraciones, solucionar
-// TODO aplicar video optimización de código de favoritos & optimizaciones de rutas & optimizaciones de consultas??
