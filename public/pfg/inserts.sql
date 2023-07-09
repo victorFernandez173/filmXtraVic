@@ -466,7 +466,7 @@ VALUES ('2002', 'Cannes', 34),
 
 /*Contraseñas estandar: Nombre+1987+% (Ej.:Guzman->'Guzman1987%'; la segunda de Pedro sería 'Pedro1987%2')*/
 INSERT INTO users (name, username, password, email_verified_at, email, country)
-VALUES ('Luisa', 'Fernandez', '$2y$10$vitoXlANr1Zv2VWO8AgtmuxKxuA5GpjWhoxl7mZmVhh5wNwXvjfl2', '2004-05-19',
+VALUES ('Luisa', 'Fernandina', '$2y$10$vitoXlANr1Zv2VWO8AgtmuxKxuA5GpjWhoxl7mZmVhh5wNwXvjfl2', '2004-05-19',
         'luisa@gmail.com', 'Colombia'),
        ('Lidia', 'Roca', '$2y$10$BwUzdtXUwthVBlbEJM9JF.TbVik86EBtcOhZjanmrxeDCP0U8KyKO', '1987-12-30', 'lB687@yahoo.es',
         'España'),
@@ -506,7 +506,7 @@ VALUES ('Luisa', 'Fernandez', '$2y$10$vitoXlANr1Zv2VWO8AgtmuxKxuA5GpjWhoxl7mZmVh
         'par_fra_87@hotmail.com', 'Francia'),
        ('Segismunda', 'Aprovechosa', '$2y$10$BTzKd5sHuiv42EwIk.sVaejCCnqiLEL4eT6uVyKr1geduwBX/M8Y.', '2000-04-05',
         'lider_te_alabo@gmail.com', 'Corea del Norte'),
-       ('Pedro', 'Lopez', '$2y$10$nbTJ20HLfrc5SDQYY6JvC.z2rJZKuaQ/I90fcFDJ7htZKXlZ7k6wC', '2003-05-19',
+       ('Pedro', 'Lopes', '$2y$10$nbTJ20HLfrc5SDQYY6JvC.z2rJZKuaQ/I90fcFDJ7htZKXlZ7k6wC', '2003-05-19',
         'pedLo@hotmail.com', 'España'),
        ('Silvester', 'Annus', '$2y$10$NM7x9iDkp.7wwIjeQKQ5R.atsnllRLtBDiDJaulevObhPIlGMfT3C', '2001-06-29',
         'silAn@hotmail.com', 'Estados Unidos de América'),
@@ -518,7 +518,7 @@ VALUES ('Luisa', 'Fernandez', '$2y$10$vitoXlANr1Zv2VWO8AgtmuxKxuA5GpjWhoxl7mZmVh
         'pc@hotmail.com', 'Italia'),
        ('Isidora', 'Jimenez', '$2y$10$xMTB.74h1kv0c1T7DRGvFuBG5TSYjSGJy.qmQ5bISgIQbz.6tG0bu', '1997-02-11',
         'isiJ@gmail.com', 'España'),
-       ('Luiz', 'Fernandez', '$2y$10$ga5pGnjkrHCk.GfjlJqxPeh3WwIqB5YzHq.LjzuGXxIJ0GVUZnAaC', '1983-05-19',
+       ('Luiz', 'Fernandiz', '$2y$10$ga5pGnjkrHCk.GfjlJqxPeh3WwIqB5YzHq.LjzuGXxIJ0GVUZnAaC', '1983-05-19',
         'lusfer@gmail.com', 'España'),
        ('Monica', 'Arroba', '$2y$10$u1lEvKCVs579/PeMThYGbOABxImbcbfXwNP41M2s6.rADkfELpV7m', '2004-05-19',
         'monarr@gmail.com', 'España'),
@@ -532,9 +532,9 @@ VALUES ('Luisa', 'Fernandez', '$2y$10$vitoXlANr1Zv2VWO8AgtmuxKxuA5GpjWhoxl7mZmVh
         'marga@yahoo.com', 'España'),
        ('Pedro', 'Cerolo', '$2y$10$KzcsVM4DXw6EfhTtaMNdnu2iUACNtBSlNFVuZrMrGfm5At.zkVzdi', '2002-01-10',
         'percer@yahoo.com', 'España'),
-       ('Pedro', 'Sanchez', '$2y$10$aa7m4wlcnTVOWEYsAGD8W.UYy1nzHVDDB4NtTArcFf4pVIk3E/MdS', '2004-05-19',
+       ('Pedro', 'Sanchiz', '$2y$10$aa7m4wlcnTVOWEYsAGD8W.UYy1nzHVDDB4NtTArcFf4pVIk3E/MdS', '2004-05-19',
         'presi@yahoo.com', 'España'),
-       ('Marta', 'Sanchez', '$2y$10$uB2h5u/12GZXBm/uZv1nqOpOkSwBIRiYBlCMB3ipPH1qztedBFxN2', '2001-05-09',
+       ('Marta', 'Sanches', '$2y$10$uB2h5u/12GZXBm/uZv1nqOpOkSwBIRiYBlCMB3ipPH1qztedBFxN2', '2001-05-09',
         'marsan@yahoo.com', 'España'),
        ('Natalia', 'Berbeke', '$2y$10$9bZoIabxW/B/IhdeS6.mBO66kT05TXNBtRzxiTAij3urEOob3J4SO', '2001-06-12',
         'natber@yahoo.com', 'España'),
@@ -1625,8 +1625,7 @@ VALUES ('La mejor versión de miedo actualizada hasta la fecha, es conmovedora y
        ('Kirk Douglas y Jean Simmons están cautivadores.', 'Iris A.', 8, 83, '1960-12-30'),
        ('Ha envejecido sorprendentemente bien.', 'Julio P.', 9, 83, '1960-05-18'),
        ('Douglas siempre estaba espectacular en películas que requerían sufrimiento.', 'Nicolás F.', 10, 83,
-        '1960-07-25')
-;
+        '1960-07-25');
 
 
 INSERT INTO secuelas (obra_id, orden, saga)
