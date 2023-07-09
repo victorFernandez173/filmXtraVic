@@ -49,7 +49,6 @@ require __DIR__.'/auth.php';
 
 // TODO al modificar la ruta de una obra, solo añadiendo caracteres en el trozo del titulo, se intenta acceder a esa obra pero claro, NO EXISTE y da un error de array[0] nulo porque claro no hay obra ESTUDIAR
 // TODO en la pagina de usuario se debería esconder el bloque de contraseña para cuentas o'auth
-// TODO uso de nickname (unique) como identificador, en el registro usarlo en lugar de nombre controlando que sea unique
 // TODO codigo ficha valoraciones, solucionar
 // TODO aplicar video optimización de código de favoritos & optimizaciones de rutas & optimizaciones de consultas??
 // TODO eventserviceprovider event envio mail registros puede ser util?
