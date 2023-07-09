@@ -38,19 +38,7 @@ Route::middleware('guest')->group(function () {
         ->name('password.store');
 });
 
-// Rutas google
-Route::get('login-google', [GoogleAuthController::class, 'redirectToProvider'])
-    ->name('google.login');
 
-Route::get('auth/google/callback', [GoogleAuthController::class, 'handleCallback'])
-    ->name('google.login.callback');
-
-// Rutas github
-Route::get('login-github', [GithubAuthController::class, 'redirectToProvider'])
-    ->name('github.login');
-
-Route::get('auth/github/callback', [GithubAuthController::class, 'handleCallback'])
-    ->name('github.login.callback');
 
 // Rutas para usuarios
 Route::middleware('auth')->group(function () {
@@ -75,3 +63,19 @@ Route::middleware('auth')->group(function () {
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');
 });
+
+
+// Rutas google
+Route::get('/auth/google', [GoogleAuthController::class, 'redirectToProvider'])
+    ->name('auth.google');
+
+Route::get('/auth/google/callback', [GoogleAuthController::class, 'handleCallback'])
+    ->name('auth.google.callback');
+
+
+// Rutas github
+Route::get('/auth/github', [GithubAuthController::class, 'redirectToProvider'])
+    ->name('auth.github');
+
+Route::get('/auth/github/callback', [GithubAuthController::class, 'handleCallback'])
+    ->name('auth.github.callback');
