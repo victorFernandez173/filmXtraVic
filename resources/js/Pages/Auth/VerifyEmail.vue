@@ -37,7 +37,7 @@ const verificationLinkSent = computed(() => props.status === 'verification-link-
                         ¡Gracias por registrarte en FilmXtra! Revisa tu correo y acepta nuestras condiciones para verificar tu cuenta. Si no recibiste ningún correo, haz click en el botón de abajo y te enviaremos otro.
                     </h3>
                     <h3 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-xl" v-if="verificationLinkSent">
-                        A new verification link has been sent to the email address you provided during registration.
+                        Un nuevo enlace de verificacion ha sido enviado al email que introdujiste en el registro.
                     </h3>
                     <form @submit.prevent="submit">
                         <div class="mt-4 flex items-center justify-between">

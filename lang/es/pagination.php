@@ -1,15 +1,8 @@
 <?php
 
+declare(strict_types=1);
+
 return [
-
-    /*
-    |--------------------------------------------------------------------------
-    | Lineas de paginación
-    |--------------------------------------------------------------------------
-    |
-    */
-
-    'previous' => '&laquo; anterior',
-    'next' => 'siguiente &raquo;',
-
+    'next'     => 'Siguiente &raquo;',
+    'previous' => '&laquo; Anterior',
 ];

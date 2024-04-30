@@ -13,8 +13,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('actor_obra', function (Blueprint $table) {
-            $table->foreignId('obra_id')->constrained();
-            $table->foreignId('actor_id')->constrained();
+            $table->foreignId('obra_id')->constrained()->onDelete('CASCADE');
+            $table->foreignId('actor_id')->constrained()->onDelete('CASCADE');
 
             $table->unique(['obra_id', 'actor_id']);
 

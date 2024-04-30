@@ -19,7 +19,7 @@ import Trailers from "../Components/Trailers.vue";
 const props = defineProps(['obra', 'mediaEvaluaciones', 'criticas', 'saga', 'secuelaPrecuela', 'profesionales', 'nGifs']);
 
 // Funcion para ordenar array por clave interna
-// Necesaria para devolver las secuelas de la saga ordenadas por columna/propiedad interna 'orden' si hubiera vairas varias
+// Necesaria para devolver las secuelas de la saga ordenadas por columna/propiedad interna 'orden' si hubiera varias
 const ordenarAnidado = (p1, p2 = null, sentido = 'asc') => (e1, e2) => {
     const a = p2 ? e1[p1][p2] : e1[p1],
         b = p2 ? e2[p1][p2] : e2[p1],
@@ -171,7 +171,7 @@ function procesarGustadas($usuario, $gustadas) {
                             </li>
                             <li v-if="saga" class="list-disc font-bold text-flamingo text-xl mt-2"><span
                                 class="underline">Saga</span>: <span class="inline-block w-full text-center mb-1">&nbsp;{{
-                                    saga[0]['nombre']
+                                    saga
                                 }}</span>
                             </li>
                             <!-- Si solo hay un poster en secuelas, flex justify-center -->
@@ -184,7 +184,7 @@ function procesarGustadas($usuario, $gustadas) {
                                     }}
                                 </span>
                                     <div class="w-[60%] md:w-[70%] mx-auto flex justify-center -my-[25px] md:m:0 mt-0.5">
-                                        <Poster :obra="secuela" :titulo="`text-lg hover:text-md`"
+                                        <Poster :obra="secuela" :titulo="`text-lg hover:text-sm md:text-base md:hover:text-base`"
                                                 :info="true"/>
                                     </div>
                                 </div>
@@ -199,7 +199,7 @@ function procesarGustadas($usuario, $gustadas) {
                                 </span>
                                     <div
                                         class="w-[80%] md:w-[90%] mx-auto flex justify-center -my-[25px] md:m:0 mt-0.5">
-                                        <Poster :obra="secuela" :titulo="`text-lg hover:text-md`"
+                                        <Poster :obra="secuela" :titulo="`text-lg hover:text-sm md:text-base md:hover:text-base`"
                                                 :info="true"/>
                                     </div>
                                 </div>

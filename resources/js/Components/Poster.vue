@@ -1,6 +1,7 @@
 <script setup>
 import { Link } from "@inertiajs/vue3";
 
+// Props: 'obra': información de la obra; 'titulo': clases para estilos de los títulos en función de la vista/tamaño; 'info': ruta a la que va a llevan los enlaces (ficha info o fichaValoraciones)
 const props = defineProps(['obra', 'titulo', 'info']);
 </script>
 

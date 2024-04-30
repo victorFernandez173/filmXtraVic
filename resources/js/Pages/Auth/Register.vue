@@ -10,6 +10,7 @@ const form = useForm({
     email: '',
     password: '',
     password_confirmation: '',
+    number: '',
     terms: false,
 });
 
@@ -86,6 +87,19 @@ const submit = () => {
                             />
                             <InputError class="mt-2" :message="form.errors.password_confirmation"/>
                         </div>
+
+                        <div class="mt-4">
+                            <InputLabel for="number" value="Teléfono" class="block mb-2 text-sm font-medium text-gray-900" />
+                            <TextInput
+                                id="number"
+                                type="number"
+                                placeholder="Teléfono opcional"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-flamingo focus:border-flamingo block w-full p-2.5"
+                                v-model="form.number"
+                                autocomplete="number"
+                            />
+                        </div>
+
                         <PrimaryButton class="w-full text-white bg-flamingo hover:text-black focus:bg-flamingo focus:ring-flamingo focus:border-flamingo focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                             Crear cuenta
                         </PrimaryButton>

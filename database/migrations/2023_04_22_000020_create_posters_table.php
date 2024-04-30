@@ -13,9 +13,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('posters', function (Blueprint $table) {
-            $table->foreignId('obra_id')->constrained();
-            $table->string('ruta', 255);
-            $table->string('alt', 255);
+            $table->foreignId('obra_id')->constrained()->onDelete('CASCADE');
+            $table->string('ruta', 255)->nullable(false);
+            $table->string('alt', 255)->nullable(false);
 
             $table->timestamp(Poster::CREATED_AT)->useCurrent();
             $table->timestamp(Poster::UPDATED_AT)->useCurrent();

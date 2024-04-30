@@ -9,7 +9,7 @@ defineProps([ 'status', 'message'])
         <title>Error 404</title>
         <meta name="filter" content="Página de error 404">
     </Head>
-    <div class="contenedor grid h-screen place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8 bg-cover bg-[url('gif/error-fondo.gif')]">
+    <div class="contenedor grid h-screen place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8 bg-cover bg-[url('/gif/error-fondo.gif')]">
         <div class="text-center color-fondo-letras rounded pt-5 pb-10 pl-10 pr-10">
             <!--<p class="texto-404 text-base font-semibold">Error {{ status }}</p>-->
             <img src="/images/logo-error.png" class="m-auto w-60 mb-10" alt="Logo Error 404">

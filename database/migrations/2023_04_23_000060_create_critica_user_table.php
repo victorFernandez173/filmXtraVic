@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('likes', function (Blueprint $table) {
-            $table->foreignId('user_id')->constrained();
-            $table->foreignId('critica_id')->constrained();
+            $table->foreignId('user_id')->constrained()->onDelete('CASCADE');
+            $table->foreignId('critica_id')->constrained()->onDelete('CASCADE');
 
             $table->unique(['user_id', 'critica_id']);
 

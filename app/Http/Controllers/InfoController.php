@@ -18,7 +18,7 @@ class InfoController extends Controller
      */
     static function obtenerDatosObra($titulo): array|\Illuminate\Database\Eloquent\Collection
     {
-        return Obra::with(['poster', 'secuela:saga_id,obra_id,orden', 'criticas', 'directors:nombre,edad,defuncion,pais', 'festivals:obra_id,nombre,edicion', 'profesionals:obra_id,medio_id,autor,contenido,fecha', 'evaluaciones:obra_id,user_id,evaluacion', 'actors:nombre,nombre_real,edad,defuncion,pais', 'generos:genero', 'trailer'])->where('titulo', '=', "$titulo")->get();
+        return Obra::with(['poster', 'secuela:obra_id,orden,saga', 'criticas', 'directors:nombre,edad,defuncion,pais', 'festivals:obra_id,nombre,edicion', 'profesionals:obra_id,medio_id,autor,contenido,fecha', 'evaluaciones:obra_id,user_id,evaluacion', 'actors:nombre,nombre_real,edad,defuncion,pais', 'generos:genero', 'trailer'])->where('titulo', '=', "$titulo")->get();
     }
 
     /**
@@ -61,20 +61,6 @@ class InfoController extends Controller
     }
 
     /**
-     * Para obtener el nombre de la saga si la hay
-     * @param $esSecuela
-     * @return Collection|string
-     */
-    static function obtenerSaga($esSecuela): Collection|string
-    {
-        $saga = '';
-        if (isset($esSecuela['saga_id'])) {
-            $saga = DB::table('sagas')->select('nombre')->where('id', '=', $esSecuela['saga_id'])->get();
-        }
-        return $saga;
-    }
-
-    /**
      * Para obtener secuelas/precuelas si las hubiera
      * @param $obra
      * @return mixed
@@ -87,7 +73,7 @@ class InfoController extends Controller
             $orden = $obra[0]['secuela']['orden'];
             $secuelaPrecuela = array();
             // Obtenemos las array con las pelis de la saga
-            $secuelas = DB::table('secuelas')->select('saga_id', 'obra_id', 'orden')->where('saga_id', '=', $obra[0]['secuela']['saga_id'])->orderBy('orden', 'desc')->get();
+            $secuelas = DB::table('secuelas')->select('saga', 'obra_id', 'orden')->where('saga', '=', $obra[0]['secuela']['saga'])->orderBy('orden', 'desc')->get();
             //proceso el array $secuelas para orden + 1 (secuela) y orden - 1 (precuela) y orden = 0 (spin-off)
             foreach ($secuelas as $esSecuela) {
                 if (($esSecuela->orden == 0 && $orden >= 1) || (($orden - 1) == $esSecuela->orden || ($orden + 1) == $esSecuela->orden)) {

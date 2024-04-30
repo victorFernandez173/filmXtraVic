@@ -12,11 +12,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int $saga_id
  * @property int $obra_id
  * @property int $orden
+ * @property string $saga
  * @property Carbon $creada
  * @property Carbon $modificada
  *
  * @property Obra $obra
- * @property Saga $saga
  *
  * @package App\Models
  */
@@ -61,15 +61,8 @@ class Secuela extends Model
         'saga_id',
         'obra_id',
         'orden',
+        'saga'
     ];
-
-    /**
-     * Obtiene la saga.
-     */
-    public function saga(): BelongsTo
-    {
-        return $this->belongsTo(Saga::class);
-    }
 
     /**
      * Obtiene la obra.

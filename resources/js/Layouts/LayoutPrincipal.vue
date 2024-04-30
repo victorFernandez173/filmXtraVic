@@ -116,7 +116,7 @@ const form = useForm({
                         <img class="w-4/5 m-auto" src="/images/logo-blanco.png" alt="Logo FilmXtra" />
                     </Link>
                 </div>
-                <div class="grid grid-cols-2 gap-8 sm:gap-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-6">
                     <div class="text-center enlaces">
                         <h2 class="mb-6 text-sm font-semibold text-white uppercase">Enlaces</h2>
                         <ul class="flex flex-col justify-around text-gray-600 font-medium hover:[&>li]:text-flamingo hover:[&>li]:no-underline">
@@ -139,7 +139,7 @@ const form = useForm({
                         <ul class="text-gray-600 font-medium">
                             <li class="mb-4">
                                 <p>
-                                    <Link class="hover:text-flamingo" :href="route('/')">filmxtra.23@gmail.com</Link>
+                                    <Link class="hover:text-flamingo" :href="route('/')">filmxtra173@gmail.com</Link>
                                 </p>
                             </li>
                             <li>

@@ -3,6 +3,7 @@
 use App\Models\Evaluacion;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -14,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('evaluaciones', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('obra_id')->constrained();
-            $table->foreignId('user_id')->constrained();
-            $table->decimal('evaluacion',3, 1, true);
+            $table->foreignId('obra_id')->constrained()->onDelete('CASCADE');
+            $table->foreignId('user_id')->constrained()->onDelete('CASCADE');
+            $table->decimal('evaluacion',3, 1)->nullable(false);
 
             $table->timestamp(Evaluacion::CREATED_AT)->useCurrent();
             $table->timestamp(Evaluacion::UPDATED_AT)->useCurrent();

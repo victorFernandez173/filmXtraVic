@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -16,16 +16,19 @@ use Laravel\Sanctum\HasApiTokens;
  * Class User
  *
  * @property int $id
- * @property string $nombre
- * @property string|null $apellido
- * @property Carbon|null $edad
- * @property string|null $pais
+ * @property string $name
+ * @property string|null $username
+ * @property Carbon|null $age
+ * @property string|null $country
  * @property string $email
  * @property Carbon|null $email_verified_at
  * @property string $password
+ * @property string|null $social_id
+ * @property string|null $social_type
+ * @property int|null $number
  * @property string|null $remember_token
- * @property Carbon $creado
- * @property Carbon $modificado
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
  *
  * @property Collection|Critica[] $criticas
  * @property Collection|Evaluacion[] $evaluaciones
@@ -33,7 +36,7 @@ use Laravel\Sanctum\HasApiTokens;
  *
  * @package App\Models
  */
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -49,6 +52,10 @@ class User extends Authenticatable
         'country',
         'email',
         'password',
+        'email_verified_at',
+        'social_id',
+        'social_type',
+        'number'
     ];
 
     /**
@@ -68,9 +75,9 @@ class User extends Authenticatable
      */
     protected $casts = [
         'age' => 'datetime',
-        'creado' => 'datetime',
-        'modificado' => 'datetime',
-        'email_verified_at' => 'timestamp',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+        'email_verified_at' => 'datetime',
     ];
 
     /**
@@ -94,6 +101,6 @@ class User extends Authenticatable
      */
     public function likes(): BelongsToMany
     {
-        return $this->belongsToMany(Critica::class, 'likes', 'user_id', 'critica_id', 'id', );
+        return $this->belongsToMany(Critica::class, 'likes', 'user_id', 'critica_id', 'id');
     }
 }

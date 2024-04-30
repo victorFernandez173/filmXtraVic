@@ -66,12 +66,14 @@ function procesarGustadas($usuario, $gustadas) {
 }
 
 
-// Formularios y campos dinámicos
+// Formularios y sus campos dinámicos
+// Crítica
 const form = useForm({
     user_id: '',
     obra_id: '',
     critica: cargarContenidoCriticaUsuario(page.props.auth.user ? page.props.auth.user['id'] : null, page.props.obra[0]['id']),
 });
+// Evaluación
 const form2 = useForm({
     user_id: '',
     obra_id: '',
@@ -194,11 +196,11 @@ const existeLaCriticaVarComputed = computed(() => {
             </div>
 
             <!--Criticas-->
-            <div class="rounded mx-5 lg:mr-0 col-span-3 flex flex-wrap ">
+            <div class="rounded mx-5 lg:mr-0 col-span-3 flex flex-wrap bg-flamingo">
                 <!--Titulo usuarios-->
                 <div>
-                    <div class="block bg-flamingo pt-5 pb-12">
-                        <div class="pl-12 pr-10">
+                    <div class="flex flex-wrap pt-5 pb-12">
+                        <div class="w-full pl-12 pr-10">
                             <ul>
                                 <li class="list-disc font-bold underline text-xl mt-10 mb-5">Críticas de nuestros
                                     usuarios:
